@@ -1,3 +1,10 @@
+---
+parent: Harmony 3 peripheral library application examples for SAM9X60 family
+title: DBGU ring buffer 
+has_children: false
+has_toc: false
+---
+
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # DBGU ring buffer

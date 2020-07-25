@@ -1,3 +1,10 @@
+---
+parent: Harmony 3 peripheral library application examples for SAM9X60 family
+title: PIT polling 
+has_children: false
+has_toc: false
+---
+
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # PIT polling

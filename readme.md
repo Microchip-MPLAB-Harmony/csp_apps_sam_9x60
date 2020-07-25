@@ -1,4 +1,11 @@
-﻿[![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
+﻿---
+title: Harmony 3 peripheral library application examples for SAM9X60 family
+has_children: true
+has_toc: false
+nav_order: 1
+---
+
+[![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # Harmony 3 peripheral library application examples for SAM9X60 family
 
