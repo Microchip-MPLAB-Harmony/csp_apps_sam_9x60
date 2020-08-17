@@ -1,5 +1,5 @@
 /*******************************************************************************
-  Periodic Interval Timer (PIT64B) 
+  Periodic Interval Timer (PIT64B)
 
   Company:
     Microchip Technology Inc.
