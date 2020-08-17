@@ -138,6 +138,7 @@ static void SYSC_Disable( void )
 
 
 
+
 /*******************************************************************************
   Function:
     void SYS_Initialize ( void *data )
@@ -151,6 +152,7 @@ static void SYSC_Disable( void )
 void SYS_Initialize ( void* data )
 {
 	SYSC_Disable( );
+
 
   
     CLK_Initialize();
