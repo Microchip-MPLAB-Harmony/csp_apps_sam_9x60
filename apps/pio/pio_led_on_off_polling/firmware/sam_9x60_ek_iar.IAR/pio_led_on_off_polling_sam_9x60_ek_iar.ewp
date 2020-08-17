@@ -2163,15 +2163,15 @@
                             </file>
                         </group>
                     </group>
+                    <file>
+                        <name>$PROJ_DIR$\..\src\config\sam_9x60_ek_iar\device.h</name>
+                    </file>
                 </group>
             </group>
             <group>
                 <name>packs</name>
                 <group>
                     <name>SAM9X60_DFP</name>
-                    <file>
-                        <name>$PROJ_DIR$\..\src\packs\SAM9X60_DFP\device.h</name>
-                    </file>
                     <group>
                         <name>component</name>
                         <file>
