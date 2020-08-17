@@ -66,45 +66,45 @@
 #define EEPROM_HOLD_Set()               (PIOB_REGS->PIO_SODR = (1<<13))
 #define EEPROM_HOLD_Clear()             (PIOB_REGS->PIO_CODR = (1<<13))
 #define EEPROM_HOLD_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<13))
-#define EEPROM_HOLD_Get()               ((PIOB_REGS->PIO_PDSR >> 13) & 0x1)
 #define EEPROM_HOLD_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<13))
 #define EEPROM_HOLD_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<13))
+#define EEPROM_HOLD_Get()               ((PIOB_REGS->PIO_PDSR >> 13) & 0x1)
 #define EEPROM_HOLD_PIN                  PIO_PIN_PB13
 
 /*** Macros for LED_GREEN pin ***/
 #define LED_GREEN_Set()               (PIOB_REGS->PIO_SODR = (1<<12))
 #define LED_GREEN_Clear()             (PIOB_REGS->PIO_CODR = (1<<12))
 #define LED_GREEN_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<12))
-#define LED_GREEN_Get()               ((PIOB_REGS->PIO_PDSR >> 12) & 0x1)
 #define LED_GREEN_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<12))
 #define LED_GREEN_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<12))
+#define LED_GREEN_Get()               ((PIOB_REGS->PIO_PDSR >> 12) & 0x1)
 #define LED_GREEN_PIN                  PIO_PIN_PB12
 
 /*** Macros for LED_RED pin ***/
 #define LED_RED_Set()               (PIOB_REGS->PIO_SODR = (1<<11))
 #define LED_RED_Clear()             (PIOB_REGS->PIO_CODR = (1<<11))
 #define LED_RED_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<11))
-#define LED_RED_Get()               ((PIOB_REGS->PIO_PDSR >> 11) & 0x1)
 #define LED_RED_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<11))
 #define LED_RED_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<11))
+#define LED_RED_Get()               ((PIOB_REGS->PIO_PDSR >> 11) & 0x1)
 #define LED_RED_PIN                  PIO_PIN_PB11
 
 /*** Macros for EEPROM_WP pin ***/
 #define EEPROM_WP_Set()               (PIOB_REGS->PIO_SODR = (1<<14))
 #define EEPROM_WP_Clear()             (PIOB_REGS->PIO_CODR = (1<<14))
 #define EEPROM_WP_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<14))
-#define EEPROM_WP_Get()               ((PIOB_REGS->PIO_PDSR >> 14) & 0x1)
 #define EEPROM_WP_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<14))
 #define EEPROM_WP_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<14))
+#define EEPROM_WP_Get()               ((PIOB_REGS->PIO_PDSR >> 14) & 0x1)
 #define EEPROM_WP_PIN                  PIO_PIN_PB14
 
 /*** Macros for EEPROM_CS pin ***/
 #define EEPROM_CS_Set()               (PIOA_REGS->PIO_SODR = (1<<14))
 #define EEPROM_CS_Clear()             (PIOA_REGS->PIO_CODR = (1<<14))
 #define EEPROM_CS_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<14))
-#define EEPROM_CS_Get()               ((PIOA_REGS->PIO_PDSR >> 14) & 0x1)
 #define EEPROM_CS_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<14))
 #define EEPROM_CS_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<14))
+#define EEPROM_CS_Get()               ((PIOA_REGS->PIO_PDSR >> 14) & 0x1)
 #define EEPROM_CS_PIN                  PIO_PIN_PA14
 
 
