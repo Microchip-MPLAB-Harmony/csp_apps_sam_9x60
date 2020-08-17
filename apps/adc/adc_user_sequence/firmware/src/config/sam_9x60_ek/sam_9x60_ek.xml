@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Configuration>
   <Components>
     <UniqueComponent dnOrder="0" id="adc">
@@ -117,19 +117,43 @@
             </Boolean>
           </Attributes>
         </Comment>
-        <Comment dnOrder="17" id="ADC_INTERRUPT_ENABLE_COMMENT">
+        <Comment dnOrder="17" id="ADC_CLK_SRC_INVALID_COMMENT">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">false</Value>
             </Boolean>
           </Attributes>
         </Comment>
-        <Boolean dnOrder="18" id="ADC_MR_USEQ">
+        <Comment dnOrder="18" id="ADC_CONV_TIME">
+          <Attributes dnOrder="0">
+            <String dnOrder="0" id="text">
+              <Value dnOrder="0">****&amp;#160;Conversion&amp;#160;Time&amp;#160;is&amp;#160;2.1&amp;#160;us&amp;#160;****</Value>
+            </String>
+          </Attributes>
+        </Comment>
+        <Comment dnOrder="19" id="ADC_INTERRUPT_ENABLE_COMMENT">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </Comment>
+        <Boolean dnOrder="20" id="ADC_MR_USEQ">
           <Values dnOrder="0">
             <User dnOrder="0" value="true"/>
           </Values>
         </Boolean>
-        <Combo dnOrder="19" id="ADC_SEQR1_USCH1">
+        <Comment dnOrder="21" id="ADC_PRESCAL_WARNING">
+          <Attributes dnOrder="0">
+            <String dnOrder="0" id="text">
+              <Value dnOrder="0">ADC&amp;#160;Frequency&amp;#160;&lt;&amp;#160;200,000&amp;#160;Hz.&amp;#160;Decrease&amp;#160;prescaler&amp;#160;value.&amp;#160;</Value>
+            </String>
+            <Boolean dnOrder="1" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </Comment>
+        <Combo dnOrder="22" id="ADC_SEQR1_USCH1">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
@@ -139,21 +163,21 @@
             <User dnOrder="0" value="CH2"/>
           </Values>
         </Combo>
-        <Combo dnOrder="20" id="ADC_SEQR1_USCH10">
+        <Combo dnOrder="23" id="ADC_SEQR1_USCH10">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <Combo dnOrder="21" id="ADC_SEQR1_USCH11">
+        <Combo dnOrder="24" id="ADC_SEQR1_USCH11">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <Combo dnOrder="22" id="ADC_SEQR1_USCH2">
+        <Combo dnOrder="25" id="ADC_SEQR1_USCH2">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
@@ -163,7 +187,7 @@
             <User dnOrder="0" value="CH0"/>
           </Values>
         </Combo>
-        <Combo dnOrder="23" id="ADC_SEQR1_USCH3">
+        <Combo dnOrder="26" id="ADC_SEQR1_USCH3">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
@@ -173,49 +197,49 @@
             <User dnOrder="0" value="CH1"/>
           </Values>
         </Combo>
-        <Combo dnOrder="24" id="ADC_SEQR1_USCH4">
+        <Combo dnOrder="27" id="ADC_SEQR1_USCH4">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <Combo dnOrder="25" id="ADC_SEQR1_USCH5">
+        <Combo dnOrder="28" id="ADC_SEQR1_USCH5">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <Combo dnOrder="26" id="ADC_SEQR1_USCH6">
+        <Combo dnOrder="29" id="ADC_SEQR1_USCH6">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <Combo dnOrder="27" id="ADC_SEQR1_USCH7">
+        <Combo dnOrder="30" id="ADC_SEQR1_USCH7">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <Combo dnOrder="28" id="ADC_SEQR1_USCH8">
+        <Combo dnOrder="31" id="ADC_SEQR1_USCH8">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <Combo dnOrder="29" id="ADC_SEQR1_USCH9">
+        <Combo dnOrder="32" id="ADC_SEQR1_USCH9">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Combo>
-        <KeyValueSet dnOrder="30" id="ADC_TRGR_MODE">
+        <KeyValueSet dnOrder="33" id="ADC_TRGR_MODE">
           <Values dnOrder="0">
             <User dnOrder="0" value="0"/>
           </Values>
@@ -332,54 +356,47 @@
             </Boolean>
           </Attributes>
         </Menu>
-        <Menu dnOrder="21" id="CoreXC32Menu">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </Menu>
-        <Boolean dnOrder="22" id="DBGU_CLOCK_ENABLE">
+        <Boolean dnOrder="21" id="DBGU_CLOCK_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="dbgu" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="23" id="DBGU_CLOCK_FREQUENCY">
+        <Integer dnOrder="22" id="DBGU_CLOCK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="200000000"/>
           </Values>
         </Integer>
-        <Integer dnOrder="24" id="DBGU_GCLK_FREQUENCY">
+        <Integer dnOrder="23" id="DBGU_GCLK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="200000000"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="25" id="DBGU_INTERRUPT_ENABLE">
+        <Boolean dnOrder="24" id="DBGU_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="dbgu" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="26" id="DBGU_INTERRUPT_HANDLER">
+        <String dnOrder="25" id="DBGU_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="dbgu" value="DBGU_Handler"/>
           </Values>
         </String>
-        <Boolean dnOrder="27" id="DBGU_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="26" id="DBGU_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="dbgu" value="false"/>
           </Values>
         </Boolean>
-        <KeyValueSet dnOrder="28" id="DBGU_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="27" id="DBGU_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="29" id="DBGU_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="28" id="DBGU_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <File dnOrder="30" id="DEBUG_CONSOLE_C">
+        <File dnOrder="29" id="DEBUG_CONSOLE_C">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="name">
               <Value dnOrder="0">xc32_monitor.c</Value>
@@ -389,226 +406,231 @@
             </String>
           </Attributes>
         </File>
-        <String dnOrder="31" id="ECC_INTERRUPT_HANDLER">
+        <String dnOrder="30" id="ECC_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="ECC_SharedHandler"/>
           </Values>
         </String>
-        <KeyValueSet dnOrder="32" id="ECC_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="31" id="ECC_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="33" id="ECC_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="32" id="ECC_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <Integer dnOrder="34" id="ECC_NUM_SHARES">
+        <Integer dnOrder="33" id="ECC_NUM_SHARES">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="2"/>
           </Values>
         </Integer>
-        <KeyValueSet dnOrder="35" id="EMAC0_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="34" id="EMAC0_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="36" id="EMAC0_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="35" id="EMAC0_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="37" id="EMAC1_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="36" id="EMAC1_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="38" id="EMAC1_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="37" id="EMAC1_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="39" id="EXT_FIQ_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="38" id="EXT_FIQ_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="40" id="EXT_FIQ_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="39" id="EXT_FIQ_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="41" id="EXT_IRQ_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="40" id="EXT_IRQ_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="42" id="EXT_IRQ_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="41" id="EXT_IRQ_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="43" id="FLEXCOM0_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="42" id="FLEXCOM0_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="44" id="FLEXCOM0_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="43" id="FLEXCOM0_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="45" id="FLEXCOM10_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="44" id="FLEXCOM10_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="46" id="FLEXCOM10_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="45" id="FLEXCOM10_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="47" id="FLEXCOM11_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="46" id="FLEXCOM11_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="48" id="FLEXCOM11_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="47" id="FLEXCOM11_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="49" id="FLEXCOM12_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="48" id="FLEXCOM12_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="50" id="FLEXCOM12_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="49" id="FLEXCOM12_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="51" id="FLEXCOM1_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="50" id="FLEXCOM1_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="52" id="FLEXCOM1_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="51" id="FLEXCOM1_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="53" id="FLEXCOM2_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="52" id="FLEXCOM2_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="54" id="FLEXCOM2_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="53" id="FLEXCOM2_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="55" id="FLEXCOM3_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="54" id="FLEXCOM3_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="56" id="FLEXCOM3_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="55" id="FLEXCOM3_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="57" id="FLEXCOM4_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="56" id="FLEXCOM4_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="58" id="FLEXCOM4_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="57" id="FLEXCOM4_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="59" id="FLEXCOM5_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="58" id="FLEXCOM5_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="60" id="FLEXCOM5_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="59" id="FLEXCOM5_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="61" id="FLEXCOM6_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="60" id="FLEXCOM6_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="62" id="FLEXCOM6_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="61" id="FLEXCOM6_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="63" id="FLEXCOM7_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="62" id="FLEXCOM7_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="64" id="FLEXCOM7_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="63" id="FLEXCOM7_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="65" id="FLEXCOM8_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="64" id="FLEXCOM8_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="66" id="FLEXCOM8_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="65" id="FLEXCOM8_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="67" id="FLEXCOM9_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="66" id="FLEXCOM9_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="68" id="FLEXCOM9_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="67" id="FLEXCOM9_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="69" id="GFX2D_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="68" id="GFX2D_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="70" id="GFX2D_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="69" id="GFX2D_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="71" id="I2SMCC_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="70" id="I2SMCC_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="72" id="I2SMCC_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="71" id="I2SMCC_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="73" id="ISI_INTERRUPT_PRIORITY">
+        <KeyValueSet dnOrder="72" id="ISI_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="74" id="ISI_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="73" id="ISI_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
+        <String dnOrder="74" id="KEIL_STACK_HEAP_SIZE">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x1200"/>
+          </Values>
+        </String>
         <KeyValueSet dnOrder="75" id="LCDC_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
@@ -993,12 +1015,24 @@
             <Dynamic dnOrder="0" id="core" value="16000"/>
           </Values>
         </Integer>
-        <KeyValueSet dnOrder="151" id="XDMAC_INTERRUPT_PRIORITY">
+        <Setting dnOrder="151" id="XC32_HEAP">
+          <Attributes dnOrder="0">
+            <String dnOrder="0" id="value">
+              <Value dnOrder="0">1024</Value>
+            </String>
+          </Attributes>
+        </Setting>
+        <Integer dnOrder="152" id="XC32_HEAP_SIZE">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="1024"/>
+          </Values>
+        </Integer>
+        <KeyValueSet dnOrder="153" id="XDMAC_INTERRUPT_PRIORITY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="152" id="XDMAC_INTERRUPT_SRC_TYPE">
+        <KeyValueSet dnOrder="154" id="XDMAC_INTERRUPT_SRC_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
@@ -1017,8 +1051,26 @@
             <Dynamic dnOrder="0" id="dbgu" value="200000000"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="2" id="USART_INTERRUPT_MODE">
-          <Values dnOrder="0">
+        <Boolean dnOrder="2" id="DBGU_RING_BUFFER_ENABLE">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="readOnly">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+            <Boolean dnOrder="1" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="dbgu" value="false"/>
+          </Values>
+        </Boolean>
+        <Boolean dnOrder="3" id="USART_INTERRUPT_MODE">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="readOnly">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
             <Dynamic dnOrder="0" id="stdio" value="false"/>
           </Values>
         </Boolean>
