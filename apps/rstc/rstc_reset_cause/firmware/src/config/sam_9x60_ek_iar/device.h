@@ -1,30 +1,24 @@
-#ifndef PLIB_RSTC_H
-#define PLIB_RSTC_H
 /*******************************************************************************
-  Reset Controller Peripheral Library, RSTC PLIB
+  Device Header File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_rstc.h
+    device.h
 
   Summary:
-    RSTC PLIB instance header file
+    This file includes the selected device from within the project.
+    The device will provide access to respective device packs.
 
   Description:
-    Interface and data type declarations for the RSTC PLIB.
-    The RSTC PLIB provides access to and control of the associated
-    reset controller.
-
-  Remarks:
     None
 
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -45,27 +39,9 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-#ifdef __cplusplus  // Provide C++ Compatibility
-    extern "C" {
-#endif
 // DOM-IGNORE-END
 
-#include "device.h"
-#include "plib_rstc_common.h"
+#include "sam9x60.h"
+#include "device_cache.h"
+#include "toolchain_specifics.h"
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Interface Routines
-// *****************************************************************************
-// *****************************************************************************
-void             RSTC_Initialize(        void );
-void             RSTC_Reset(             RSTC_RESET_TYPE type );
-RSTC_RESET_CAUSE RSTC_ResetCauseGet(     void );
-bool             RSTC_NRSTPinRead(       void );
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
-    }
-#endif
-// DOM-IGNORE-END
-
-#endif
