@@ -1,5 +1,5 @@
 /*******************************************************************************
-  Periodic Interval Timer (PIT64B) 
+  Periodic Interval Timer (PIT64B)
 
   Company:
     Microchip Technology Inc.
@@ -84,8 +84,11 @@ void PIT64B_TimerStop(void)
 
 void PIT64B_TimerPeriodSet(uint64_t period)
 {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wlong-long"
     PIT64B_REGS->PIT64B_MSBPR = (period & 0xFFFFFFFF00000000)>>32;
     PIT64B_REGS->PIT64B_LSBPR = (period & 0xFFFFFFFF);
+#pragma GCC diagnostic pop
 }
 
 uint64_t PIT64B_TimerPeriodGet(void)
