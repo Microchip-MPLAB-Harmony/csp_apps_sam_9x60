@@ -62,12 +62,6 @@ void             RSTC_Initialize(        void );
 void             RSTC_Reset(             RSTC_RESET_TYPE type );
 RSTC_RESET_CAUSE RSTC_ResetCauseGet(     void );
 bool             RSTC_NRSTPinRead(       void );
-// *****************************************************************************
-// *****************************************************************************
-// Section: Local: **** Do Not Use ****
-// *****************************************************************************
-// *****************************************************************************
-
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
     }
