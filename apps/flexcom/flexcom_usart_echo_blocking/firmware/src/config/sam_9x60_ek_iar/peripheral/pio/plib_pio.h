@@ -66,36 +66,36 @@
 #define LED_BLUE_Set()               (PIOB_REGS->PIO_SODR = (1<<13))
 #define LED_BLUE_Clear()             (PIOB_REGS->PIO_CODR = (1<<13))
 #define LED_BLUE_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<13))
-#define LED_BLUE_Get()               ((PIOB_REGS->PIO_PDSR >> 13) & 0x1)
 #define LED_BLUE_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<13))
 #define LED_BLUE_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<13))
+#define LED_BLUE_Get()               ((PIOB_REGS->PIO_PDSR >> 13) & 0x1)
 #define LED_BLUE_PIN                  PIO_PIN_PB13
 
 /*** Macros for LED_GREEN pin ***/
 #define LED_GREEN_Set()               (PIOB_REGS->PIO_SODR = (1<<12))
 #define LED_GREEN_Clear()             (PIOB_REGS->PIO_CODR = (1<<12))
 #define LED_GREEN_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<12))
-#define LED_GREEN_Get()               ((PIOB_REGS->PIO_PDSR >> 12) & 0x1)
 #define LED_GREEN_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<12))
 #define LED_GREEN_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<12))
+#define LED_GREEN_Get()               ((PIOB_REGS->PIO_PDSR >> 12) & 0x1)
 #define LED_GREEN_PIN                  PIO_PIN_PB12
 
 /*** Macros for LED_RED pin ***/
 #define LED_RED_Set()               (PIOB_REGS->PIO_SODR = (1<<11))
 #define LED_RED_Clear()             (PIOB_REGS->PIO_CODR = (1<<11))
 #define LED_RED_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<11))
-#define LED_RED_Get()               ((PIOB_REGS->PIO_PDSR >> 11) & 0x1)
 #define LED_RED_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<11))
 #define LED_RED_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<11))
+#define LED_RED_Get()               ((PIOB_REGS->PIO_PDSR >> 11) & 0x1)
 #define LED_RED_PIN                  PIO_PIN_PB11
 
 /*** Macros for WILC_ENABLE pin ***/
 #define WILC_ENABLE_Set()               (PIOA_REGS->PIO_SODR = (1<<29))
 #define WILC_ENABLE_Clear()             (PIOA_REGS->PIO_CODR = (1<<29))
 #define WILC_ENABLE_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<29))
-#define WILC_ENABLE_Get()               ((PIOA_REGS->PIO_PDSR >> 29) & 0x1)
 #define WILC_ENABLE_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<29))
 #define WILC_ENABLE_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<29))
+#define WILC_ENABLE_Get()               ((PIOA_REGS->PIO_PDSR >> 29) & 0x1)
 #define WILC_ENABLE_PIN                  PIO_PIN_PA29
 
 
