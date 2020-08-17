@@ -66,9 +66,9 @@
 #define WILC_EN_Set()               (PIOA_REGS->PIO_SODR = (1<<29))
 #define WILC_EN_Clear()             (PIOA_REGS->PIO_CODR = (1<<29))
 #define WILC_EN_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<29))
-#define WILC_EN_Get()               ((PIOA_REGS->PIO_PDSR >> 29) & 0x1)
 #define WILC_EN_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<29))
 #define WILC_EN_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<29))
+#define WILC_EN_Get()               ((PIOA_REGS->PIO_PDSR >> 29) & 0x1)
 #define WILC_EN_PIN                  PIO_PIN_PA29
 
 

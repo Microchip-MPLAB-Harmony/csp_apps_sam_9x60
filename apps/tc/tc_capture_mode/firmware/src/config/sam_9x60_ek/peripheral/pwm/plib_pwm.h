@@ -97,13 +97,15 @@ uint32_t PWM_ChannelPeriodGet (PWM_CHANNEL_NUM channel);
 
 void PWM_ChannelDutySet (PWM_CHANNEL_NUM channel, uint32_t duty);
 
-uint32_t PWM_ChannelPeriodGet (PWM_CHANNEL_NUM channel);
-
 void PWM_ChannelCounterEventEnable (PWM_CHANNEL_MASK channelMask);
 
 void PWM_ChannelCounterEventDisable (PWM_CHANNEL_MASK  channelMask);
 
 bool PWM_ChannelCounterEventStatusGet (PWM_CHANNEL_NUM channel);
+
+#ifdef __cplusplus // Provide C++ Compatibility
+}
+#endif
 
 #endif //PLIB_PWM_H
 
