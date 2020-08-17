@@ -66,12 +66,12 @@
 #define SWITCH_Set()               (PIOD_REGS->PIO_SODR = (1<<18))
 #define SWITCH_Clear()             (PIOD_REGS->PIO_CODR = (1<<18))
 #define SWITCH_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<18))
-#define SWITCH_Get()               ((PIOD_REGS->PIO_PDSR >> 18) & 0x1)
 #define SWITCH_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<18))
 #define SWITCH_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<18))
+#define SWITCH_Get()               ((PIOD_REGS->PIO_PDSR >> 18) & 0x1)
+#define SWITCH_PIN                  PIO_PIN_PD18
 #define SWITCH_InterruptEnable()   (PIOD_REGS->PIO_IER = (1<<18))
 #define SWITCH_InterruptDisable()  (PIOD_REGS->PIO_IDR = (1<<18))
-#define SWITCH_PIN                  PIO_PIN_PD18
 
 
 // *****************************************************************************
