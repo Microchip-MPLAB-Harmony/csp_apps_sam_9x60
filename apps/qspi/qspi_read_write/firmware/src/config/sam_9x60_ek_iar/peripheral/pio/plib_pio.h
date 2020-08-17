@@ -66,27 +66,27 @@
 #define LED_Set()               (PIOB_REGS->PIO_SODR = (1<<13))
 #define LED_Clear()             (PIOB_REGS->PIO_CODR = (1<<13))
 #define LED_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<13))
-#define LED_Get()               ((PIOB_REGS->PIO_PDSR >> 13) & 0x1)
 #define LED_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<13))
 #define LED_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<13))
+#define LED_Get()               ((PIOB_REGS->PIO_PDSR >> 13) & 0x1)
 #define LED_PIN                  PIO_PIN_PB13
 
 /*** Macros for LED_GREEN pin ***/
 #define LED_GREEN_Set()               (PIOB_REGS->PIO_SODR = (1<<12))
 #define LED_GREEN_Clear()             (PIOB_REGS->PIO_CODR = (1<<12))
 #define LED_GREEN_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<12))
-#define LED_GREEN_Get()               ((PIOB_REGS->PIO_PDSR >> 12) & 0x1)
 #define LED_GREEN_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<12))
 #define LED_GREEN_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<12))
+#define LED_GREEN_Get()               ((PIOB_REGS->PIO_PDSR >> 12) & 0x1)
 #define LED_GREEN_PIN                  PIO_PIN_PB12
 
 /*** Macros for LED_RED pin ***/
 #define LED_RED_Set()               (PIOB_REGS->PIO_SODR = (1<<11))
 #define LED_RED_Clear()             (PIOB_REGS->PIO_CODR = (1<<11))
 #define LED_RED_Toggle()            (PIOB_REGS->PIO_ODSR ^= (1<<11))
-#define LED_RED_Get()               ((PIOB_REGS->PIO_PDSR >> 11) & 0x1)
 #define LED_RED_OutputEnable()      (PIOB_REGS->PIO_OER = (1<<11))
 #define LED_RED_InputEnable()       (PIOB_REGS->PIO_ODR = (1<<11))
+#define LED_RED_Get()               ((PIOB_REGS->PIO_PDSR >> 11) & 0x1)
 #define LED_RED_PIN                  PIO_PIN_PB11
 
 
