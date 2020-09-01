@@ -1,10 +1,9 @@
 ﻿---
 title: Harmony 3 peripheral library application examples for SAM9X60 family
+nav_order: 1
 has_children: true
 has_toc: false
-nav_order: 1
 ---
-
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # Harmony 3 peripheral library application examples for SAM9X60 family
@@ -22,22 +21,22 @@ This repository contains the MPLAB® Harmony 3 peripheral library application ex
 - [Release Notes](release_notes.md)
 - [MPLAB® Harmony License](mplab_harmony_license.md)
 
-To clone or download these applications from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_sam_9x60) and then click Clone button to clone this repository or download as zip file.
+To clone or download these applications from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_sam_9x60) and then click **Clone** button to clone this repository or download as zip file.
 This content can also be downloaded using content manager by following these [instructions](https://github.com/Microchip-MPLAB-Harmony/contentmanager/wiki).
 
 ## Contents Summary
 
 | Folder     | Description                             |
 | ---        | ---                                     |
-| apps       | Peripheral library example applications |
-| docs       | Applications help documentation         |
+| apps       | Contains peripheral library example applications |
+| docs       | Contains documentation in html format for offline viewing (to be used only after cloning this repository onto a local machine). Use [github pages](https://microchip-mplab-harmony.github.io/csp_apps_sam_9x60/) of this repository for viewing it online. |
 
 ## Code Examples
 
 The following applications are provided to demonstrate the typical or interesting usage models of one or more peripheral libraries.
 
-| Name | Description|
-|:---------|:-----------|
+| Name | Description |
+| ---- | ----------- |
 | [ADC automatic window comparison](apps/adc/adc_automatic_window_comparison/readme.md) | This example application shows how to sample an analog input in polled mode and send the converted data to console using automatic window comparison of converted values |
 | [ADC Polling](apps/adc/adc_polled_mode/readme.md) | This example application shows how to sample an analog input in polled mode and send the converted data to console |
 | [ADC user sequence](apps/adc/adc_user_sequence/readme.md) | This example application shows how to sample three analog inputs using the user sequencer in software trigger mode and send the converted data to the console |
@@ -50,8 +49,8 @@ The following applications are provided to demonstrate the typical or interestin
 | [DBGU ring buffer](apps/dbgu/dbgu_ring_buffer_interrupt/readme.md) | This example application shows how to use DBGU peripheral in ring buffer mode |
 | [FLEXCOM SPI EEPROM read write](apps/flexcom/flexcom_spi_eeprom/readme.md) | This example application shows how to use the flexcom module in SPI mode |
 | [FLEXCOM TWI (I2C) EEPROM](apps/flexcom/flexcom_twi_eeprom/readme.md) | This example application shows how to use the flexcom module in TWI mode |
-| [FLEXCOM USART blocking](apps/flexcom/flexcom_usart_echo_blocking/readme.md) | This example application shows how to use the flexcom module in USART mode without interrupt |
-| [FLEXCOM USART interrupt](apps/flexcom/flexcom_usart_echo_interrupt/readme.md) | This example application shows how to use the flexcom module in USART mode with interrupt |
+| [FLEXCOM USART blocking](apps/flexcom/flexcom_usart_echo_blocking/readme.md) | This example application shows how to use the flexcom module in USART mode |
+| [FLEXCOM USART interrupt](apps/flexcom/flexcom_usart_echo_interrupt/readme.md) | This example application shows how to use the flexcom module in USART mode |
 | [FLEXCOM USART ring buffer](apps/flexcom/flexcom_usart_ring_buffer_interrupt/readme.md) | This example application shows how to use the FLEXCOM peripheral in USART ring buffer mode |
 | [OTPC read write (emulation)](apps/otpc/otpc_read_write_emulation/readme.md) | This example application shows how to use the OTPC Peripheral library to perform OTP operations |
 | [PIO polling](apps/pio/pio_led_on_off_polling/readme.md) | This example application shows how to poll the switch input, and indicate the switch status using the LED |

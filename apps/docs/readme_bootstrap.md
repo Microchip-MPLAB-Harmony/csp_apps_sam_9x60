@@ -1,3 +1,9 @@
+---
+title: Bootstrapping MPU applications using At91bootstrap loader
+nav_order: 2
+has_children: false
+has_toc: false
+---
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # Bootstrapping MPU applications using At91bootstrap loader
