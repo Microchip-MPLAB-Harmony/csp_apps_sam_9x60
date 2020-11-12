@@ -1,0 +1,76 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x60_pwm_channels",
+		"version": "3.0.1",
+		"displayName": "PWM channels Example for SAM 9x60 Family",
+		"projectName": "pwm_channels_sam_9x60_ek",
+		"shortDescription": "This example demonstrates how to use the PWM peripheral to generate PWM signals.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=5.40.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=2.40.0"
+			}
+		],
+		"dfp": {
+			"name": "SAM9X6_DFP",
+			"semverRange": "^1.4.40"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.5.1"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "SAM9X60",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "SAM9X60-EK Evaluation Kit"
+			],
+			[
+				"Harmony", "Peripherals", "PWM"
+			],
+			[
+				"Peripherals", "PWM"
+			]
+		],
+		"peripherals": [
+			"PWM"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"SAM9X60",
+			"SAM 9x60 Family",
+			"MCPWM",
+			"PWM",
+			"Motor Control",
+			"Timer"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
