@@ -53,14 +53,18 @@ The following applications are provided to demonstrate the typical or interestin
 | [FLEXCOM USART interrupt](apps/flexcom/flexcom_usart_echo_interrupt/readme.md) | This example application shows how to use the flexcom module in USART mode |
 | [FLEXCOM USART ring buffer](apps/flexcom/flexcom_usart_ring_buffer_interrupt/readme.md) | This example application shows how to use the FLEXCOM peripheral in USART ring buffer mode |
 | [OTPC read write (emulation)](apps/otpc/otpc_read_write_emulation/readme.md) | This example application shows how to use the OTPC Peripheral library to perform OTP operations |
+| [PIO interrupt](apps/pio/pio_led_on_off_interrupt/readme.md) | This example application shows how to generate GPIO interrupt on switch press and release, and indicate the switch status using the LED |
 | [PIO polling](apps/pio/pio_led_on_off_polling/readme.md) | This example application shows how to poll the switch input, and indicate the switch status using the LED |
 | [PIT polling](apps/pit/led_toggle_polling/readme.md) | This example application shows how to use PIT counter in polling mode |
+| [PIT period change](apps/pit/period_change/readme.md) | This example application shows how PIT period can be changed during runtime |
+| [PIT start stop](apps/pit/start_stop/readme.md) | This example application shows how PIT can be started and stopped at runtime |
 | [PIT64B periodic interrupt](apps/pit64b/led_toggle_interrupt/readme.md) | This application shows how to use PIT64B counter in interrupt mode |
 | [PWM channels](apps/pwm/pwm_channels/readme.md) | This example demonstrates how to use the PWM peripheral to generate PWM signals |
 | [QSPI flash read write](apps/qspi/qspi_read_write/readme.md) | This example application shows how to use the QSPI Peripheral library to perform erase, write and read operation with the QSPI Serial Flash memory in Quad IO mode |
 | [RSTC interrupt](apps/rstc/led_switcher/readme.md) | This example application shows how to use the RSTC peripheral to generate an interrupt instead of generating a reset, when the Reset switch is pressed on board |
 | [RSTC reset cause](apps/rstc/rstc_reset_cause/readme.md) | This example shows how to use the RSTC peripheral to indicate the cause of the device reset |
 | [RTC alarm interrupt](apps/rtc/rtc_alarm/readme.md) | This example application shows how to use the RTC to configure the time and generate the alarm |
+| [RTT alarm interrupt](apps/rtt/rtt_alarm/readme.md) | This example application shows how to use the RTT to generate alarm interrupt |
 | [RTT periodic interrupt](apps/rtt/rtt_periodic_timeout/readme.md) | This example application shows how to use the RTT to generate periodic interrupts |
 | [SHDWC wakeup](apps/shdwc/piobu0_wakeup/readme.md) | This example application shows how to shutdown and wakeup the device using SHDWC peripheral |
 | [TC capture mode](apps/tc/tc_capture_mode/readme.md) | This example application shows how to use the TC module in capture mode to measure duty cycle and frequency of an external input |
