@@ -13,7 +13,7 @@ This example application shows how PIT period can be changed during runtime.
 
 ## Description
 
-The LED starts blinking at one second intervals. When the switch is pushed the period is cut in half. As the switch is pushed the period is toggled from .5 second, .25 second intervals, .125 second intervals and 1 second intervals. There is no debounce in the switch so it is possible that pressing the switch will jump more than one interval.
+The LED starts blinking at one second intervals. When the switch is pushed the timer is stopped. When the switch is pressed again, the period is cut in half and the timer is restarted. The timer is turned off and on every alternate switch press. When the timer is started on every alternate switch press, the period is also toggled from .5 second, .25 second intervals, .125 second intervals and 1 second intervals. There is no debounce in the switch so it is possible that pressing the switch will jump more than one interval.
 
 ## Downloading and building the application
 
@@ -66,8 +66,10 @@ The following table shows the target hardware for the application projects.
 2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
 3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
 4. Reset the board to run the application
-5. LED toggles every 500 ms
-6. Press switch to change the rate of toggle
+5. LED toggles every 1000 ms
+6. Press switch to stop the timer and hence the LED toggle
+7. Pressing the switch again starts the timer and changes the rate of LED toggle
+8. The application alternates between step 6 and 7 on each switch press
 
 Refer to the following table for LED name:
 

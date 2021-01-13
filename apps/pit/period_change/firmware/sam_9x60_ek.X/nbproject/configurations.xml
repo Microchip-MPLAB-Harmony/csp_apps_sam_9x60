@@ -80,6 +80,72 @@
             <itemPath>../src/packs/SAM9X60_DFP/component/wdt.h</itemPath>
             <itemPath>../src/packs/SAM9X60_DFP/component/xdmac.h</itemPath>
           </logicalFolder>
+          <logicalFolder name="f3" displayName="instance" projectFiles="true">
+            <itemPath>../src/packs/SAM9X60_DFP/instance/adc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/aes.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/aic.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/bsc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/can0.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/can1.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/classd.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/dbgu.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/emac0.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/emac1.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom0.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom1.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom10.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom11.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom12.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom2.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom3.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom4.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom5.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom6.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom7.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom8.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom9.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/gfx2d.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/gpbr.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/i2smcc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/isi.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/lcdc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/matrix.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/mpddrc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/otpc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pioa.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/piob.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pioc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/piod.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pit.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pit64b.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pmc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pmecc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pmerrloc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/pwm.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/qspi.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/rstc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/rtc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/rtt.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/sckc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/sdmmc0.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/sdmmc1.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/sdramc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/sfr.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/sha.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/shdwc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/smc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/ssc.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/syscwp.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/tc0.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/tc1.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/tdes.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/trng.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/udphs.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/uhphs_ehci.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/uhphs_ohci.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/wdt.h</itemPath>
+            <itemPath>../src/packs/SAM9X60_DFP/instance/xdmac.h</itemPath>
+          </logicalFolder>
           <logicalFolder name="f2" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/SAM9X60_DFP/pio/sam9x60.h</itemPath>
           </logicalFolder>
@@ -161,7 +227,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAM9X6_DFP" vendor="Microchip" version="1.4.40"/>
+        <pack name="SAM9X6_DFP" vendor="Microchip" version="1.3.36"/>
       </packs>
       <ScriptingSettings>
         <ScriptingSetting key="boot.load_adr" value=""/>
@@ -188,7 +254,6 @@
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
-        <makeUseCleanTarget>false</makeUseCleanTarget>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>true</makeCustomizationPostStepEnabled>
         <makeCustomizationPostStep>${MP_CC_DIR}/xc32-objcopy -O binary ${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.elf ${DISTDIR}/harmony.bin</makeCustomizationPostStep>

@@ -53,21 +53,61 @@
 static int timerState = 0;
 static int initPeriod;
 
+static void timerHandler (uintptr_t context)
+{
+    static uint32_t overflowCntr = 0;
+    (void)context;
+    
+    overflowCntr++;
+    
+    /* Depending on the period value, the overflowCntr will count to 20 in 1000ms
+     * or 500ms or 250ms or 125ms.
+     */
+    if (overflowCntr == 20)
+    {        
+        overflowCntr = 0;
+        
+        LED_GREEN_Toggle();
+    }
+    
+}
+
 static void handlePin(PIO_PIN pin, uintptr_t context)
 {
     uint32_t period;
+    static uint32_t switchPressToggle = 1;
     (void)context;
     (void)pin;
+    
+    switchPressToggle ^= 0x01;
 
-    period = PIT_TimerPeriodGet();
-    period = period >> 1;
-    timerState++;
-    if (timerState >= 4) {
-        timerState = 0;
-        period = initPeriod;
+    /* Pressing the switch will toggle the timer between on and off.
+     * Each time the timer is turned on, the value of the new period is 
+     * set to half of the current period value. This should result in LED toggling
+     * rate change between 1000ms, 500ms, 250ms and 125ms every alternate switch
+     * press.
+     */
+    if (switchPressToggle)
+    {
+        PIT_TimerStop();
+
+        period = PIT_TimerPeriodGet();    
+        period = period >> 1;
+
+        timerState++;    
+        if (timerState >= 4) {
+            timerState = 0;
+            period = initPeriod;
+        }
+
+        PIT_TimerPeriodSet(period);
+
+        PIT_TimerStart();
     }
-
-    PIT_TimerPeriodSet(period);
+    else
+    {
+        PIT_TimerStop();
+    }
 }
 
 
@@ -84,13 +124,12 @@ int main ( void )
     
     initPeriod = PIT_TimerPeriodGet();
 
+    PIT_TimerCallbackSet(timerHandler, 0);
     PIO_PinInterruptCallbackRegister(SW1_PIN, handlePin, 0);
     PIO_PinInterruptEnable(SW1_PIN);
 
     while ( true )
-    {
-        PIT_DelayMs(1000);
-        LED_GREEN_Toggle();
+    {        
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
     }
