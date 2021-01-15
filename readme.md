@@ -51,6 +51,7 @@ The following applications are provided to demonstrate the typical or interestin
 | [FLEXCOM TWI (I2C) EEPROM](apps/flexcom/flexcom_twi_eeprom/readme.md) | This example application shows how to use the flexcom module in TWI mode |
 | [FLEXCOM USART blocking](apps/flexcom/flexcom_usart_echo_blocking/readme.md) | This example application shows how to use the flexcom module in USART mode |
 | [FLEXCOM USART interrupt](apps/flexcom/flexcom_usart_echo_interrupt/readme.md) | This example application shows how to use the flexcom module in USART mode |
+| [FLEXCOM USART flow control](apps/flexcom/flexcom_usart_flow_control/readme.md) | This example application shows how to use the flexcom module in USART flow control mode |
 | [FLEXCOM USART ring buffer](apps/flexcom/flexcom_usart_ring_buffer_interrupt/readme.md) | This example application shows how to use the FLEXCOM peripheral in USART ring buffer mode |
 | [OTPC read write (emulation)](apps/otpc/otpc_read_write_emulation/readme.md) | This example application shows how to use the OTPC Peripheral library to perform OTP operations |
 | [PIO interrupt](apps/pio/pio_led_on_off_interrupt/readme.md) | This example application shows how to generate GPIO interrupt on switch press and release, and indicate the switch status using the LED |
