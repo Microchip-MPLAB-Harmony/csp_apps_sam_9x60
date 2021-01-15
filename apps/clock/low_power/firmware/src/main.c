@@ -166,8 +166,7 @@ __attribute__((__section__(".ramcode_section"))) void enter_idle_sram(void)
 {
   
     PMC_REGS->PMC_SCDR = PMC_SCDR_PCK_Msk;
-    
-    __disable_irq();
+ 
     asm("mcr p15, 0, %0, c7, c0, 4" :: "r"(0));
 }
 
