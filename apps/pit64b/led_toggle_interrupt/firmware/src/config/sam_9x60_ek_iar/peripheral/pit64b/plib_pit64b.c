@@ -56,7 +56,7 @@ void PIT64B_TimerInitialize(void)
     PIT64B_REGS->PIT64B_CR = PIT64B_CR_SWRST_Msk;
     PIT64B_REGS->PIT64B_MR = PIT64B_MR_CONT(1) | PIT64B_MR_SGCLK(0) | PIT64B_MR_PRESCALER(0);
     PIT64B_REGS->PIT64B_MSBPR = 0;
-    PIT64B_REGS->PIT64B_LSBPR = 200000;
+    PIT64B_REGS->PIT64B_LSBPR = 100000000;
     PIT64B_REGS->PIT64B_MR |= PIT64B_MR_SMOD(0);
     pit64b.running = 0;
     PIT64B_REGS->PIT64B_IDR = PIT64B_IDR_Msk;
@@ -113,10 +113,12 @@ void PIT64B_DelayMs(uint32_t delay)
 {
     uint32_t tickStart;
     uint32_t delayTicks;
+    uint64_t periodVal = PIT64B_TimerPeriodGet();
+    uint32_t timerFreq = 200000000;
 
     if (pit64b.running && ((PIT64B_REGS->PIT64B_IMR & PIT64B_IMR_PERIOD_Msk) == PIT64B_IMR_PERIOD_Msk)) {
         tickStart=pit64b.tickCounter;
-        delayTicks=1000*delay/1000;
+        delayTicks = ((timerFreq / periodVal) * delay ) / 1000;
 
         while((pit64b.tickCounter-tickStart) < delayTicks);
     }

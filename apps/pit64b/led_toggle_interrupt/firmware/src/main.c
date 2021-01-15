@@ -57,17 +57,23 @@
 // *****************************************************************************
 // *****************************************************************************
 
+static void timerHandler (uintptr_t context)
+{    
+    (void)context;
+    
+    LED_BLUE_Toggle(); 
+}
+
 int main ( void )
 {
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
+    PIT64B_TimerCallbackSet(timerHandler, 0);
     PIT64B_TimerStart();
 
     while ( true )
     {
-        PIT64B_DelayMs(1000);
-        LED_BLUE_Toggle();
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
     }
