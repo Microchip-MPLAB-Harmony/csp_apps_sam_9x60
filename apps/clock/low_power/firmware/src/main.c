@@ -100,7 +100,7 @@ int main ( void )
     while ( true )
     {
         print_menu();
-        c = getchar();
+        DBGU_Read(&c, 1);
         switch (c) {
             case '0':
                 printf("\n\r");

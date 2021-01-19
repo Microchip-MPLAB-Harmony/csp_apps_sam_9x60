@@ -1291,6 +1291,15 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '16000'}
+  - type: Setting
+    attributes: {id: XC32_LINKER_PREPROC_MARCOS}
+    children:
+    - type: Attributes
+      children:
+      - type: String
+        attributes: {id: value}
+        children:
+        - {type: Value, value: ROM_ORIGIN=0x0x23f00000;ROM_LENGTH=-0x23f00000}
   - type: KeyValueSet
     attributes: {id: XDMAC_INTERRUPT_PRIORITY}
     children:
