@@ -1,0 +1,29 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: rstc}
+children:
+- type: Symbols
+  children:
+  - type: Float
+    attributes: {id: RSTC_EXTERNAL_RESET_LENGTH_MSECS}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: rstc, value: '1024.0'}
+  - type: KeyValueSet
+    attributes: {id: RSTC_MR_EXTERNAL_RESET_ACTION}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: rstc, value: '0'}
+  - type: Integer
+    attributes: {id: RSTC_MR_EXTERNAL_RESET_LENGTH}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '14'}
+- type: ElementPosition
+  attributes: {x: '340', y: '20', id: rstc}
