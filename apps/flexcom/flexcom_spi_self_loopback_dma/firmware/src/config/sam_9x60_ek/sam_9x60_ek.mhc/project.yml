@@ -27,13 +27,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: null
-- generatedChecksum: E9F39FD27254B4FB48793116074DC8AC
+- generatedChecksum: 05D2595DE4789D177533BF449A0A8FF1
   logicalPath: config\sam_9x60_ek\peripheral\aic
   name: plib_aic.c
   physicalPath: peripheral\aic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: E9F39FD27254B4FB48793116074DC8AC
+  userChecksum: 05D2595DE4789D177533BF449A0A8FF1
 - generatedChecksum: 6189247242574459279D3B11D8351699
   logicalPath: config\sam_9x60_ek\peripheral\clk
   name: plib_clk.c
@@ -991,7 +991,7 @@ settings:
   delimiter: ;=
   key: preprocessor-macros
   security: NON_SECURE
-  value: ROM_ORIGIN=0x0x23f00000;ROM_LENGTH=-0x23f00000
+  value: ''
 - append: true
   category: C32CPP
   delimiter: ;
