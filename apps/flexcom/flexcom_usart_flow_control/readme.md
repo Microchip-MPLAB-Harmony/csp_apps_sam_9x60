@@ -60,7 +60,7 @@ The following table shows the target hardware for the application projects.
 - Connect the USB port J22 on board to the computer using a micro USB cable (to enable debug com port)
 - Connect the USB port J7 on board to the computer using a micro USB cable (to power the board)
 - Make connections as following:
-    - Short pin 7 (FLEXCOM0 TXD) on J17 connector to the pin 21 (FLEXCOM4 RXD) on J16 connector
+    - Short pin 8 (FLEXCOM0 TXD) on J17 connector to the pin 21 (FLEXCOM4 RXD) on J16 connector
     - Short pin 15 (FLEXCOM0 CTS) on J16 connector to the pin 24 (FLEXCOM4 RTS) on J16 connector
 - *NOTE - Reset push button is labelled as SW3*
 
