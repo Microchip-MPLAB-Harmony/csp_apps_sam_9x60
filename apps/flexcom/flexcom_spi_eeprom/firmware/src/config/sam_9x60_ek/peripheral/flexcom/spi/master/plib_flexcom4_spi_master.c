@@ -5,10 +5,10 @@
     Microchip Technology Inc.
 
   File Name:
-    plib_flexcom4_spi.c
+    plib_flexcom4_spi_master.c
 
   Summary:
-    FLEXCOM4 SPI PLIB Implementation File.
+    FLEXCOM4 SPI Master PLIB Implementation File.
 
   Description:
     This file defines the interface to the FLEXCOM SPI peripheral library.
@@ -45,7 +45,8 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#include "plib_flexcom4_spi.h"
+#include "plib_flexcom4_spi_master.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -63,11 +64,15 @@ void FLEXCOM4_SPI_Initialize ( void )
     /* Disable and Reset the FLEXCOM SPI */
     FLEXCOM4_REGS->FLEX_SPI_CR = FLEX_SPI_CR_SPIDIS_Msk | FLEX_SPI_CR_SWRST_Msk;
 
+
     /* Enable Master mode, select clock source, select particular NPCS line for chip select and disable mode fault detection */
-    FLEXCOM4_REGS->FLEX_SPI_MR = FLEX_SPI_MR_MSTR_Msk | FLEX_SPI_MR_BRSRCCLK_PERIPH_CLK | FLEX_SPI_MR_PCS(0) | FLEX_SPI_MR_MODFDIS_Msk;
+    FLEXCOM4_REGS->FLEX_SPI_MR = FLEX_SPI_MR_MSTR_Msk | FLEX_SPI_MR_BRSRCCLK_PERIPH_CLK | FLEX_SPI_MR_DLYBCS(0) | FLEX_SPI_MR_PCS(FLEXCOM_SPI_CHIP_SELECT_NPCS0) | FLEX_SPI_MR_MODFDIS_Msk;
 
     /* Set up clock Polarity, data phase, Communication Width, Baud Rate */
-    FLEXCOM4_REGS->FLEX_SPI_CSR[0]= FLEX_SPI_CSR_CPOL(0) | FLEX_SPI_CSR_NCPHA(1) | FLEX_SPI_CSR_BITS_8_BIT | FLEX_SPI_CSR_SCBR(200);
+    FLEXCOM4_REGS->FLEX_SPI_CSR[0]= FLEX_SPI_CSR_CPOL(0) | FLEX_SPI_CSR_NCPHA(1) | FLEX_SPI_CSR_BITS_8_BIT | FLEX_SPI_CSR_SCBR(200) | FLEX_SPI_CSR_DLYBS(0) | FLEX_SPI_CSR_DLYBCT(0) | FLEX_SPI_CSR_CSAAT_Msk;
+
+
+
 
     /* Initialize global variables */
     flexcom4SpiObj.transferIsBusy = false;
@@ -77,6 +82,8 @@ void FLEXCOM4_SPI_Initialize ( void )
     FLEXCOM4_REGS->FLEX_SPI_CR = FLEX_SPI_CR_SPIEN_Msk;
     return;
 }
+
+
 
 bool FLEXCOM4_SPI_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize)
 {
@@ -148,7 +155,7 @@ bool FLEXCOM4_SPI_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveD
             }
             else if (flexcom4SpiObj.dummySize > 0)
             {
-                FLEXCOM4_REGS->FLEX_SPI_TDR = (uint16_t)(0xff);
+                FLEXCOM4_REGS->FLEX_SPI_TDR = (uint16_t)(0xffff);
                 flexcom4SpiObj.dummySize--;
             }
         }
@@ -192,7 +199,7 @@ bool FLEXCOM4_SPI_TransferSetup (FLEXCOM_SPI_TRANSFER_SETUP * setup, uint32_t sp
         scbr = 255;
     }
 
-    FLEXCOM4_REGS->FLEX_SPI_CSR[0]= (uint32_t)setup->clockPolarity | (uint32_t)setup->clockPhase | (uint32_t)setup->dataBits | FLEX_SPI_CSR_SCBR(scbr);
+    FLEXCOM4_REGS->FLEX_SPI_CSR[0]= (FLEXCOM4_REGS->FLEX_SPI_CSR[0] & ~(FLEX_SPI_CSR_CPOL_Msk | FLEX_SPI_CSR_NCPHA_Msk | FLEX_SPI_CSR_BITS_Msk | FLEX_SPI_CSR_SCBR_Msk)) | ((uint32_t)setup->clockPolarity | (uint32_t)setup->clockPhase | (uint32_t)setup->dataBits | FLEX_SPI_CSR_SCBR(scbr));
 
     return true;
 }
@@ -273,7 +280,7 @@ void FLEXCOM4_InterruptHandler(void)
             }
             else if (flexcom4SpiObj.dummySize > 0)
             {
-                FLEXCOM4_REGS->FLEX_SPI_TDR = (uint16_t)(0xff);
+                FLEXCOM4_REGS->FLEX_SPI_TDR = (uint16_t)(0xffff);
                 flexcom4SpiObj.dummySize--;
             }
         }
@@ -310,6 +317,9 @@ void FLEXCOM4_InterruptHandler(void)
     {
         if (flexcom4SpiObj.rxCount == flexcom4SpiObj.rxSize)
         {
+            /* Set Last transfer to deassert NPCS after the last byte written in TDR has been transferred. */
+            FLEXCOM4_REGS->FLEX_SPI_CR = FLEX_SPI_CR_LASTXFER_Msk;
+
             flexcom4SpiObj.transferIsBusy = false;
 
             /* Disable TDRE, RDRF and TXEMPTY interrupts */
