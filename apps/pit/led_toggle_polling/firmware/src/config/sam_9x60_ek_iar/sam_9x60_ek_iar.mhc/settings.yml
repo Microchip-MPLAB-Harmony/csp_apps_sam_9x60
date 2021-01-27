@@ -1,0 +1,13 @@
+configName: sam_9x60_ek_iar
+folderName: ''
+format_version: v1.0
+frameworkPath: C:\Users\C50748\sand\h3
+processor: SAM9X60
+projectName: pit_led_toggle_polling_sam_9x60_ek_iar
+settings:
+  PackageFilter: csp;
+  FORCE_OPTIMIZATION: 'false'
+  GENERATE_BACKUP: 'true'
+  CMSISPath: .\dev_packs\arm\CMSIS\5.5.1
+  DFPPath: .\dev_packs\Microchip\SAM9X60_DFP\1.0.5\atdf\SAM9X60.atdf
+  MERGE_STRATEGY: OVERWRITE
