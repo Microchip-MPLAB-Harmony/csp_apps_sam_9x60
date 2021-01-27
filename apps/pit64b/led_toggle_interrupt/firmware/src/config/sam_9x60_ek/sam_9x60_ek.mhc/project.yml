@@ -55,13 +55,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: FD02F8A99EFB0C5C2EF2F2347B408FCB
-- generatedChecksum: 7C5AA430504782D78BCBE3EE54FE2072
+- generatedChecksum: E6558D1FFCC0618B037CA2F055AEB4B8
   logicalPath: config\sam_9x60_ek\peripheral\pit64b
   name: plib_pit64b.c
   physicalPath: peripheral\pit64b
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7C5AA430504782D78BCBE3EE54FE2072
+  userChecksum: E6558D1FFCC0618B037CA2F055AEB4B8
 - generatedChecksum: 97434B1A8170A7E29EA666D55FF3F212
   logicalPath: config\sam_9x60_ek
   name: vectortrap.s
@@ -963,7 +963,7 @@ settings:
   delimiter: ;=
   key: preprocessor-macros
   security: NON_SECURE
-  value: ROM_ORIGIN=0x0x23f00000;ROM_LENGTH=-0x23f00000
+  value: ''
 - append: true
   category: C32CPP
   delimiter: ;
