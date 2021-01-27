@@ -2125,6 +2125,9 @@
                 <group>
                     <name>sam_9x60_ek_iar</name>
                     <file>
+                        <name>$PROJ_DIR$\..\src\config\sam_9x60_ek_iar\device.h</name>
+                    </file>
+                    <file>
                         <name>$PROJ_DIR$\..\src\config\sam_9x60_ek_iar\device_cache.h</name>
                     </file>
                     <file>
@@ -2172,9 +2175,6 @@
                             </file>
                         </group>
                     </group>
-                    <file>
-                        <name>$PROJ_DIR$\..\src\config\sam_9x60_ek_iar\device.h</name>
-                    </file>
                 </group>
             </group>
             <group>
