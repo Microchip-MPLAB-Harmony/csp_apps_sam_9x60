@@ -963,7 +963,7 @@ settings:
   delimiter: ;=
   key: preprocessor-macros
   security: NON_SECURE
-  value: ROM_ORIGIN=0x0x23f00000;ROM_LENGTH=-0x23f00000
+  value: ''
 - append: true
   category: C32CPP
   delimiter: ;
