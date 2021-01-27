@@ -153,6 +153,7 @@ static void SYSC_Disable( void )
 
 void SYS_Initialize ( void* data )
 {
+
 	SYSC_Disable( );
 
   
@@ -164,7 +165,7 @@ void SYS_Initialize ( void* data )
 
     MMU_Initialize();
 
-    INT_Initialize();
+    AIC_INT_Initialize();
     
     /* Disable WDT   */
     WDT_REGS->WDT_MR = WDT_MR_WDDIS_Msk;
