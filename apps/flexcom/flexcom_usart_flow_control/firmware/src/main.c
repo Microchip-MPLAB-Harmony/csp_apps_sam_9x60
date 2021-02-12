@@ -47,7 +47,7 @@ void delay(uint32_t count)
 {
     uint32_t i;
     uint32_t counter = 0;
-    
+
     for (i = 0; i < count; i++)
     {
         counter += count;
@@ -57,39 +57,39 @@ void delay(uint32_t count)
 int main ( void )
 {
     uint8_t i;
-    
+
     /* Initialize all modules */
     SYS_Initialize ( NULL );
-    
+
     /* Fill tx buffer with known values */
     for (i = 0; i < sizeof(txData); i++)
     {
         txData[i] = i + 1;
-    }    
-    
+    }
+
     /* To demonstrate RTS/CTS lines, transmit with interrupt enabled and receive in non-interrupt mode.
      * Once the RX FIFO is full, the RTS line will be de-asserted and transmitter will stop sending the data.
      * Eventually, when the receiver reads out sufficient number of bytes from the RX FIFO, such that the
      * number of bytes in the FIFO goes below RXFTHRES2, the RTS line is again asserted and transmitter
      * continues sending the data.
     */
-    
+
     /* Transmit in interrupt mode */
     FLEXCOM0_USART_Write(txData, NUM_TX_RX_BYTES);
-        
+
     /* Simulate a slow receiver. Read character by character with delay between each character */
     while (nBytesRead < NUM_TX_RX_BYTES)
     {
         while (FLEXCOM4_USART_ReceiverIsReady() == false);
-        
+
         FLEXCOM4_USART_Read(&rxData[nBytesRead], 1);
-        
+
         nBytesRead += 1;
-        
+
         /* Add some delay to simulate a slow receiver and hence assert RTS line */
         delay(100000);
     }
-    
+
     if (memcmp(txData, rxData, NUM_TX_RX_BYTES) == 0)
     {
         /* Transfer successful */
@@ -98,6 +98,11 @@ int main ( void )
     else
     {
         LED_Off();
+    }
+
+    while (1)
+    {
+
     }
 
     /* Execution should not come here during normal operation */
