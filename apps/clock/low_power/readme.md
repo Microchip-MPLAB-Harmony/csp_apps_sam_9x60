@@ -73,11 +73,19 @@ The following table shows the target hardware for the application projects.
     - Stop : 1 Bit
     - Flow Control : None
 6. Reset the board to run the application
-7. Press '0' in the terminal window
-    - Observe the message "Entering Idle Mode for 30 seconds" in the terminal window
-    - Wait for 30 seconds and observe the message "Leaving Idle Mode" in the terminal window
-8. Press '1' in the terminal window
-    - Observe the message "Entering ULP0 Mode for 30 seconds" in the terminal window
-    - Wait for 30 seconds and observe the message "Leaving ULP0 Mode" in the terminal window.
+7. LED toggles every 1 second
+8. Press '0' in the terminal window
+    - Observe the message "Entering Idle Mode for 30 seconds" in the terminal window and LED stops toggling
+    - Wait for 30 seconds and observe the message "Leaving Idle Mode" in the terminal window and LED toggles every 1 second
+9. Press '1' in the terminal window
+    - Observe the message "Entering ULP0 Mode for 30 seconds" in the terminal window and LED stops toggling
+    - Wait for 30 seconds and observe the message "Leaving ULP0 Mode" in the terminal window and LED toggles every 1 second
 
      ![output](images/output_low_power.png)
+
+Refer to the following table for LED name:
+
+| Board      | LED Name                                    |
+| ---------- | ------------------------------------------- |
+| [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) | RGB_LED(Blue)  |
+|||
