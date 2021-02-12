@@ -48,13 +48,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99A28DC2A2D39E2B47E46E62E0C710D6
-- generatedChecksum: 844FB24ACC5B26D5F10003B4A7C5F033
+- generatedChecksum: 3D47B0226538E4DFD4F2493DFC67FAFD
   logicalPath: config\sam_9x60_ek\peripheral\pio
   name: plib_pio.c
   physicalPath: peripheral\pio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 844FB24ACC5B26D5F10003B4A7C5F033
+  userChecksum: 3D47B0226538E4DFD4F2493DFC67FAFD
 - generatedChecksum: 3ADB5BDC6935483906F86169FB775319
   logicalPath: config\sam_9x60_ek\peripheral\pit
   name: plib_pit.c

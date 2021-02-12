@@ -127,8 +127,7 @@ void PIO_Initialize ( void )
     ((pio_registers_t*)PIO_PORT_D)->PIO_PER = 0xFFFFFFFF;
     ((pio_registers_t*)PIO_PORT_D)->PIO_MDDR = 0xFFFFFFFF;
     /* PORTD Pull Up Enable/Disable as per MHC selection */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_PUDR = ~0x40000;
-    ((pio_registers_t*)PIO_PORT_D)->PIO_PUER = 0x40000;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_PUDR = 0xFFFFFFFF;
     /* PORTD Pull Down Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_D)->PIO_PPDDR = 0xFFFFFFFF;
     /* PORTD Output Write Enable */
@@ -140,13 +139,14 @@ void PIO_Initialize ( void )
     ((pio_registers_t*)PIO_PORT_D)->PIO_ODSR = 0x0;
     /* PORTD Additional interrupt mode Enable */
     ((pio_registers_t*)PIO_PORT_D)->PIO_AIMER = 0x40000;
-    /* PORTD Rising Edge or High Level Interrupt Enable */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_REHLSR = 0x40000;
     /* PORTD Interrupt Status Clear */
     ((pio_registers_t*)PIO_PORT_D)->PIO_ISR;
     /* PORTD system level interrupt will be enabled by NVIC Manager */
     /* PORTD module level Interrupt for every pin has to be enabled by user
        by calling PIO_PinInterruptEnable() API dynamically as and when needed*/
+    /* PORTD Glitch/Debounce Filter Enable */
+    ((pio_registers_t*)PIO_PORT_D)->PIO_IFER = 0x40000;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_IFSCER = 0x40000;
     /* PORTD Slew rate control */
     ((pio_registers_t*)PIO_PORT_D)->PIO_SLEWR = 0x0;
     /* PORTD drive control */

@@ -539,19 +539,26 @@ children:
       - type: User
         attributes: {value: GPIO}
   - type: String
+    attributes: {id: PIN_155_PIO_FILTER}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: Debounce Filter}
+  - type: String
     attributes: {id: PIN_155_PIO_INTERRUPT}
     children:
     - type: Values
       children:
       - type: User
-        attributes: {value: Raising Edge}
+        attributes: {value: Falling Edge}
   - type: String
     attributes: {id: PIN_155_PU}
     children:
     - type: Values
       children:
       - type: User
-        attributes: {value: 'True'}
+        attributes: {value: ''}
   - type: String
     attributes: {id: PIN_32_DIR}
     children:
@@ -783,6 +790,20 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
+  - type: Hex
+    attributes: {id: PIOD_IFER_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '262144'}
+  - type: Hex
+    attributes: {id: PIOD_IFSCER_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '262144'}
   - type: Boolean
     attributes: {id: PIOD_INTERRUPT_ENABLE}
     children:
@@ -845,14 +866,14 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: '262144'}
+        attributes: {id: core, value: '0'}
   - type: Hex
     attributes: {id: PIOD_REHLSR_VALUE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: '262144'}
+        attributes: {id: core, value: '0'}
   - type: Boolean
     attributes: {id: PIO_D_INTERRUPT_USED}
     children:
