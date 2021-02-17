@@ -8,6 +8,32 @@ nav_order: 99
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
+## Harmony 3 peripheral library application examples for SAM9X60 family  v3.1.0
+
+### Development kit and demo application support
+
+Following table provides number of peripheral library examples available for different development kits.
+
+| Development Kits  | MPLABx applications | IAR applications |
+|:-----------------:|:-------------------:|:----------------:|
+| [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) | 40 | 28 |
+
+### New Features
+
+- None
+
+### Known Issues
+
+  - **SAM9X60 family**: SAM9X60_DFP v1.5.50 or higher is required to correctly program and debug the application from within MPLABx 5.45
+
+### Development Tools
+
+- [MPLAB® X IDE v5.45](https://www.microchip.com/mplab/mplab-x-ide)
+- MPLAB® X IDE plug-ins:
+  - MPLAB® Harmony Configurator (MHC) v3.7.0
+- [MPLAB® XC32 C/C++ Compiler v2.50](https://www.microchip.com/mplab/compilers)
+- [IAR Embedded workbench for ARM v8.50 or above](https://www.iar.com/iar-embedded-workbench/#!?architecture=Arm)
+
 ## Harmony 3 peripheral library application examples for SAM9X60 family  v3.0.1
 
 ### New Features

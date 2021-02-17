@@ -44,10 +44,12 @@ The following applications are provided to demonstrate the typical or interestin
 | [CAN interrupt](apps/can/can_normal_operation_interrupt/readme.md) | This example application shows how to use the CAN module to transmit and receive CAN messages in interrupt mode |
 | [CAN interrupt with timestamp](apps/can/can_normal_operation_interrupt_timestamp/readme.md) | This example application shows how to use the CAN module to transmit and receive CAN messages in interrupt mode |
 | [Clock configuration](apps/clock/clock_config/readme.md) | This example application shows how to configure the clock system to run the device at maximum frequency. It also outputs a prescaled clock signal on a GPIO pin for measurement and verification |
+| [Low power modes](apps/clock/low_power/readme.md) | This example application shows how to enter low power modes of SAM9X60 MPU |
 | [DBGU blocking](apps/dbgu/dbgu_echo_blocking/readme.md) | This example application demonstrates how to use the DBGU peripheral to transfer a block of data in a blocking manner |
 | [DBGU Interrupt](apps/dbgu/dbgu_echo_interrupt/readme.md) | This example application demonstrates how to use the DBGU peripheral to transfer a block of data in a non-blocking manner |
 | [DBGU ring buffer](apps/dbgu/dbgu_ring_buffer_interrupt/readme.md) | This example application shows how to use DBGU peripheral in ring buffer mode |
 | [FLEXCOM SPI EEPROM read write](apps/flexcom/flexcom_spi_eeprom/readme.md) | This example application shows how to use the flexcom module in SPI mode |
+| [FLEXCOM SPI self loopback dma ](apps/flexcom/flexcom_spi_self_loopback_dma/readme.md) | This example application shows how to use the FLEXCOM SPI peripheral with DMA to transmit and receive a block of data |
 | [FLEXCOM TWI (I2C) EEPROM](apps/flexcom/flexcom_twi_eeprom/readme.md) | This example application shows how to use the flexcom module in TWI mode |
 | [FLEXCOM USART blocking](apps/flexcom/flexcom_usart_echo_blocking/readme.md) | This example application shows how to use the flexcom module in USART mode |
 | [FLEXCOM USART interrupt](apps/flexcom/flexcom_usart_echo_interrupt/readme.md) | This example application shows how to use the flexcom module in USART mode |
