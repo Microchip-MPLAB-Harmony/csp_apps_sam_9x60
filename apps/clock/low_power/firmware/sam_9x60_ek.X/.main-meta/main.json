@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x60_clock_low_power",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "Low power modes Example for SAM 9x60 Family",
 		"projectName": "clock_low_power_sam_9x60_ek",
 		"shortDescription": "This example application shows how to enter low power modes of SAM9X60 MPU.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "SAM9X60-EK Evaluation Kit"
+				"Development Kit",
+				"SAM9X60-EK Evaluation Kit"
 			],
 			[
-				"Harmony", "Peripherals", "CLOCK"
+				"Harmony",
+				"Peripherals",
+				"CLOCK"
 			],
 			[
-				"Peripherals", "CLOCK"
+				"Peripherals",
+				"CLOCK"
 			]
 		],
 		"peripherals": [

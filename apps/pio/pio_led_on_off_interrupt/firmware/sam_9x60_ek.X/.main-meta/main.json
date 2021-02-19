@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x60_pio_led_on_off_interrupt",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "PIO interrupt Example for SAM 9x60 Family",
 		"projectName": "pio_led_on_off_interrupt_sam_9x60_ek",
 		"shortDescription": "This example application shows how to generate GPIO interrupt on switch press and release, and indicate the switch status using the LED.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "SAM9X60-EK Evaluation Kit"
+				"Development Kit",
+				"SAM9X60-EK Evaluation Kit"
 			],
 			[
-				"Harmony", "Peripherals", "PIO"
+				"Harmony",
+				"Peripherals",
+				"PIO"
 			],
 			[
-				"Peripherals", "PIO"
+				"Peripherals",
+				"PIO"
 			]
 		],
 		"peripherals": [
