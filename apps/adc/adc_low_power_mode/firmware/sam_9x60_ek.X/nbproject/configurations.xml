@@ -240,7 +240,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>jlink</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.50</languageToolchainVersion>
+        <languageToolchainVersion>3.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -1475,6 +1475,12 @@
       </Tool>
       <jlink>
         <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="boot.entry_adr" value=""/>
+        <property key="boot.load_adr" value=""/>
+        <property key="boot.path"
+                  value="${ProjectDir}\..\at91bootstrap_sam_9x60_ek.X\binaries\at91bootstrap.elf"/>
+        <property key="boot.prj" value=""/>
+        <property key="boot.use" value="true"/>
         <property key="communication.autoselectspeed" value="true"/>
         <property key="communication.interface" value="4wire"/>
         <property key="communication.speed" value="4"/>
