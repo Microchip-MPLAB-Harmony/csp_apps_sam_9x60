@@ -5,38 +5,38 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f1" displayName="default" projectFiles="true">
+        <logicalFolder name="f2" displayName="sam_9x60_ek" projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f5" displayName="adc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/adc/plib_adc_common.h</itemPath>
-              <itemPath>../src/config/default/peripheral/adc/plib_adc.h</itemPath>
+            <logicalFolder name="f6" displayName="adc" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/adc/plib_adc.h</itemPath>
+              <itemPath>../src/config/sam_9x60_ek/peripheral/adc/plib_adc_common.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="aic" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/aic/plib_aic.h</itemPath>
+            <logicalFolder name="f5" displayName="aic" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/aic/plib_aic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/clk/plib_clk.h</itemPath>
+            <logicalFolder name="f3" displayName="clk" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="dbgu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/dbgu/plib_dbgu_common.h</itemPath>
-              <itemPath>../src/config/default/peripheral/dbgu/plib_dbgu.h</itemPath>
+            <logicalFolder name="f7" displayName="dbgu" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/dbgu/plib_dbgu_common.h</itemPath>
+              <itemPath>../src/config/sam_9x60_ek/peripheral/dbgu/plib_dbgu.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="mmu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/mmu/plib_mmu.h</itemPath>
-              <itemPath>../src/config/default/peripheral/mmu/cp15.h</itemPath>
+            <logicalFolder name="f2" displayName="mmu" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/mmu/plib_mmu.h</itemPath>
+              <itemPath>../src/config/sam_9x60_ek/peripheral/mmu/cp15.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="pio" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pio/plib_pio.h</itemPath>
+            <logicalFolder name="f4" displayName="pio" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="pit" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pit/plib_pit.h</itemPath>
+            <logicalFolder name="f1" displayName="pit" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/pit/plib_pit.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <itemPath>../src/config/default/device.h</itemPath>
-          <itemPath>../src/config/default/device_cache.h</itemPath>
-          <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
-          <itemPath>../src/config/default/definitions.h</itemPath>
-          <itemPath>../src/config/default/interrupts.h</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/device.h</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/device_cache.h</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/toolchain_specifics.h</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/definitions.h</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/interrupts.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
@@ -165,8 +165,8 @@
                    displayName="Linker Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f1" displayName="default" projectFiles="true">
-          <itemPath>../src/config/default/ddram.ld</itemPath>
+        <logicalFolder name="f2" displayName="sam_9x60_ek" projectFiles="true">
+          <itemPath>../src/config/sam_9x60_ek/ddram.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -174,37 +174,37 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f1" displayName="default" projectFiles="true">
-          <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f5" displayName="adc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/adc/plib_adc.c</itemPath>
+        <logicalFolder name="f2" displayName="sam_9x60_ek" projectFiles="true">
+          <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="f6" displayName="adc" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/adc/plib_adc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="aic" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/aic/plib_aic.c</itemPath>
+            <logicalFolder name="f5" displayName="aic" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/aic/plib_aic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/clk/plib_clk.c</itemPath>
+            <logicalFolder name="f3" displayName="clk" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="dbgu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/dbgu/plib_dbgu.c</itemPath>
+            <logicalFolder name="f7" displayName="dbgu" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/dbgu/plib_dbgu.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="mmu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/mmu/plib_mmu.c</itemPath>
+            <logicalFolder name="f2" displayName="mmu" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/mmu/plib_mmu.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="pio" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pio/plib_pio.c</itemPath>
+            <logicalFolder name="f4" displayName="pio" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="pit" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pit/plib_pit.c</itemPath>
+            <logicalFolder name="f1" displayName="pit" projectFiles="true">
+              <itemPath>../src/config/sam_9x60_ek/peripheral/pit/plib_pit.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="stdio" projectFiles="true">
-            <itemPath>../src/config/default/stdio/xc32_monitor.c</itemPath>
+          <logicalFolder name="f2" displayName="stdio" projectFiles="true">
+            <itemPath>../src/config/sam_9x60_ek/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <itemPath>../src/config/default/initialization.c</itemPath>
-          <itemPath>../src/config/default/interrupts.c</itemPath>
-          <itemPath>../src/config/default/cstartup.S</itemPath>
-          <itemPath>../src/config/default/vectortrap.s</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/initialization.c</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/interrupts.c</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/cstartup.S</itemPath>
+          <itemPath>../src/config/sam_9x60_ek/vectortrap.s</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
@@ -212,19 +212,21 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
-      <logicalFolder name="f1" displayName="default.mhc" projectFiles="true">
-        <itemPath>../src/config/default/default.mhc/adc.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/core.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/dbgu.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/dfp.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/GraphSettings.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/pit.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/project.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/settings.yml</itemPath>
-        <itemPath>../src/config/default/default.mhc/stdio.yml</itemPath>
+      <logicalFolder name="f2" displayName="sam_9x60_ek.mhc" projectFiles="true">
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/adc.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/core.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/dbgu.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/dfp.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/GraphSettings.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/pit.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/project.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/settings.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/stdio.yml</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="sam_9x60_ek.mhc" projectFiles="true">
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/default/harmony-manifest-success.yml</itemPath>
+      <itemPath>../src/config/sam_9x60_ek/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -312,7 +314,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/SAM9X60_DFP"/>
+                  value="../src;../src/config/sam_9x60_ek;../src/packs/SAM9X60_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -324,13 +326,12 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="tentative-definitions" value=""/>
+        <property key="tentative-definitions" value="-fno-common"/>
         <property key="toplevel-reordering" value=""/>
         <property key="unaligned-access" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
-        <appendMe value="-Wformat=2 -Werror-implicit-function-declaration -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Winline -Wlong-long -Wunreachable-code -Wmissing-noreturn"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
@@ -379,7 +380,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="1024"/>
+        <property key="heap-size" value="512"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
@@ -398,7 +399,6 @@
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
         <property key="warn-section-align" value="false"/>
-        <appendMe value="-u _printf_float"/>
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
@@ -412,7 +412,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/SAM9X60_DFP"/>
+                  value="../src;../src/config/sam_9x60_ek;../src/packs/SAM9X60_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -973,21 +973,12 @@
       </Simulator>
       <Tool>
         <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="boot.entry_adr" value=""/>
-        <property key="boot.load_adr" value=""/>
-        <property key="boot.path"
-                  value="C:\Users\C20632\Harmony_bb\csp_apps_sam_9x60\apps\adc\adc_user_sequence\firmware\at91bootstrap_sam_9x60_ek.X\binaries\at91bootstrap.elf"/>
-        <property key="boot.prj" value=""/>
-        <property key="boot.use" value="true"/>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
         <property key="codecoverage.outputfile" value=""/>
         <property key="communication.autoselectspeed" value="true"/>
-        <property key="communication.interface" value="4wire"/>
+        <property key="communication.interface" value="swd"/>
         <property key="communication.speed" value="4"/>
-        <property key="debugoptions.debug-startup" value="Use system settings"/>
-        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
-        <property key="lastid" value=""/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.eeprom" value="true"/>
@@ -1023,13 +1014,9 @@
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveprogramrange.end" value="0x4fffff"/>
         <property key="programoptions.preserveprogramrange.start" value="0x300000"/>
-        <property key="programoptions.resetafterprogram" value="false"/>
+        <property key="programoptions.resetafterprogram" value="true"/>
         <property key="reset.scl" value="false"/>
         <property key="reset.type" value="MCLR"/>
-        <property key="script.has_reset" value="true"/>
-        <property key="script.log_level" value="1"/>
-        <property key="script.reset_delay" value="0"/>
-        <property key="script.show_output" value="false"/>
         <property key="toolpack.updateoptions"
                   value="toolpack.updateoptions.uselatestoolpack"/>
         <property key="toolpack.updateoptions.packversion"
@@ -1482,7 +1469,7 @@
         <property key="boot.prj" value=""/>
         <property key="boot.use" value="true"/>
         <property key="communication.autoselectspeed" value="true"/>
-        <property key="communication.interface" value="4wire"/>
+        <property key="communication.interface" value="swd"/>
         <property key="communication.speed" value="4"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -1501,7 +1488,7 @@
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveprogramrange.end" value="0x4fffff"/>
         <property key="programoptions.preserveprogramrange.start" value="0x300000"/>
-        <property key="programoptions.resetafterprogram" value="false"/>
+        <property key="programoptions.resetafterprogram" value="true"/>
       </jlink>
     </conf>
   </confs>

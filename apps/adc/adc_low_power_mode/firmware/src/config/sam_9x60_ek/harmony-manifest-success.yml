@@ -4,15 +4,15 @@
 
 
 project: adc_low_power_mode
-creation_date: 2021-06-23T01:12:50.207-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2021-07-23T13:50:25.719+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mhc_mode: IDE            # [IDE|Standalone|Headless]
-mhc_version: v3.7.2
+mhc_version: unknown
 mplabx_version: v5.50        # if MPLAB X plugin only
 plugin_version: v3.6.4        # if MPLAB X plugin only
-compiler: XC32 (2.50)
+compiler: XC32 (3.00)
 
 modules:
     - {name: "csp", version: "unknown"}
-    - {name: "dev_packs", version: "v3.9.0"}
+    - {name: "dev_packs", version: "unknown"}
 
