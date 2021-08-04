@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2020-12-18T05:22:28Z */
+/* file generated from device description version 2021-05-04T16:22:08Z */
 #ifndef _SAM9X60_H_
 #define _SAM9X60_H_
 
@@ -76,12 +76,12 @@ typedef enum IRQn
 {
 /******  SAM9X60 specific Interrupt Numbers ***********************************/
   EXT_FIQ_IRQn              =   0, /**< 0   Advanced Interrupt Controller (AIC) */
-  RTC_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (RTC) */
-  RTT_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (RTT) */
+  PIT_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (PIT) */
   WDT_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (WDT) */
   RSTC_IRQn                 =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (RSTC) */
+  RTC_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (RTC) */
+  RTT_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (RTT) */
   PMC_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (PMC) */
-  PIT_IRQn                  =   1, /**< 1   Shared between PMC RSTC RTT PIT WDT RTC (PIT) */
   PIOA_IRQn                 =   2, /**< 2   Parallel Input/Output Controller (PIOA) */
   PIOB_IRQn                 =   3, /**< 3   Parallel Input/Output Controller (PIOB) */
   PIOC_IRQn                 =   4, /**< 4   Parallel Input/Output Controller (PIOC) */
@@ -130,9 +130,9 @@ typedef enum IRQn
   DBGU_IRQn                 =  47, /**< 47  Debug Unit (DBGU)                   */
   PMECC_IRQn                =  48, /**< 48  Shared between PMECC PMERRLOC (PMECC) */
   PMERRLOC_IRQn             =  48, /**< 48  Shared between PMECC PMERRLOC (PMERRLOC) */
-  MPDDRC_IRQn               =  49, /**< 49  Shared between SDRAMC MPDDRC SMC (MPDDRC) */
-  SDRAMC_IRQn               =  49, /**< 49  Shared between SDRAMC MPDDRC SMC (SDRAMC) */
   SMC_IRQn                  =  49, /**< 49  Shared between SDRAMC MPDDRC SMC (SMC) */
+  SDRAMC_IRQn               =  49, /**< 49  Shared between SDRAMC MPDDRC SMC (SDRAMC) */
+  MPDDRC_IRQn               =  49, /**< 49  Shared between SDRAMC MPDDRC SMC (MPDDRC) */
 
   PERIPH_MAX_IRQn           =  49  /**< Max peripheral ID */
 } IRQn_Type;
