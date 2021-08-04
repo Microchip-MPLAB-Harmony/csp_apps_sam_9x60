@@ -75,6 +75,7 @@ bool FLEXCOM4_SPI_WriteRead( void * pTransmitData, size_t txSize, void * pReceiv
 bool FLEXCOM4_SPI_Write( void * pTransmitData, size_t txSize );
 bool FLEXCOM4_SPI_Read( void * pReceiveData, size_t rxSize );
 bool FLEXCOM4_SPI_TransferSetup( FLEXCOM_SPI_TRANSFER_SETUP * setup, uint32_t spiSourceClock );
+bool FLEXCOM4_SPI_IsTransmitterBusy(void);
 bool FLEXCOM4_SPI_IsBusy( void );
 void FLEXCOM4_SPI_CallbackRegister( FLEXCOM_SPI_CALLBACK callback, uintptr_t context );
 
