@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2020-12-18T05:22:35Z */
+/* file generated from device description version 2021-05-04T16:22:14Z */
 #ifndef _SAM9X_I2SMCC_INSTANCE_
 #define _SAM9X_I2SMCC_INSTANCE_
 
