@@ -11,15 +11,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: dbgu, value: '108'}
-  - type: Comment
-    attributes: {id: DBGU_CLK_ENABLE_COMMENT}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'false'}
   - type: Integer
     attributes: {id: DBGU_CLOCK_FREQ}
     children:
