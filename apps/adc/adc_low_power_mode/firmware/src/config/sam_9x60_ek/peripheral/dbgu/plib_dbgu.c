@@ -216,3 +216,4 @@ bool DBGU_ReceiverIsReady(void)
 {
     return ((DBGU_REGS->DBGU_SR & DBGU_SR_RXRDY_Msk) == DBGU_SR_RXRDY_Msk);
 }
+

@@ -5,30 +5,30 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f2" displayName="sam_9x60_ek" projectFiles="true">
+        <logicalFolder name="f1" displayName="sam_9x60_ek" projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f6" displayName="adc" projectFiles="true">
+            <logicalFolder name="f1" displayName="adc" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/adc/plib_adc.h</itemPath>
               <itemPath>../src/config/sam_9x60_ek/peripheral/adc/plib_adc_common.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="aic" projectFiles="true">
+            <logicalFolder name="f2" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/aic/plib_aic.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="clk" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="dbgu" projectFiles="true">
+            <logicalFolder name="f4" displayName="dbgu" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/dbgu/plib_dbgu_common.h</itemPath>
               <itemPath>../src/config/sam_9x60_ek/peripheral/dbgu/plib_dbgu.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="mmu" projectFiles="true">
+            <logicalFolder name="f5" displayName="mmu" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/mmu/plib_mmu.h</itemPath>
               <itemPath>../src/config/sam_9x60_ek/peripheral/mmu/cp15.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="pio" projectFiles="true">
+            <logicalFolder name="f6" displayName="pio" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="pit" projectFiles="true">
+            <logicalFolder name="f7" displayName="pit" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/pit/plib_pit.h</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -161,11 +161,31 @@
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="sam_9x60_ek.mhc" projectFiles="true">
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/adc.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/core.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/dbgu.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/dfp.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/GraphSettings.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/pit.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/project.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/settings.yml</itemPath>
+        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/stdio.yml</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="sam_9x60_ek.mhc" projectFiles="true">
+      </logicalFolder>
+      <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/sam_9x60_ek/harmony-manifest-success.yml</itemPath>
+      <itemPath>adc_low_power_mode_sam_9x60_ek.mc3</itemPath>
+    </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f2" displayName="sam_9x60_ek" projectFiles="true">
+        <logicalFolder name="f1" displayName="sam_9x60_ek" projectFiles="true">
           <itemPath>../src/config/sam_9x60_ek/ddram.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
@@ -174,27 +194,27 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f2" displayName="sam_9x60_ek" projectFiles="true">
+        <logicalFolder name="f1" displayName="sam_9x60_ek" projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f6" displayName="adc" projectFiles="true">
+            <logicalFolder name="f1" displayName="adc" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/adc/plib_adc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="aic" projectFiles="true">
+            <logicalFolder name="f2" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/aic/plib_aic.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="clk" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="dbgu" projectFiles="true">
+            <logicalFolder name="f4" displayName="dbgu" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/dbgu/plib_dbgu.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="mmu" projectFiles="true">
+            <logicalFolder name="f5" displayName="mmu" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/mmu/plib_mmu.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="pio" projectFiles="true">
+            <logicalFolder name="f6" displayName="pio" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="pit" projectFiles="true">
+            <logicalFolder name="f7" displayName="pit" projectFiles="true">
               <itemPath>../src/config/sam_9x60_ek/peripheral/pit/plib_pit.c</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -208,25 +228,6 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
-    </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="false">
-      <logicalFolder name="f2" displayName="sam_9x60_ek.mhc" projectFiles="true">
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/adc.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/core.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/dbgu.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/dfp.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/GraphSettings.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/pit.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/project.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/settings.yml</itemPath>
-        <itemPath>../src/config/sam_9x60_ek/sam_9x60_ek.mhc/stdio.yml</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f1" displayName="sam_9x60_ek.mhc" projectFiles="true">
-      </logicalFolder>
-      <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/sam_9x60_ek/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -308,13 +309,14 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60_ek;../src/packs/SAM9X60_DFP"/>
+                  value="../src;../src/config/sam_9x60_ek;../src/packs/SAM9X60_DFP;;"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -364,6 +366,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -390,7 +393,7 @@
         <property key="no-startup-files" value="false"/>
         <property key="oXC32ld-extra-opts" value=""/>
         <property key="optimization-level" value=""/>
-        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros" value=";"/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
         <property key="serial-length" value=""/>
@@ -403,6 +406,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -412,7 +416,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60_ek;../src/packs/SAM9X60_DFP"/>
+                  value="../src;../src/config/sam_9x60_ek;../src/packs/SAM9X60_DFP;;"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -973,6 +977,12 @@
       </Simulator>
       <Tool>
         <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="boot.entry_adr" value=""/>
+        <property key="boot.load_adr" value=""/>
+        <property key="boot.path"
+                  value="${ProjectDir}\..\at91bootstrap_sam_9x60_ek.X\binaries\at91bootstrap.elf"/>
+        <property key="boot.prj" value=""/>
+        <property key="boot.use" value="true"/>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
         <property key="codecoverage.outputfile" value=""/>
