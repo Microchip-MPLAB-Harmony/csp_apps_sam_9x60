@@ -51,6 +51,18 @@
 #include "definitions.h"                // SYS function prototypes
 #include <string.h>
 
+typedef struct
+{
+    uint32_t scsr;
+    uint32_t pcsr0;
+    uint32_t pcsr1;
+    uint32_t cpu_ckr;
+    uint32_t mor;
+} CLOCK_CFG;
+  
+__attribute__((__section__(".ramdata_section"))) CLOCK_CFG clock_cfg;
+__attribute__((__section__(".ramdata_section"))) int tmp_stack[256];
+
 static void enter_idle(void);
 static void ramcode_init(void);
 void enter_idle_sram(void);
@@ -76,10 +88,10 @@ void pit_callback(uintptr_t context)
 
 void print_menu(void)
 {
-    printf(" ------------------------------------------\n\r"
-            " Select an option :\n\r"
-            " 0 -> Enter Idle mode\n\r"
-            " 1 -> Enter Ultra Low Power mode 0\n\r"
+    printf(" ------------------------------------------\r\n"
+            " Select an option :\r\n"
+            " 0 -> Enter Idle mode\r\n"
+            " 1 -> Enter Ultra Low Power mode 0\r\n"
             " =>");
 
 }
@@ -103,15 +115,15 @@ int main ( void )
         DBGU_Read(&c, 1);
         switch (c) {
             case '0':
-                printf("\n\r");
+                printf("\r\n");
                 enter_idle();
                 break;
             case '1':
-                printf("\n\r");
+                printf("\r\n");
                 enter_ulp0();
                 break;
             default:
-                printf("\n\r");
+                printf("\r\n");
         }
     }
 
@@ -148,13 +160,13 @@ void enter_idle(void)
     /* disbale PIT since we don't want it as a wake-up source */
     PIT64B_TimerStop();
     
-    printf(" ------------------------------------------\n\r"
-           "Entering Idle Mode for 30 seconds\n\r");
+    printf(" ------------------------------------------\r\n"
+           "Entering Idle Mode for 30 seconds\r\n");
 
     enter_idle_sram();
     
-    printf(" ------------------------------------------\n\r"
-           "Leaving Idle Mode\n\r");
+    printf(" ------------------------------------------\r\n"
+           "Leaving Idle Mode\r\n");
 
     /* enable PIT */
     PIT64B_TimerStart();
@@ -183,16 +195,16 @@ void enter_ulp0(void)
     /* disbale PIT since we don't want it as a wake-up source */
     PIT64B_TimerStop();
     
-    printf(" ------------------------------------------\n\r"
-           "Entering ULP0 Mode for 30 seconds\n\r");
+    printf(" ------------------------------------------\r\n"
+           "Entering ULP0 Mode for 30 seconds\r\n");
 
     enter_ulp0_sram();
 
 
     DBGU_Initialize();
     
-    printf(" ------------------------------------------\n\r"
-           "Leaving ULP0 Mode\n\r");
+    printf(" ------------------------------------------\r\n"
+           "Leaving ULP0 Mode\r\n");
 
     /* enable PIT */
     PIT64B_TimerStart();
@@ -201,7 +213,6 @@ void enter_ulp0(void)
 
 }
 
-__attribute__((__section__(".ramdata_section"))) int tmp_stack[256];
 __attribute__((__section__(".ramcode_section"))) void enter_ulp0_sram(void)
 {
     /* set up new stack in sram since ddr will be unavailable */
@@ -222,13 +233,6 @@ __attribute__((__section__(".ramcode_section"))) void enter_ulp0_sram(void)
 
 __attribute__((__section__(".ramcode_section")))void really_enter_ulp0_sram(void)
 {
-    struct clock_cfg {
-        uint32_t scsr;
-        uint32_t pcsr0;
-        uint32_t pcsr1;
-        uint32_t cpu_ckr;
-        uint32_t mor;
-    } clock_cfg;
     clock_cfg.scsr = PMC_REGS->PMC_SCSR;
     clock_cfg.cpu_ckr = PMC_REGS->PMC_CPU_CKR;
     clock_cfg.mor = PMC_REGS->CKGR_MOR;
