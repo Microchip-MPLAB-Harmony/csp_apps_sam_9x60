@@ -81,7 +81,7 @@
             <itemPath>../src/packs/SAM9X60D1G_DFP/component/wdt.h</itemPath>
             <itemPath>../src/packs/SAM9X60D1G_DFP/component/xdmac.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="instance" projectFiles="true">
+          <logicalFolder name="f2" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/SAM9X60D1G_DFP/instance/adc.h</itemPath>
             <itemPath>../src/packs/SAM9X60D1G_DFP/instance/aes.h</itemPath>
             <itemPath>../src/packs/SAM9X60D1G_DFP/instance/aic.h</itemPath>
@@ -147,7 +147,7 @@
             <itemPath>../src/packs/SAM9X60D1G_DFP/instance/wdt.h</itemPath>
             <itemPath>../src/packs/SAM9X60D1G_DFP/instance/xdmac.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="pio" projectFiles="true">
+          <logicalFolder name="f3" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/SAM9X60D1G_DFP/pio/sam9x60d1g.h</itemPath>
           </logicalFolder>
           <itemPath>../src/packs/SAM9X60D1G_DFP/sam9x60d1g.h</itemPath>
@@ -159,6 +159,7 @@
                    projectFiles="true">
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x60d1g_ek/harmony-manifest-success.yml</itemPath>
+      <itemPath>dbgu_echo_blocking_sam_9x60d1g_ek.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -216,12 +217,12 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.50</languageToolchainVersion>
+        <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAM9X6_DFP" vendor="Microchip" version="1.5.50"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAM9X6_DFP" vendor="Microchip" version="1.5.50"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -283,7 +284,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60d1g_ek;../src/packs/SAM9X60D1G_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/"/>
+                  value="../src;../src/config/sam_9x60d1g_ek;../src/packs/SAM9X60D1G_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -295,6 +296,7 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
+        <property key="tentative-definitions" value="-fno-common"/>
         <property key="toplevel-reordering" value=""/>
         <property key="unaligned-access" value=""/>
         <property key="use-cci" value="false"/>
@@ -327,6 +329,7 @@
       </C32-AS>
       <C32-CO>
         <property key="coverage-enable" value=""/>
+        <property key="stack-guidance" value="false"/>
       </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
@@ -367,7 +370,6 @@
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
         <property key="warn-section-align" value="false"/>
-        <appendMe value="-T../../firmware/src/config/sam_9x60d1g_ek/ddram.ld"/>
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
@@ -381,7 +383,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60d1g_ek;../src/packs/SAM9X60D1G_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/"/>
+                  value="../src;../src/config/sam_9x60d1g_ek;../src/packs/SAM9X60D1G_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -409,6 +411,7 @@
         <property key="omit-pack-options" value="1"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
+        <property key="stack-smashing" value=""/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
       <PICkit3PlatformTool>

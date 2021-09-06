@@ -1,5 +1,5 @@
-/**
- * \brief Peripheral I/O description for SAM9X60D1G
+/*
+ * Peripheral I/O description for SAM9X60D1G
  *
  * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
  *
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2020-12-18T05:22:30Z */
+/* file generated from device description version 2021-05-04T16:22:10Z */
 #ifndef _SAM9X60D1G_GPIO_H_
 #define _SAM9X60D1G_GPIO_H_
 
