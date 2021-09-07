@@ -86,7 +86,7 @@ The following table shows the target hardware for the application projects.
 	- Observe ADC entering sleep mode with Fast Wake up OFF. Console displays the ADC Count and the ADC Input Voltage
 ![output](images/output_lowpower_fwupOFF.png)
 
-	- Press 1.
+8. Reset the board to run the application again. In the console window, choose 1 this time. 
 	- Observe ADC entering sleep mode with Fast Wake up OFF. Console displays the ADC Count and the ADC Input Voltage
 ![output](images/output_lowpower_fwupON.png)
 
