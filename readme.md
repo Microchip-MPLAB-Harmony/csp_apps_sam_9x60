@@ -38,6 +38,7 @@ The following applications are provided to demonstrate the typical or interestin
 | Name | Description |
 | ---- | ----------- |
 | [ADC automatic window comparison](apps/adc/adc_automatic_window_comparison/readme.md) | This example application shows how to sample an analog input in polled mode and send the converted data to console using automatic window comparison of converted values |
+| [ADC low power](apps/adc/adc_low_power_mode/readme.md) | This example application shows the different low power sleep modes available with Fast Wake up either enabled or disabled |
 | [ADC Polling](apps/adc/adc_polled_mode/readme.md) | This example application shows how to sample an analog input in polled mode and send the converted data to console |
 | [ADC user sequence](apps/adc/adc_user_sequence/readme.md) | This example application shows how to sample three analog inputs using the user sequencer in software trigger mode and send the converted data to the console |
 | [CAN blocking](apps/can/can_normal_operation_blocking/readme.md) | This example application shows how to use the CAN module to transmit and receive CAN messages in polling mode |
