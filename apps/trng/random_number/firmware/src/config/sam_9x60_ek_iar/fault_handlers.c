@@ -1,22 +1,5 @@
 /*******************************************************************************
-  TRNG Peripheral Library
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    plib_trng.c
-
-  Summary:
-    TRNG Source File
-
-  Description:
-    None
-
-*******************************************************************************/
-
-/*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -36,24 +19,35 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
-
-
-#include "device.h"
-#include "plib_trng.h"
-#include "interrupts.h"
-
-
-uint32_t TRNG_ReadData( void )
+ *******************************************************************************/
+void __attribute((weak, noreturn)) undefined_instruction_irq_handler (void)
 {
-	TRNG_REGS->TRNG_CR = TRNG_CR_WAKEY_PASSWD | TRNG_CR_ENABLE_Msk;
-	while(((TRNG_REGS->TRNG_ISR) & (TRNG_ISR_DATRDY_Msk)) != TRNG_ISR_DATRDY_Msk)
-   {
-		
-                 /* Do Nothing*/		
-   }
-	TRNG_REGS->TRNG_CR = TRNG_CR_WAKEY_PASSWD;
-	return (TRNG_REGS->TRNG_ODATA);
+    while(1)
+    {
+        // Do Nothing
+    }
 }
 
+void __attribute((weak, noreturn)) software_interrupt_irq_handler(void)
+{
+    while(1)
+    {
+        // Do Nothing
+    }
+}
 
+void __attribute((weak, noreturn)) data_abort_irq_handler(void)
+{
+    while(1)
+    {
+        // Do Nothing
+    }
+}
+
+void __attribute((weak, noreturn)) prefetch_abort_irq_handler(void)
+{
+    while(1)
+    {
+        // Do Nothing
+    }
+}
