@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
- *      Linker script for running in internal DDRAM on the SAM9X60
+ *      Linker script for running in internal DDRAM on the SAM9
  *----------------------------------------------------------------------------*/
 
 OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
@@ -11,8 +11,8 @@ SEARCH_DIR(.)
 MEMORY
 {
 	sram        (WX) : ORIGIN = 0x300000,   LENGTH = 64K  /* sram */
-	ram         (LWX!R) : ORIGIN = 0x21000000, LENGTH = 112M  /* ddr */
-	ram_nocache  (!RWX) : ORIGIN = 0x20000000, LENGTH = 16M  /* ddr (non-cached) */
+	ram         (LWX!R) : ORIGIN = 0x21000000, LENGTH = 0x07000000  /* ram */
+	ram_nocache  (!RWX) : ORIGIN = 0x20000000, LENGTH = 0x01000000  /* ram (non-cached) */
 	rom         (LRX) : ORIGIN = 0, LENGTH = 0
 }
 
@@ -123,7 +123,7 @@ SECTIONS
 	.region_nocache (NOLOAD) :
 	{
 		. = ALIGN(4);
-		*(.region_nocache)
+		*(.region_nocache .region_nocache.*)
 	} >ram_nocache
 
 	/* .bss section which is used for uninitialized data */
