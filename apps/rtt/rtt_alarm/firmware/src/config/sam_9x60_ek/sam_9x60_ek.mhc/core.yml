@@ -124,21 +124,21 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: dbgu, value: 'true'}
+        attributes: {id: dbgu, value: 'false'}
   - type: String
     attributes: {id: DBGU_INTERRUPT_HANDLER}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: dbgu, value: DBGU_InterruptHandler}
+        attributes: {id: dbgu, value: DBGU_Handler}
   - type: Boolean
     attributes: {id: DBGU_INTERRUPT_HANDLER_LOCK}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: dbgu, value: 'true'}
+        attributes: {id: dbgu, value: 'false'}
   - type: KeyValueSet
     attributes: {id: DBGU_INTERRUPT_PRIORITY}
     children:

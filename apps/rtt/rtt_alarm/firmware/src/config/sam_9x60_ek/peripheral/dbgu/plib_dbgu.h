@@ -70,21 +70,15 @@ bool DBGU_Write(void *buffer, const size_t size);
 
 bool DBGU_Read(void *buffer, const size_t size);
 
+uint8_t DBGU_ReadByte(void);
 
-bool DBGU_WriteIsBusy(void);
+void DBGU_WriteByte(uint8_t data);
 
-bool DBGU_ReadIsBusy(void);
+bool DBGU_TransmitterIsReady(void);
 
-size_t DBGU_WriteCountGet(void);
+bool DBGU_ReceiverIsReady(void);
 
-size_t DBGU_ReadCountGet(void);
-
-void DBGU_WriteCallbackRegister(DBGU_CALLBACK callback, uintptr_t context);
-
-void DBGU_ReadCallbackRegister(DBGU_CALLBACK callback, uintptr_t context);
-
-bool DBGU_ReadAbort(void);
-
+bool DBGU_TransmitComplete(void);
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
