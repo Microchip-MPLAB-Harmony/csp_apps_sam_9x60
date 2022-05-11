@@ -68,7 +68,7 @@ void RSTC_Reset( RSTC_RESET_TYPE type )
 {
     // Issue reset command and wait for command processing
     RSTC_REGS->RSTC_CR = RSTC_CR_KEY_PASSWD | type; 
-    while( RSTC_REGS->RSTC_SR & (uint32_t)RSTC_SR_SRCMP_Msk )
+    while(( RSTC_REGS->RSTC_SR & (uint32_t)RSTC_SR_SRCMP_Msk ) != 0U)
     {
         ;   // busy wait
     }
@@ -84,7 +84,7 @@ bool RSTC_NRSTPinRead( void )
     return (bool)(RSTC_REGS->RSTC_SR & RSTC_SR_NRSTL_Msk);
 }
 
-RSTC_OBJECT rstcObj;
+static RSTC_OBJECT rstcObj;
 
 void RSTC_CallbackRegister( RSTC_CALLBACK callback, uintptr_t context )
 {
