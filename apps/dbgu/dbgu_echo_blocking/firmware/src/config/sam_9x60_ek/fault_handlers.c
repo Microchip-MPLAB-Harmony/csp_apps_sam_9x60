@@ -1,22 +1,5 @@
 /*******************************************************************************
- Debug Console Source file
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    xc32_monitor.c
-
-  Summary:
-    debug console Source File
-
-  Description:
-    None
-
-*******************************************************************************/
-
-/*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -36,19 +19,35 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
-#include <stddef.h>
-
-extern int read(int handle, void *buffer, unsigned int len);
-extern int write(int handle, void * buffer, size_t count);
-
-
-int read(int handle, void *buffer, unsigned int len)
+ *******************************************************************************/
+void __attribute((weak, noreturn)) undefined_instruction_irq_handler (void)
 {
-   return -1;
+    while(1)
+    {
+        // Do Nothing
+    }
 }
 
-int write(int handle, void * buffer, size_t count)
+void __attribute((weak, noreturn)) software_interrupt_irq_handler(void)
 {
-   return -1;
+    while(1)
+    {
+        // Do Nothing
+    }
+}
+
+void __attribute((weak, noreturn)) data_abort_irq_handler(void)
+{
+    while(1)
+    {
+        // Do Nothing
+    }
+}
+
+void __attribute((weak, noreturn)) prefetch_abort_irq_handler(void)
+{
+    while(1)
+    {
+        // Do Nothing
+    }
 }
