@@ -53,32 +53,34 @@ void WDT_Initialize( void )
     //    WDT_WLR_RPTH =   1000 (mSecs) = 250 (counts)
     //    WDT_WLR_PERIOD = 4000 (mSecs) = 1000 (counts)
     //    WDT_ILR_LVLTH =  3000 (mSecs) = 750 (counts)
-    WDT_REGS->WDT_WLR = WDT_WLR_RPTH( 250 ) | WDT_WLR_PERIOD( 1000 );
-    WDT_REGS->WDT_ILR = WDT_ILR_LVLTH( 750 );
+    WDT_REGS->WDT_WLR = WDT_WLR_RPTH( 250U ) | WDT_WLR_PERIOD( 1000U );
+    WDT_REGS->WDT_ILR = WDT_ILR_LVLTH( 750U );
     // clear interrupt status
     (void) WDT_REGS->WDT_ISR;
     // enable appropriate interrupts
     WDT_REGS->WDT_IER = 0;
-    // enable WDT and set other mode bits desired 
-    WDT_REGS->WDT_MR =  0 | WDT_MR_WDIDLEHLT_Msk | WDT_MR_WDDBGHLT_Msk | WDT_MR_PERIODRST_Msk;
+    // enable WDT and set other mode bits desired
+    WDT_REGS->WDT_MR =  0U | WDT_MR_WDIDLEHLT_Msk | WDT_MR_WDDBGHLT_Msk | WDT_MR_PERIODRST_Msk;
 }
 
 void WDT_Clear( void )
 {
-    // When WDT is enabled, clear and reset the watch dog timer before the period 
+    // When WDT is enabled, clear and reset the watch dog timer before the period
     // counter reaches its floor.  But, not within three clock cycles of last restart, or before the
     // repeat threshold, currently 250 counts, has expired.
     // Note: Due to the asynchronous operation of the WDT with respect to the rest of the chip
-    //    a minimum of two, possibly three, value register reads must be performed. 
-    if( !(WDT_MR_WDDIS_Msk & WDT_REGS->WDT_MR) )
+    //    a minimum of two, possibly three, value register reads must be performed.
+    if( (WDT_MR_WDDIS_Msk & WDT_REGS->WDT_MR) == 0U )
     {
         const uint32_t  minWait = 250;
         uint32_t        countDownValue = WDT_VR_COUNTER( WDT_REGS->WDT_VR );
         if( countDownValue != WDT_VR_COUNTER( WDT_REGS->WDT_VR ) )
+        {
             countDownValue = WDT_VR_COUNTER( WDT_REGS->WDT_VR );
-    
+        }
+
         // initial WDT_WLR_PERIOD = 1000 (counts)
-        if( 1000 > (minWait + countDownValue) )
+        if( 1000U > (minWait + countDownValue) )
         {
             WDT_REGS->WDT_CR = WDT_CR_KEY_PASSWD | WDT_CR_WDRSTT_Msk;
         }
