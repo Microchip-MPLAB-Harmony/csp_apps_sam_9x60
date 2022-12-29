@@ -1,4 +1,4 @@
-<config configName="sam_9x60_ek" projectName="flexcom_spi_self_loopback_dma_sam_9x60_ek" configVersion="1.1" device="SAM9X60" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
+<config configName="sam_9x60_curiosity" projectName="flexcom_spi_self_loopback_dma_sam_9x60_ek" configVersion="1.1" device="SAM9X60D1G" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -2354,7 +2354,7 @@
         &lt;Value dnOrder=&quot;0&quot;&gt;plib_flexcom_spi_master_common.h&lt;/Value&gt;
       &lt;/String&gt;
       &lt;String dnOrder=&quot;3&quot; id=&quot;project&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;config/sam_9x60_ek/peripheral/flexcom/spi/master/&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;config/sam_9x60_curiosity/peripheral/flexcom/spi/master/&lt;/Value&gt;
       &lt;/String&gt;
       &lt;String dnOrder=&quot;4&quot; id=&quot;source&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;../peripheral/flexcom_11268/templates/plib_flexcom_spi_master_common.h.ftl&lt;/Value&gt;
@@ -2382,7 +2382,7 @@
         &lt;Value dnOrder=&quot;0&quot;&gt;plib_flexcom4_spi_master.h&lt;/Value&gt;
       &lt;/String&gt;
       &lt;String dnOrder=&quot;3&quot; id=&quot;project&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;config/sam_9x60_ek/peripheral/flexcom/spi/master/&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;config/sam_9x60_curiosity/peripheral/flexcom/spi/master/&lt;/Value&gt;
       &lt;/String&gt;
       &lt;String dnOrder=&quot;4&quot; id=&quot;source&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;../peripheral/flexcom_11268/templates/plib_flexcom_spi_master.h.ftl&lt;/Value&gt;
@@ -2410,7 +2410,7 @@
         &lt;Value dnOrder=&quot;0&quot;&gt;plib_flexcom4_spi_master.c&lt;/Value&gt;
       &lt;/String&gt;
       &lt;String dnOrder=&quot;3&quot; id=&quot;project&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;config/sam_9x60_ek/peripheral/flexcom/spi/master/&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;config/sam_9x60_curiosity/peripheral/flexcom/spi/master/&lt;/Value&gt;
       &lt;/String&gt;
       &lt;String dnOrder=&quot;4&quot; id=&quot;source&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;../peripheral/flexcom_11268/templates/plib_flexcom_spi_master.c.ftl&lt;/Value&gt;
@@ -2987,7 +2987,7 @@
          <hash>1845cfcdd931f3faf6c31827bbfc886da72bdd7ea7ca2eca0c412d0f6df1b1c0</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\device.h</file>
+         <file>..\src\config\sam_9x60_curiosity\device.h</file>
          <hash>272c30439d908c419ccaac5f8a4dff8f7caa7881537bac508320752dfcfbf0d0</hash>
       </entry>
       <entry>
@@ -3003,7 +3003,7 @@
          <hash>792d96dcaf250c25261b0b7e188de1732da58b55f8a16b278a2de8885c4f40d2</hash>
       </entry>
       <entry>
-         <file>..\src\packs\SAM9X60_DFP\pio\sam9x60.h</file>
+         <file>..\src\packs\SAM9X60_DFP\pio\sam9x60d1g.h</file>
          <hash>46c6f7c3dd42cc6ad70e2bc6f76354636290cf2dbcfcf8449b72512ec7704555</hash>
       </entry>
       <entry>
@@ -3011,7 +3011,7 @@
          <hash>a9ffe76d516ae888b142c2aa64b184531b3038751bf07d371a806b9cb49e771e</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\xdmac\plib_xdmac_common.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\xdmac\plib_xdmac_common.h</file>
          <hash>96647f506cf2fe28b1204a1e6ce56e8e4cf04da59d224d6bace73fa5749c87ac</hash>
       </entry>
       <entry>
@@ -3027,11 +3027,11 @@
          <hash>a4c21ce48a8d846eee18b5beecee458859115e3ed72b3d40030d4510b13854ce</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\mmu\plib_mmu.c</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\plib_mmu.c</file>
          <hash>ffca527079c6dcd5bc01870fafc5ae1138477dc468af52428b305e9e4675980f</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\mmu\plib_mmu.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\plib_mmu.h</file>
          <hash>a777af67221ce686baec242376d2cccad707ed3e197c3b049b7d9fd5519e3dfe</hash>
       </entry>
       <entry>
@@ -3043,15 +3043,15 @@
          <hash>5b93c751ff317dc93ce3598865ddc613df1bec97dc1731829ef836203109ab4d</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\flexcom\spi\master\plib_flexcom_spi_master_common.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\flexcom\spi\master\plib_flexcom_spi_master_common.h</file>
          <hash>2b893a5d883c0b6e9eee201deffef248b8ce2d633160360e6136fbfbe4e83b59</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\ddram.ld</file>
+         <file>..\src\config\sam_9x60_curiosity\ddram.ld</file>
          <hash>b1daf51c2b2aa3d7dd7224f0b7379d0de6d7efb9aff0cda62f80e7075d4055cd</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\device_cache.h</file>
+         <file>..\src\config\sam_9x60_curiosity\device_cache.h</file>
          <hash>022a4c6bce1d10badd66bfa60707c3dbc830d5b1a6702dfd825d3317ccba1188</hash>
       </entry>
       <entry>
@@ -3063,11 +3063,11 @@
          <hash>cff51c6896a853491977ae87f3dfc616b51b771dd7ffa00ef2b1c4ba6953b1c5</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\pin_configurations.csv</file>
+         <file>..\src\config\sam_9x60_curiosity\pin_configurations.csv</file>
          <hash>494b13e033ba45d15ce7da8694b34502f42b3f3cd451e051def83e05271a9645</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\xdmac\plib_xdmac.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\xdmac\plib_xdmac.h</file>
          <hash>f9f011ac7d1d06f33165fd0711520eaff51dc2010f2b1a3faeb5b75cf4a53944</hash>
       </entry>
       <entry>
@@ -3075,7 +3075,7 @@
          <hash>a57cc5d7e3992acdec104705056f162198b40f2de8582a8f1cb37a57ab669269</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\mmu\cp15.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\cp15.h</file>
          <hash>24907eff18f34ad82252c89fde571ebd0f51da7ca4b9f72c8810e9c3d6485edb</hash>
       </entry>
       <entry>
@@ -3087,7 +3087,7 @@
          <hash>f7c6547248eee1901a40337ca06ef326bea9b03227b49bcabd7cc62a37124f08</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\xdmac\plib_xdmac.c</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\xdmac\plib_xdmac.c</file>
          <hash>0677f23c8296d4804dc7ad161d216262c37cf9ce17e2fe9453c5e889e2d25251</hash>
       </entry>
       <entry>
@@ -3111,7 +3111,7 @@
          <hash>4b760603a929aa11626e073e58dab35b6441264b6fbd38174f1cc98f8f9b0b9e</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\cstartup.S</file>
+         <file>..\src\config\sam_9x60_curiosity\cstartup.S</file>
          <hash>bab52b245ee3ee78ff26156c06ac67761ea78039030859fa772ece111fd5dab3</hash>
       </entry>
       <entry>
@@ -3119,7 +3119,7 @@
          <hash>70d948d6bf8290b919894548a5afb2a7c963f61f9c737da3ca2cae19f330c5d0</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\flexcom\spi\master\plib_flexcom4_spi_master.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\flexcom\spi\master\plib_flexcom4_spi_master.h</file>
          <hash>df4a7df99837b749315acc5e67759c5ac90bed78333ed9b226865b59277a6bd8</hash>
       </entry>
       <entry>
@@ -3131,7 +3131,7 @@
          <hash>66e4791019e4d5c45fc75549aa28638978280a5d049de11b015083b771cfc76c</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\interrupts.h</file>
+         <file>..\src\config\sam_9x60_curiosity\interrupts.h</file>
          <hash>91abdb8d191ae865fc6082f30783c3d6cca8aa8d5aca823a7fb2cc65e3a57d24</hash>
       </entry>
       <entry>
@@ -3151,7 +3151,7 @@
          <hash>7439ef738b07d7ec7e311d5c421393857ad388c7cc9c1e6b6430213fbd847c90</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\interrupts.c</file>
+         <file>..\src\config\sam_9x60_curiosity\interrupts.c</file>
          <hash>0939efda1f615c7e860a50ec78b3d2f6ca440e200aaae730833adba65fc7b64f</hash>
       </entry>
       <entry>
@@ -3207,7 +3207,7 @@
          <hash>30fae0b668bca96b744b0ece01a84645876923bf59493ead625fef60422a67d1</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\definitions.h</file>
+         <file>..\src\config\sam_9x60_curiosity\definitions.h</file>
          <hash>b5973e494b1a37485afaa8d67c2c9d30a9dc96bf7d11fbf8e8525583147810b9</hash>
       </entry>
       <entry>
@@ -3215,11 +3215,11 @@
          <hash>5a611683e99c7455a1fb5fb64ff475abf1a576defecf04d4a44712063d45f947</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\flexcom\spi\master\plib_flexcom4_spi_master.c</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\flexcom\spi\master\plib_flexcom4_spi_master.c</file>
          <hash>1a3ff40518bc57513f3c0d666d22fd6f77eb712e028f48dc40a75171bfd38d64</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\aic\plib_aic.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\aic\plib_aic.h</file>
          <hash>3744d8f5ae1843ce5b3b78bbae13a22a7f22b2f0584db476b657b40cb7850809</hash>
       </entry>
       <entry>
@@ -3239,11 +3239,11 @@
          <hash>a40bae2d1b6fc5f84bb80905d71d9bf0123758fdea98b1b5b578588c1ca23f14</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\aic\plib_aic.c</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\aic\plib_aic.c</file>
          <hash>30e5b7f3a5259938cd4534624854beb942b8fccd9aa0f5d69175d8b663536abe</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\stdio\xc32_monitor.c</file>
+         <file>..\src\config\sam_9x60_curiosity\stdio\xc32_monitor.c</file>
          <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
@@ -3327,11 +3327,11 @@
          <hash>552bc0d243f31df555d1d96973a14907a359c07fbd5187fa4b2952df01bb8d08</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\clk\plib_clk.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\clk\plib_clk.h</file>
          <hash>aa5052a85d632a20d2e9af22b9b37b2cca1b9d5b4cf4cb772354e4d546530eb3</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\clk\plib_clk.c</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\clk\plib_clk.c</file>
          <hash>123bb43cb481dafc165eb8eec36796c1574d9ad86c63fb8c656607abb83893db</hash>
       </entry>
       <entry>
@@ -3383,7 +3383,7 @@
          <hash>8d9132598c95d06081ea08337ed668edb5a858cd9d45776780bb32d088d14b8d</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\toolchain_specifics.h</file>
+         <file>..\src\config\sam_9x60_curiosity\toolchain_specifics.h</file>
          <hash>943f2c097f75062855ef1434b1b63a84e68ac691a93097a46016a699601a3306</hash>
       </entry>
       <entry>
@@ -3435,7 +3435,7 @@
          <hash>435f418959e205099d8365ad15ac543eb4412a97d3421b9f29635a221a97ad22</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\initialization.c</file>
+         <file>..\src\config\sam_9x60_curiosity\initialization.c</file>
          <hash>8cf2fd95a5f0fa4bd2194f951702cb72e4c0817c42347a84bb8d23ad49e0f239</hash>
       </entry>
       <entry>
@@ -3467,7 +3467,7 @@
          <hash>17bcd398d5e1d9017550296158ed98d24ecf1dbb4e39ad8252840c694f636c49</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\pio\plib_pio.h</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.h</file>
          <hash>49025a4e15177483338b624ba3b7ac4aabb04efe78a0c08ad0c958fda78f5f83</hash>
       </entry>
       <entry>
@@ -3475,7 +3475,7 @@
          <hash>887d974cc9e9a855bb0b32443d2a288f158aee0b7a18158672d4bb1778a9d994</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\peripheral\pio\plib_pio.c</file>
+         <file>..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.c</file>
          <hash>3d7b5cabbdf347eec1f1834a67f36ca9edbc4c727ce4df7afa43bd50a08d89cd</hash>
       </entry>
       <entry>
@@ -3491,11 +3491,11 @@
          <hash>dcf94a525169c2f0284a806ac9916c8d72cf5306bc5807f70f981f8ce231ce56</hash>
       </entry>
       <entry>
-         <file>..\src\config\sam_9x60_ek\fault_handlers.c</file>
+         <file>..\src\config\sam_9x60_curiosity\fault_handlers.c</file>
          <hash>34134ba54c0becfbe75cd670be15133f2a10dea081d9fa5fab75f17afc1109ba</hash>
       </entry>
       <entry>
-         <file>..\src\packs\SAM9X60_DFP\sam9x60.h</file>
+         <file>..\src\packs\SAM9X60_DFP\sam9x60d1g.h</file>
          <hash>c9eff7dc4369eac81b86962ab9ad85cc615e52cd8a76f3fe1d426bc01a62402a</hash>
       </entry>
       <entry>

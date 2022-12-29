@@ -1,8 +1,8 @@
-configName: sam_9x60_ek
-folderName: sam_9x60_ek
+configName: sam_9x60_curiosity
+folderName: sam_9x60_curiosity
 format_version: v1.0
 frameworkPath: ..\..\..\..
-processor: SAM9X60
+processor: SAM9X60D1G
 projectName: rtt_alarm_sam_9x60_ek
 settings:
   PackageFilter: bsp;core;csp;Devices;dev_packs;harmony-services;quick_docs;usb
@@ -11,4 +11,4 @@ settings:
   TRUSTZONE: 'false'
   CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
   MERGE_STRATEGY: OVERWRITE
-  DFPPath: .\dev_packs\Microchip\SAM9X60_DFP\1.7.85\atdf\SAM9X60.atdf
+  DFPPath: .\dev_packs\Microchip\SAM9X60_DFP\1.7.85\atdf\SAM9X60D1G.atdf

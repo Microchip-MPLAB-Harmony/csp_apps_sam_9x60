@@ -1,8 +1,8 @@
-configName: sam_9x60_ek
+configName: sam_9x60_curiosity
 folderName: ''
 format_version: v1.0
 frameworkPath: ../../../..
-processor: SAM9X60
+processor: SAM9X60D1G
 projectName: ''
 settings:
   PackageFilter: bsp;core;csp;expresslogic_threadx;net;
@@ -10,4 +10,4 @@ settings:
   GENERATE_BACKUP: 'true'
   CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
   MERGE_STRATEGY: USER_ALL
-  DFPPath: .\dev_packs\Microchip\SAM9X60_DFP\1.1.23\atdf\SAM9X60.atdf
+  DFPPath: .\dev_packs\Microchip\SAM9X60_DFP\1.1.23\atdf\SAM9X60D1G.atdf
