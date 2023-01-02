@@ -76,8 +76,8 @@ char data = 0;
 //
 static void echoBuffer(void)
 {
-    FLEXCOM5_USART_Write(receiveBuffer,rxCounter);
-    FLEXCOM5_USART_Write(newline,sizeof(newline));
+    FLEXCOM7_USART_Write(receiveBuffer,rxCounter);
+    FLEXCOM7_USART_Write(newline,sizeof(newline));
     rxCounter = 0;
 }
 
@@ -93,16 +93,16 @@ int main ( void )
     LED_BLUE_Clear();
 
     /* Send start message */
-    FLEXCOM5_USART_Write(&messageStart, sizeof(messageStart));
+    FLEXCOM7_USART_Write(&messageStart, sizeof(messageStart));
 
     while ( true )
     {
         /* Check if there is a received character */
-        if(FLEXCOM5_USART_ReceiverIsReady() == true)
+        if(FLEXCOM7_USART_ReceiverIsReady() == true)
         {
-            if(FLEXCOM5_USART_ErrorGet() == FLEXCOM_USART_ERROR_NONE)
+            if(FLEXCOM7_USART_ErrorGet() == FLEXCOM_USART_ERROR_NONE)
             {
-                FLEXCOM5_USART_Read(&data, 1);
+                FLEXCOM7_USART_Read(&data, 1);
 
                 if((data == '\n') || (data == '\r'))
                 {
@@ -118,7 +118,7 @@ int main ( void )
             }
             else
             {
-                FLEXCOM5_USART_Write(errorMessage,sizeof(errorMessage));
+                FLEXCOM7_USART_Write(errorMessage,sizeof(errorMessage));
             }
         }
     }
