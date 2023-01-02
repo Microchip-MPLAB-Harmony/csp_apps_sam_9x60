@@ -77,7 +77,7 @@ void APP_WriteCallback(uintptr_t context)
 
 void APP_ReadCallback(uintptr_t context)
 {
-    if(FLEXCOM5_USART_ErrorGet() != FLEXCOM_USART_ERROR_NONE)
+    if(FLEXCOM7_USART_ErrorGet() != FLEXCOM_USART_ERROR_NONE)
     {
         /* ErrorGet clears errors, set error flag to notify console */
         errorStatus = true;
@@ -99,15 +99,10 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
-    /* LED Off */
-    LED_RED_Clear();
-    LED_GREEN_Clear();
-    LED_BLUE_Clear();
-
     /* Register callback functions and send start message */
-    FLEXCOM5_USART_WriteCallbackRegister(APP_WriteCallback, 0);
-    FLEXCOM5_USART_ReadCallbackRegister(APP_ReadCallback, 0);
-    FLEXCOM5_USART_Write(&messageStart, sizeof(messageStart));
+    FLEXCOM7_USART_WriteCallbackRegister(APP_WriteCallback, 0);
+    FLEXCOM7_USART_ReadCallbackRegister(APP_ReadCallback, 0);
+    FLEXCOM7_USART_Write(&messageStart, sizeof(messageStart));
 
     while ( true )
     {
@@ -115,7 +110,7 @@ int main ( void )
         {
             /* Send error message to console */
             errorStatus = false;
-            FLEXCOM5_USART_Write(&messageError, sizeof(messageError));
+            FLEXCOM7_USART_Write(&messageError, sizeof(messageError));
         }
         else if(readStatus == true)
         {
@@ -125,14 +120,14 @@ int main ( void )
             memcpy(echoBuffer, receiveBuffer, sizeof (receiveBuffer));
             memcpy(&echoBuffer[RX_BUFFER_SIZE], "\r\n", 2);            
 
-            FLEXCOM5_USART_Write(&echoBuffer, sizeof(echoBuffer));
+            FLEXCOM7_USART_Write(&echoBuffer, sizeof(echoBuffer));
             LED_Toggle();
         }
         else if(writeStatus == true)
         {
             /* Submit buffer to read user data */
             writeStatus = false;
-            FLEXCOM5_USART_Read(&receiveBuffer, sizeof(receiveBuffer));
+            FLEXCOM7_USART_Read(&receiveBuffer, sizeof(receiveBuffer));
         }
         else
         {
