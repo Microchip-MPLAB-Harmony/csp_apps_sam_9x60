@@ -48,12 +48,6 @@
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
-#include "definitions.h"                // SYS function prototypes
-
-
-#include <stddef.h>                     // Defines NULL
-#include <stdbool.h>                    // Defines true
-#include <stdlib.h>                     // Defines EXIT_FAILURE
 #include <string.h>
 #include <stdio.h>
 #include "definitions.h"                // SYS function prototypes
@@ -70,20 +64,20 @@ volatile bool rxThresholdEventReceived = false;
 // *****************************************************************************
 // *****************************************************************************
 
-void usartReadEventHandler(FLEXCOM_USART_EVENT event, uintptr_t context )
+void dbguReadEventHandler(FLEXCOM_USART_EVENT event, uintptr_t context )
 {
     uint32_t nBytesAvailable = 0;
     
     if (event == FLEXCOM_USART_EVENT_READ_THRESHOLD_REACHED)
     {
-        /* Receiver should atleast have the thershold number of bytes in the ring buffer */
-        nBytesAvailable = FLEXCOM5_USART_ReadCountGet();
+        /* Receiver should atleast have the threshold number of bytes in the ring buffer */
+        nBytesAvailable = FLEXCOM7_USART_ReadCountGet();
         
-        nBytesRead += FLEXCOM5_USART_Read((uint8_t*)&rxBuffer[nBytesRead], nBytesAvailable);                          
+        nBytesRead += FLEXCOM7_USART_Read((uint8_t*)&rxBuffer[nBytesRead], nBytesAvailable);                          
     }
 }
 
-void usartWriteEventHandler(FLEXCOM_USART_EVENT event, uintptr_t context )
+void dbguWriteEventHandler(FLEXCOM_USART_EVENT event, uintptr_t context )
 {
     txThresholdEventReceived = true;
 }
@@ -96,38 +90,38 @@ int main ( void )
     SYS_Initialize ( NULL );          
     
     /* Register a callback for write events */
-    FLEXCOM5_USART_WriteCallbackRegister(usartWriteEventHandler, (uintptr_t) NULL);
+    FLEXCOM7_USART_WriteCallbackRegister(dbguWriteEventHandler, (uintptr_t) NULL);
     
     /* Register a callback for read events */
-    FLEXCOM5_USART_ReadCallbackRegister(usartReadEventHandler, (uintptr_t) NULL);              
+    FLEXCOM7_USART_ReadCallbackRegister(dbguReadEventHandler, (uintptr_t) NULL);              
     
     /* Print the size of the read buffer on the terminal */
-    nBytes = sprintf((char*)txBuffer, "RX Buffer Size = %d\r\n", (int)FLEXCOM5_USART_ReadBufferSizeGet());
+    nBytes = sprintf((char*)txBuffer, "RX Buffer Size = %d\r\n", (int)FLEXCOM7_USART_ReadBufferSizeGet());
     
-    FLEXCOM5_USART_Write((uint8_t*)txBuffer, nBytes);  
+    FLEXCOM7_USART_Write((uint8_t*)txBuffer, nBytes);  
     
     /* Print the size of the write buffer on the terminal */
-    nBytes = sprintf((char*)txBuffer, "TX Buffer Size = %d\r\n", (int)FLEXCOM5_USART_WriteBufferSizeGet());
+    nBytes = sprintf((char*)txBuffer, "TX Buffer Size = %d\r\n", (int)FLEXCOM7_USART_WriteBufferSizeGet());
     
-    FLEXCOM5_USART_Write((uint8_t*)txBuffer, nBytes);    
+    FLEXCOM7_USART_Write((uint8_t*)txBuffer, nBytes);    
     
-    FLEXCOM5_USART_Write((uint8_t*)"Adding 10 characters to the TX buffer - ", sizeof("Adding 10 characters to the TX buffer - "));    
+    FLEXCOM7_USART_Write((uint8_t*)"Adding 10 characters to the TX buffer - ", sizeof("Adding 10 characters to the TX buffer - "));    
     
     /* Wait for all bytes to be transmitted out */
-    while (FLEXCOM5_USART_WriteCountGet() != 0);    
+    while (FLEXCOM7_USART_WriteCountGet() != 0);    
     
-    FLEXCOM5_USART_Write((uint8_t*)"0123456789", 10);           
+    FLEXCOM7_USART_Write((uint8_t*)"0123456789", 10);           
         
     /* Print the amount of free space available in the TX buffer. This should be 10 bytes less than the configured write buffer size. */
-    nBytes = sprintf((char*)txBuffer, "\r\nFree Space in Transmit Buffer = %d\r\n", (int)FLEXCOM5_USART_WriteFreeBufferCountGet());
+    nBytes = sprintf((char*)txBuffer, "\r\nFree Space in Transmit Buffer = %d\r\n", (int)FLEXCOM7_USART_WriteFreeBufferCountGet());
 
-    FLEXCOM5_USART_Write((uint8_t*)txBuffer, nBytes);    
+    FLEXCOM7_USART_Write((uint8_t*)txBuffer, nBytes);    
     
     /* Let's enable notifications to get notified when the TX buffer is empty */
-    FLEXCOM5_USART_WriteThresholdSet(FLEXCOM5_USART_WriteBufferSizeGet());   
+    FLEXCOM7_USART_WriteThresholdSet(FLEXCOM7_USART_WriteBufferSizeGet());   
     
     /* Enable notifications */
-    FLEXCOM5_USART_WriteNotificationEnable(true, false);
+    FLEXCOM7_USART_WriteNotificationEnable(true, false);
    
     /* Wait for the TX buffer to become empty. Flag "txThresholdEventReceived" is set in the callback. */
     while (txThresholdEventReceived == false);
@@ -135,27 +129,27 @@ int main ( void )
     txThresholdEventReceived = false;    
     
     /* Disable TX notifications */
-    FLEXCOM5_USART_WriteNotificationEnable(false, false);
+    FLEXCOM7_USART_WriteNotificationEnable(false, false);
     
-    FLEXCOM5_USART_Write((uint8_t*)"Enter 10 characters. The received characters are echoed back. \r\n>", sizeof("Enter 10 characters. The received characters are echoed back. \r\n>"));               
+    FLEXCOM7_USART_Write((uint8_t*)"Enter 10 characters. The received characters are echoed back. \r\n>", sizeof("Enter 10 characters. The received characters are echoed back. \r\n>"));               
             
     /* Wait till 10 (or more) characters are received */
-    while (FLEXCOM5_USART_ReadCountGet() < 10);
+    while (FLEXCOM7_USART_ReadCountGet() < 10);
     
     /* At-least 10 characters are available in the RX buffer. Read out into the application buffer */
-    FLEXCOM5_USART_Read((uint8_t*)rxBuffer, 10);  
+    FLEXCOM7_USART_Read((uint8_t*)rxBuffer, 10);  
     
     /* Echo the received data */
-    FLEXCOM5_USART_Write((uint8_t*)rxBuffer, 10);    
+    FLEXCOM7_USART_Write((uint8_t*)rxBuffer, 10);    
     
     /* Now demonstrating receiver notifications */
-    FLEXCOM5_USART_Write((uint8_t*)"\r\n Now turning on RX notifications \r\n>", sizeof("\r\n Now turning on RX notifications \r\n>"));
+    FLEXCOM7_USART_Write((uint8_t*)"\r\n Now turning on RX notifications \r\n>", sizeof("\r\n Now turning on RX notifications \r\n>"));
     
     /* For demonstration purpose, set a threshold value to receive a callback after every 5 characters are received */
-    FLEXCOM5_USART_ReadThresholdSet(5);
+    FLEXCOM7_USART_ReadThresholdSet(5);
     
     /* Enable RX event notifications */
-    FLEXCOM5_USART_ReadNotificationEnable(true, false);
+    FLEXCOM7_USART_ReadNotificationEnable(true, false);
                    
     while(1)
     {
@@ -163,9 +157,9 @@ int main ( void )
         while (nBytesRead < 10);    
     
         /* Echo the received data */
-        FLEXCOM5_USART_Write((uint8_t*)rxBuffer, nBytesRead);
+        FLEXCOM7_USART_Write((uint8_t*)rxBuffer, nBytesRead);
         
-        FLEXCOM5_USART_Write((uint8_t*)"\r\n>", 3);
+        FLEXCOM7_USART_Write((uint8_t*)"\r\n>", 3);
 
         nBytesRead = 0;
     }
@@ -174,6 +168,7 @@ int main ( void )
 
     return ( EXIT_FAILURE );
 }
+
 
 /*******************************************************************************
  End of File
