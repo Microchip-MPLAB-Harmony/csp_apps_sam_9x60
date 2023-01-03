@@ -27,7 +27,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x60_ek.X | MPLABX project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | MPLABX project for [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -40,42 +40,33 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x60_ek.X | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
-### Setting up [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)
+### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A)
 
 #### Addtional hardware required
 
 - SD Card with FAT32 file system
 
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x60_ek.X/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the SD card
-
 #### Setting up the board
 
-- Use jumper wire to Connect "Pin 19 of J16 Connector" to "Pin 21 of J16 Connector"
-  - FLEXCOM4 MOSI signal is mapped to PA12 that is routed to "Pin 19 of J16 Connector"
-  - FLEXCOM4 MISO signal is mapped to PA11 that is routed to "Pin 21 of J16 Connector"
-- SDMMC slot used for bootloading the application is SDMMC0 (J4)
-- Connect the USB port J22 on board to the computer using a micro USB cable (to enable debug com port)
-- Connect the USB port J7 on board to the computer using a micro USB cable (to power the board)
-- *NOTE - Reset push button is labelled as SW3*
+- Use jumper wire to Connect "Pin 5 of J8 Connector" to "Pin 6 of J8 Connector"
+  - FLEXCOM5 MOSI signal is mapped to PA22 that is routed to "Pin 6 of J8 Connector"
+  - FLEXCOM5 MISO signal is mapped to PA21 that is routed to "Pin 5 of J8 Connector"
+- Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).
+- Connect programmer(J-32 Debugger) to computer using a micro USB cable. 
+- Connect the USB port J1 on board to the computer using a micro USB cable (to power the board).
 
 ## Running the Application
 
-1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Reset the board to run the application
-5. LED indicates the success or failure:
+1. Build and Program the application using its IDE.
+2. LED indicates the success or failure:
     - The LED is turned ON when the received data matches the transmitted data
 
 Following table provides the LED name:
 
 | Board      | LED Name                                    |
 | ----------------- | ---------------------------------------------- |
-| [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) | RGB_LED(Green)  |
+| [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) | RGB_LED(Green)  |
 |||

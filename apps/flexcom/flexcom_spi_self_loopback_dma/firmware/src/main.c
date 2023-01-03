@@ -61,8 +61,8 @@
 #define DMA_CHANNEL_RECEIVE             XDMAC_CHANNEL_0
 #define DMA_CHANNEL_TRANSMIT            XDMAC_CHANNEL_1
 
-#define SPI1_RX_ADDR                    &(FLEXCOM4_REGS->FLEX_SPI_RDR)
-#define SPI1_TX_ADDR                    &(FLEXCOM4_REGS->FLEX_SPI_TDR)
+#define SPI1_RX_ADDR                    &(FLEXCOM5_REGS->FLEX_SPI_RDR)
+#define SPI1_TX_ADDR                    &(FLEXCOM5_REGS->FLEX_SPI_TDR)
 
 #define LED_ON()                        LED_GREEN_Set()
 #define LED_OFF()                       LED_GREEN_Clear()
@@ -141,7 +141,7 @@ static void APP_DMA_RxCallbackHandler(XDMAC_TRANSFER_EVENT event, uintptr_t cont
     else
     {
         /* Make sure the shift register is empty before de-asserting the CS line */
-        while (FLEXCOM4_SPI_IsBusy());
+        while (FLEXCOM5_SPI_IsBusy());
         
         /* Disable CS */
         SPI_CS_Set();
