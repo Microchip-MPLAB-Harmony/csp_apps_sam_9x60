@@ -49,6 +49,7 @@ The following table shows the target hardware for the application projects.
 - Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).
 - Connect programmer(J-32 Debugger) to computer using a micro USB cable. 
 - Connect the USB port J1 on board to the computer using a micro USB cable (to power the board)
+- Conect the UART Debug port J11 to computer using a FTDI Cable.
 
 ## Running the Application
 
