@@ -26,9 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x60d1g_ek.X | MPLABX project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
-| sam_9x60_ek.X | MPLABX project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
-| sam_9x60_ek_iar.IAR/dbgu_echo_blocking_sam_9x60_ek_iar.eww | IAR project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | MPLABX project for [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -41,48 +39,38 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x60d1g_ek.X <br> sam_9x60_ek.X <br> sam_9x60_ek_iar.IAR/dbgu_echo_blocking_sam_9x60_ek_iar.eww | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
-### Setting up [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)
+### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) 
 
 #### Addtional hardware required
 
-- SD Card with FAT32 file system
-
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x60_ek.X/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the SD card
-
 #### Setting up the board
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J4)
-- Connect the USB port J22 on board to the computer using a micro USB cable (to enable debug com port)
-- Connect the USB port J7 on board to the computer using a micro USB cable (to power the board)
-- *NOTE - Reset push button is labelled as SW3*
+- Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).
+- Connect programmer(J-32 Debugger) to computer using a micro USB cable. 
+- Connect the USB port J1 on board to the computer using a micro USB cable (to power the board).
+- Conect the UART Debug port J11 to computer using a FTDI Cable. 
 
 ## Running the Application
 
-1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Open the Terminal application (Ex.:Tera term) on the computer.
-5. Connect to the EDBG/Jlink Virtual COM port and configure the serial settings as follows:
+1. Open the Terminal application (Ex.:Tera term) on the computer.
+2. Connect to the USB Serial COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None
     - Stop : 1 Bit
     - Flow Control : None
-6. Reset the board to run the application
-7. Type a line of characters and press the Enter key
-8. Entered line will be echoed back and the LED is toggled
+3. Build and Program the application using its IDE.
+4. Type a line of characters in terminal and press the Enter key
+5. Entered line will be echoed back and the LED is toggled
 
 Refer to the following table for LED name:
 
 | Board      | LED Name                                    |
 | ----------------- | ---------------------------------------------- |
-| [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) | RGB_LED(Green)  |
+| [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) | RGB_LED(Green)  |
 |||
 
 
