@@ -129,7 +129,7 @@ int main ( void )
             case APP_STATE_INITIALIZE:
                 EEPROM_Initialize();
                 /* Register callback with the FLEXCOM SPI PLIB */
-                FLEXCOM4_SPI_CallbackRegister(&FLEXCOM_SPI_EventHandler, (uintptr_t)0);
+                FLEXCOM5_SPI_CallbackRegister(&FLEXCOM_SPI_EventHandler, (uintptr_t)0);
                 state = APP_STATE_EEPROM_WRITE_ENABLE;
                 break;
 
@@ -137,7 +137,7 @@ int main ( void )
                 // Enable Writes to EEPROM
                 txData[0] = EEPROM_CMD_WREN;
                 EEPROM_CS_Clear();
-                FLEXCOM4_SPI_Write(txData, 1);
+                FLEXCOM5_SPI_Write(txData, 1);
                 state = APP_STATE_EEPROM_WRITE;
                 break;
 
@@ -153,7 +153,7 @@ int main ( void )
                     //Copy the data to be written to EEPROM
                     memcpy(&txData[4], EEPROM_DATA, EEPROM_DATA_LEN);
                     EEPROM_CS_Clear();
-                    FLEXCOM4_SPI_Write(txData, (4 + EEPROM_DATA_LEN));
+                    FLEXCOM5_SPI_Write(txData, (4 + EEPROM_DATA_LEN));
                     state = APP_STATE_EEPROM_READ_STATUS;
                 }
                 break;
@@ -165,7 +165,7 @@ int main ( void )
                     /* Read the status of the internal write operation  */
                     txData[0] = EEPROM_CMD_RDSR;
                     EEPROM_CS_Clear();
-                    FLEXCOM4_SPI_WriteRead(txData, 1, rxData, 2);
+                    FLEXCOM5_SPI_WriteRead(txData, 1, rxData, 2);
                     state = APP_STATE_EEPROM_CHECK_STATUS;
                 }
                 break;
@@ -184,7 +184,7 @@ int main ( void )
                         // Keep reading the status of the internal write operation
                         txData[0] = EEPROM_CMD_RDSR;
                         EEPROM_CS_Clear();
-                        FLEXCOM4_SPI_WriteRead(txData, 1, rxData, 2);
+                        FLEXCOM5_SPI_WriteRead(txData, 1, rxData, 2);
                     }
                 }
                 break;
@@ -198,7 +198,7 @@ int main ( void )
                 txData[3] = (uint8_t)(eepromAddr);
 
                 EEPROM_CS_Clear();
-                FLEXCOM4_SPI_WriteRead(txData, 4, rxData, (4 + EEPROM_DATA_LEN));
+                FLEXCOM5_SPI_WriteRead(txData, 4, rxData, (4 + EEPROM_DATA_LEN));
                 state = APP_STATE_DATA_COMPARISON;
 
                 break;
