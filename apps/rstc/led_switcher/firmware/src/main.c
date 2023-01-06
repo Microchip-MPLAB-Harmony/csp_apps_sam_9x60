@@ -73,7 +73,7 @@ const char * message[ MsgSentinel ] = {
     "",                                                                         // MsgNone
     "\r\n-------------------------------------------------------------\r\n",    // MsgBannerBreak
     "                          RSTC DEMO",                                      // MsgBannerTitle
-    "Press the SW3 switch to create the user reset input\r\n",                  // MsgSw3Prompt
+    "Press the RESET switch to create the user reset input\r\n",                  // MsgSw3Prompt
     "   The interrupt handler will change the LED and user message\r\n\r\n",    // MsgInputResult
     "RSTC reset interrupt occurred\r\n",                                        // MsgRstcResetInterruptOccurred
 };

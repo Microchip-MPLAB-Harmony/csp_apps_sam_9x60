@@ -27,8 +27,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x60_ek.X | MPLABX project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
-| sam_9x60_ek_iar.IAR/rstc_led_switcher_sam_9x60_ek_iar.eww | IAR project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | MPLABX project for [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -41,10 +40,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x60_ek.X <br> sam_9x60_ek_iar.IAR/rstc_led_switcher_sam_9x60_ek_iar.eww | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
-### Setting up [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)
+### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A)
 
 #### Addtional hardware required
 
@@ -57,10 +56,11 @@ The following table shows the target hardware for the application projects.
 
 #### Setting up the board
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J4)
-- Connect the USB port J22 on board to the computer using a micro USB cable (to enable debug com port)
-- Connect the USB port J7 on board to the computer using a micro USB cable (to power the board)
-- *NOTE - Reset push button is labelled as SW3*
+- SDMMC slot used for bootloading the application is SDMMC0 (J3)
+- Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).
+- Connect programmer(J-32 Debugger) to computer using a micro USB cable. 
+- Connect the USB port J1 on board to the computer using a micro USB cable (to power the board).
+- Conect the UART Debug port J11 to computer using a FTDI Cable.
 
 ## Running the Application
 
@@ -75,6 +75,6 @@ Refer to the following table for LED name:
 
 | Board      | LED Name                                    |
 | ----------------- | ---------------------------------------------- |
-| [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) | RGB_LED toggles between green and blue color for every switch press  |
+| [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) | RGB_LED toggles between green and blue color for every switch press  |
 |||
 
