@@ -86,7 +86,7 @@ const char * message[ MsgSentinel ] = {
     "\r\n-------------------------------------------------------------\r\n",    // MsgBannerBreak
     "                          RSTC DEMO",                                      // MsgBannerTitle
     "Press SW1 to create a process starvation and a watch dog reset\r\n",       // MsgSw1Prompt
-    "Press the SW3 switch to create the user reset input\r\n",                  // MsgSw3Prompt
+    "Press the RESET switch to create the user reset input\r\n",                  // MsgSw3Prompt
     "   The SW1 interrupt handler will change the LED and user message\r\n\r\n",// MsgSwInputResult
     "Petting watch dog...\r\n",                                                 // MsgPettingWatchDog
     "Petting watch dog STOPPED!...\r\n",                                        // MsgPettingWatchDogStopped
