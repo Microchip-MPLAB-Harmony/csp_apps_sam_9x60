@@ -1,5 +1,22 @@
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+ System Interrupts File
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    interrupt.h
+
+  Summary:
+    Interrupt vectors mapping
+
+  Description:
+    This file contains declarations of device vectors used by Harmony 3
+ *******************************************************************************/
+
+// DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -19,71 +36,31 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
-
-/*******************************************************************************
-  Main Source File
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    main.c
-
-  Summary:
-    This file contains the "main" function for a project.
-
-  Description:
-    This file contains the "main" function for a project.  The
-    "main" function calls the "SYS_Initialize" function to initialize the state
-    machines of all modules in the system
  *******************************************************************************/
+// DOM-IGNORE-END
+
+#ifndef INTERRUPTS_H
+#define INTERRUPTS_H
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
+#include <stdint.h>
 
-#include <stddef.h>                     // Defines NULL
-#include <stdbool.h>                    // Defines true
-#include <stdlib.h>                     // Defines EXIT_FAILURE
-#include "definitions.h"                // SYS function prototypes
+
 
 // *****************************************************************************
 // *****************************************************************************
-// This demo project generates one PWM outputs with a period of 10ms and
-// 75% duty cycle. PWM signal is output through PINS PA22 (TX pin on Mikrobus
-// connector. 
+// Section: Handler Routines
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Main Entry Point
-// *****************************************************************************
-// *****************************************************************************
-
-int main ( void )
-{
-    /* Initialize all modules */
-    SYS_Initialize ( NULL );
-    
-    TC0_CH1_CompareStart();
-
-    while ( true )
-    {
-        /* Maintain state machines of all polled MPLAB Harmony modules. */
-        SYS_Tasks ( );
-    }
-
-    /* Execution should not come here during normal operation */
-
-    return ( EXIT_FAILURE );
-}
 
 
-/*******************************************************************************
- End of File
-*/
+/* Interrupt Handler for spurious interrupts */
+void SPURIOUS_INTERRUPT_Handler (void);
 
+
+#endif // INTERRUPTS_H

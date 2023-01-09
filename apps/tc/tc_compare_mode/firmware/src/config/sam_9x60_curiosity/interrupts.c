@@ -1,5 +1,26 @@
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+ System Interrupts File
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    interrupt.c
+
+  Summary:
+    Interrupt vectors mapping
+
+  Description:
+    This file maps all the interrupt vectors to their corresponding
+    implementations. If a particular module interrupt is used, then its ISR
+    definition can be found in corresponding PLIB source file. If a module
+    interrupt is not used, then its ISR implementation is mapped to dummy
+    handler.
+ *******************************************************************************/
+
+// DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -19,25 +40,8 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
-
-/*******************************************************************************
-  Main Source File
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    main.c
-
-  Summary:
-    This file contains the "main" function for a project.
-
-  Description:
-    This file contains the "main" function for a project.  The
-    "main" function calls the "SYS_Initialize" function to initialize the state
-    machines of all modules in the system
  *******************************************************************************/
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
@@ -45,45 +49,27 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#include <stddef.h>                     // Defines NULL
-#include <stdbool.h>                    // Defines true
-#include <stdlib.h>                     // Defines EXIT_FAILURE
-#include "definitions.h"                // SYS function prototypes
+#include "interrupts.h"
+#include "definitions.h"
+
 
 // *****************************************************************************
 // *****************************************************************************
-// This demo project generates one PWM outputs with a period of 10ms and
-// 75% duty cycle. PWM signal is output through PINS PA22 (TX pin on Mikrobus
-// connector. 
+// Section: System Interrupt Vector Functions
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Main Entry Point
-// *****************************************************************************
-// *****************************************************************************
+/* Handlers for vectors that are shared by multiple interrupts */
 
-int main ( void )
+
+/* Weak default handler for spurious interrupts */
+void __attribute__((weak)) SPURIOUS_INTERRUPT_Handler(void)
 {
-    /* Initialize all modules */
-    SYS_Initialize ( NULL );
-    
-    TC0_CH1_CompareStart();
-
-    while ( true )
-    {
-        /* Maintain state machines of all polled MPLAB Harmony modules. */
-        SYS_Tasks ( );
-    }
-
-    /* Execution should not come here during normal operation */
-
-    return ( EXIT_FAILURE );
+    static uint32_t spuriousEventCount = 0U;
+    ++spuriousEventCount;
 }
 
 
 /*******************************************************************************
  End of File
 */
-
