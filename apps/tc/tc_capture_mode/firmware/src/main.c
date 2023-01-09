@@ -78,14 +78,8 @@ int main ( void )
     uint16_t period, on_time, off_time;
     uint16_t pwm_period, pwm_duty=0; 
     
-    RTC_REGS->RTC_TIMR = 0x0;
-    RTC_REGS->RTC_TIMALR = 0x0;
-    RTC_REGS->RTC_SCCR = 0x1f;
-  
     /* Initialize all modules */
     SYS_Initialize ( NULL );
-    
-    WILC_EN_Clear();
     
     pwm_period = PWM_ChannelPeriodGet(PWM_CHANNEL_0);
     TC0_CH0_CaptureStart();
