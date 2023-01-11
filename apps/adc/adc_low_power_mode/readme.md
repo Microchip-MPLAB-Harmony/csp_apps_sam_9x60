@@ -17,7 +17,7 @@ Conversion of the three analog inputs is triggered from software trigger at ever
 
 | Board |
 | ----- |
-| [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 
 Analog input voltage in the range of 0 V to 3.3 V is fed to the ADC input channel AD0, AD1 and AD2. Sleep mode is enabled and Fast Wake up value is selected. ADC conversion result is displayed on the console.
 
@@ -32,7 +32,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x60_ek.X | MPLABX project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | MPLABX project for [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 
 ## Setting up AT91Bootstrap loader
 
@@ -44,10 +44,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x60_ek.X | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
-### Setting up [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)
+### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A)
 
 #### Addtional hardware required
 
@@ -60,13 +60,12 @@ The following table shows the target hardware for the application projects.
 
 #### Setting up the board
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J4)
-- Connect the USB port J22 on board to the computer using a micro USB cable (to enable debug com port)
-- Connect the USB port J7 on board to the computer using a micro USB cable (to power the board)
-- Use a jumper wire to connect Pin 32 of J16 (AD0 is mapped to Port Pin PB11) to 3.3 V or GND
-- Use a jumper wire to connect Pin 33 of J16 (AD1 is mapped to Port Pin PB12) to 3.3 V or GND
-- Use a jumper wire to connect Pin 31 of J16 (AD2 is mapped to Port Pin PB13) to 3.3 V or GND
-- *NOTE - Reset push button is labelled as SW3*
+- SDMMC slot used for bootloading the application is SDMMC0 (J3)
+- Connect the USB port J1 on board to the computer using a micro USB cable (to power the board).
+- Use a jumper wire to connect Pin 29 of J9 (AD0 is mapped to Port Pin PB11) to 3.3 V or GND
+- Use a jumper wire to connect Pin 32 of J9 (AD1 is mapped to Port Pin PB12) to 3.3 V or GND
+- Use a jumper wire to connect Pin 16 of J8 (AD2 is mapped to Port Pin PB13) to 3.3 V or GND
+- Use a FTDI cable to connect J11 connector to computer. 
 
 ## Running the Application
 
