@@ -26,8 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x60_ek.X | MPLABX project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
-| sam_9x60_ek_iar.IAR | IAR project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | MPLABX project for [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -40,53 +39,39 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x60_ek.X <br> sam_9x60_ek_iar.IAR | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
-### Setting up [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)
+### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A)
 
-#### Addtional hardware required
+- Connect SAM9X60 Curiosity Development Board to another SAM9X60 Curiosity Development Board as per the pin connections shown below
 
-- SD Card with FAT32 file system
-
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x60_ek.X/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the SD card
-
-#### Setting up the board
-
-- SDMMC slot used for bootloading the application is SDMMC0 (J4)
-- Connect SAM9X60-EK Evaluation Kit to another SAM9X60-EK Evaluation Kit as per the pin connections shown below
-
-    | SAM9X60-EK - 1      | SAM9X60-EK - 2     |
-    | ------------------  | ------------------ |
-    | CAN_H, PIN 4 of J6  | CAN_H, PIN 4 of J6 |
-    | CAN_L, PIN 4 of J6  | CAN_L, PIN 4 of J6 |
-    | GND, PIN 4 of J6    | GND, PIN 4 of J6   |
+    | SAM9X60-Curiosity - 1 | SAM9X60-Curiosity - 2     |
+    | --------------------- | ------------------------- |
+    | CAN_H, PIN 4 of J7    | CAN_H, PIN 4 of J7        |
+    | CAN_L, PIN 5 of J7    | CAN_L, PIN 5 of J7        |
+    | GND, PIN 3 of J7      | GND, PIN 3 of J7          |
     |||
 
-- Connect the USB port J22 on each board to the computer using a micro USB cable (to enable debug com port)
-- Connect the USB port J7 on each board to the computer using a micro USB cable (to power the board)
-- *NOTE - Reset push button is labelled as SW3*
+- Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).
+- Connect programmer(J-32 Debugger) to computer using a micro USB cable. 
+- Connect the USB port J1 on each board to the computer using a micro USB cable (to power the board).
+- Connect FTDI cables from J11 connector to computer in each board.
 
 ## Running the Application
 
-1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Cards (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the boards (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Open the Terminal application (Ex.:Tera term) on the computer.
-5. Connect to the EDBG/Jlink Virtual COM ports associated with each board and configure the serial settings as follows:
+1. Open the Terminal application (Ex.:Tera term) on the computer.
+2. Connect to the EDBG/Jlink Virtual COM ports associated with each board and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None
     - Stop : 1 Bit
     - Flow Control : None
-6. Reset the board to run the application
-7. In the console associated with board 2, press "2" to receive a CAN message
-8. In the console associated with board 1, press "1" to transmit a CAN  message
-9. Transmitted message description and status will be displayed in the console window of board 1
-10. Received message will be displayed in the console window of board 2
+3. Build and program the application on both the boards using its IDE
+4. In the console associated with board 2, press "2" to receive a CAN message
+5. In the console associated with board 1, press "1" to transmit a CAN  message
+6. Transmitted message description and status will be displayed in the console window of board 1
+7. Received message will be displayed in the console window of board 2
 11. LED toggles at each message transmission or reception
 12. If the steps are executed in this sequence, the final output in the consoles will be as below (console on the left is the transmitter (board 1) and the one on the right is receiver (board 2)):
 
@@ -96,5 +81,5 @@ Refer to the following table for LED name:
 
 | Board | LED Name |
 | ----- | -------- |
-|  [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)  | RGB_LED(Green)  |
+|  [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A)  | RGB_LED(Green)  |
 |||
