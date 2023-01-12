@@ -102,9 +102,7 @@ int main ( void )
     int timer_count = 0;
     /* Initialize all modules */
     SYS_Initialize ( NULL );
-    LED_BLUE_Set();
-    LED_RED_Clear();
-    LED_GREEN_Clear();
+    
     PIT64B_TimerCallbackSet(pit_callback, (uintptr_t)&timer_count);
     PIT64B_TimerStart();
     ramcode_init();
