@@ -61,7 +61,7 @@ char newline[] = "\r\n";
 char errorMessage[] = "\r\n**** DBGU error has occurred ****\r\n";
 char receiveBuffer[RX_BUFFER_SIZE];
 uint8_t rxCounter = 0;
-char data = 0;
+static char data = 0;
 
 // *****************************************************************************
 // *****************************************************************************

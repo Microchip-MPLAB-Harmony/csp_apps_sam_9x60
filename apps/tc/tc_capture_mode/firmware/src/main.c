@@ -54,7 +54,7 @@
 #define DUTY_VAL_INCREMENT (100U)
 
 /* Calculated duty cycle of the input waveform in %*/
-float duty;
+static float duty;
 /* Calculated frequency of the input waveform in Hz*/
 float frequency;
 
