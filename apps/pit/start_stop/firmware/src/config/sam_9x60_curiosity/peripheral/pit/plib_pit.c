@@ -47,6 +47,7 @@
 #include <stddef.h>
 #include "device.h"
 #include "plib_pit.h"
+#include "interrupts.h"
 
 #define PIT_COUNTER_FREQUENCY       (200000000U / 16U)
 
