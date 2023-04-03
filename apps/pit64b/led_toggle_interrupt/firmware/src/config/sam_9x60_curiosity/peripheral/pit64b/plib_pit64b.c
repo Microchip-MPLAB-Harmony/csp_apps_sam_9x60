@@ -41,6 +41,7 @@
 
 #include <stddef.h>
 #include "plib_pit64b.h"
+#include "interrupts.h"
 
 #define PIT64B_COUNTER_FREQUENCY (200000000U / 1U)
 
