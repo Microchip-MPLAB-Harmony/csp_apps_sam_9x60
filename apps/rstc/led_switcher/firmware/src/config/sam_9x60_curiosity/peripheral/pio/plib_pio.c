@@ -45,14 +45,6 @@
 #include "interrupts.h"
 
 
-#define PIO_MAX_NUM_OF_CHANNELS     5U
-
-/* Array to store callback objects of each configured interrupt */
-static PIO_PIN_CALLBACK_OBJ portPinCbObj[0 + 0 + 0 + 0 + 0];
-
-/* Array to store number of interrupts in each PORT Channel + previous interrupt count */
-static uint8_t portNumCb[PIO_MAX_NUM_OF_CHANNELS + 1] = {0U, 0U, 0U, 0U, 0U, 0U};
- void PIO_Interrupt_Handler ( PIO_PORT port );
 
 /******************************************************************************
   Function:
@@ -94,13 +86,12 @@ void PIO_Initialize ( void )
     /* PORTB Pull Up Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_B)->PIO_PUDR = 0xFFFFFFFFU;
     /* PORTB Pull Down Enable/Disable as per MHC selection */
-    ((pio_registers_t*)PIO_PORT_B)->PIO_PPDDR = ~0x3800U;
-    ((pio_registers_t*)PIO_PORT_B)->PIO_PPDER = 0x3800U;
+    ((pio_registers_t*)PIO_PORT_B)->PIO_PPDDR = 0xFFFFFFFFU;
     /* PORTB Output Write Enable */
     ((pio_registers_t*)PIO_PORT_B)->PIO_OWER = PIO_OWER_Msk;
     /* PORTB Output Direction Enable */
-    ((pio_registers_t*)PIO_PORT_B)->PIO_OER = 0x3800U;
-    ((pio_registers_t*)PIO_PORT_B)->PIO_ODR = ~0x3800U;
+    ((pio_registers_t*)PIO_PORT_B)->PIO_OER = 0x0U;
+    ((pio_registers_t*)PIO_PORT_B)->PIO_ODR = ~0x0U;
     /* Initialize PORTB pin state */
     ((pio_registers_t*)PIO_PORT_B)->PIO_ODSR = 0x0U;
     /* PORTB Slew rate control */
@@ -131,8 +122,7 @@ void PIO_Initialize ( void )
     ((pio_registers_t*)PIO_PORT_D)->PIO_PER = 0xFFFFFFFFU;
     ((pio_registers_t*)PIO_PORT_D)->PIO_MDDR = 0xFFFFFFFFU;
     /* PORTD Pull Up Enable/Disable as per MHC selection */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_PUDR = ~0x40000U;
-    ((pio_registers_t*)PIO_PORT_D)->PIO_PUER = 0x40000U;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_PUDR = 0xFFFFFFFFU;
     /* PORTD Pull Down Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_D)->PIO_PPDDR = 0xFFFFFFFFU;
     /* PORTD Output Write Enable */
@@ -142,29 +132,11 @@ void PIO_Initialize ( void )
     ((pio_registers_t*)PIO_PORT_D)->PIO_ODR = ~0x2a0000U;
     /* Initialize PORTD pin state */
     ((pio_registers_t*)PIO_PORT_D)->PIO_ODSR = 0x0U;
-    /* PORTD Additional interrupt mode Enable */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_AIMER = 0x40000U;
-    /* PORTD Rising Edge or High Level Interrupt Enable */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_REHLSR = 0x40000U;
-    /* PORTD Interrupt Status Clear */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_ISR;
-    /* PORTD system level interrupt will be enabled by NVIC Manager */
-    /* PORTD module level Interrupt for every pin has to be enabled by user
-       by calling PIO_PinInterruptEnable() API dynamically as and when needed*/
-    /* PORTD Glitch/Debounce Filter Enable */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_IFER = 0x40000U;
-    ((pio_registers_t*)PIO_PORT_D)->PIO_IFSCER = 0x40000U;
     /* PORTD Slew rate control */
     ((pio_registers_t*)PIO_PORT_D)->PIO_SLEWR = 0x0U;
     /* PORTD drive control */
     ((pio_registers_t*)PIO_PORT_D)->PIO_DRIVER = 0x0U;
 
-    uint32_t i;
-    /* Initialize Interrupt Pin data structures */
-    for(i=0U; i<0U; i++)
-    {
-        portPinCbObj[i].callback = NULL;
-    }
 }
 
 // *****************************************************************************
@@ -306,144 +278,8 @@ void PIO_PortOutputEnable(PIO_PORT port, uint32_t mask)
     ((pio_registers_t*)port)->PIO_OER = mask;
 }
 
-// *****************************************************************************
-/* Function:
-    void PIO_PortInterruptEnable(PIO_PORT port, uint32_t mask)
-
-  Summary:
-    Enables IO interrupt on selected IO pins of a port.
-
-  Remarks:
-    See plib_pio.h for more details.
-*/
-void PIO_PortInterruptEnable(PIO_PORT port, uint32_t mask)
-{
-    ((pio_registers_t*)port)->PIO_IER = mask;
-}
-
-// *****************************************************************************
-/* Function:
-    void PIO_PortInterruptDisable(PIO_PORT port, uint32_t mask)
-
-  Summary:
-    Disables IO interrupt on selected IO pins of a port.
-
-  Remarks:
-    See plib_pio.h for more details.
-*/
-void PIO_PortInterruptDisable(PIO_PORT port, uint32_t mask)
-{
-    ((pio_registers_t*)port)->PIO_IDR = mask;
-}
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: PIO APIs which operates on one pin at a time
-// *****************************************************************************
-// *****************************************************************************
-
-// *****************************************************************************
-/* Function:
-    bool PIO_PinInterruptCallbackRegister(
-        PIO_PIN pin,
-        const PIO_PIN_CALLBACK callback,
-        uintptr_t context
-    );
-
-  Summary:
-    Allows application to register callback for configured pin.
-
-  Remarks:
-    See plib_pio.h for more details.
-*/
-bool PIO_PinInterruptCallbackRegister(
-    PIO_PIN pin,
-    const PIO_PIN_CALLBACK callback,
-    uintptr_t context
-)
-{
-    uint8_t i;
-    uint8_t portIndex;
-
-    portIndex = (uint8_t)pin >> 5U;
-
-    for(i = portNumCb[portIndex]; i < portNumCb[portIndex +1U]; i++)
-    {
-        if (portPinCbObj[i].pin == pin)
-        {
-            portPinCbObj[i].callback = callback;
-            portPinCbObj[i].context  = context;
-            return true;
-        }
-    }
-    return false;
-}
-// *****************************************************************************
-// *****************************************************************************
-// Section: Local Function Implementation
-// *****************************************************************************
-// *****************************************************************************
-
-// *****************************************************************************
-/* Function:
-    void PIO_Interrupt_Handler ( PIO_PORT port )
-
-  Summary:
-    Interrupt handler for a selected port.
-
-  Description:
-    This function defines the Interrupt handler for a selected port.
-
-  Remarks:
-	It is an internal function used by the library, user should not call it.
-*/
-void PIO_Interrupt_Handler ( PIO_PORT port )
-{
-    uint32_t status;
-    uint32_t i, portIndex;
-
-    status  = ((pio_registers_t*)port)->PIO_ISR;
-    status &= ((pio_registers_t*)port)->PIO_IMR;
-
-    /* get the index of the port channel: PIO_PORT_A--> 0, PIO_PORT_B--> 1 ... */
-    portIndex = (port - PIOA_BASE_ADDRESS) >> 9U;
-
-    /* Check pending events and call callback if registered */
-    for(i = portNumCb[portIndex]; i < portNumCb[portIndex +1U]; i++)
-    {
-        if(((status & (1UL << (portPinCbObj[i].pin & 0x1FU))) != 0U) && (portPinCbObj[i].callback != NULL))
-        {
-            portPinCbObj[i].callback (portPinCbObj[i].pin, portPinCbObj[i].context);
-        }
-    }
-
-}
-// *****************************************************************************
-// *****************************************************************************
-// Section: Interrupt Service Routine (ISR) Implementation(s)
-// *****************************************************************************
-// *****************************************************************************
 
 
-// *****************************************************************************
-/* Function:
-    void PIOD_InterruptHandler (void)
-
-  Summary:
-    Interrupt handler for PORTD.
-
-  Description:
-    This function defines the Interrupt service routine for PORTD.
-    This is the function which by default gets into Interrupt Vector Table.
-
-  Remarks:
-    User should not call this function.
-*/
-void PIOD_InterruptHandler(void)
-{
-    /* Local PIO Interrupt Handler */
-    PIO_Interrupt_Handler(PIO_PORT_D);
-}
 
 
 

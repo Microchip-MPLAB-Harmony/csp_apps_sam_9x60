@@ -1,5 +1,5 @@
 /*******************************************************************************
-  Reset Controller Peripheral Library, RSTC PLIB 
+  Reset Controller Peripheral Library, RSTC PLIB
 
   Company:
     Microchip Technology Inc.
@@ -45,6 +45,7 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 #include "plib_rstc.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -53,13 +54,13 @@
 // *****************************************************************************
 void RSTC_Initialize( void )
 {
-    // External reset length (1024 mSecs) 
+    // External reset length (1024 mSecs)
     uint32_t regValue = RSTC_MR_KEY_PASSWD | RSTC_MR_ERSTL( 14 );
     // Interrupt on NRST input
     regValue |= RSTC_MR_URSTIEN_Msk;
     // No reset on Slow Clock fault
-    // Reset is synchronous to slow clock 
-    // Immediate GPBR clear on tamper detection is off 
+    // Reset is synchronous to slow clock
+    // Immediate GPBR clear on tamper detection is off
 
     RSTC_REGS->RSTC_MR = regValue;
 }
@@ -67,7 +68,7 @@ void RSTC_Initialize( void )
 void RSTC_Reset( RSTC_RESET_TYPE type )
 {
     // Issue reset command and wait for command processing
-    RSTC_REGS->RSTC_CR = RSTC_CR_KEY_PASSWD | type; 
+    RSTC_REGS->RSTC_CR = RSTC_CR_KEY_PASSWD | type;
     while(( RSTC_REGS->RSTC_SR & (uint32_t)RSTC_SR_SRCMP_Msk ) != 0U)
     {
         ;   // busy wait
@@ -84,7 +85,7 @@ bool RSTC_NRSTPinRead( void )
     return (bool)(RSTC_REGS->RSTC_SR & RSTC_SR_NRSTL_Msk);
 }
 
-static RSTC_OBJECT rstcObj;
+volatile static RSTC_OBJECT rstcObj;
 
 void RSTC_CallbackRegister( RSTC_CALLBACK callback, uintptr_t context )
 {
@@ -92,14 +93,15 @@ void RSTC_CallbackRegister( RSTC_CALLBACK callback, uintptr_t context )
     rstcObj.context = context;
 }
 
-void RSTC_InterruptHandler( void )
+void __attribute__((used)) RSTC_InterruptHandler( void )
 {
-    // Capture the status and clear interrupt.  The RSTC status always has
-    // the last reset cause 
-    uint32_t interruptStatus = RSTC_REGS->RSTC_SR;
-    (void) interruptStatus;
+    /* Additional temporary variable used to prevent MISRA violations (Rule 13.x) */
+    uintptr_t context = rstcObj.context;
+
+    // Clear interrupt
+    (void)RSTC_REGS->RSTC_SR;
     if( rstcObj.callback != NULL )
     {
-        rstcObj.callback( rstcObj.context );
+        rstcObj.callback(context);
     }
 }

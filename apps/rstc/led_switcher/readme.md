@@ -1,6 +1,6 @@
 ---
 parent: Harmony 3 peripheral library application examples for SAM9X60 family
-title: RSTC interrupt 
+title: RSTC interrupt
 has_children: false
 has_toc: false
 ---
@@ -58,17 +58,25 @@ The following table shows the target hardware for the application projects.
 
 - SDMMC slot used for bootloading the application is SDMMC0 (J3)
 - Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).
-- Connect programmer(J-32 Debugger) to computer using a micro USB cable. 
+- Connect programmer(J-32 Debugger) to computer using a micro USB cable.
 - Connect the USB port J1 on board to the computer using a micro USB cable (to power the board).
 - Conect the UART Debug port J11 to computer using a FTDI Cable.
 
 ## Running the Application
 
-1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Disconnect and reconnect the Debug USB port to power cycle the board
-5. Press the "RESET" switch and observe the LED toggling
+1. Open the Terminal application (Ex.:Tera term) on the computer.
+
+    Connect to the USB Virtual COM port and configure the serial settings as follows:
+
+    Baud : 115200
+    Data : 8 Bits
+    Parity : None
+    Stop : 1 Bit
+    Flow Control : None
+
+2. Build and program the application using its IDE
+
+3. Press the "RESET" switch and observe the LED toggling
     - *NOTE: push and release RESET switch very quickly so as to not end up cutting power to the PMIC triggering a power on reset (instead of just toggling of the reset pin)*
 
 Refer to the following table for LED name:
