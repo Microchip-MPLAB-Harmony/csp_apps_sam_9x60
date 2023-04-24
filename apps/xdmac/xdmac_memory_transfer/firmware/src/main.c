@@ -63,8 +63,8 @@ uint8_t __attribute__ ((aligned(32))) srcBuffer[TRANSFER_SIZE] = {0};
 uint8_t __attribute__ ((aligned(32)))dstBuffer1[TRANSFER_SIZE] = {0};
 uint8_t __attribute__ ((aligned(32)))dstBuffer2[TRANSFER_SIZE] = {0};
 
-volatile bool completeStatus = false;
-volatile bool errorStatus = false;
+volatile static bool completeStatus = false;
+volatile static bool errorStatus = false;
 volatile uint8_t transfersDone = 0;
 volatile uint32_t timeStamp=0;
 

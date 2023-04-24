@@ -188,6 +188,8 @@ void SYS_Initialize ( void* data )
 
 	PIO_Initialize();
 
+    XDMAC_Initialize();
+
 
 
 	PIT_TimerInitialize();
@@ -196,8 +198,6 @@ void SYS_Initialize ( void* data )
 
     AIC_INT_Initialize();
     
-    XDMAC_Initialize();
-
     /* Disable WDT   */
     WDT_REGS->WDT_MR = WDT_MR_WDDIS_Msk;
 
