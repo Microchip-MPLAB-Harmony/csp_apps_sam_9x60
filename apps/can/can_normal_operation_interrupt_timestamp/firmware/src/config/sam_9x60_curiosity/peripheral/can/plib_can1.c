@@ -50,6 +50,7 @@
 // *****************************************************************************
 
 #include "plib_can1.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -57,8 +58,18 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define BYTE_MASK 0xFF
-static CAN_OBJ can1Obj;
+#define BYTE_MASK  (0xFFU)
+volatile static CAN_OBJ can1Obj;
+static const uint32_t can_mb_number = CAN_MB_NUMBER;
+
+static inline void CAN1_ZeroInitialize(volatile void* pData, size_t dataSize)
+{
+    volatile uint8_t* data = (volatile uint8_t*)pData;
+    for (uint32_t index = 0; index < dataSize; index++)
+    {
+        data[index] = 0U;
+    }
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -125,8 +136,8 @@ void CAN1_Initialize(void)
                                          CAN_IER_BERR_Msk;
 
     // Initialize the CAN PLib Object
-    memset((void *)can1Obj.rxMsg, 0x00, sizeof(can1Obj.rxMsg));
-    memset((void *)can1Obj.mbState, CAN_MAILBOX_READY, sizeof(can1Obj.mbState));
+    CAN1_ZeroInitialize(can1Obj.rxMsg, sizeof(can1Obj.rxMsg));
+    CAN1_ZeroInitialize(can1Obj.mbState, sizeof(can1Obj.mbState));
 
     /* Enable Timestamp */
     CAN1_REGS->CAN_MR &= ~CAN_MR_TTM_Msk;
@@ -156,6 +167,10 @@ void CAN1_Initialize(void)
     true  - Request was successful.
     false - Request has failed.
 */
+
+/* MISRA C-2012 Rule 16.1, 16.3 and 16.6 deviated below. Deviation record ID -
+   H3_MISRAC_2012_R_16_1_DR_1, H3_MISRAC_2012_R_16_3_DR_1 & H3_MISRAC_2012_R_16_6_DR_1*/
+
 bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBOX_TX_ATTRIBUTE mailboxAttr)
 {
     uint8_t mailbox = 0;
@@ -163,7 +178,7 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
     uint8_t dataIndex = 0;
     bool status = false;
 
-    for (mailbox = 0; mailbox < CAN_MB_NUMBER; mailbox++)
+    for (mailbox = 0U; mailbox < can_mb_number; mailbox++)
     {
         switch (CAN1_REGS->CAN_MB[mailbox].CAN_MMR & CAN_MMR_MOT_Msk)
         {
@@ -188,14 +203,19 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
                 }
                 break;
             default:
+                     /* Do Nothing */
                 break;
         }
         if (mbIsReady)
+        {
             break;
+        }
     }
 
     if (!mbIsReady)
+    {
         return status;
+    }
 
     /* If the id is longer than 11 bits, it is considered as extended identifier */
     if (id > (CAN_MID_MIDvA_Msk >> CAN_MID_MIDvA_Pos))
@@ -210,9 +230,9 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
     }
 
     /* Limit length */
-    if (length > 8)
+    if (length > 8U)
     {
-        length = 8;
+        length = 8U;
     }
     CAN1_REGS->CAN_MB[mailbox].CAN_MCR = CAN_MCR_MDLC(length);
 
@@ -223,21 +243,21 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
             /* Copy the data into the payload */
             for (; dataIndex < length; dataIndex++)
             {
-                if (dataIndex == 0)
+                if (dataIndex == 0U)
                 {
                     CAN1_REGS->CAN_MB[mailbox].CAN_MDL = data[dataIndex];
                 }
-                else if (dataIndex < 4)
+                else if (dataIndex < 4U)
                 {
-                    CAN1_REGS->CAN_MB[mailbox].CAN_MDL |= (data[dataIndex] << (8 * dataIndex));
+                    CAN1_REGS->CAN_MB[mailbox].CAN_MDL |= ((uint32_t)data[dataIndex] << (8U * dataIndex));
                 }
-                else if (dataIndex == 4)
+                else if (dataIndex == 4U)
                 {
                     CAN1_REGS->CAN_MB[mailbox].CAN_MDH = data[dataIndex];
                 }
                 else
                 {
-                    CAN1_REGS->CAN_MB[mailbox].CAN_MDH |= (data[dataIndex] << (8 * (dataIndex - 4)));
+                    CAN1_REGS->CAN_MB[mailbox].CAN_MDH |= ((uint32_t)data[dataIndex] << (8U * (dataIndex - 4U)));
                 }
             }
             status = true;
@@ -250,8 +270,8 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
     }
 
     /* Request the transmit */
-    CAN1_REGS->CAN_TCR = 1U << mailbox;
-    CAN1_REGS->CAN_IER = 1U << mailbox;
+    CAN1_REGS->CAN_TCR = 1UL << mailbox;
+    CAN1_REGS->CAN_IER = 1UL << mailbox;
     return status;
 }
 
@@ -285,47 +305,53 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
     uint8_t mailbox = 0;
     bool mbIsReady = false;
     bool status = false;
-    for (mailbox = 0; mailbox < CAN_MB_NUMBER; mailbox++)
+    for (mailbox = 0U; mailbox < can_mb_number; mailbox++)
     {
 
         switch (CAN1_REGS->CAN_MB[mailbox].CAN_MMR & CAN_MMR_MOT_Msk)
         {
             case CAN_MMR_MOT_MB_RX:
-                if ((mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX) &&
-                    (can1Obj.mbState[mailbox] == CAN_MAILBOX_READY))
+                if ((can1Obj.mbState[mailbox] == CAN_MAILBOX_READY) &&
+                    (mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX) )
                 {
                     mbIsReady = true;
                 }
                 break;
             case CAN_MMR_MOT_MB_RX_OVERWRITE:
-                if ((mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX_OVERWRITE) &&
-                    (can1Obj.mbState[mailbox] == CAN_MAILBOX_READY))
+                if ((can1Obj.mbState[mailbox] == CAN_MAILBOX_READY) &&
+                    (mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX_OVERWRITE))
                 {
                     mbIsReady = true;
                 }
                 break;
             case CAN_MMR_MOT_MB_CONSUMER:
-                if ((mailboxAttr == CAN_MAILBOX_DATA_FRAME_CONSUMER) &&
-                    (can1Obj.mbState[mailbox] == CAN_MAILBOX_READY))
+                if ((can1Obj.mbState[mailbox] == CAN_MAILBOX_READY) &&
+                    (mailboxAttr == CAN_MAILBOX_DATA_FRAME_CONSUMER))
                 {
                     mbIsReady = true;
                 }
                 break;
             default:
+                      /* Do Nothing */
                 break;
         }
         if (mbIsReady)
+        {
             break;
+        }
     }
 
     if (!mbIsReady)
+    {
         return status;
+    }
 
     switch (mailboxAttr)
     {
         case CAN_MAILBOX_DATA_FRAME_RX:
         case CAN_MAILBOX_DATA_FRAME_RX_OVERWRITE:
         case CAN_MAILBOX_DATA_FRAME_CONSUMER:
+            /* To satisfy the MISRA C 2012*/
             break;
         default:
             return status;
@@ -337,9 +363,11 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
     can1Obj.rxMsg[mailbox].size = length;
     can1Obj.rxMsg[mailbox].timestamp = timestamp;
     can1Obj.rxMsg[mailbox].msgAttr = msgAttr;
-    CAN1_REGS->CAN_IER = 1U << mailbox;
+    CAN1_REGS->CAN_IER = 1UL << mailbox;
     return status;
 }
+
+/* MISRAC 2012 deviation block end */
 
 // *****************************************************************************
 /* Function:
@@ -411,7 +439,7 @@ uint32_t CAN1_MessageIDGet(CAN_MAILBOX_NUM mailbox)
 {
     uint32_t id = 0;
 
-    if ((CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvB_Msk) != 0)
+    if ((CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvB_Msk) != 0U)
     {
         id = CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MFID_Msk;
     }
@@ -500,7 +528,7 @@ uint32_t CAN1_MessageAcceptanceMaskGet(CAN_MAILBOX_NUM mailbox)
 */
 uint16_t CAN1_MessageTimestampGet(CAN_MAILBOX_NUM mailbox)
 {
-    return (CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MTIMESTAMP_Msk);
+    return (uint16_t)(CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MTIMESTAMP_Msk);
 }
 
 // *****************************************************************************
@@ -573,7 +601,7 @@ void CAN1_ErrorCountGet(uint16_t *txErrorCount, uint8_t *rxErrorCount)
 */
 bool CAN1_InterruptGet(CAN_INTERRUPT_MASK interruptMask)
 {
-    return ((CAN1_REGS->CAN_SR & interruptMask) != 0x0);
+    return ((CAN1_REGS->CAN_SR & interruptMask) != 0x0U);
 }
 
 // *****************************************************************************
@@ -640,6 +668,83 @@ bool CAN1_MailboxIsReady(CAN_MAILBOX_NUM mailbox)
     return ((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRDY_Msk) == CAN_MSR_MRDY_Msk);
 }
 
+bool CAN1_BitTimingCalculationGet(CAN_BIT_TIMING_SETUP *setup, CAN_BIT_TIMING *bitTiming)
+{
+    bool status = false;
+    uint32_t numOfTimeQuanta;
+    uint8_t phase1;
+    float temp1;
+    float temp2;
+
+    if ((setup != NULL) && (bitTiming != NULL))
+    {
+        if (setup->nominalBitTimingSet == true)
+        {
+            numOfTimeQuanta = CAN1_CLOCK_FREQUENCY / (setup->nominalBitRate * ((uint32_t)setup->nominalPrescaler + 1U));
+            if ((numOfTimeQuanta >= 8U) && (numOfTimeQuanta <= 25U))
+            {
+                if (setup->nominalSamplePoint < 50.0f)
+                {
+                    setup->nominalSamplePoint = 50.0f;
+                }
+                temp1 = (float)numOfTimeQuanta;
+                temp2 = (temp1 * setup->nominalSamplePoint) / 100.0f;
+                phase1 = (uint8_t)temp2;
+                bitTiming->nominalBitTiming.phase2Segment = (uint8_t)(numOfTimeQuanta - phase1 - 1U);
+                /* The propagation segment time is equal to twice the sum of the signal's propagation time on the bus line,
+                   the receiver delay and the output driver delay */
+                temp2 = (((float)numOfTimeQuanta * ((float)setup->nominalBitRate / 1000.0f) * (float)setup->nominalPropagTime) / 1000000.0f);
+                bitTiming->nominalBitTiming.propagationSegment = ((uint8_t)temp2 - 1U);
+                bitTiming->nominalBitTiming.phase1Segment = phase1 - (bitTiming->nominalBitTiming.propagationSegment + 1U) - 2U;
+                if ((bitTiming->nominalBitTiming.phase2Segment + 1U) > 4U)
+                {
+                    bitTiming->nominalBitTiming.sjw = 3U;
+                }
+                else
+                {
+                    bitTiming->nominalBitTiming.sjw = bitTiming->nominalBitTiming.phase2Segment;
+                }
+                bitTiming->nominalBitTiming.Prescaler = setup->nominalPrescaler;
+                bitTiming->nominalBitTimingSet = true;
+                status = true;
+            }
+            else
+            {
+                bitTiming->nominalBitTimingSet = false;
+            }
+        }
+    }
+
+    return status;
+}
+
+bool CAN1_BitTimingSet(CAN_BIT_TIMING *bitTiming)
+{
+    bool status = false;
+
+    if ((bitTiming->nominalBitTimingSet == true)
+    && (bitTiming->nominalBitTiming.phase1Segment <= 0x7U)
+    && (bitTiming->nominalBitTiming.phase2Segment <= 0x7U)
+    && (bitTiming->nominalBitTiming.propagationSegment <= 0x7U)
+    && ((bitTiming->nominalBitTiming.Prescaler >= 0x1U) && (bitTiming->nominalBitTiming.Prescaler <= 0x7FU))
+    && (bitTiming->nominalBitTiming.sjw <= 0x3U))
+    {
+        /* Disable CAN Controller */
+        CAN1_REGS->CAN_MR &= ~CAN_MR_CANEN_Msk;
+
+        /* Set CAN Baudrate */
+        CAN1_REGS->CAN_BR  = CAN_BR_PHASE2(bitTiming->nominalBitTiming.phase2Segment) | CAN_BR_PHASE1(bitTiming->nominalBitTiming.phase1Segment) |
+                                             CAN_BR_PROPAG(bitTiming->nominalBitTiming.propagationSegment) | CAN_BR_BRP(bitTiming->nominalBitTiming.Prescaler) |
+                                             CAN_BR_SJW(bitTiming->nominalBitTiming.sjw);
+
+        /* Enable CAN Controller */
+        CAN1_REGS->CAN_MR |= CAN_MR_CANEN_Msk;
+
+        status = true;
+    }
+    return status;
+}
+
 // *****************************************************************************
 /* Function:
     bool CAN1_TxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN_MAILBOX_TX_ATTRIBUTE mailboxAttr)
@@ -675,7 +780,7 @@ bool CAN1_TxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN
         return false;
     }
 
-    for (mailbox = 0; mailbox < CAN_MB_NUMBER; mailbox++)
+    for (mailbox = 0; mailbox < can_mb_number; mailbox++)
     {
         switch (CAN1_REGS->CAN_MB[mailbox].CAN_MMR & CAN_MMR_MOT_Msk)
         {
@@ -700,14 +805,20 @@ bool CAN1_TxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN
                 }
                 break;
             default:
+                     /* Do Nothing */
                 break;
         }
         if (mbIsReady)
+        {
+
             break;
+        }
     }
 
     if (!mbIsReady)
+    {
         return false;
+    }
 
     can1Obj.mbCallback[mailbox].callback = callback;
     can1Obj.mbCallback[mailbox].context = contextHandle;
@@ -747,40 +858,45 @@ bool CAN1_RxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN
         return false;
     }
 
-    for (mailbox = 0; mailbox < CAN_MB_NUMBER; mailbox++)
+    for (mailbox = 0U; mailbox < can_mb_number; mailbox++)
     {
         switch (CAN1_REGS->CAN_MB[mailbox].CAN_MMR & CAN_MMR_MOT_Msk)
         {
             case CAN_MMR_MOT_MB_RX:
-                if ((mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX) &&
-                    (can1Obj.mbState[mailbox] == CAN_MAILBOX_READY))
+                if ((can1Obj.mbState[mailbox] == CAN_MAILBOX_READY) &&
+                    (mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX))
                 {
                     mbIsReady = true;
                 }
                 break;
             case CAN_MMR_MOT_MB_RX_OVERWRITE:
-                if ((mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX_OVERWRITE) &&
-                    (can1Obj.mbState[mailbox] == CAN_MAILBOX_READY))
+                if ((can1Obj.mbState[mailbox] == CAN_MAILBOX_READY) &&
+                    (mailboxAttr == CAN_MAILBOX_DATA_FRAME_RX_OVERWRITE))
                 {
                     mbIsReady = true;
                 }
                 break;
             case CAN_MMR_MOT_MB_CONSUMER:
-                if ((mailboxAttr == CAN_MAILBOX_DATA_FRAME_CONSUMER) &&
-                    (can1Obj.mbState[mailbox] == CAN_MAILBOX_READY))
+                if ((can1Obj.mbState[mailbox] == CAN_MAILBOX_READY) &&
+                    (mailboxAttr == CAN_MAILBOX_DATA_FRAME_CONSUMER))
                 {
                     mbIsReady = true;
                 }
                 break;
             default:
+                      /* Do Nothing */
                 break;
         }
         if (mbIsReady)
+        {
             break;
+        }
     }
 
     if (!mbIsReady)
+    {
         return false;
+    }
 
     can1Obj.mbCallback[mailbox].callback = callback;
     can1Obj.mbCallback[mailbox].context = contextHandle;
@@ -812,14 +928,18 @@ bool CAN1_RxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN
     instance interrupt is enabled. If peripheral instance's interrupt is not
     enabled user need to call it from the main while loop of the application.
 */
-void CAN1_InterruptHandler(void)
+void __attribute__((used)) CAN1_InterruptHandler(void)
 {
     uint32_t interruptStatus = CAN1_REGS->CAN_SR;
+    uint8_t dataIndex;
+
+    /* Additional temporary variable used to prevent MISRA violations (Rule 13.x) */
+    uintptr_t context;
 
     /* Check if error occurred */
-    if (interruptStatus &
+    if ((interruptStatus &
        (CAN_SR_BOFF_Msk | CAN_SR_CERR_Msk | CAN_SR_SERR_Msk |
-        CAN_SR_AERR_Msk | CAN_SR_FERR_Msk | CAN_SR_BERR_Msk))
+        CAN_SR_AERR_Msk | CAN_SR_FERR_Msk | CAN_SR_BERR_Msk)) != 0U)
     {
         /* App must call CAN1_ErrorGet function to get errors */
         can1Obj.errorStatus = ((interruptStatus & CAN_SR_BOFF_Msk) |
@@ -832,7 +952,7 @@ void CAN1_InterruptHandler(void)
     else
     {
         can1Obj.errorStatus = 0;
-        for (uint8_t mailbox = 0; mailbox < CAN_MB_NUMBER; mailbox++)
+        for (uint8_t mailbox = 0U; mailbox < can_mb_number; mailbox++)
         {
             if ((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRDY_Msk) == CAN_MSR_MRDY_Msk)
             {
@@ -841,7 +961,7 @@ void CAN1_InterruptHandler(void)
                     case CAN_MMR_MOT_MB_RX:
                     case CAN_MMR_MOT_MB_RX_OVERWRITE:
                     case CAN_MMR_MOT_MB_CONSUMER:
-                        CAN1_REGS->CAN_IDR = 1U << mailbox;
+                        CAN1_REGS->CAN_IDR = 1UL << mailbox;
                         if (can1Obj.rxMsg[mailbox].buffer != NULL)
                         {
                             if ((CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDE_Msk) == CAN_MID_MIDE_Msk)
@@ -853,7 +973,7 @@ void CAN1_InterruptHandler(void)
                                 *can1Obj.rxMsg[mailbox].id = (CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvA_Msk) >> CAN_MID_MIDvA_Pos;
                             }
 
-                            if ((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRTR_Msk) &&
+                            if (((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRTR_Msk) != 0U) &&
                                ((CAN1_REGS->CAN_MB[mailbox].CAN_MMR & CAN_MMR_MOT_Msk) != CAN_MMR_MOT_MB_CONSUMER))
                             {
                                 *can1Obj.rxMsg[mailbox].msgAttr = CAN_MSG_RX_REMOTE_FRAME;
@@ -863,26 +983,28 @@ void CAN1_InterruptHandler(void)
                                 *can1Obj.rxMsg[mailbox].msgAttr = CAN_MSG_RX_DATA_FRAME;
                             }
 
-                            *can1Obj.rxMsg[mailbox].size = (CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MDLC_Msk) >> CAN_MSR_MDLC_Pos;
+                            *can1Obj.rxMsg[mailbox].size = (uint8_t)((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MDLC_Msk) >> CAN_MSR_MDLC_Pos);
                             /* Copy the data into the payload */
-                            for (uint8_t dataIndex = 0; dataIndex < *can1Obj.rxMsg[mailbox].size; dataIndex++)
+                            dataIndex = 0U;
+                            while (dataIndex < *can1Obj.rxMsg[mailbox].size)
                             {
-                                if (dataIndex == 0)
+                                if (dataIndex == 0U)
                                 {
-                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] = CAN1_REGS->CAN_MB[mailbox].CAN_MDL & BYTE_MASK;
+                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] = (uint8_t)(CAN1_REGS->CAN_MB[mailbox].CAN_MDL & BYTE_MASK);
                                 }
-                                else if (dataIndex < 4)
+                                else if (dataIndex < 4U)
                                 {
-                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] = (CAN1_REGS->CAN_MB[mailbox].CAN_MDL >> (8 * dataIndex)) & BYTE_MASK;
+                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] =(uint8_t)((CAN1_REGS->CAN_MB[mailbox].CAN_MDL >> (8U * dataIndex)) & BYTE_MASK);
                                 }
-                                else if (dataIndex == 4)
+                                else if (dataIndex == 4U)
                                 {
-                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] = CAN1_REGS->CAN_MB[mailbox].CAN_MDH & BYTE_MASK;
+                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] = (uint8_t)(CAN1_REGS->CAN_MB[mailbox].CAN_MDH & BYTE_MASK);
                                 }
                                 else
                                 {
-                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] = (CAN1_REGS->CAN_MB[mailbox].CAN_MDH >> (8 * (dataIndex - 4))) & BYTE_MASK;
+                                    can1Obj.rxMsg[mailbox].buffer[dataIndex] = (uint8_t)(CAN1_REGS->CAN_MB[mailbox].CAN_MDH >> (8U * (dataIndex - 4U)) & BYTE_MASK);
                                 }
+                                dataIndex++;
                             }
                             /* Get timestamp from received message */
                             if (can1Obj.rxMsg[mailbox].timestamp != NULL)
@@ -894,18 +1016,21 @@ void CAN1_InterruptHandler(void)
                         can1Obj.mbState[mailbox] = CAN_MAILBOX_READY;
                         if (can1Obj.mbCallback[mailbox].callback != NULL)
                         {
-                            can1Obj.mbCallback[mailbox].callback(can1Obj.mbCallback[mailbox].context);
+                            context = can1Obj.mbCallback[mailbox].context;
+                            can1Obj.mbCallback[mailbox].callback(context);
                         }
                         break;
                     case CAN_MMR_MOT_MB_TX:
                     case CAN_MMR_MOT_MB_PRODUCER:
-                        CAN1_REGS->CAN_IDR = 1U << mailbox;
+                        CAN1_REGS->CAN_IDR = 1UL << mailbox;
                         if (can1Obj.mbCallback[mailbox].callback != NULL)
                         {
-                            can1Obj.mbCallback[mailbox].callback(can1Obj.mbCallback[mailbox].context);
+                            context = can1Obj.mbCallback[mailbox].context;
+                            can1Obj.mbCallback[mailbox].callback(context);
                         }
                         break;
                     default:
+                             /* Do Nothing */
                         break;
                 }
             }

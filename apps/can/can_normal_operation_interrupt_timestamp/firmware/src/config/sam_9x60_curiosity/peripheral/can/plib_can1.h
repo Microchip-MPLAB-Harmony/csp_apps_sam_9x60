@@ -68,6 +68,8 @@
 #endif
 // DOM-IGNORE-END
 
+#define CAN1_CLOCK_FREQUENCY    200000000U
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Interface Routines
@@ -89,6 +91,8 @@ bool CAN1_InterruptGet(CAN_INTERRUPT_MASK interruptMask);
 void CAN1_InterruptEnable(CAN_INTERRUPT_MASK interruptMask);
 void CAN1_InterruptDisable(CAN_INTERRUPT_MASK interruptMask);
 bool CAN1_MailboxIsReady(CAN_MAILBOX_NUM mailbox);
+bool CAN1_BitTimingCalculationGet(CAN_BIT_TIMING_SETUP *setup, CAN_BIT_TIMING *bitTiming);
+bool CAN1_BitTimingSet(CAN_BIT_TIMING *bitTiming);
 bool CAN1_TxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN_MAILBOX_TX_ATTRIBUTE mailboxAttr);
 bool CAN1_RxCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, CAN_MAILBOX_RX_ATTRIBUTE mailboxAttr);
 // DOM-IGNORE-BEGIN

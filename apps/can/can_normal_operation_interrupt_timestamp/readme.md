@@ -48,8 +48,8 @@ The following table shows the target hardware for the application projects.
 
     | SAM9X60-Curiosity - 1 | SAM9X60-Curiosity - 2     |
     | --------------------- | ------------------------- |
-    | CAN_H, PIN 4 of J7    | CAN_H, PIN 4 of J7        |
-    | CAN_L, PIN 5 of J7    | CAN_L, PIN 5 of J7        |
+    | CAN1_H, PIN 4 of J7    | CAN1_H, PIN 4 of J7        |
+    | CAN1_L, PIN 5 of J7    | CAN1_L, PIN 5 of J7        |
     | GND, PIN 3 of J7      | GND, PIN 3 of J7          |
     |||
 

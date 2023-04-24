@@ -57,6 +57,11 @@
 // *****************************************************************************
 // *****************************************************************************
 
+void CAN1_InterruptHandler (void);
+
+
+/* Interrupt Handler for spurious interrupts */
+void SPURIOUS_INTERRUPT_Handler (void);
 
 
 #endif // INTERRUPTS_H
