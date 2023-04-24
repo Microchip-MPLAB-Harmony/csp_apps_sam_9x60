@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.0"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -2403,7 +2403,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\pit\plib_pit.c</file>
-         <hash>ec93e6c885a5e695fdd7d63f6d9663211172b292c0f79397474e2052a7ab9358</hash>
+         <hash>91590f85a86673da2e9dec1c43ef6be8317c5cc45691584d373e76042bbdd978</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\pit64b.h</file>
@@ -2447,7 +2447,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.c</file>
-         <hash>e17fa510dd6c67039f1b89b0d515ce2fc845e07347afd49878f5e6185fc8ce5b</hash>
+         <hash>2120e070ace31928f008ad90910ad27f08dac1a7447b7a77d78ed363b1b723c9</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\syscwp.h</file>
@@ -2695,7 +2695,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\plib_mmu.h</file>
-         <hash>9b778c112de92f2ba1635a55e6ad6bc191c81cf67eebc71973034bf8f137443e</hash>
+         <hash>7fb6e6b8ad6a80b7fc04c0264b7cdf49e6d6b887e4f3c5aa394eda88e32e0116</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\wdt.h</file>
@@ -2711,7 +2711,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\plib_mmu.c</file>
-         <hash>5a4df9d5edcd4fd79a857eb003b382877dfbd6c1ed42eecad3a01ae7deb12fb3</hash>
+         <hash>8850b951d047f69283a6961301dfa7333cd338c9f27278bee79dcfd36ad1076e</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\aic.h</file>

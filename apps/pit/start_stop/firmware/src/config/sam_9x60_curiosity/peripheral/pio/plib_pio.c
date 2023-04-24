@@ -48,10 +48,10 @@
 #define PIO_MAX_NUM_OF_CHANNELS     5U
 
 /* Array to store callback objects of each configured interrupt */
-static PIO_PIN_CALLBACK_OBJ portPinCbObj[1 + 0 + 0 + 0 + 0];
+volatile static PIO_PIN_CALLBACK_OBJ portPinCbObj[1 + 0 + 0 + 0 + 0];
 
 /* Array to store number of interrupts in each PORT Channel + previous interrupt count */
-static uint8_t portNumCb[PIO_MAX_NUM_OF_CHANNELS + 1] = {0U, 1U, 1U, 1U, 1U, 1U};
+volatile static uint8_t portNumCb[PIO_MAX_NUM_OF_CHANNELS + 1] = {0U, 1U, 1U, 1U, 1U, 1U};
  void PIO_Interrupt_Handler ( PIO_PORT port );
 
 /******************************************************************************
@@ -398,12 +398,14 @@ bool PIO_PinInterruptCallbackRegister(
     This function defines the Interrupt handler for a selected port.
 
   Remarks:
-	It is an internal function used by the library, user should not call it.
+    It is an internal function used by the library, user should not call it.
 */
-void PIO_Interrupt_Handler ( PIO_PORT port )
+void __attribute__((used)) PIO_Interrupt_Handler ( PIO_PORT port )
 {
     uint32_t status;
     uint32_t i, portIndex;
+    PIO_PIN pin;
+    uintptr_t context;
 
     status  = ((pio_registers_t*)port)->PIO_ISR;
     status &= ((pio_registers_t*)port)->PIO_IMR;
@@ -414,9 +416,12 @@ void PIO_Interrupt_Handler ( PIO_PORT port )
     /* Check pending events and call callback if registered */
     for(i = portNumCb[portIndex]; i < portNumCb[portIndex +1U]; i++)
     {
-        if(((status & (1UL << (portPinCbObj[i].pin & 0x1FU))) != 0U) && (portPinCbObj[i].callback != NULL))
+        pin = portPinCbObj[i].pin;
+
+        if((portPinCbObj[i].callback != NULL) && ((status & (1UL << (pin & 0x1FU))) != 0U))
         {
-            portPinCbObj[i].callback (portPinCbObj[i].pin, portPinCbObj[i].context);
+            context = portPinCbObj[i].context;
+            portPinCbObj[i].callback (pin, context);
         }
     }
 
@@ -440,7 +445,7 @@ void PIO_Interrupt_Handler ( PIO_PORT port )
   Remarks:
     User should not call this function.
 */
-void PIOA_InterruptHandler(void)
+void __attribute__((used)) PIOA_InterruptHandler(void)
 {
     /* Local PIO Interrupt Handler */
     PIO_Interrupt_Handler(PIO_PORT_A);
@@ -461,7 +466,7 @@ void PIOA_InterruptHandler(void)
   Remarks:
     User should not call this function.
 */
-void PIOD_InterruptHandler(void)
+void __attribute__((used)) PIOD_InterruptHandler(void)
 {
     /* Local PIO Interrupt Handler */
     PIO_Interrupt_Handler(PIO_PORT_D);
