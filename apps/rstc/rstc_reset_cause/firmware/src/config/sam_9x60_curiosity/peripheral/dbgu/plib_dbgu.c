@@ -141,14 +141,20 @@ bool DBGU_Read(void *buffer, const size_t size)
     bool status = false;
     uint32_t errorStatus = 0;
     size_t processedSize = 0;
+    DBGU_ERROR errors = DBGU_ERROR_NONE;
 
     uint8_t * lBuffer = (uint8_t *)buffer;
 
     if (NULL != lBuffer)
     {
-        /* Clear errors before submitting the request.
-         * ErrorGet clears errors internally. */
-       (void)DBGU_ErrorGet();
+        /* Clear errors before submitting the request */
+
+        errors = (DBGU_ERROR)(DBGU_REGS->DBGU_SR & (DBGU_SR_OVRE_Msk | DBGU_SR_PARE_Msk | DBGU_SR_FRAME_Msk));
+
+        if (errors != DBGU_ERROR_NONE)
+        {
+            DBGU_ErrorClear();
+        }
 
         while (size > processedSize)
         {

@@ -1,5 +1,5 @@
 /*******************************************************************************
-  Reset Controller Peripheral Library, RSTC PLIB 
+  Reset Controller Peripheral Library, RSTC PLIB
 
   Company:
     Microchip Technology Inc.
@@ -45,6 +45,7 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 #include "plib_rstc.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -53,13 +54,13 @@
 // *****************************************************************************
 void RSTC_Initialize( void )
 {
-    // External reset length (1024 mSecs) 
+    // External reset length (1024 mSecs)
     uint32_t regValue = RSTC_MR_KEY_PASSWD | RSTC_MR_ERSTL( 14 );
     // Perform user reset on NRST input
     regValue |= RSTC_MR_URSTEN_Msk;
     // No reset on Slow Clock fault
-    // Reset is synchronous to slow clock 
-    // Immediate GPBR clear on tamper detection is off 
+    // Reset is synchronous to slow clock
+    // Immediate GPBR clear on tamper detection is off
 
     RSTC_REGS->RSTC_MR = regValue;
 }
@@ -67,7 +68,7 @@ void RSTC_Initialize( void )
 void RSTC_Reset( RSTC_RESET_TYPE type )
 {
     // Issue reset command and wait for command processing
-    RSTC_REGS->RSTC_CR = RSTC_CR_KEY_PASSWD | type; 
+    RSTC_REGS->RSTC_CR = RSTC_CR_KEY_PASSWD | type;
     while(( RSTC_REGS->RSTC_SR & (uint32_t)RSTC_SR_SRCMP_Msk ) != 0U)
     {
         ;   // busy wait

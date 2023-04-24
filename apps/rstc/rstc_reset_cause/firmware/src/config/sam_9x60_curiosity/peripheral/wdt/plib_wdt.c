@@ -42,6 +42,7 @@
 
 #include "device.h"
 #include "plib_wdt.h"
+#include "interrupts.h"
 
 
 void WDT_Initialize( void )
@@ -58,7 +59,7 @@ void WDT_Initialize( void )
     // clear interrupt status
     (void) WDT_REGS->WDT_ISR;
     // enable appropriate interrupts
-    WDT_REGS->WDT_IER = 0;
+    WDT_REGS->WDT_IER = 0U;
     // enable WDT and set other mode bits desired
     WDT_REGS->WDT_MR =  0U | WDT_MR_WDIDLEHLT_Msk | WDT_MR_WDDBGHLT_Msk | WDT_MR_PERIODRST_Msk;
 }
@@ -96,7 +97,7 @@ void WDT_Enable( void )
     // clear interrupt status
     (void) WDT_REGS->WDT_ISR;
     // enable appropriate interrupts
-    WDT_REGS->WDT_IER = 0;
+    WDT_REGS->WDT_IER = 0U;
 }
 
 void WDT_Disable( void )
