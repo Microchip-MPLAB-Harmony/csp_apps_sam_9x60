@@ -158,6 +158,8 @@ static void SYSC_Disable( void )
  ********************************************************************************/
 static void STDIO_BufferModeSet(void)
 {
+    /* MISRAC 2012 deviation block start */
+    /* MISRA C-2012 Rule 21.6 deviated 2 times in this file.  Deviation record ID -  H3_MISRAC_2012_R_21_6_DR_3 */
 
     /* Make stdin unbuffered */
     setbuf(stdin, NULL);
