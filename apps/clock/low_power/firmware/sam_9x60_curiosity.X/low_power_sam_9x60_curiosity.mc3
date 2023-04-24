@@ -1,4 +1,4 @@
-<config configName="sam_9x60_curiosity" projectName="low_power_sam_9x60_curiosity" configVersion="1.1" device="SAM9X60D1G" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.14">
+<config configName="sam_9x60_curiosity" projectName="low_power_sam_9x60_curiosity" configVersion="1.1" device="SAM9X60D1G" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.0">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -27,7 +27,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -2569,11 +2569,11 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\interrupts.h</file>
-         <hash>91abdb8d191ae865fc6082f30783c3d6cca8aa8d5aca823a7fb2cc65e3a57d24</hash>
+         <hash>78beb857e479d95b14da67540bbfadbaec8e2e97b0f26989ca6bff8a67f36bca</hash>
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\dbgu\plib_dbgu.c</file>
-         <hash>c0a4ca12dbeefcd7f397a14ea9a2e3fc8a9f3151f56c2a1b278d933bc578664c</hash>
+         <hash>686f484ae5a37deae6860635e9c688f744042438f3d0bea31ca75f56d9bc2bbc</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\gpbr.h</file>
@@ -2585,7 +2585,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\interrupts.c</file>
-         <hash>1db8c831ffa690f14d17eaf56b6b87d47ad9e69f625a5a0f053d4033d49ec190</hash>
+         <hash>168c12c0435f4ab8a9254e3c3d761b9778a698704852b8c6ac7293cd8e16c720</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\ssc.h</file>
@@ -2609,7 +2609,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\rtc\plib_rtc.c</file>
-         <hash>fc4b437f3c949b83e3df95a250eb2a2f313c2ec95384442ea9c1fda39a6745de</hash>
+         <hash>afcdeb0283c60326da68796b304e7f7ec2a11d2f722ecb40c08d4d42babd5203</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\trng.h</file>
@@ -2713,7 +2713,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.c</file>
-         <hash>cb64c0b0f0c39662ca9e531ef58f669b8d0eaf5764a512f8b083b45b034caf00</hash>
+         <hash>2d00f3752ed0c5d2226c79237d0a2c81bf9693a65285fef8c160c75c525ac8ce</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\syscwp.h</file>
@@ -2765,7 +2765,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\cp15.h</file>
-         <hash>24907eff18f34ad82252c89fde571ebd0f51da7ca4b9f72c8810e9c3d6485edb</hash>
+         <hash>d927deee45b9b50351c5513daf446ae3278f5fa85915c06c434b24c7eb61b64b</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\qspi.h</file>
@@ -2773,7 +2773,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\pit64b\plib_pit64b.c</file>
-         <hash>82f0f32c1cc3312fd733e699f71080908880146cf25f701fbe6c0bd3918859d8</hash>
+         <hash>7b73e372fe046e30b91159693d8ae499a5331edbe4b5f2f867b7eaeb4fbc0ec1</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\rtc.h</file>
@@ -2785,7 +2785,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\pit64b\plib_pit64b.h</file>
-         <hash>9cb1bdcf0c5fcb28b8fee00c306c86e6551f8051af962de60049c8118114a450</hash>
+         <hash>8b3ba0d380f32ba25a0b3bccc7f7f62df088a8c5bcd5fdb028d50955b224a7b1</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\udphs.h</file>
@@ -2801,7 +2801,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\toolchain_specifics.h</file>
-         <hash>943f2c097f75062855ef1434b1b63a84e68ac691a93097a46016a699601a3306</hash>
+         <hash>d93ab2a56ea91cac163fc49b5e3f3491fe3c8ada3bd2f72c752b286f280b40ef</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\sdmmc0.h</file>
@@ -2837,7 +2837,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\aic\plib_aic.c</file>
-         <hash>30e5b7f3a5259938cd4534624854beb942b8fccd9aa0f5d69175d8b663536abe</hash>
+         <hash>3b3088e8874a1e4146034eab93bb69a69451b1e909d8477f3b0dae5ac098d2a7</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\classd.h</file>
@@ -2853,7 +2853,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\aic\plib_aic.h</file>
-         <hash>3744d8f5ae1843ce5b3b78bbae13a22a7f22b2f0584db476b657b40cb7850809</hash>
+         <hash>9ff729f3819887a6769c1a4386db9727e6e88fe6bee25960985d9ccd09229a7d</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\sfr.h</file>
@@ -2861,7 +2861,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\clk\plib_clk.c</file>
-         <hash>d278571e03ead5013b8debd3a3148bfcbb830548c8b5d94bd92b474665225479</hash>
+         <hash>21ada035c8d760e79407fb91f5876e9f667aa6534a64a65be66aad29c1dcd4a4</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\pioc.h</file>
@@ -2893,7 +2893,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\stdio\xc32_monitor.c</file>
-         <hash>e26abf34f5f56b3cb72ca19440fdcce3043f243def30ed34b63668e28f4e8ef2</hash>
+         <hash>067d7cfcce60bbb8f1e41d9d3c684469087f20ca89094469a3b5c1891c2b5d77</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\flexcom2.h</file>
@@ -2909,7 +2909,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\initialization.c</file>
-         <hash>e218cc5f959a4e1bf9c3ce980177b3e45eefe4b8cae567acad9537e9e43f8cbd</hash>
+         <hash>7d31d0899363ab723a454bd24bf5ddc0da1115058c3b62e98ffbeb479f52a83c</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\isi.h</file>
@@ -2929,7 +2929,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\dbgu\plib_dbgu_common.h</file>
-         <hash>38ba54965e21e645d68a373d3277c7a4571cabb3ed0ba7e93b7af32a08376e2f</hash>
+         <hash>3a5532ba83c46095ed55db646a9be166772429df5eac103b28c31a562c9cf1a2</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\rtt.h</file>
@@ -2973,7 +2973,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\plib_mmu.h</file>
-         <hash>a777af67221ce686baec242376d2cccad707ed3e197c3b049b7d9fd5519e3dfe</hash>
+         <hash>7fb6e6b8ad6a80b7fc04c0264b7cdf49e6d6b887e4f3c5aa394eda88e32e0116</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\wdt.h</file>
@@ -2989,7 +2989,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\peripheral\mmu\plib_mmu.c</file>
-         <hash>7ef66d78f0234e1889fc9cb8fb94616eb51fa7517881f86270c68856d7072b5d</hash>
+         <hash>8850b951d047f69283a6961301dfa7333cd338c9f27278bee79dcfd36ad1076e</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\aic.h</file>
@@ -2997,7 +2997,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\fault_handlers.c</file>
-         <hash>34134ba54c0becfbe75cd670be15133f2a10dea081d9fa5fab75f17afc1109ba</hash>
+         <hash>931e951cf7431d3d70d6ab81bcd265ff0ac8b3f473b73cd7a541f59d49786b7c</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\instance\piob.h</file>
@@ -3029,7 +3029,7 @@
       </entry>
       <entry>
          <file>..\src\config\sam_9x60_curiosity\definitions.h</file>
-         <hash>c305fa449f2de0e152462b74aa590bec723e52411254201bb928bf83c83ce580</hash>
+         <hash>e53bf6460c52b3d4b2c08f1eef4fcf1bf61142cbec8172dce0d1ac5b7a20f65e</hash>
       </entry>
       <entry>
          <file>..\src\packs\SAM9X60D1G_DFP\component\uhpfs.h</file>

@@ -39,8 +39,8 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#ifndef _PLIB_PIT64B_H
-#define _PLIB_PIT64B_H
+#ifndef PLIB_PIT64B_H
+#define PLIB_PIT64B_H
 
 
 // *****************************************************************************
@@ -273,7 +273,7 @@ uint32_t PIT64B_TimerFrequencyGet(void);
   Returns:
     None.
 */
-void PIT64B_DelayMs(uint32_t delay_us);
+void PIT64B_DelayMs(uint32_t delay_ms);
 
 // *****************************************************************************
 /* Function:

@@ -41,6 +41,7 @@
 
 #include <stddef.h>
 #include "plib_pit64b.h"
+#include "interrupts.h"
 
 #define PIT64B_COUNTER_FREQUENCY (200000000U / 1U)
 
@@ -49,12 +50,12 @@ typedef struct
     bool running;
     uint32_t periodLSB;
     uint32_t periodMSB;
-    PIT64B_CALLBACK callback;
-    uintptr_t context;
+    volatile PIT64B_CALLBACK callback;
+    volatile uintptr_t context;
 } PIT64B_OBJECT;
 
 
-static PIT64B_OBJECT pit64b = 
+static PIT64B_OBJECT pit64b =
 {
     false,
     40000000U,
@@ -62,6 +63,7 @@ static PIT64B_OBJECT pit64b =
     NULL,
     0U
 };
+
 
 
 static inline void PIT64B_PERIOD_SET(uint32_t periodLSB, uint32_t periodMSB)
@@ -109,8 +111,8 @@ void PIT64B_TimerPeriodSet(uint64_t period)
 {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wlong-long"
-    pit64b.periodMSB = (period & 0xFFFFFFFF00000000U) >> 32U;
-    pit64b.periodLSB = (period & 0xFFFFFFFFU);
+    pit64b.periodMSB = (uint32_t)((period & 0xFFFFFFFF00000000U) >> 32U);
+    pit64b.periodLSB = (uint32_t)(period & 0xFFFFFFFFU);
 #pragma GCC diagnostic pop
     PIT64B_PERIOD_SET(pit64b.periodLSB, pit64b.periodMSB);
 }
@@ -144,7 +146,7 @@ void PIT64B_DelayMs(uint32_t delay_ms)
 {
     uint64_t newCount = 0U, deltaCount = 0U, elapsedCount = 0U;
     uint64_t period = PIT64B_TimerPeriodGet() + 1UL;
-    uint64_t delayCount = (PIT64B_COUNTER_FREQUENCY / 1000U) * delay_ms;
+    uint64_t delayCount = (PIT64B_COUNTER_FREQUENCY / 1000U) * (uint64_t)delay_ms;
     uint64_t oldCount = PIT64B_TimerCounterGet();
     if(pit64b.running)
     {
@@ -163,7 +165,7 @@ void PIT64B_DelayUs(uint32_t delay_us)
 {
     uint64_t newCount = 0U, deltaCount = 0U, elapsedCount = 0U;
     uint64_t period = PIT64B_TimerPeriodGet() + 1UL;
-    uint64_t delayCount = (PIT64B_COUNTER_FREQUENCY / 1000000U) * delay_us;
+    uint64_t delayCount = (PIT64B_COUNTER_FREQUENCY / 1000000U) * (uint64_t)delay_us;
     uint64_t oldCount = PIT64B_TimerCounterGet();
     if(pit64b.running)
     {
@@ -185,12 +187,16 @@ void PIT64B_TimerCallbackSet(PIT64B_CALLBACK callback, uintptr_t context)
 }
 
 
-void PIT64B_InterruptHandler(void)
+void __attribute__((used)) PIT64B_InterruptHandler(void)
 {
-    volatile uint32_t reg = PIT64B_REGS->PIT64B_ISR;
-    (void)reg;
-    if(pit64b.callback)
+    /* Additional temporary variable used to prevent MISRA violations (Rule 13.x) */
+    uintptr_t context = pit64b.context;
+
+    /* Clear interrupts */
+    (void)PIT64B_REGS->PIT64B_ISR;
+
+    if(pit64b.callback != NULL)
     {
-        pit64b.callback(pit64b.context);
+        pit64b.callback(context);
     }
 }

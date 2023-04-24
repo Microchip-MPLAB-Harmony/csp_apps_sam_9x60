@@ -54,8 +54,8 @@
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/aic/plib_aic.h"
 #include "peripheral/pit64b/plib_pit64b.h"
-#include "peripheral/rtc/plib_rtc.h"
 #include "peripheral/dbgu/plib_dbgu.h"
+#include "peripheral/rtc/plib_rtc.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -64,6 +64,12 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END
+
+/* Device Information */
+#define DEVICE_NAME			 "SAM9X60D1G"
+#define DEVICE_ARCH			 "ARM926EJ-S"
+#define DEVICE_FAMILY		 "SAM9"
+#define DEVICE_SERIES		 "SAM9X"
 
 /* CPU clock frequency */
 #define CPU_CLOCK_FREQUENCY 600000000
