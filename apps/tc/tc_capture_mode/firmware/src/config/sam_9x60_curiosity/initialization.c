@@ -205,12 +205,12 @@ void SYS_Initialize ( void* data )
     /* Disable WDT   */
     WDT_REGS->WDT_MR = WDT_MR_WDDIS_Msk;
 
+    DBGU_Initialize();
+
  
     TC0_CH0_CaptureInitialize(); 
     TC0_CH1_TimerInitialize(); 
     
-    DBGU_Initialize();
-
     PWM_Initialize();
 
 

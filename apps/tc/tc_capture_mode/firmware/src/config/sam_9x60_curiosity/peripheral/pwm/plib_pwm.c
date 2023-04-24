@@ -53,6 +53,7 @@
 */
 #include "device.h"
 #include "plib_pwm.h"
+#include "interrupts.h"
 
 
 
@@ -131,7 +132,7 @@ void PWM_ChannelCounterEventDisable (PWM_CHANNEL_MASK channelMask)
 bool PWM_ChannelCounterEventStatusGet (PWM_CHANNEL_NUM channel)
 {
     bool status;
-    status = (PWM_REGS->PWM_ISR >> channel) & 0x1U;
+    status = (((PWM_REGS->PWM_ISR >> channel) & 0x1U) != 0U);
     return status;
 }
 
