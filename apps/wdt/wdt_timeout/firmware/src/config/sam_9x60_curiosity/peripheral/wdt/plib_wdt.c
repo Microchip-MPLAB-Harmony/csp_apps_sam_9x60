@@ -42,6 +42,7 @@
 
 #include "device.h"
 #include "plib_wdt.h"
+#include "interrupts.h"
 
 // private structure type
 typedef struct
@@ -50,7 +51,7 @@ typedef struct
     uintptr_t       context;
 } WDT_CALLBACK_OBJECT;
 
-WDT_CALLBACK_OBJECT wdtCallbackObj;
+volatile static WDT_CALLBACK_OBJECT wdtCallbackObj;
 
 void WDT_CallbackRegister( WDT_CALLBACK callback, uintptr_t context )
 {
@@ -58,14 +59,16 @@ void WDT_CallbackRegister( WDT_CALLBACK callback, uintptr_t context )
     wdtCallbackObj.context =  context;
 }
 
-void WDT_InterruptHandler( void )
+void __attribute__((used)) WDT_InterruptHandler( void )
 {
+    /* Additional local variable to prevent MISRA C violations (Rule 13.x) */
+    uintptr_t context =  wdtCallbackObj.context;
     // Capture and clear interrupt status
     uint32_t interruptStatus = WDT_REGS->WDT_ISR;
 
-    if( interruptStatus && (wdtCallbackObj.callback != NULL) )
+    if((wdtCallbackObj.callback != NULL) && (interruptStatus != 0U))
     {
-        wdtCallbackObj.callback( wdtCallbackObj.context, interruptStatus );
+        wdtCallbackObj.callback(context, interruptStatus );
     }
 }
 
@@ -83,7 +86,7 @@ void WDT_Initialize( void )
     // clear interrupt status
     (void) WDT_REGS->WDT_ISR;
     // enable appropriate interrupts
-    WDT_REGS->WDT_IER = 0 | WDT_IER_LVLINT_Msk;
+    WDT_REGS->WDT_IER = 0U | WDT_IER_LVLINT_Msk;
     // enable WDT and set other mode bits desired
     WDT_REGS->WDT_MR =  0U | WDT_MR_WDIDLEHLT_Msk | WDT_MR_WDDBGHLT_Msk | WDT_MR_PERIODRST_Msk;
 }
@@ -121,7 +124,7 @@ void WDT_Enable( void )
     // clear interrupt status
     (void) WDT_REGS->WDT_ISR;
     // enable appropriate interrupts
-    WDT_REGS->WDT_IER = 0 | WDT_IER_LVLINT_Msk;
+    WDT_REGS->WDT_IER = 0U | WDT_IER_LVLINT_Msk;
 }
 
 void WDT_Disable( void )
