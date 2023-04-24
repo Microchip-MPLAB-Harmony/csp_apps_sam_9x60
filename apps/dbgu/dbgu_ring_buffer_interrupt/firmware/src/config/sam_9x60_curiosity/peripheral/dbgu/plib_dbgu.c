@@ -47,7 +47,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-static DBGU_RING_BUFFER_OBJECT dbguObj;
+volatile static DBGU_RING_BUFFER_OBJECT dbguObj;
 
 #define DBGU_READ_BUFFER_SIZE      20U
 /* Disable Read, Overrun, Parity and Framing error interrupts */
@@ -55,13 +55,13 @@ static DBGU_RING_BUFFER_OBJECT dbguObj;
 /* Enable Read, Overrun, Parity and Framing error interrupts */
 #define DBGU_RX_INT_ENABLE()       DBGU_REGS->DBGU_IER = (DBGU_IER_RXRDY_Msk | DBGU_IER_FRAME_Msk | DBGU_IER_PARE_Msk | DBGU_IER_OVRE_Msk);
 
-static uint8_t DBGU_ReadBuffer[DBGU_READ_BUFFER_SIZE];
+volatile static uint8_t DBGU_ReadBuffer[DBGU_READ_BUFFER_SIZE];
 
 #define DBGU_WRITE_BUFFER_SIZE     128U
 #define DBGU_TX_INT_DISABLE()      DBGU_REGS->DBGU_IDR = DBGU_IDR_TXRDY_Msk;
 #define DBGU_TX_INT_ENABLE()       DBGU_REGS->DBGU_IER = DBGU_IER_TXRDY_Msk;
 
-static uint8_t DBGU_WriteBuffer[DBGU_WRITE_BUFFER_SIZE];
+volatile static uint8_t DBGU_WriteBuffer[DBGU_WRITE_BUFFER_SIZE];
 
 void DBGU_Initialize( void )
 {
@@ -182,7 +182,8 @@ static inline bool DBGU_RxPushByte(uint8_t rdByte)
         /* Queue is full - Report it to the application. Application gets a chance to free up space by reading data out from the RX ring buffer */
         if(dbguObj.rdCallback != NULL)
         {
-            dbguObj.rdCallback(DBGU_EVENT_READ_BUFFER_FULL, dbguObj.rdContext);
+            uintptr_t rdContext = dbguObj.rdContext;
+            dbguObj.rdCallback(DBGU_EVENT_READ_BUFFER_FULL, rdContext);
         }
 
         /* Read the indices again in case application has freed up space in RX ring buffer */
@@ -197,7 +198,9 @@ static inline bool DBGU_RxPushByte(uint8_t rdByte)
 
     if (tempInIndex != dbguObj.rdOutIndex)
     {
-        DBGU_ReadBuffer[dbguObj.rdInIndex] = rdByte;
+        uint32_t rdInIndex = dbguObj.rdInIndex;
+
+        DBGU_ReadBuffer[rdInIndex] = rdByte;
         dbguObj.rdInIndex = tempInIndex;
         isSuccess = true;
     }
@@ -220,18 +223,20 @@ static void DBGU_ReadNotificationSend(void)
 
         if(dbguObj.rdCallback != NULL)
         {
+            uintptr_t rdContext = dbguObj.rdContext;
+
             if (dbguObj.isRdNotifyPersistently == true)
             {
                 if (nUnreadBytesAvailable >= dbguObj.rdThreshold)
                 {
-                    dbguObj.rdCallback(DBGU_EVENT_READ_THRESHOLD_REACHED, dbguObj.rdContext);
+                    dbguObj.rdCallback(DBGU_EVENT_READ_THRESHOLD_REACHED, rdContext);
                 }
             }
             else
             {
                 if (nUnreadBytesAvailable == dbguObj.rdThreshold)
                 {
-                    dbguObj.rdCallback(DBGU_EVENT_READ_THRESHOLD_REACHED, dbguObj.rdContext);
+                    dbguObj.rdCallback(DBGU_EVENT_READ_THRESHOLD_REACHED, rdContext);
                 }
             }
         }
@@ -253,7 +258,7 @@ size_t DBGU_Read(uint8_t* pRdBuffer, const size_t size)
 
         if (rdOutIndex != rdInIndex)
         {
-            pRdBuffer[nBytesRead] = DBGU_ReadBuffer[dbguObj.rdOutIndex];
+            pRdBuffer[nBytesRead] = DBGU_ReadBuffer[rdOutIndex];
             nBytesRead++;
             dbguObj.rdOutIndex++;
 
@@ -340,7 +345,7 @@ static bool DBGU_TxPullByte(uint8_t* pWrByte)
 
     if (wrOutIndex != wrInIndex)
     {
-        *pWrByte = DBGU_WriteBuffer[dbguObj.wrOutIndex];
+        *pWrByte = DBGU_WriteBuffer[wrOutIndex];
         dbguObj.wrOutIndex++;
 
         if (dbguObj.wrOutIndex >= DBGU_WRITE_BUFFER_SIZE)
@@ -366,7 +371,9 @@ static inline bool DBGU_TxPushByte(uint8_t wrByte)
     }
     if (tempInIndex != dbguObj.wrOutIndex)
     {
-        DBGU_WriteBuffer[dbguObj.wrInIndex] = wrByte;
+        uint32_t wrInIndex = dbguObj.wrInIndex;
+
+        DBGU_WriteBuffer[wrInIndex] = wrByte;
         dbguObj.wrInIndex = tempInIndex;
         isSuccess = true;
     }
@@ -389,18 +396,20 @@ static void DBGU_WriteNotificationSend(void)
 
         if(dbguObj.wrCallback != NULL)
         {
+            uintptr_t wrContext = dbguObj.wrContext;
+
             if (dbguObj.isWrNotifyPersistently == true)
             {
                 if (nFreeWrBufferCount >= dbguObj.wrThreshold)
                 {
-                    dbguObj.wrCallback(DBGU_EVENT_WRITE_THRESHOLD_REACHED, dbguObj.wrContext);
+                    dbguObj.wrCallback(DBGU_EVENT_WRITE_THRESHOLD_REACHED, wrContext);
                 }
             }
             else
             {
                 if (nFreeWrBufferCount == dbguObj.wrThreshold)
                 {
-                    dbguObj.wrCallback(DBGU_EVENT_WRITE_THRESHOLD_REACHED, dbguObj.wrContext);
+                    dbguObj.wrCallback(DBGU_EVENT_WRITE_THRESHOLD_REACHED, wrContext);
                 }
             }
         }
@@ -506,7 +515,7 @@ void DBGU_WriteCallbackRegister( DBGU_RING_BUFFER_CALLBACK callback, uintptr_t c
     dbguObj.wrContext = context;
 }
 
-static void DBGU_ISR_RX_Handler( void )
+static void __attribute__((used)) DBGU_ISR_RX_Handler( void )
 {
     /* Keep reading until there is a character availabe in the RX FIFO */
     while(DBGU_SR_RXRDY_Msk == (DBGU_REGS->DBGU_SR& DBGU_SR_RXRDY_Msk))
@@ -522,7 +531,7 @@ static void DBGU_ISR_RX_Handler( void )
     }
 }
 
-static void DBGU_ISR_TX_Handler( void )
+static void __attribute__((used)) DBGU_ISR_TX_Handler( void )
 {
     uint8_t wrByte;
 
@@ -545,7 +554,7 @@ static void DBGU_ISR_TX_Handler( void )
     }
 }
 
-void DBGU_InterruptHandler( void )
+void __attribute__((used)) DBGU_InterruptHandler( void )
 {
     /* Error status */
     uint32_t errorStatus = (DBGU_REGS->DBGU_SR & (DBGU_SR_OVRE_Msk | DBGU_SR_FRAME_Msk | DBGU_SR_PARE_Msk));
@@ -562,7 +571,9 @@ void DBGU_InterruptHandler( void )
          * receiver callback */
         if( dbguObj.rdCallback != NULL )
         {
-            dbguObj.rdCallback(DBGU_EVENT_READ_ERROR, dbguObj.rdContext);
+            uintptr_t rdContext = dbguObj.rdContext;
+
+            dbguObj.rdCallback(DBGU_EVENT_READ_ERROR, rdContext);
         }
     }
 
