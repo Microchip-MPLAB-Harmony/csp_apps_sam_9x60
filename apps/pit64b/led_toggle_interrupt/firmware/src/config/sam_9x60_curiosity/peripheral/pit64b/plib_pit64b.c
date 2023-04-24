@@ -50,12 +50,12 @@ typedef struct
     bool running;
     uint32_t periodLSB;
     uint32_t periodMSB;
-    PIT64B_CALLBACK callback;
-    uintptr_t context;
+    volatile PIT64B_CALLBACK callback;
+    volatile uintptr_t context;
 } PIT64B_OBJECT;
 
 
-static PIT64B_OBJECT pit64b = 
+static PIT64B_OBJECT pit64b =
 {
     false,
     100000000U,
@@ -63,6 +63,7 @@ static PIT64B_OBJECT pit64b =
     NULL,
     0U
 };
+
 
 
 static inline void PIT64B_PERIOD_SET(uint32_t periodLSB, uint32_t periodMSB)
@@ -186,12 +187,16 @@ void PIT64B_TimerCallbackSet(PIT64B_CALLBACK callback, uintptr_t context)
 }
 
 
-void PIT64B_InterruptHandler(void)
+void __attribute__((used)) PIT64B_InterruptHandler(void)
 {
-    volatile uint32_t reg = PIT64B_REGS->PIT64B_ISR;
-    (void)reg;
+    /* Additional temporary variable used to prevent MISRA violations (Rule 13.x) */
+    uintptr_t context = pit64b.context;
+
+    /* Clear interrupts */
+    (void)PIT64B_REGS->PIT64B_ISR;
+
     if(pit64b.callback != NULL)
     {
-        pit64b.callback(pit64b.context);
+        pit64b.callback(context);
     }
 }
