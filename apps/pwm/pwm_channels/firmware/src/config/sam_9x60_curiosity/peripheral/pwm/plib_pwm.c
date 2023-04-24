@@ -53,10 +53,11 @@
 */
 #include "device.h"
 #include "plib_pwm.h"
+#include "interrupts.h"
 
 
 /* Object to hold callback function and context */
-static PWM_CALLBACK_OBJECT PWM_CallbackObj;
+volatile static PWM_CALLBACK_OBJECT PWM_CallbackObj;
 
 /* Initialize enabled PWM channels */
 void PWM_Initialize (void)
@@ -175,13 +176,14 @@ void PWM_CallbackRegister(PWM_CALLBACK callback, uintptr_t context)
 }
 
 /* Interrupt Handler */
-void PWM_InterruptHandler(void)
+void __attribute__((used)) PWM_InterruptHandler(void)
 {
-    uint32_t status;
-    status = PWM_REGS->PWM_ISR;
+    uint32_t status = PWM_REGS->PWM_ISR;
+    /* Additional temporary variable used to prevent MISRA violations (Rule 13.x) */
+    uintptr_t context = PWM_CallbackObj.context;
     if (PWM_CallbackObj.callback_fn != NULL)
     {
-        PWM_CallbackObj.callback_fn(status, PWM_CallbackObj.context);
+        PWM_CallbackObj.callback_fn(status, context);
     }
 }
 
