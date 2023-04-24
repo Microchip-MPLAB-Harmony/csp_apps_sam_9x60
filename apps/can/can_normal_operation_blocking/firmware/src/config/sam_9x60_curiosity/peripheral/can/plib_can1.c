@@ -50,6 +50,7 @@
 // *****************************************************************************
 
 #include "plib_can1.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -57,7 +58,8 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define BYTE_MASK 0xFF
+#define BYTE_MASK  (0xFFU)
+static const uint32_t can_mb_number = CAN_MB_NUMBER;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -146,6 +148,10 @@ void CAN1_Initialize(void)
     true  - Request was successful.
     false - Request has failed.
 */
+
+/* MISRA C-2012 Rule 16.1, 16.3 and 16.6 deviated below. Deviation record ID -
+   H3_MISRAC_2012_R_16_1_DR_1, H3_MISRAC_2012_R_16_3_DR_1 & H3_MISRAC_2012_R_16_6_DR_1*/
+
 bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBOX_TX_ATTRIBUTE mailboxAttr)
 {
     uint8_t mailbox = 0;
@@ -153,7 +159,7 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
     uint8_t dataIndex = 0;
     bool status = false;
 
-    for (mailbox = 0; mailbox < CAN_MB_NUMBER; mailbox++)
+    for (mailbox = 0U; mailbox < can_mb_number; mailbox++)
     {
         switch (CAN1_REGS->CAN_MB[mailbox].CAN_MMR & CAN_MMR_MOT_Msk)
         {
@@ -178,14 +184,19 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
                 }
                 break;
             default:
+                     /* Do Nothing */
                 break;
         }
         if (mbIsReady)
+        {
             break;
+        }
     }
 
     if (!mbIsReady)
+    {
         return status;
+    }
 
     /* If the id is longer than 11 bits, it is considered as extended identifier */
     if (id > (CAN_MID_MIDvA_Msk >> CAN_MID_MIDvA_Pos))
@@ -200,9 +211,9 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
     }
 
     /* Limit length */
-    if (length > 8)
+    if (length > 8U)
     {
-        length = 8;
+        length = 8U;
     }
     CAN1_REGS->CAN_MB[mailbox].CAN_MCR = CAN_MCR_MDLC(length);
 
@@ -213,21 +224,21 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
             /* Copy the data into the payload */
             for (; dataIndex < length; dataIndex++)
             {
-                if (dataIndex == 0)
+                if (dataIndex == 0U)
                 {
                     CAN1_REGS->CAN_MB[mailbox].CAN_MDL = data[dataIndex];
                 }
-                else if (dataIndex < 4)
+                else if (dataIndex < 4U)
                 {
-                    CAN1_REGS->CAN_MB[mailbox].CAN_MDL |= (data[dataIndex] << (8 * dataIndex));
+                    CAN1_REGS->CAN_MB[mailbox].CAN_MDL |= ((uint32_t)data[dataIndex] << (8U * dataIndex));
                 }
-                else if (dataIndex == 4)
+                else if (dataIndex == 4U)
                 {
                     CAN1_REGS->CAN_MB[mailbox].CAN_MDH = data[dataIndex];
                 }
                 else
                 {
-                    CAN1_REGS->CAN_MB[mailbox].CAN_MDH |= (data[dataIndex] << (8 * (dataIndex - 4)));
+                    CAN1_REGS->CAN_MB[mailbox].CAN_MDH |= ((uint32_t)data[dataIndex] << (8U * (dataIndex - 4U)));
                 }
             }
             status = true;
@@ -240,7 +251,7 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBO
     }
 
     /* Request the transmit */
-    CAN1_REGS->CAN_TCR = 1U << mailbox;
+    CAN1_REGS->CAN_TCR = 1UL << mailbox;
     return status;
 }
 
@@ -275,10 +286,12 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
     bool mbIsReady = false;
     uint8_t dataIndex = 0;
     bool status = false;
-    for (mailbox = 0; mailbox < CAN_MB_NUMBER; mailbox++)
+    for (mailbox = 0U; mailbox < can_mb_number; mailbox++)
     {
         if ((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRDY_Msk) != CAN_MSR_MRDY_Msk)
+        {
             continue;
+        }
 
         switch (CAN1_REGS->CAN_MB[mailbox].CAN_MMR & CAN_MMR_MOT_Msk)
         {
@@ -301,14 +314,19 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
                 }
                 break;
             default:
+                      /* Do Nothing */
                 break;
         }
         if (mbIsReady)
+        {
             break;
+        }
     }
 
     if (!mbIsReady)
+    {
         return status;
+    }
 
     switch (mailboxAttr)
     {
@@ -324,7 +342,7 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
                 *id = (CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvA_Msk) >> CAN_MID_MIDvA_Pos;
             }
 
-            if ((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRTR_Msk) &&
+            if (((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRTR_Msk) != 0U) &&
                (mailboxAttr != CAN_MAILBOX_DATA_FRAME_CONSUMER))
             {
                 *msgAttr = CAN_MSG_RX_REMOTE_FRAME;
@@ -334,25 +352,25 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
                 *msgAttr = CAN_MSG_RX_DATA_FRAME;
             }
 
-            *length = (CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MDLC_Msk) >> CAN_MSR_MDLC_Pos;
+            *length = (uint8_t)((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MDLC_Msk) >> CAN_MSR_MDLC_Pos);
             /* Copy the data into the payload */
             for (; dataIndex < *length; dataIndex++)
             {
-                if (dataIndex == 0)
+                if (dataIndex == 0U)
                 {
-                    data[dataIndex] = CAN1_REGS->CAN_MB[mailbox].CAN_MDL & BYTE_MASK;
+                    data[dataIndex] = (uint8_t)(CAN1_REGS->CAN_MB[mailbox].CAN_MDL & BYTE_MASK);
                 }
-                else if (dataIndex < 4)
+                else if (dataIndex < 4U)
                 {
-                    data[dataIndex] = (CAN1_REGS->CAN_MB[mailbox].CAN_MDL >> (8 * dataIndex)) & BYTE_MASK;
+                    data[dataIndex] = (uint8_t)((CAN1_REGS->CAN_MB[mailbox].CAN_MDL >> (8U * dataIndex)) & BYTE_MASK);
                 }
-                else if (dataIndex == 4)
+                else if (dataIndex == 4U)
                 {
-                    data[dataIndex] = CAN1_REGS->CAN_MB[mailbox].CAN_MDH & BYTE_MASK;
+                    data[dataIndex] = (uint8_t)(CAN1_REGS->CAN_MB[mailbox].CAN_MDH & BYTE_MASK);
                 }
                 else
                 {
-                    data[dataIndex] = (CAN1_REGS->CAN_MB[mailbox].CAN_MDH >> (8 * (dataIndex - 4))) & BYTE_MASK;
+                    data[dataIndex] = (uint8_t)((CAN1_REGS->CAN_MB[mailbox].CAN_MDH >> (8U * (dataIndex - 4U))) & BYTE_MASK);
                 }
             }
 
@@ -370,6 +388,8 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
     }
     return status;
 }
+
+/* MISRAC 2012 deviation block end */
 
 // *****************************************************************************
 /* Function:
@@ -441,7 +461,7 @@ uint32_t CAN1_MessageIDGet(CAN_MAILBOX_NUM mailbox)
 {
     uint32_t id = 0;
 
-    if ((CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvB_Msk) != 0)
+    if ((CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvB_Msk) != 0U)
     {
         id = CAN1_REGS->CAN_MB[mailbox].CAN_MID & CAN_MFID_Msk;
     }
@@ -530,7 +550,7 @@ uint32_t CAN1_MessageAcceptanceMaskGet(CAN_MAILBOX_NUM mailbox)
 */
 uint16_t CAN1_MessageTimestampGet(CAN_MAILBOX_NUM mailbox)
 {
-    return (CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MTIMESTAMP_Msk);
+    return (uint16_t)(CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MTIMESTAMP_Msk);
 }
 
 // *****************************************************************************
@@ -614,7 +634,7 @@ void CAN1_ErrorCountGet(uint16_t *txErrorCount, uint8_t *rxErrorCount)
 */
 bool CAN1_InterruptGet(CAN_INTERRUPT_MASK interruptMask)
 {
-    return ((CAN1_REGS->CAN_SR & interruptMask) != 0x0);
+    return ((CAN1_REGS->CAN_SR & interruptMask) != 0x0U);
 }
 
 // *****************************************************************************
@@ -679,5 +699,82 @@ void CAN1_InterruptDisable(CAN_INTERRUPT_MASK interruptMask)
 bool CAN1_MailboxIsReady(CAN_MAILBOX_NUM mailbox)
 {
     return ((CAN1_REGS->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRDY_Msk) == CAN_MSR_MRDY_Msk);
+}
+
+bool CAN1_BitTimingCalculationGet(CAN_BIT_TIMING_SETUP *setup, CAN_BIT_TIMING *bitTiming)
+{
+    bool status = false;
+    uint32_t numOfTimeQuanta;
+    uint8_t phase1;
+    float temp1;
+    float temp2;
+
+    if ((setup != NULL) && (bitTiming != NULL))
+    {
+        if (setup->nominalBitTimingSet == true)
+        {
+            numOfTimeQuanta = CAN1_CLOCK_FREQUENCY / (setup->nominalBitRate * ((uint32_t)setup->nominalPrescaler + 1U));
+            if ((numOfTimeQuanta >= 8U) && (numOfTimeQuanta <= 25U))
+            {
+                if (setup->nominalSamplePoint < 50.0f)
+                {
+                    setup->nominalSamplePoint = 50.0f;
+                }
+                temp1 = (float)numOfTimeQuanta;
+                temp2 = (temp1 * setup->nominalSamplePoint) / 100.0f;
+                phase1 = (uint8_t)temp2;
+                bitTiming->nominalBitTiming.phase2Segment = (uint8_t)(numOfTimeQuanta - phase1 - 1U);
+                /* The propagation segment time is equal to twice the sum of the signal's propagation time on the bus line,
+                   the receiver delay and the output driver delay */
+                temp2 = (((float)numOfTimeQuanta * ((float)setup->nominalBitRate / 1000.0f) * (float)setup->nominalPropagTime) / 1000000.0f);
+                bitTiming->nominalBitTiming.propagationSegment = ((uint8_t)temp2 - 1U);
+                bitTiming->nominalBitTiming.phase1Segment = phase1 - (bitTiming->nominalBitTiming.propagationSegment + 1U) - 2U;
+                if ((bitTiming->nominalBitTiming.phase2Segment + 1U) > 4U)
+                {
+                    bitTiming->nominalBitTiming.sjw = 3U;
+                }
+                else
+                {
+                    bitTiming->nominalBitTiming.sjw = bitTiming->nominalBitTiming.phase2Segment;
+                }
+                bitTiming->nominalBitTiming.Prescaler = setup->nominalPrescaler;
+                bitTiming->nominalBitTimingSet = true;
+                status = true;
+            }
+            else
+            {
+                bitTiming->nominalBitTimingSet = false;
+            }
+        }
+    }
+
+    return status;
+}
+
+bool CAN1_BitTimingSet(CAN_BIT_TIMING *bitTiming)
+{
+    bool status = false;
+
+    if ((bitTiming->nominalBitTimingSet == true)
+    && (bitTiming->nominalBitTiming.phase1Segment <= 0x7U)
+    && (bitTiming->nominalBitTiming.phase2Segment <= 0x7U)
+    && (bitTiming->nominalBitTiming.propagationSegment <= 0x7U)
+    && ((bitTiming->nominalBitTiming.Prescaler >= 0x1U) && (bitTiming->nominalBitTiming.Prescaler <= 0x7FU))
+    && (bitTiming->nominalBitTiming.sjw <= 0x3U))
+    {
+        /* Disable CAN Controller */
+        CAN1_REGS->CAN_MR &= ~CAN_MR_CANEN_Msk;
+
+        /* Set CAN Baudrate */
+        CAN1_REGS->CAN_BR  = CAN_BR_PHASE2(bitTiming->nominalBitTiming.phase2Segment) | CAN_BR_PHASE1(bitTiming->nominalBitTiming.phase1Segment) |
+                                             CAN_BR_PROPAG(bitTiming->nominalBitTiming.propagationSegment) | CAN_BR_BRP(bitTiming->nominalBitTiming.Prescaler) |
+                                             CAN_BR_SJW(bitTiming->nominalBitTiming.sjw);
+
+        /* Enable CAN Controller */
+        CAN1_REGS->CAN_MR |= CAN_MR_CANEN_Msk;
+
+        status = true;
+    }
+    return status;
 }
 
