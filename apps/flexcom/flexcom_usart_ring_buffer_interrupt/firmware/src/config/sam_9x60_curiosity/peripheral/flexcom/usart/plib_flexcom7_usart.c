@@ -72,8 +72,8 @@
 #define FLEXCOM7_USART_WRITE_BUFFER_SIZE            128U
 #define FLEXCOM7_USART_9BIT_WRITE_BUFFER_SIZE       (128U >> 1U)
 
-static uint8_t FLEXCOM7_USART_ReadBuffer[FLEXCOM7_USART_READ_BUFFER_SIZE];
-static uint8_t FLEXCOM7_USART_WriteBuffer[FLEXCOM7_USART_WRITE_BUFFER_SIZE];
+volatile static uint8_t FLEXCOM7_USART_ReadBuffer[FLEXCOM7_USART_READ_BUFFER_SIZE];
+volatile static uint8_t FLEXCOM7_USART_WriteBuffer[FLEXCOM7_USART_WRITE_BUFFER_SIZE];
 
 // *****************************************************************************
 // *****************************************************************************
@@ -81,7 +81,7 @@ static uint8_t FLEXCOM7_USART_WriteBuffer[FLEXCOM7_USART_WRITE_BUFFER_SIZE];
 // *****************************************************************************
 // *****************************************************************************
 
-static FLEXCOM_USART_RING_BUFFER_OBJECT flexcom7UsartObj;
+volatile static FLEXCOM_USART_RING_BUFFER_OBJECT flexcom7UsartObj;
 
 void FLEXCOM7_USART_Initialize( void )
 {
@@ -334,18 +334,20 @@ static void FLEXCOM7_USART_SendWriteNotification(void)
 
         if(flexcom7UsartObj.wrCallback != NULL)
         {
+            uintptr_t wrContext = flexcom7UsartObj.wrContext;
+
             if (flexcom7UsartObj.isWrNotifyPersistently == true)
             {
                 if (nFreeWrBufferCount >= flexcom7UsartObj.wrThreshold)
                 {
-                    flexcom7UsartObj.wrCallback(FLEXCOM_USART_EVENT_WRITE_THRESHOLD_REACHED, flexcom7UsartObj.wrContext);
+                    flexcom7UsartObj.wrCallback(FLEXCOM_USART_EVENT_WRITE_THRESHOLD_REACHED, wrContext);
                 }
             }
             else
             {
                 if (nFreeWrBufferCount == flexcom7UsartObj.wrThreshold)
                 {
-                    flexcom7UsartObj.wrCallback(FLEXCOM_USART_EVENT_WRITE_THRESHOLD_REACHED, flexcom7UsartObj.wrContext);
+                    flexcom7UsartObj.wrCallback(FLEXCOM_USART_EVENT_WRITE_THRESHOLD_REACHED, wrContext);
                 }
             }
         }
@@ -493,7 +495,9 @@ static inline bool FLEXCOM7_USART_RxPushByte(uint16_t rdByte)
         /* Queue is full - Report it to the application. Application gets a chance to free up space by reading data out from the RX ring buffer */
         if(flexcom7UsartObj.rdCallback != NULL)
         {
-            flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_BUFFER_FULL, flexcom7UsartObj.rdContext);
+            uintptr_t rdContext = flexcom7UsartObj.rdContext;
+
+            flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_BUFFER_FULL, rdContext);
 
             /* Read the indices again in case application has freed up space in RX ring buffer */
             tempInIndex = flexcom7UsartObj.rdInIndex + 1U;
@@ -508,15 +512,18 @@ static inline bool FLEXCOM7_USART_RxPushByte(uint16_t rdByte)
     /* Attempt to push the data into the ring buffer */
     if (tempInIndex != flexcom7UsartObj.rdOutIndex)
     {
+        uint32_t rdInIdx;
+
         if ((FLEXCOM7_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
         {
-            uint32_t rdInIdx = flexcom7UsartObj.rdInIndex << 1U;
+            rdInIdx = flexcom7UsartObj.rdInIndex << 1U;
             FLEXCOM7_USART_ReadBuffer[rdInIdx] = (uint8_t)rdByte;
             FLEXCOM7_USART_ReadBuffer[rdInIdx + 1U] = (uint8_t)(rdByte >> 8U);
         }
         else
         {
-            FLEXCOM7_USART_ReadBuffer[flexcom7UsartObj.rdInIndex] = (uint8_t)rdByte;
+            rdInIdx = flexcom7UsartObj.rdInIndex;
+            FLEXCOM7_USART_ReadBuffer[rdInIdx] = (uint8_t)rdByte;
         }
 
         flexcom7UsartObj.rdInIndex = tempInIndex;
@@ -541,18 +548,20 @@ static void FLEXCOM7_USART_SendReadNotification(void)
 
         if(flexcom7UsartObj.rdCallback != NULL)
         {
+            uintptr_t rdContext = flexcom7UsartObj.rdContext;
+
             if (flexcom7UsartObj.isRdNotifyPersistently == true)
             {
                 if (nUnreadBytesAvailable >= flexcom7UsartObj.rdThreshold)
                 {
-                    flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_THRESHOLD_REACHED, flexcom7UsartObj.rdContext);
+                    flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_THRESHOLD_REACHED, rdContext);
                 }
             }
             else
             {
                 if (nUnreadBytesAvailable == flexcom7UsartObj.rdThreshold)
                 {
-                    flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_THRESHOLD_REACHED, flexcom7UsartObj.rdContext);
+                    flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_THRESHOLD_REACHED, rdContext);
                 }
             }
         }
@@ -668,7 +677,7 @@ void FLEXCOM7_USART_ReadCallbackRegister( FLEXCOM_USART_RING_BUFFER_CALLBACK cal
     flexcom7UsartObj.rdContext = context;
 }
 
-void static FLEXCOM7_USART_ISR_RX_Handler( void )
+void static __attribute__((used)) FLEXCOM7_USART_ISR_RX_Handler( void )
 {
     uint16_t rdData = 0;
 
@@ -697,7 +706,7 @@ void static FLEXCOM7_USART_ISR_RX_Handler( void )
 
 }
 
-void static FLEXCOM7_USART_ISR_TX_Handler( void )
+void static __attribute__((used)) FLEXCOM7_USART_ISR_TX_Handler( void )
 {
     uint16_t wrByte;
 
@@ -728,7 +737,7 @@ void static FLEXCOM7_USART_ISR_TX_Handler( void )
 
 }
 
-void FLEXCOM7_InterruptHandler( void )
+void __attribute__((used)) FLEXCOM7_InterruptHandler( void )
 {
     /* Channel status */
     uint32_t channelStatus = FLEXCOM7_REGS->FLEX_US_CSR;
@@ -748,7 +757,9 @@ void FLEXCOM7_InterruptHandler( void )
         /* USART errors are normally associated with the receiver, hence calling receiver context */
         if( flexcom7UsartObj.rdCallback != NULL )
         {
-            flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_ERROR, flexcom7UsartObj.rdContext);
+            uintptr_t rdContext = flexcom7UsartObj.rdContext;
+
+            flexcom7UsartObj.rdCallback(FLEXCOM_USART_EVENT_READ_ERROR, rdContext);
         }
     }
 
