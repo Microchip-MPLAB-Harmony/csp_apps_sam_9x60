@@ -26,8 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| sam_9x60_ek.X | MPLABX project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
-| sam_9x60_ek_iar.IAR/clock_config_sam_9x60_ek_iar.eww | IAR project for [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | MPLABX project for [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
 ## Setting up AT91Bootstrap loader
@@ -40,39 +39,26 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| sam_9x60_ek.X <br> sam_9x60_ek_iar.IAR/clock_config_sam_9x60_ek_iar.eww | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) |
+| sam_9x60_curiosity.X | [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) |
 |||
 
-### Setting up [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)
-
-#### Addtional hardware required
-
-- SD Card with FAT32 file system
-
-#### Setting up the SD Card
-
-- Download harmony MPU bootstrap loader from this [location](firmware/at91bootstrap_sam_9x60_ek.X/binaries/boot.bin)
-- Copy the downloaded boot loader binary( boot.bin) onto the SD card
+### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A)
 
 #### Setting up the board
 
-- SDMMC slot used for bootloading the application is SDMMC0 (J4)
-- Connect the USB port J22 on board to the computer using a micro USB cable (to enable debug com port)
-- Connect the USB port J7 on board to the computer using a micro USB cable (to power the board)
-- *NOTE - Reset push button is labelled as SW3*
+- Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).
+- Connect programmer(J-32 Debugger) to computer using a micro USB cable. 
+- Connect the USB port J1 on board to the computer using a micro USB cable (to power the board)
 
 ## Running the Application
 
-1. Build the application using its IDE
-2. Copy the output binary (named 'harmony.bin') onto the SD Card (Refer to the 'Setting up hardware' section above for setting up the SD card)
-3. Insert the SD card into SDMMC slot on the board (Refer to the 'Setting up hardware' section for the correct SDMMC slot)
-4. Reset the board to run the application
-5. Observe the clock of 5 MHz on clock output pin
-6. LED should be blinking continuosly
+1. Build and Program the application using its IDE.
+2. Observe the clock of 500 Hz on clock output pin
+6. LED should be turned ON continuously
 
 Refer to the following table for clock output pin and LED name for different boards:
 
 | Board      | Clock output pin | LED Name |
 | ---------- | ---------------- |--------- |
-|  [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) | PC31 (Pin #29 on the J16 Connector) | RGB_LED(Blue) |
+|  [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) | PD20 (Pin #22 on the J19 Connector) | RGB_LED(Blue) |
 ||||
