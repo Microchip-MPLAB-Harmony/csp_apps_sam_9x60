@@ -44,8 +44,6 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) 
 
-#### Addtional hardware required
-
 #### Setting up the board
 
 - Connect a programming cable from JTAG connector J12 on board to programmer(J-32 Debugger).

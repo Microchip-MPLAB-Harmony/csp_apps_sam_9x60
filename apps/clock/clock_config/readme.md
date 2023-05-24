@@ -54,7 +54,7 @@ The following table shows the target hardware for the application projects.
 
 1. Build and Program the application using its IDE.
 2. Observe the clock of 500 Hz on clock output pin
-6. LED should be turned ON continuously
+3. LED should be turned ON continuously
 
 Refer to the following table for clock output pin and LED name for different boards:
 

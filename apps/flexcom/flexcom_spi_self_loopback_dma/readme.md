@@ -45,10 +45,6 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A)
 
-#### Addtional hardware required
-
-- SD Card with FAT32 file system
-
 #### Setting up the board
 
 - Use jumper wire to Connect "Pin 5 of J8 Connector" to "Pin 6 of J8 Connector"
