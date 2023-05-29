@@ -3,11 +3,11 @@
 	"category": "com.microchip.ide.project",
 	"content": {
 		"metaDataVersion": "1.1.0",
-		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x60_flexcom_spi_self_loopback_dma",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_9x60_flexcom_usart_ring_buffer",
 		"version": "3.4.0",
-		"displayName": "FLEXCOM SPI self loopback dma Example for SAM 9x60 Family",
-		"projectName": "flexcom_spi_self_loopback_dma_sam_9x60_ek",
-		"shortDescription": "This example application shows how to use the FLEXCOM SPI peripheral with DMA to transmit and receive a block of data.",
+		"displayName": "FLEXCOM USART ring buffer Example for SAM 9x60 Family",
+		"projectName": "flexcom_usart_ring_buffer_interrupt_sam_9x60_curiosity",
+		"shortDescription": "This example application shows how to use the FLEXCOM peripheral in USART ring buffer mode.",
 		"ide": {
 			"name": "MPLABX",
 			"semverRange": ">=6.5.0"
@@ -62,7 +62,11 @@
 			"SAM 9x60 Family",
 			"FLEXCOM",
 			"Serial Communication",
-			"SPI"
+			"I2C",
+			"SPI",
+			"UART",
+			"SERCOM",
+			"TWI"
 		],
 		"additionalData": {
 			"longDescription": {
