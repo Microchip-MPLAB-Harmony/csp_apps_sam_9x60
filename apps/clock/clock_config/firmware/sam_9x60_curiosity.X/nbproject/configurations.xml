@@ -1,13 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
-    <logicalFolder name="HeaderFiles"
-                   displayName="Header Files"
-                   projectFiles="true">
+    <logicalFolder name="HeaderFiles" displayName="Header Files" projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity"
-                       displayName="sam_9x60_curiosity"
-                       projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity" displayName="sam_9x60_curiosity" projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_curiosity/peripheral/aic/plib_aic.h</itemPath>
@@ -34,9 +30,7 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
-        <logicalFolder name="SAM9X60D1G_DFP"
-                       displayName="SAM9X60D1G_DFP"
-                       projectFiles="true">
+        <logicalFolder name="SAM9X60D1G_DFP" displayName="SAM9X60D1G_DFP" projectFiles="true">
           <logicalFolder name="component" displayName="component" projectFiles="true">
             <itemPath>../src/packs/SAM9X60D1G_DFP/component/rtc.h</itemPath>
             <itemPath>../src/packs/SAM9X60D1G_DFP/component/sdramc.h</itemPath>
@@ -157,24 +151,16 @@
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="LinkerScript"
-                   displayName="Linker Files"
-                   projectFiles="true">
+    <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity"
-                       displayName="sam_9x60_curiosity"
-                       projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity" displayName="sam_9x60_curiosity" projectFiles="true">
           <itemPath>../src/config/sam_9x60_curiosity/ddram.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="SourceFiles"
-                   displayName="Source Files"
-                   projectFiles="true">
+    <logicalFolder name="SourceFiles" displayName="Source Files" projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity"
-                       displayName="sam_9x60_curiosity"
-                       projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity" displayName="sam_9x60_curiosity" projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_curiosity/peripheral/aic/plib_aic.c</itemPath>
@@ -204,11 +190,10 @@
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="false">
+    <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="false">
       <itemPath>Makefile</itemPath>
       <itemPath>clock_config_sam_9x60_curiosity.mc3</itemPath>
+      <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -217,8 +202,8 @@
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>SAM9X60D1G</targetDevice>
-        <targetHeader></targetHeader>
-        <targetPluginBoard></targetPluginBoard>
+        <targetHeader/>
+        <targetPluginBoard/>
         <platformTool>j32</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.21</languageToolchainVersion>
@@ -231,8 +216,7 @@
         <ScriptingSetting key="boot.load_adr" value=""/>
         <ScriptingSetting key="boot.use" value="true"/>
         <ScriptingSetting key="boot.entry_adr" value=""/>
-        <ScriptingSetting key="boot.path"
-                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
+        <ScriptingSetting key="boot.path" value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
         <ScriptingSetting key="boot.prj" value=""/>
       </ScriptingSettings>
       <compileType>
@@ -245,7 +229,7 @@
         <loading>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
           <parseOnProdLoad>false</parseOnProdLoad>
-          <alternateLoadableFile></alternateLoadableFile>
+          <alternateLoadableFile/>
         </loading>
         <subordinates>
         </subordinates>
@@ -253,9 +237,9 @@
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
         <makeUseCleanTarget>false</makeUseCleanTarget>
-        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPreStep/>
         <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
-        <makeCustomizationPostStep></makeCustomizationPostStep>
+        <makeCustomizationPostStep/>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
@@ -269,8 +253,7 @@
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60_curiosity;../src/packs/SAM9X60D1G_DFP"/>
+        <property key="extra-include-directories" value="../src;../src/config/sam_9x60_curiosity;../src/packs/SAM9X60D1G_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -369,8 +352,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60_curiosity;../src/packs/SAM9X60D1G_DFP"/>
+        <property key="extra-include-directories" value="../src;../src/config/sam_9x60_curiosity;../src/packs/SAM9X60D1G_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -417,15 +399,13 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.ranges"
-                  value="${memories.instruction.ram.ranges.default}"/>
+        <property key="memories.instruction.ram.ranges" value="${memories.instruction.ram.ranges.default}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0x300000-0x4fffff"/>
         <property key="programoptions.eraseb4program" value="false"/>
         <property key="programoptions.preservebootflash" value="false"/>
         <property key="programoptions.preserveprogrammemory" value="false"/>
-        <property key="programoptions.preserveprogramrange.ranges"
-                  value="0x300000-0x4fffff"/>
+        <property key="programoptions.preserveprogramrange.ranges" value="0x300000-0x4fffff"/>
         <property key="programoptions.resetafterprogram" value="true"/>
         <property key="script.has_reset" value="true"/>
         <property key="script.log_level" value="1"/>
@@ -448,15 +428,13 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.ranges"
-                  value="${memories.instruction.ram.ranges.default}"/>
+        <property key="memories.instruction.ram.ranges" value="${memories.instruction.ram.ranges.default}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0x300000-0x4fffff"/>
         <property key="programoptions.eraseb4program" value="false"/>
         <property key="programoptions.preservebootflash" value="false"/>
         <property key="programoptions.preserveprogrammemory" value="false"/>
-        <property key="programoptions.preserveprogramrange.ranges"
-                  value="0x300000-0x4fffff"/>
+        <property key="programoptions.preserveprogramrange.ranges" value="0x300000-0x4fffff"/>
         <property key="programoptions.resetafterprogram" value="true"/>
         <property key="script.has_reset" value="true"/>
         <property key="script.log_level" value="1"/>

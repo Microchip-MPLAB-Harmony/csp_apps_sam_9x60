@@ -201,6 +201,7 @@
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="false">
       <itemPath>Makefile</itemPath>
       <itemPath>led_switcher_sam_9x60_curiosity.mc3</itemPath>
+      <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
