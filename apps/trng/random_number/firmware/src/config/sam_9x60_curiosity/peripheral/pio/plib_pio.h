@@ -63,12 +63,12 @@
 
 
 /*** Macros for SWITCH pin ***/
-#define SWITCH_Set()               (PIOA_REGS->PIO_SODR = (1<<29))
-#define SWITCH_Clear()             (PIOA_REGS->PIO_CODR = (1<<29))
-#define SWITCH_Toggle()            (PIOA_REGS->PIO_ODSR ^= (1<<29))
-#define SWITCH_OutputEnable()      (PIOA_REGS->PIO_OER = (1<<29))
-#define SWITCH_InputEnable()       (PIOA_REGS->PIO_ODR = (1<<29))
-#define SWITCH_Get()               ((PIOA_REGS->PIO_PDSR >> 29) & 0x1)
+#define SWITCH_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<29U))
+#define SWITCH_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<29U))
+#define SWITCH_Toggle()            (PIOA_REGS->PIO_ODSR ^= ((uint32_t)1U<<29U))
+#define SWITCH_OutputEnable()      (PIOA_REGS->PIO_OER = ((uint32_t)1U<<29U))
+#define SWITCH_InputEnable()       (PIOA_REGS->PIO_ODR = ((uint32_t)1U<<29U))
+#define SWITCH_Get()               ((PIOA_REGS->PIO_PDSR >> 29U) & 0x1U)
 #define SWITCH_PIN                  PIO_PIN_PA29
 #define SWITCH_InterruptEnable()   (PIOA_REGS->PIO_IER = (1<<29))
 #define SWITCH_InterruptDisable()  (PIOA_REGS->PIO_IDR = (1<<29))
