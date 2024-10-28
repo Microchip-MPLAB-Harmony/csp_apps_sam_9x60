@@ -58,7 +58,6 @@
 // *****************************************************************************
 
 void SYSC_SharedHandler (void);
-void DBGU_InterruptHandler (void);
 
 void RTC_InterruptHandler (void);
 
