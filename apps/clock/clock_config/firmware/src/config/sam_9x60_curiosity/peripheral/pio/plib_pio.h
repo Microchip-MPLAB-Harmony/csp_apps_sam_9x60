@@ -63,39 +63,39 @@
 
 
 /*** Macros for LED_GREEN pin ***/
-#define LED_GREEN_Set()               (PIOD_REGS->PIO_SODR = (1<<19))
-#define LED_GREEN_Clear()             (PIOD_REGS->PIO_CODR = (1<<19))
-#define LED_GREEN_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<19))
-#define LED_GREEN_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<19))
-#define LED_GREEN_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<19))
-#define LED_GREEN_Get()               ((PIOD_REGS->PIO_PDSR >> 19) & 0x1)
+#define LED_GREEN_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<19U))
+#define LED_GREEN_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<19U))
+#define LED_GREEN_Toggle()            (PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<19U))
+#define LED_GREEN_OutputEnable()      (PIOD_REGS->PIO_OER = ((uint32_t)1U<<19U))
+#define LED_GREEN_InputEnable()       (PIOD_REGS->PIO_ODR = ((uint32_t)1U<<19U))
+#define LED_GREEN_Get()               ((PIOD_REGS->PIO_PDSR >> 19U) & 0x1U)
 #define LED_GREEN_PIN                  PIO_PIN_PD19
 
 /*** Macros for LED_BLUE pin ***/
-#define LED_BLUE_Set()               (PIOD_REGS->PIO_SODR = (1<<21))
-#define LED_BLUE_Clear()             (PIOD_REGS->PIO_CODR = (1<<21))
-#define LED_BLUE_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<21))
-#define LED_BLUE_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<21))
-#define LED_BLUE_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<21))
-#define LED_BLUE_Get()               ((PIOD_REGS->PIO_PDSR >> 21) & 0x1)
+#define LED_BLUE_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<21U))
+#define LED_BLUE_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<21U))
+#define LED_BLUE_Toggle()            (PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<21U))
+#define LED_BLUE_OutputEnable()      (PIOD_REGS->PIO_OER = ((uint32_t)1U<<21U))
+#define LED_BLUE_InputEnable()       (PIOD_REGS->PIO_ODR = ((uint32_t)1U<<21U))
+#define LED_BLUE_Get()               ((PIOD_REGS->PIO_PDSR >> 21U) & 0x1U)
 #define LED_BLUE_PIN                  PIO_PIN_PD21
 
 /*** Macros for LED_RED pin ***/
-#define LED_RED_Set()               (PIOD_REGS->PIO_SODR = (1<<17))
-#define LED_RED_Clear()             (PIOD_REGS->PIO_CODR = (1<<17))
-#define LED_RED_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<17))
-#define LED_RED_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<17))
-#define LED_RED_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<17))
-#define LED_RED_Get()               ((PIOD_REGS->PIO_PDSR >> 17) & 0x1)
+#define LED_RED_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<17U))
+#define LED_RED_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<17U))
+#define LED_RED_Toggle()            (PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<17U))
+#define LED_RED_OutputEnable()      (PIOD_REGS->PIO_OER = ((uint32_t)1U<<17U))
+#define LED_RED_InputEnable()       (PIOD_REGS->PIO_ODR = ((uint32_t)1U<<17U))
+#define LED_RED_Get()               ((PIOD_REGS->PIO_PDSR >> 17U) & 0x1U)
 #define LED_RED_PIN                  PIO_PIN_PD17
 
 /*** Macros for CLK pin ***/
-#define CLK_Set()               (PIOD_REGS->PIO_SODR = (1<<20))
-#define CLK_Clear()             (PIOD_REGS->PIO_CODR = (1<<20))
-#define CLK_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<20))
-#define CLK_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<20))
-#define CLK_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<20))
-#define CLK_Get()               ((PIOD_REGS->PIO_PDSR >> 20) & 0x1)
+#define CLK_Set()               (PIOD_REGS->PIO_SODR = ((uint32_t)1U<<20U))
+#define CLK_Clear()             (PIOD_REGS->PIO_CODR = ((uint32_t)1U<<20U))
+#define CLK_Toggle()            (PIOD_REGS->PIO_ODSR ^= ((uint32_t)1U<<20U))
+#define CLK_OutputEnable()      (PIOD_REGS->PIO_OER = ((uint32_t)1U<<20U))
+#define CLK_InputEnable()       (PIOD_REGS->PIO_ODR = ((uint32_t)1U<<20U))
+#define CLK_Get()               ((PIOD_REGS->PIO_PDSR >> 20U) & 0x1U)
 #define CLK_PIN                  PIO_PIN_PD20
 
 

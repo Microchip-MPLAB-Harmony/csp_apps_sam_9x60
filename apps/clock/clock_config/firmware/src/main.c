@@ -67,7 +67,7 @@ int main ( void )
         /* Toggle LED after every 1s */
         LED_BLUE_Toggle();
         CLK_Toggle();
-        PIT_DelayMs(1);
+        PIT_DelayMs(250);
     }
 
     /* Execution should not come here during normal operation */
