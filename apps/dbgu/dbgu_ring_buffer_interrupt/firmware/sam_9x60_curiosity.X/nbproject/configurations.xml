@@ -31,125 +31,6 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
-        <logicalFolder name="f1" displayName="SAM9X60_DFP" projectFiles="true">
-          <logicalFolder name="f1" displayName="component" projectFiles="true">
-            <itemPath>../src/packs/SAM9X60_DFP/component/adc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/aes.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/aic.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/bsc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/can.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/classd.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/dbgu.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/emac.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/flexcom.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/gfx2d.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/gpbr.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/i2smcc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/isi.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/lcdc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/matrix.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/mpddrc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/otpc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/pio.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/pit.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/pit64b.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/pmc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/pmecc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/pmerrloc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/pwm.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/qspi.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/rstc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/rtc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/rtt.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/sckc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/sdmmc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/sdramc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/sfr.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/sha.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/shdwc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/smc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/ssc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/syscwp.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/tc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/tdes.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/trng.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/udphs.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/uhpfs.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/uhphs.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/wdt.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/component/xdmac.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f2" displayName="instance" projectFiles="true">
-            <itemPath>../src/packs/SAM9X60_DFP/instance/adc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/aes.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/aic.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/bsc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/can0.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/can1.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/classd.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/dbgu.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/emac0.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/emac1.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom0.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom1.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom10.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom11.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom12.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom2.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom3.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom4.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom5.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom6.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom7.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom8.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/flexcom9.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/gfx2d.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/gpbr.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/i2smcc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/isi.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/lcdc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/matrix.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/mpddrc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/otpc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pioa.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/piob.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pioc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/piod.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pit.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pit64b.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pmc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pmecc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pmerrloc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/pwm.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/qspi.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/rstc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/rtc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/rtt.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/sckc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/sdmmc0.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/sdmmc1.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/sdramc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/sfr.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/sha.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/shdwc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/smc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/ssc.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/syscwp.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/tc0.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/tc1.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/tdes.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/trng.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/udphs.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/uhphs_ehci.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/uhphs_ohci.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/wdt.h</itemPath>
-            <itemPath>../src/packs/SAM9X60_DFP/instance/xdmac.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f3" displayName="pio" projectFiles="true">
-            <itemPath>../src/packs/SAM9X60_DFP/pio/sam9x60d1g.h</itemPath>
-          </logicalFolder>
-          <itemPath>../src/packs/SAM9X60_DFP/sam9x60d1g.h</itemPath>
-        </logicalFolder>
         <logicalFolder name="SAM9X60D1G_DFP" displayName="SAM9X60D1G_DFP" projectFiles="true">
           <logicalFolder name="component" displayName="component" projectFiles="true">
             <itemPath>../src/packs/SAM9X60D1G_DFP/component/aes.h</itemPath>
@@ -274,7 +155,6 @@
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
-      <itemPath>dbgu_ring_buffer_interrupt_sam_9x60_ek.mc3</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
       <itemPath>dbgu_ring_buffer_interrupt_sam_9x60_curiosity.mc3</itemPath>
     </logicalFolder>
