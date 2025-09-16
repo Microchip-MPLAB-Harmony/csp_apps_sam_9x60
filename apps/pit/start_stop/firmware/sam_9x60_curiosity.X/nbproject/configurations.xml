@@ -152,9 +152,16 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="start_stop_sam_9x60_curiosity_sam_9x60_curiosity" displayName="start_stop_sam_9x60_curiosity_sam_9x60_curiosity" projectFiles="true">
+        <itemPath>start_stop_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>start_stop_sam_9x60_curiosity_sam_9x60_curiosity/components/core.yml</itemPath>
+          <itemPath>start_stop_sam_9x60_curiosity_sam_9x60_curiosity/components/dfp.yml</itemPath>
+          <itemPath>start_stop_sam_9x60_curiosity_sam_9x60_curiosity/components/pit.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
-      <itemPath>start_stop_sam_9x60_curiosity.mc3</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
@@ -209,7 +216,7 @@
         <targetPluginBoard/>
         <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.45</languageToolchainVersion>
+        <languageToolchainVersion>4.60</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
