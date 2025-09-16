@@ -51,7 +51,7 @@ typedef struct
     uintptr_t       context;
 } WDT_CALLBACK_OBJECT;
 
-volatile static WDT_CALLBACK_OBJECT wdtCallbackObj;
+static volatile WDT_CALLBACK_OBJECT wdtCallbackObj;
 
 void WDT_CallbackRegister( WDT_CALLBACK callback, uintptr_t context )
 {
