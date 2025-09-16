@@ -1,0 +1,355 @@
+configVersion: 1.0.0
+componentName: tc0
+coreVersion: 5.8.2
+device: SAM9X60D1G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: tc0
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: tc0
+          x: '70'
+          y: '68'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    TC0_CH0_INTERRUPT_ENABLE:
+      attributes:
+        id: TC0_CH0_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CH0_INTERRUPT_HANDLER:
+      attributes:
+        id: TC0_CH0_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: TC0_CH0_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    TC0_CH0_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC0_CH0_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CH1_INTERRUPT_ENABLE:
+      attributes:
+        id: TC0_CH1_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CH1_INTERRUPT_HANDLER:
+      attributes:
+        id: TC0_CH1_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: TC0_CH1_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    TC0_CH1_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC0_CH1_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CH2_INTERRUPT_ENABLE:
+      attributes:
+        id: TC0_CH2_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CH2_INTERRUPT_HANDLER:
+      attributes:
+        id: TC0_CH2_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: TC0_CH2_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    TC0_CH2_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC0_CH2_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CLOCK_FREQ:
+      attributes:
+        id: TC0_CLOCK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '25000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_COMPARE_A:
+      attributes:
+        id: TC0_COMPARE_A
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '250000'
+          type: Long
+        type: Attributes
+      - children:
+        - attributes:
+            value: '62500'
+          type: User
+        type: Values
+      type: Long
+    TC0_COMPARE_IER_CPCS:
+      attributes:
+        id: TC0_COMPARE_IER_CPCS
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    TC0_COMPARE_PERIOD_COUNT:
+      attributes:
+        id: TC0_COMPARE_PERIOD_COUNT
+      children:
+      - children:
+        - attributes:
+            value: '250000'
+          type: User
+        type: Values
+      type: Long
+    TC0_PCK7:
+      attributes:
+        id: TC0_PCK7
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_TIMER_PERIOD_COUNT:
+      attributes:
+        id: TC0_TIMER_PERIOD_COUNT
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '10000'
+          type: Dynamic
+        type: Values
+      type: Long
+    TC1_CLOCK_FREQ:
+      attributes:
+        id: TC1_CLOCK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '25000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC1_CMR_ACPA:
+      attributes:
+        id: TC1_CMR_ACPA
+      children:
+      - children:
+        - attributes:
+            value: CLEAR
+          type: User
+        type: Values
+      type: Combo
+    TC1_CMR_ACPC:
+      attributes:
+        id: TC1_CMR_ACPC
+      children:
+      - children:
+        - attributes:
+            value: SET
+          type: User
+        type: Values
+      type: Combo
+    TC1_CMR_TCCLKS:
+      attributes:
+        id: TC1_CMR_TCCLKS
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    TC1_COMPARE_A:
+      attributes:
+        id: TC1_COMPARE_A
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '250000'
+          type: Long
+        type: Attributes
+      - children:
+        - attributes:
+            value: '187500'
+          type: User
+        type: Values
+      type: Long
+    TC1_COMPARE_IER_CPCS:
+      attributes:
+        id: TC1_COMPARE_IER_CPCS
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    TC1_COMPARE_PERIOD_COUNT:
+      attributes:
+        id: TC1_COMPARE_PERIOD_COUNT
+      children:
+      - children:
+        - attributes:
+            value: '250000'
+          type: User
+        type: Values
+      type: Long
+    TC1_ENABLE:
+      attributes:
+        id: TC1_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    TC1_OPERATING_MODE:
+      attributes:
+        id: TC1_OPERATING_MODE
+      children:
+      - children:
+        - attributes:
+            value: COMPARE
+          type: User
+        type: Values
+      type: Combo
+    TC1_PCK7:
+      attributes:
+        id: TC1_PCK7
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC1_TIMER_PERIOD_COUNT:
+      attributes:
+        id: TC1_TIMER_PERIOD_COUNT
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '10000'
+          type: Dynamic
+        type: Values
+      type: Long
+    TC3_CLOCK_FREQ:
+      attributes:
+        id: TC3_CLOCK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC3_PCK7:
+      attributes:
+        id: TC3_PCK7
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC_COMMON_INTERRUPT_STATUS:
+      attributes:
+        id: TC_COMMON_INTERRUPT_STATUS
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData: {}
