@@ -1,0 +1,481 @@
+configVersion: 1.0.0
+componentName: pwm
+coreVersion: 5.8.2
+device: SAM9X60D1G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: pwm
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: pwm
+          x: '148'
+          y: '138'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CH0_CDTY:
+      attributes:
+        id: CH0_CDTY
+      children:
+      - children:
+        - attributes:
+            value: '2500'
+          type: User
+        type: Values
+      type: Integer
+    CH0_CPOL:
+      attributes:
+        id: CH0_CPOL
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH0_CPRD:
+      attributes:
+        id: CH0_CPRD
+      children:
+      - children:
+        - attributes:
+            value: '10000'
+          type: User
+        type: Values
+      type: Integer
+    CH0_EN:
+      attributes:
+        id: CH0_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CH0_FREQUENCY:
+      attributes:
+        id: CH0_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '10000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CH0_PRES:
+      attributes:
+        id: CH0_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '11'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH1_CALG:
+      attributes:
+        id: CH1_CALG
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH1_CDTY:
+      attributes:
+        id: CH1_CDTY
+      children:
+      - children:
+        - attributes:
+            value: '25000'
+          type: User
+        type: Values
+      type: Integer
+    CH1_CPOL:
+      attributes:
+        id: CH1_CPOL
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH1_CPRD:
+      attributes:
+        id: CH1_CPRD
+      children:
+      - children:
+        - attributes:
+            value: '50000'
+          type: User
+        type: Values
+      type: Integer
+    CH1_EN:
+      attributes:
+        id: CH1_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CH1_FREQUENCY:
+      attributes:
+        id: CH1_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '10000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CH1_PRES:
+      attributes:
+        id: CH1_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '12'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH2_CALG:
+      attributes:
+        id: CH2_CALG
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH2_CDTY:
+      attributes:
+        id: CH2_CDTY
+      children:
+      - children:
+        - attributes:
+            value: '3750000'
+          type: User
+        type: Values
+      type: Integer
+    CH2_CPOL:
+      attributes:
+        id: CH2_CPOL
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH2_CPRD:
+      attributes:
+        id: CH2_CPRD
+      children:
+      - children:
+        - attributes:
+            value: '5000000'
+          type: User
+        type: Values
+      type: Integer
+    CH2_EN:
+      attributes:
+        id: CH2_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CH2_FREQUENCY:
+      attributes:
+        id: CH2_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '50000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CH2_PRES:
+      attributes:
+        id: CH2_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH3_CDTY:
+      attributes:
+        id: CH3_CDTY
+      children:
+      - children:
+        - attributes:
+            value: '25000000'
+          type: User
+        type: Values
+      type: Integer
+    CH3_CPRD:
+      attributes:
+        id: CH3_CPRD
+      children:
+      - children:
+        - attributes:
+            value: '25000000'
+          type: User
+        type: Values
+      type: Integer
+    CH3_EN:
+      attributes:
+        id: CH3_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CH3_FREQUENCY:
+      attributes:
+        id: CH3_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '25000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CH3_IER_CHID:
+      attributes:
+        id: CH3_IER_CHID
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CH3_PRES:
+      attributes:
+        id: CH3_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CLKA_DIV:
+      attributes:
+        id: CLKA_DIV
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: Integer
+    CLKA_EN:
+      attributes:
+        id: CLKA_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CLKA_FREQUENCY:
+      attributes:
+        id: CLKA_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '10000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLKA_PRES:
+      attributes:
+        id: CLKA_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CLKB_DIV:
+      attributes:
+        id: CLKB_DIV
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '10'
+          type: User
+        type: Values
+      type: Integer
+    CLKB_EN:
+      attributes:
+        id: CLKB_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CLKB_FREQUENCY:
+      attributes:
+        id: CLKB_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '10000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLKB_PRES:
+      attributes:
+        id: CLKB_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+  userData: {}
