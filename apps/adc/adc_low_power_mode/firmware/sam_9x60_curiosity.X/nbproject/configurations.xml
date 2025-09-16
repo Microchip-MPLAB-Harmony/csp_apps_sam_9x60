@@ -160,11 +160,21 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity" displayName="adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity" projectFiles="true">
+        <itemPath>adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/adc.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/core.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/dbgu.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/dfp.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/pit.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/stdio.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <logicalFolder name="f2" displayName="sam_9x60_curiosity.mhc" projectFiles="true">
       </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
-      <itemPath>adc_low_power_mode_sam_9x60_curiosity.mc3</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
@@ -225,7 +235,7 @@
         <targetPluginBoard/>
         <platformTool>j32</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.45</languageToolchainVersion>
+        <languageToolchainVersion>4.60</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
