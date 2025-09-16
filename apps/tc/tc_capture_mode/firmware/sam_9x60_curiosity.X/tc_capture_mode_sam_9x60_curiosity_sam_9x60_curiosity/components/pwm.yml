@@ -1,0 +1,162 @@
+configVersion: 1.0.0
+componentName: pwm
+coreVersion: 5.8.2
+device: SAM9X60D1G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: pwm
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: pwm
+          x: '21'
+          y: '92'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CH0_CDTY:
+      attributes:
+        id: CH0_CDTY
+      children:
+      - children:
+        - attributes:
+            value: '100'
+          type: User
+        type: Values
+      type: Integer
+    CH0_CPRD:
+      attributes:
+        id: CH0_CPRD
+      children:
+      - children:
+        - attributes:
+            value: '1000'
+          type: User
+        type: Values
+      type: Integer
+    CH0_EN:
+      attributes:
+        id: CH0_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CH0_FREQUENCY:
+      attributes:
+        id: CH0_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '1000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CH0_PRES:
+      attributes:
+        id: CH0_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '11'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CH1_FREQUENCY:
+      attributes:
+        id: CH1_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CH2_FREQUENCY:
+      attributes:
+        id: CH2_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CH3_FREQUENCY:
+      attributes:
+        id: CH3_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLKA_DIV:
+      attributes:
+        id: CLKA_DIV
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '200'
+          type: User
+        type: Values
+      type: Integer
+    CLKA_EN:
+      attributes:
+        id: CLKA_EN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CLKA_FREQUENCY:
+      attributes:
+        id: CLKA_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '1000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+  userData: {}

@@ -116,7 +116,7 @@ TC_CAPTURE_STATUS TC0_CH0_CaptureStatusGet(void)
 
 
 /* Callback object for channel 1 */
-volatile static TC_TIMER_CALLBACK_OBJECT TC0_CH1_CallbackObj;
+static volatile TC_TIMER_CALLBACK_OBJECT TC0_CH1_CallbackObj;
 
 /* Initialize channel in timer mode */
 void TC0_CH1_TimerInitialize(void)
