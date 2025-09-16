@@ -199,8 +199,17 @@
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="false">
+      <logicalFolder name="rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity" displayName="rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity" projectFiles="true">
+        <itemPath>rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity/components/core.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity/components/dbgu.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity/components/dfp.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity/components/rtc.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_sam_9x60_curiosity/components/stdio.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>rtc_alarm_sam_9x60_curiosity.mc3</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
@@ -214,7 +223,7 @@
         <targetPluginBoard/>
         <platformTool>j32</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.45</languageToolchainVersion>
+        <languageToolchainVersion>4.60</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
