@@ -63,7 +63,7 @@
 // *****************************************************************************
 // *****************************************************************************
 /* Global object to save FLEXCOM SPI Exchange related data */
-volatile static FLEXCOM_SPI_OBJECT flexcom5SpiObj;
+static volatile FLEXCOM_SPI_OBJECT flexcom5SpiObj;
 
 
 void FLEXCOM5_SPI_Initialize ( void )
