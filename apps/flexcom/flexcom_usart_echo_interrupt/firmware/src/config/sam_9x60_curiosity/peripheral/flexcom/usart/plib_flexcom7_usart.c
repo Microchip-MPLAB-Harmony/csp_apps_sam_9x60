@@ -64,9 +64,9 @@
 // Section: FLEXCOM7 USART Implementation
 // *****************************************************************************
 // *****************************************************************************
-volatile static FLEXCOM_USART_OBJECT flexcom7UsartObj;
+static volatile FLEXCOM_USART_OBJECT flexcom7UsartObj;
 
-void static FLEXCOM7_USART_ErrorClear( void )
+static void FLEXCOM7_USART_ErrorClear( void )
 {
     if ((FLEXCOM7_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk)) != 0U)
     {
@@ -89,7 +89,7 @@ void static FLEXCOM7_USART_ErrorClear( void )
 }
 
 
-void static __attribute__((used)) FLEXCOM7_USART_ISR_RX_Handler( void )
+static void __attribute__((used)) FLEXCOM7_USART_ISR_RX_Handler( void )
 {
     size_t rxProcessedSize = flexcom7UsartObj.rxProcessedSize;
     size_t rxSize = flexcom7UsartObj.rxSize;
@@ -134,7 +134,7 @@ void static __attribute__((used)) FLEXCOM7_USART_ISR_RX_Handler( void )
     }
 }
 
-void static __attribute__((used)) FLEXCOM7_USART_ISR_TX_Handler( void )
+static void __attribute__((used)) FLEXCOM7_USART_ISR_TX_Handler( void )
 {
     if(flexcom7UsartObj.txBusyStatus == true)
     {
@@ -340,7 +340,7 @@ bool FLEXCOM7_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
         else
         {
             /* Requested baud can be generated with either with 8x oversampling or with 16x oversampling. Select valid one. */
-            if ((cd1 > 0U )&& (cd1 <= 65535U))
+            if ((cd1 > 0U) && (cd1 <= 65535U))
             {
                 cd0 = cd1;
                 fp0 = fp1;
@@ -486,4 +486,6 @@ bool FLEXCOM7_USART_TransmitComplete( void )
 {
     return ((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) != 0U);
 }
+
+
 
