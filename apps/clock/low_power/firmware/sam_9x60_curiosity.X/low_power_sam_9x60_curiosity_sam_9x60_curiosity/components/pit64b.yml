@@ -1,0 +1,116 @@
+configVersion: 1.0.0
+componentName: pit64b
+coreVersion: 5.8.2
+device: SAM9X60D1G
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: pit64b
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: pit64b
+          x: '560'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CONT:
+      attributes:
+        id: CONT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    ENABLE_INTERRUPT:
+      attributes:
+        id: ENABLE_INTERRUPT
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PERIOD:
+      attributes:
+        id: PERIOD
+      children:
+      - children:
+        - attributes:
+            value: '40000000'
+          type: User
+        type: Values
+      type: Long
+    PERIOD_INT:
+      attributes:
+        id: PERIOD_INT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PERIOD_LSB:
+      attributes:
+        id: PERIOD_LSB
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: '40000000'
+          type: Dynamic
+        type: Values
+      type: Long
+    PERIOD_MSB:
+      attributes:
+        id: PERIOD_MSB
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PERIOD_US:
+      attributes:
+        id: PERIOD_US
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: '200000.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    SRC_FREQ:
+      attributes:
+        id: SRC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+  userData: {}
