@@ -85,7 +85,7 @@ bool RSTC_NRSTPinRead( void )
     return (bool)(RSTC_REGS->RSTC_SR & RSTC_SR_NRSTL_Msk);
 }
 
-volatile static RSTC_OBJECT rstcObj;
+static volatile RSTC_OBJECT rstcObj;
 
 void RSTC_CallbackRegister( RSTC_CALLBACK callback, uintptr_t context )
 {
