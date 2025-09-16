@@ -59,7 +59,7 @@
 // *****************************************************************************
 
 #define BYTE_MASK  (0xFFU)
-volatile static CAN_OBJ can1Obj;
+static volatile CAN_OBJ can1Obj;
 static const uint32_t can_mb_number = CAN_MB_NUMBER;
 
 static inline void CAN1_ZeroInitialize(volatile void* pData, size_t dataSize)
