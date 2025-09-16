@@ -47,7 +47,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-volatile static DBGU_RING_BUFFER_OBJECT dbguObj;
+static volatile DBGU_RING_BUFFER_OBJECT dbguObj;
 
 #define DBGU_READ_BUFFER_SIZE      20U
 /* Disable Read, Overrun, Parity and Framing error interrupts */
@@ -55,13 +55,13 @@ volatile static DBGU_RING_BUFFER_OBJECT dbguObj;
 /* Enable Read, Overrun, Parity and Framing error interrupts */
 #define DBGU_RX_INT_ENABLE()       DBGU_REGS->DBGU_IER = (DBGU_IER_RXRDY_Msk | DBGU_IER_FRAME_Msk | DBGU_IER_PARE_Msk | DBGU_IER_OVRE_Msk);
 
-volatile static uint8_t DBGU_ReadBuffer[DBGU_READ_BUFFER_SIZE];
+static volatile uint8_t DBGU_ReadBuffer[DBGU_READ_BUFFER_SIZE];
 
 #define DBGU_WRITE_BUFFER_SIZE     128U
 #define DBGU_TX_INT_DISABLE()      DBGU_REGS->DBGU_IDR = DBGU_IDR_TXRDY_Msk;
 #define DBGU_TX_INT_ENABLE()       DBGU_REGS->DBGU_IER = DBGU_IER_TXRDY_Msk;
 
-volatile static uint8_t DBGU_WriteBuffer[DBGU_WRITE_BUFFER_SIZE];
+static volatile uint8_t DBGU_WriteBuffer[DBGU_WRITE_BUFFER_SIZE];
 
 void DBGU_Initialize( void )
 {
