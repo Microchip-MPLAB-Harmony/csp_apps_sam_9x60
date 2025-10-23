@@ -180,7 +180,6 @@
         <itemPath>adc_polled_mode_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -249,7 +248,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="CMSIS" vendor="ARM" version="5.9.0"/>
         <pack name="SAM9X6_DFP" vendor="Microchip" version="1.9.218"/>
       </packs>
       <ScriptingSettings>

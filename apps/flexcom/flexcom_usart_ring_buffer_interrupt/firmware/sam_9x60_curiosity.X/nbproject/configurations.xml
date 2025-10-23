@@ -174,7 +174,7 @@
         <itemPath>flexcom_usart_ring_buffer_interrupt_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
+      <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -222,7 +222,6 @@
           <itemPath>../src/config/sam_9x60_curiosity/cstartup.S</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
       <itemPath>../src/main.c</itemPath>
     </logicalFolder>
   </logicalFolder>

@@ -184,7 +184,6 @@
                      projectFiles="true">
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"

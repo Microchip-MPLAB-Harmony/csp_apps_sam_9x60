@@ -181,7 +181,6 @@
         <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/sam_9x60_curiosity/harmony-manifest-success.yml</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -251,7 +250,7 @@
       </toolsSet>
       <packs>
         <pack name="SAM9X6_DFP" vendor="Microchip" version="1.9.218"/>
-        <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
+        <pack name="CMSIS" vendor="ARM" version="5.9.0"/>
       </packs>
       <ScriptingSettings>
         <ScriptingSetting key="boot.load_adr" value=""/>

@@ -16,7 +16,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity\ddram.ld
   hash: 4b322435593d75937b86857aa6f648b0889fb0878c5f43c21fe9f08a9651eb57
 - file: ..\src\config\sam_9x60_curiosity\definitions.h
-  hash: c06991cca80aad8b70def02f5b165001afb2f46179216c38828783a2c26213ba
+  hash: 9ba80e1c2761986cee7ed30de29a14a4c7f16d1bda725c87f8641d5a4b030fb8
 - file: ..\src\config\sam_9x60_curiosity\device.h
   hash: 8ba8582c02c997ef9e9bf372a52a223522bd7ed460e29655399fdb3836fff841
 - file: ..\src\config\sam_9x60_curiosity\device_cache.h
@@ -24,7 +24,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity\fault_handlers.c
   hash: 931e951cf7431d3d70d6ab81bcd265ff0ac8b3f473b73cd7a541f59d49786b7c
 - file: ..\src\config\sam_9x60_curiosity\initialization.c
-  hash: 7c4659a9d579a83638da6a0ba8c746ba13d0cbc31415b18a3ef866c3c678e2b4
+  hash: 0989cac620de2e4cfdac6bfd9379dfdb4ca37458d2f135c0867acd8e6b52cd1a
 - file: ..\src\config\sam_9x60_curiosity\interrupts.c
   hash: 50409e0c54321da575381b315b5d7509dc768246b0f4c58339511dbf798bb24a
 - file: ..\src\config\sam_9x60_curiosity\interrupts.h
