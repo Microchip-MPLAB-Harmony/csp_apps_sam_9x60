@@ -10,3 +10,6 @@ package:
     - name: "csp"
       type: "package"
       version: "v3.23.0"
+    - name: "bsp"
+      type: "package"
+      version: "v3.22.0"
