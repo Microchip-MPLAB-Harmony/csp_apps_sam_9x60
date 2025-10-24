@@ -167,8 +167,23 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity"
+                     displayName="flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity/components/dbgu.yml</itemPath>
+          <itemPath>flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity/components/core.yml</itemPath>
+          <itemPath>flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity/components/stdio.yml</itemPath>
+          <itemPath>flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity/components/flexcom5.yml</itemPath>
+          <itemPath>flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity/components/dfp.yml</itemPath>
+        </logicalFolder>
+        <itemPath>flexcom_lin_slave_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>flexcom_lin_slave_sam_9x60_curiosity.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -231,13 +246,13 @@
         <targetDevice>SAM9X60D1G</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>samice</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.60</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAM9X6_DFP" vendor="Microchip" version="1.12.231"/>
+        <pack name="SAM9X6_DFP" vendor="Microchip" version="1.9.218"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -267,7 +282,7 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <C32>
-        <property key="additional-warnings" value="true"/>
+        <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
         <property key="appendMe"
                   value="-Waggregate-return -Wbad-function-cast -Wlong-long -Wmissing-noreturn -Wnested-externs -Wno-deprecated-declarations -Wpointer-arith -Wredundant-decls -Wshadow -Wstrict-prototypes -Wundef -Wunreachable-code -Wwrite-strings -marm"/>
@@ -290,7 +305,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="keep-inline" value="false"/>
-        <property key="make-warnings-into-errors" value="true"/>
+        <property key="make-warnings-into-errors" value="false"/>
         <property key="oXC16gcc-errata" value=""/>
         <property key="oXC16gcc-large-aggregate" value="false"/>
         <property key="oXC16gcc-mpa-lvl" value=""/>
@@ -450,6 +465,14 @@
         <property key="communication.autoselectspeed" value="true"/>
         <property key="communication.interface" value="4wire"/>
         <property key="communication.speed" value="4"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="jlink.override" value=""/>
+        <property key="lastid" value=""/>
+        <property key="loader.board_file" value="${ProjectDir}/board.xboard"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.eeprom" value="true"/>
@@ -465,6 +488,11 @@
         <property key="programoptions.preserveprogrammemory.ranges"
                   value="0x300000-0x4fffff"/>
         <property key="programoptions.resetafterprogram" value="true"/>
+        <property key="script.has_reset" value="true"/>
+        <property key="script.log_level" value="1"/>
+        <property key="script.reset_delay" value="0"/>
+        <property key="script.show_output" value="false"/>
+        <property key="x.recover.delay" value="100000"/>
       </Tool>
       <samice>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -472,6 +500,14 @@
         <property key="communication.autoselectspeed" value="true"/>
         <property key="communication.interface" value="4wire"/>
         <property key="communication.speed" value="4"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="jlink.override" value=""/>
+        <property key="lastid" value=""/>
+        <property key="loader.board_file" value="${ProjectDir}/board.xboard"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.eeprom" value="true"/>
@@ -487,6 +523,11 @@
         <property key="programoptions.preserveprogrammemory.ranges"
                   value="0x300000-0x4fffff"/>
         <property key="programoptions.resetafterprogram" value="true"/>
+        <property key="script.has_reset" value="true"/>
+        <property key="script.log_level" value="1"/>
+        <property key="script.reset_delay" value="0"/>
+        <property key="script.show_output" value="false"/>
+        <property key="x.recover.delay" value="100000"/>
       </samice>
     </conf>
   </confs>
