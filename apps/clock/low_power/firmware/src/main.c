@@ -60,7 +60,7 @@ typedef struct
     uint32_t mor;
 } CLOCK_CFG;
   
-__attribute__((__section__(".ramdata_section"))) CLOCK_CFG clock_cfg;
+__attribute__((__section__(".ramdata_section"))) volatile CLOCK_CFG clock_cfg;
 __attribute__((__section__(".ramdata_section"))) int tmp_stack[256];
 
 static void enter_idle(void);
@@ -229,7 +229,7 @@ __attribute__((__section__(".ramcode_section"))) void enter_ulp0_sram(void)
     asm("mov sp, r0");
 }
 
-__attribute__((__section__(".ramcode_section")))void really_enter_ulp0_sram(void)
+__attribute__((optimize("-O1"), __section__(".ramcode_section")))void really_enter_ulp0_sram(void)
 {
     clock_cfg.scsr = PMC_REGS->PMC_SCSR;
     clock_cfg.cpu_ckr = PMC_REGS->PMC_CPU_CKR;
