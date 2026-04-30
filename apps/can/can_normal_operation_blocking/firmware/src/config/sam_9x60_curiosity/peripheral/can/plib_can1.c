@@ -149,8 +149,8 @@ void CAN1_Initialize(void)
     false - Request has failed.
 */
 
-/* MISRA C-2012 Rule 16.1, 16.3 and 16.6 deviated below. Deviation record ID -
-   H3_MISRAC_2012_R_16_1_DR_1, H3_MISRAC_2012_R_16_3_DR_1 & H3_MISRAC_2012_R_16_6_DR_1*/
+/* MISRA C-2023 Rule 16.1, 16.3 and 16.6 deviated below. Deviation record ID -
+   H3_MISRAC_2023_R_16_1_DR_1, H3_MISRAC_2023_R_16_3_DR_1 & H3_MISRAC_2023_R_16_6_DR_1*/
 
 bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, CAN_MAILBOX_TX_ATTRIBUTE mailboxAttr)
 {
@@ -389,7 +389,7 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
     return status;
 }
 
-/* MISRAC 2012 deviation block end */
+/* MISRAC 2023 deviation block end */
 
 // *****************************************************************************
 /* Function:
