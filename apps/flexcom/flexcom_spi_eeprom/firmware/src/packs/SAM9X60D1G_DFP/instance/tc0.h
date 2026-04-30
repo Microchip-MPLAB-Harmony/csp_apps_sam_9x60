@@ -1,7 +1,9 @@
 /*
  * Instance header file for ATSAM9X60D6K
  *
- * Copyright (c) 2024 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2026 Microchip Technology Inc. and its subsidiaries.
+ *
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,16 +19,16 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2024-01-15T14:39:57Z */
+/* file generated from device description file (ATDF) version 2026-03-27T10:04:21Z */
 #ifndef _SAM9X6_TC0_INSTANCE_
 #define _SAM9X6_TC0_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TC0 peripheral ========== */
-#define TC0_CLOCK_ID                             (17)       
-#define TC0_DMAC_ID_RX                           (41)       
-#define TC0_INSTANCE_ID                          (17)       
-#define TC0_NUM_INTERRUPT_LINES                  (1)        
+#define TC0_CLOCK_ID                             (17)
+#define TC0_DMAC_ID_RX                           (41)
+#define TC0_INSTANCE_ID                          (17)
+#define TC0_NUM_INTERRUPT_LINES                  (1)
 #define TC0_TCCLKS_                              (0)        /* MCK */
 #define TC0_TCCLKS_TIMER_CLOCK1                  (1)        /* GCLK */
 #define TC0_TCCLKS_TIMER_CLOCK2                  (2)        /* MCK/8 */
@@ -36,6 +38,6 @@
 #define TC0_TCCLKS_XC0                           (6)        /* XC0 */
 #define TC0_TCCLKS_XC1                           (7)        /* XC1 */
 #define TC0_TCCLKS_XC2                           (8)        /* XC2 */
-#define TC0_TIMER_WIDTH                          (32)       
+#define TC0_TIMER_WIDTH                          (32)
 
 #endif /* _SAM9X6_TC0_INSTANCE_ */
