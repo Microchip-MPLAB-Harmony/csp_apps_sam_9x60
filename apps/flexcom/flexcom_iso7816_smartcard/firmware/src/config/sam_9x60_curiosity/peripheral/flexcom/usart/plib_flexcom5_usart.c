@@ -125,19 +125,19 @@ void FLEXCOM5_USART_Initialize( void )
     FLEXCOM5_REGS->FLEX_US_TTGR = 5;
 
     /* ISO7816 */
-    FLEXCOM5_REGS->FLEX_US_FIDI = 372;
+    FLEXCOM5_REGS->FLEX_US_FIDI = 372U;
 
-    /* ISO7816 */   
+    /* ISO7816 */
     /* Configure FLEXCOM5 USART mode for ISO7816 */
     /* When operating in ISO7816, either in T = 0 or T = 1 modes, the character format is partially predefined.
-     * The configuration is forced to 8 data bits, and 1 or 2 stop bits, regardless of the values programmed in 
+     * The configuration is forced to 8 data bits, and 1 or 2 stop bits, regardless of the values programmed in
      * the FLEX_US_MR_CHRL, FLEX_US_MR_MODE9 and FLEX_US_MR_CHMODE fields.
      * FLEX_US_MR_MSBF can be used to transmit LSB or MSB first.
      * FLEX_US_MR_INVDATA can be used to transmit in Normal or Inverse mode. */
     /* T = 0 only (t=0) */
     /* ISO7816 */
-    FLEXCOM5_REGS->FLEX_US_MR = ( FLEX_US_MR_USART_MODE_IS07816_T_0 | FLEX_US_MR_USCLKS_MCK | FLEX_US_MR_CHRL_8_BIT 
-            | FLEX_US_MR_CLKO_Msk | FLEX_US_MR_PAR_EVEN | FLEX_US_MR_NBSTOP_1_BIT | FLEX_US_MR_OVER(0));
+    FLEXCOM5_REGS->FLEX_US_MR = ( FLEX_US_MR_USART_MODE_IS07816_T_0 | FLEX_US_MR_USCLKS_MCK | FLEX_US_MR_CHRL_8_BIT
+            | FLEX_US_MR_CLKO_Msk | FLEX_US_MR_PAR_EVEN | FLEX_US_MR_NBSTOP_1_BIT | FLEX_US_MR_OVER(0U));
 
     /* Configure FLEXCOM5 USART Baud Rate */
     FLEXCOM5_REGS->FLEX_US_BRGR = 200000000U / OUTPUT_CLOCK;
@@ -375,7 +375,7 @@ void FLEXCOM5_ISO7816_Icc_Power_Off( void )
 
 bool FLEXCOM5_ISO7816_Card_Detect(void)
 {
-    if(CARD_DETECT_Get() == true)
+    if(CARD_DETECT_Get() == 1U)
     {
         return true;
     }
@@ -418,10 +418,13 @@ static void FLEXCOM5_ISO7816_Cold_Reset(void)
      * clock signal is applied to CLK (time tb after Ta). */
     for (i = 0; i < rst_wait_time; i++)
     {
+        /* Wait for reset */
     }
 
     //Read all the leftover data from card
-    while(FLEXCOM5_USART_ReadByte() != 0){
+    while(FLEXCOM5_USART_ReadByte() != 0U)
+    {
+        /* Complete the read */
     }
 
     /* RSTSTA  Reset Status Bits */
@@ -443,7 +446,7 @@ static void FLEXCOM5_ISO7816_Cold_Reset(void)
 
 void FLEXCOM5_ISO7816_Warm_Reset(void)
 {
-    //Enable Reset pin to high
+    /* Enable Reset pin to high */
     /* Disable card reset */
     FLEXCOM5_ISO7816_Icc_Power_Off();
 
@@ -454,65 +457,65 @@ void FLEXCOM5_ISO7816_Warm_Reset(void)
 /******************************************************************************/
 static uint8_t FLEXCOM5_ISO7816_Get_Char(uint8_t *p_char_received)
 {
-    uint32_t timeout = 0, rx_timeout;
-    uint32_t status;
+    uint32_t timeout;
+    uint32_t rx_timeout = 0U;
+    uint32_t status = 0U;
 
     rx_timeout = Send_Receive_Timeout();
 
     if (usart_state == USART_SEND)
     {
-        timeout = 0;
-        // All transmit finish
-        while ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) == 0)
+        timeout = 0U;
+        /*  All transmit finish */
+        while ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) == 0U)
         {
-            if (timeout++ > rx_timeout)
+            timeout++;
+            if (timeout > rx_timeout)
             {
-                printf("TX");
-                timeout = 0;
-                return (0);
+                return (0U);
             }
         }
         FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RSTSTA_Msk | FLEX_US_CR_RSTIT_Msk | FLEX_US_CR_RSTNACK_Msk;
         FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_TXDIS_Msk;
         usart_state = USART_RCV;
     }
-            
+
     FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RXEN_Msk;
 
     /* Wait USART ready for reception */
-    timeout = 0;
+    timeout = 0U;
     while((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) == 0U)
     {
         /* 0: Receive FIFO is empty; no data to read */
-        if (timeout++ > rx_timeout)
+        timeout++;
+        if (timeout > rx_timeout)
         {
-            timeout = 0;
-            return (0);
+            return (0U);
         }
     }
 
     /* Receive a char */
     *p_char_received = (uint8_t) FLEXCOM5_USART_ReadByte();
 
-    status = (FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk 
+    status = (FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk
             | FLEX_US_CSR_TIMEOUT_Msk | FLEX_US_CSR_NACK_Msk | FLEX_US_CSR_ITER_Msk));
 
     // Disable receiver
     FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RXDIS_Msk;
 
-    if (status != 0) 
+    if (status != 0U)
     {
-        printf("GetCharError:0x%08X ", (unsigned)FLEXCOM5_REGS->FLEX_US_CSR);
-        return (0);
+        return (0U);
     }
-    return (1);
+    return (1U);
 }
 
 /******************************************************************************/
 static uint8_t FLEXCOM5_ISO7816_Send_Char(uint8_t uc_char)
 {
-    uint32_t timeout = 0, rx_timeout;
-    uint32_t status;
+    uint32_t timeout;
+    uint32_t rx_timeout = 0U;
+    uint32_t status =0U;
 
     rx_timeout = Send_Receive_Timeout();
 
@@ -520,15 +523,14 @@ static uint8_t FLEXCOM5_ISO7816_Send_Char(uint8_t uc_char)
     {
         FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RSTSTA_Msk | FLEX_US_CR_RSTIT_Msk | FLEX_US_CR_RSTNACK_Msk;
 
-        timeout = 0;
+        timeout = 0U;
         while((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) != 0U)
         {
             (void)FLEXCOM5_USART_ReadByte();
-            if (timeout++ > rx_timeout)
+            timeout++;
+            if (timeout > rx_timeout)
             {
-                printf("TS");
-                timeout = 0;
-                return (0);
+                return (0U);
             }
         }
         /* ISO7816 reset iterations */
@@ -544,28 +546,26 @@ static uint8_t FLEXCOM5_ISO7816_Send_Char(uint8_t uc_char)
     FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_TXEN_Msk;
 
     /* Wait flexcom ready for transmit */
-    timeout = 0;
-    while ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) == 0)
+    timeout = 0U;
+    while ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) == 0U)
     {
-        // There are characters in either FLEX_US_THR or the Transmit Shift Register, or the transmitter is disabled.
-        if (timeout++ > rx_timeout)
+        /* There are characters in either FLEX_US_THR or the Transmit Shift Register, or the transmitter is disabled. */
+        timeout++;
+        if (timeout > rx_timeout)
         {
-            printf("TS");
-            timeout = 0;
-            return (0);
+            return (0U);
         }
     }
     /* Transmit a char */
     FLEXCOM5_REGS->FLEX_US_THR = uc_char;
-   
-    status = (FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk 
+
+    status = (FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk
             | FLEX_US_CSR_TIMEOUT_Msk | FLEX_US_CSR_NACK_Msk | FLEX_US_CSR_ITER_Msk));
-    if (status != 0) 
+    if (status != 0U)
     {
-        printf("SendCharError:0x%08X ", (unsigned)FLEXCOM5_REGS->FLEX_US_CSR);
-        return (0);
+        return (0U);
     }
-    return (1);
+    return (1U);
 }
 
 uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr )
@@ -577,16 +577,14 @@ uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr )
     status = FLEXCOM5_ISO7816_Get_Char(&p_atr[0]);
     if (status == 0U)
     {
-        printf("\r\nError ATR TS");
-        return 0;
+        return 0U;
     }
 
     /* Read ATR T0. */
     status = FLEXCOM5_ISO7816_Get_Char(&p_atr[1]);
     if (status == 0U)
     {
-        printf("\r\nError ATR T0");
-        return 0;
+        return 0U;
     }
 
     uc_value = p_atr[1] & 0xF0U;
@@ -600,8 +598,7 @@ uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr )
             status = FLEXCOM5_ISO7816_Get_Char(&p_atr[response_length++]);
             if (status == 0U)
             {
-                printf("\r\nError ATR TA");
-                return 0;
+                return 0U;
             }
         }
 
@@ -610,8 +607,7 @@ uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr )
             status = FLEXCOM5_ISO7816_Get_Char(&p_atr[response_length++]);
             if (status == 0U)
             {
-                printf("\r\nError ATR TB");
-                return 0;
+                return 0U;
             }
         }
 
@@ -620,8 +616,7 @@ uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr )
             status = FLEXCOM5_ISO7816_Get_Char(&p_atr[response_length++]);
             if (status == 0U)
             {
-                printf("\r\nError ATR TC");
-                return 0;
+                return 0U;
             }
         }
 
@@ -630,12 +625,11 @@ uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr )
             status = FLEXCOM5_ISO7816_Get_Char(&p_atr[response_length]);
             if (status == 0U)
             {
-                printf("\r\nError ATR TD");
-                return 0;
+                return 0U;
             }
 
             uc_value = p_atr[response_length++] & 0xF0U;
-        } 
+        }
         else
         {
             uc_value = 0;
@@ -649,8 +643,7 @@ uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr )
         status = FLEXCOM5_ISO7816_Get_Char(&p_atr[response_length++]);
         if (status == 0U)
         {
-            printf("\r\nError ATR Hist Bytes");
-            return 0;
+            return 0U;
         }
     }
 
@@ -675,130 +668,127 @@ void FLEXCOM5_ISO7816_Decode_Atr(uint8_t * pAtr, uint8_t size)
     uint32_t i, j, y, z;
     uint8_t offset;
 
-    printf("\n\r");
-    printf("ATR: Answer To Reset:\n\r");
-    printf("  TS = 0x%X Initial character ", pAtr[0]);
-
     switch (pAtr[0])
     {
         case 0x3B:
-            printf("Direct Convention\n\r");
+            //printf("Direct Convention\n\r");
             break;
         case 0x3F:
-            printf("Inverse Convention\n\r");
+            //printf("Inverse Convention\n\r");
             break;
         default:
-            printf("BAD Convention\n\r");
+            //printf("BAD Convention\n\r");
             break;
     }
-    printf("  T0 = 0x%X Format character\n\r", pAtr[1]);
-    printf("    Number of historical bytes: K = %d\n\r", pAtr[1] & 0x0F);
-    printf("    Presence further interface byte:");
-    if (pAtr[1] & 0x10)
+    //printf("  T0 = 0x%X Format character\n\r", pAtr[1]);
+    //printf("    Number of historical bytes: K = %d\n\r", pAtr[1] & 0x0F);
+    //printf("    Presence further interface byte:");
+    if ((pAtr[1] & 0x10U) != 0U)
     {
-        printf("  TA ");
+        //printf("  TA ");
     }
-    if (pAtr[1] & 0x20)
+    if ((pAtr[1] & 0x20U) != 0U)
     {
-        printf("  TB ");
+        //printf("  TB ");
     }
-    if (pAtr[1] & 0x40)
+    if ((pAtr[1] & 0x40U) != 0U)
     {
-        printf("  TC ");
+        //printf("  TC ");
     }
-    if (pAtr[1] & 0x80)
+    if ((pAtr[1] & 0x80U) != 0U)
     {
-        printf("  TD ");
+        //printf("  TD ");
     }
-    if (pAtr[1] != 0)
+    if (pAtr[1] != 0U)
     {
-        printf(" present(s)\n\r");
+        //printf(" present(s)\n\r");
     }
 
     i = 2;
-    y = pAtr[1] & 0xF0;
+    y = (uint32_t)pAtr[1] & 0xF0U;
 
     /* Read ATR Ti */
     offset = 1;
-    while (y)
+    while (y != 0U)
     {
-        if (y & 0x10) 
+        if ((y & 0x10U) != 0U)
         {    /* TA[i] */
-            printf("  TA[%d] = 0x%X ", offset, pAtr[i]);
-            if (offset == 1)
+            //printf("  TA[%d] = 0x%X ", offset, pAtr[i]);
+            if (offset == 1U)
             {
-                printf("FI = %d, ", (pAtr[i] >> 4));
-                printf("DI = %d", (pAtr[i] & 0x0F));
+                //printf("FI = %d, ", (pAtr[i] >> 4));
+                //printf("DI = %d", (pAtr[i] & 0x0F));
             }
-            if( offset == 2)
+            if( offset == 2U)
             {
                 /* TA[2] */
-                if(0x80 == (pAtr[i]&0x80))
+                if(0x80U == (pAtr[i] & 0x80U))
                 {
-                    printf("  Unable to change: protocol T=%d", pAtr[i]&0xF);
+                    //printf("  Unable to change: protocol T=%d", pAtr[i]&0xF);
                 }
                 else
                 {
-                    printf("  Capable to change: protocol T=%d", pAtr[i]&0xF);
+                    //printf("  Capable to change: protocol T=%d", pAtr[i]&0xF);
                 }
             }
-            printf("\n\r");
+            //printf("\n\r");
             i++;
         }
-        if (y & 0x20)
+        if ((y & 0x20U) != 0U)
         {    /* TB[i] */
-            printf("  TB[%d] = 0x%X\n\r", offset, pAtr[i]);
+            //printf("  TB[%d] = 0x%X\n\r", offset, pAtr[i]);
             i++;
         }
-        if (y & 0x40)
+        if ((y & 0x40U) != 0U)
         {    /* TC[i] */
-            printf("  TC[%d] = 0x%X ", offset, pAtr[i]);
-            if (offset == 1) {
-                printf("Extra Guard Time: N = %d", pAtr[i]);
+            //printf("  TC[%d] = 0x%X ", offset, pAtr[i]);
+            if (offset == 1U)
+            {
+                //printf("Extra Guard Time: N = %d", pAtr[i]);
             }
-            printf("\n\r");
+            //printf("\n\r");
             i++;
         }
-        if (y & 0x80)
+        if ((y & 0x80U) != 0U)
         {    /* TD[i] */
-            printf("  TD[%d] = 0x%X ", offset, pAtr[i]);
-            printf("Protocol T = %d\n\r", (pAtr[i]&0x0F) );
-            y = pAtr[i++] & 0xF0;
-        } 
+            //printf("  TD[%d] = 0x%X ", offset, pAtr[i]);
+            //printf("Protocol T = %d\n\r", (pAtr[i]&0x0F) );
+            y = (uint32_t)pAtr[i++] & 0xF0U;
+        }
         else
         {
-            y = 0;
+            y = 0U;
         }
         offset++;
     }
 
     /* Historical Bytes */
-    printf("  Historical bytes:");
-    y = pAtr[1] & 0x0F;
+    //printf("  Historical bytes:");
+    y = (uint32_t)pAtr[1] & 0x0FU;
     z = i;
     for (j = 0; j < y; j++)
     {
-        printf(" 0x%X", pAtr[i]);
+        //printf(" 0x%X", pAtr[i]);
         i++;
     }
-    printf("\n\r    ASCII: ");
+    //printf("\n\r    ASCII: ");
     i = z;
     for (j = 0; j < y; j++)
     {
-        if ((pAtr[i] > 0x21) && (pAtr[i] < 0x7D)) 
-        {    
+        if ((pAtr[i] > 0x21U) && (pAtr[i] < 0x7DU))
+        {
             /* ASCII */
-            printf("%c", pAtr[i]);
+            //printf("%c", pAtr[i]);
         }
         i++;
     }
     if(size < i)
     {
-        printf("\n\rTCK present");
+        //printf("\n\rTCK present");
     }
     else
     {
-        printf("\n\r  no TCK");
+        //printf("\n\r  no TCK");
     }
 }
 
@@ -879,7 +869,7 @@ uint16_t FLEXCOM5_ISO7816_Xfr_Block_Tpdu( uint8_t *apdu_cmd_buffer, uint8_t *apd
         status = FLEXCOM5_ISO7816_Get_Char(&proc_byte);
         if(status == 0U)
         {
-            return 0;
+            return 0U;
         }
 
         /* Handle NULL. */

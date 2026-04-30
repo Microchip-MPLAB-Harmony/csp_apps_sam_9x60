@@ -101,7 +101,7 @@ void FLEXCOM5_ISO7816_Vcc_Disable( void );
 
 void FLEXCOM5_ISO7816_Warm_Reset( void );
 
-void FLEXCOM5_ISO7816_Decode_Atr( uint8_t *p_atr, uint8_t size);
+void FLEXCOM5_ISO7816_Decode_Atr(uint8_t * pAtr, uint8_t size);
 
 uint8_t FLEXCOM5_ISO7816_Data_Read_Atr( uint8_t *p_atr );
 
