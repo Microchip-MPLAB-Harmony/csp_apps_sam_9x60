@@ -70,7 +70,7 @@ void TC0_CH0_TimerInitialize(void)
 {
     /* clock selection and waveform selection */
     TC0_REGS->TC_CHANNEL[0].TC_CMR = TC_CMR_TCCLKS_TIMER_CLOCK4 | TC_CMR_WAVEFORM_WAVSEL_UP_RC | \
-                                                        TC_CMR_WAVE_Msk ;
+                                                        TC_CMR_WAVEFORM_WAVE_Msk ;
 
     /* write period */
     TC0_REGS->TC_CHANNEL[0].TC_RC = 1562500U;
