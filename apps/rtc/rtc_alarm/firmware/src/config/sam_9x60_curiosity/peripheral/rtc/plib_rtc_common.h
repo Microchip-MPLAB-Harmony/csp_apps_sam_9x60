@@ -44,7 +44,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
-#include <time.h>
 
 #ifdef __cplusplus // Provide C++ Compatibility
  extern "C" {
@@ -60,7 +59,7 @@
 typedef void (*RTC_CALLBACK)(uint32_t int_cause, uintptr_t context);
 
 
-typedef enum 
+typedef enum
 {
     RTC_ALARM_MASK_OFF = 0x00,         // NO Alarm
     RTC_ALARM_MASK_SS = 0x01 ,          // Every minute, seconds alarm enable
@@ -74,7 +73,7 @@ typedef enum
     RTC_ALARM_MASK_MODDHHMISS = 0x1f  // Every year
 } RTC_ALARM_MASK;
 
-typedef enum 
+typedef enum
 {
     RTC_INT_ALARM = 0x02,          // Alarm Event
     RTC_INT_TIME = 0x08 ,          // Time Event
@@ -83,12 +82,12 @@ typedef enum
 
 typedef struct
 {
-    RTC_CALLBACK          callback; 
+    RTC_CALLBACK          callback;
     uintptr_t             context;
 } RTC_OBJECT ;
 
 
-	
+
 #ifdef __cplusplus // Provide C++ Compatibility
  }
 #endif
