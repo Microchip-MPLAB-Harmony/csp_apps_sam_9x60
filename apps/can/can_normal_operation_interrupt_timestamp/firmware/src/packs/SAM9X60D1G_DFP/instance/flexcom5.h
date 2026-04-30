@@ -1,7 +1,9 @@
 /*
  * Instance header file for ATSAM9X60D6K
  *
- * Copyright (c) 2024 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2026 Microchip Technology Inc. and its subsidiaries.
+ *
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,18 +19,18 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2024-01-15T14:39:57Z */
+/* file generated from device description file (ATDF) version 2026-03-27T10:04:21Z */
 #ifndef _SAM9X6_FLEXCOM5_INSTANCE_
 #define _SAM9X6_FLEXCOM5_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for FLEXCOM5 peripheral ========== */
-#define FLEXCOM5_CLOCK_ID                        (14)       
-#define FLEXCOM5_DMAC_ID_RX                      (11)       
-#define FLEXCOM5_DMAC_ID_TX                      (10)       
-#define FLEXCOM5_INSTANCE_ID                     (14)       
-#define FLEXCOM5_SPI_FIFO_SIZE                   (16)       
-#define FLEXCOM5_TWI_FIFO_SIZE                   (16)       
-#define FLEXCOM5_USART_FIFO_SIZE                 (16)       
+#define FLEXCOM5_CLOCK_ID                        (14)
+#define FLEXCOM5_DMAC_ID_RX                      (11)
+#define FLEXCOM5_DMAC_ID_TX                      (10)
+#define FLEXCOM5_INSTANCE_ID                     (14)
+#define FLEXCOM5_SPI_FIFO_SIZE                   (16)
+#define FLEXCOM5_TWI_FIFO_SIZE                   (16)
+#define FLEXCOM5_USART_FIFO_SIZE                 (16)
 
 #endif /* _SAM9X6_FLEXCOM5_INSTANCE_ */
