@@ -1,7 +1,9 @@
 /*
  * Header file for ATSAM9X60D1G
  *
- * Copyright (c) 2024 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2026 Microchip Technology Inc. and its subsidiaries.
+ *
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,16 +19,16 @@
  *
  */
 
-/* File generated from device description file (ATDF) version 2024-01-15T14:39:50Z */
+/* File generated from device description file (ATDF) version 2026-03-27T10:04:15Z */
 #ifndef _SAM9X60D1G_H_
 #define _SAM9X60D1G_H_
 
 /* Header version uses Semantic Versioning 2.0.0 (https://semver.org/) */
-#define HEADER_FORMAT_VERSION "2.1.1"
+#define HEADER_FORMAT_VERSION "3.0.0"
 
-#define HEADER_FORMAT_VERSION_MAJOR (2)
-#define HEADER_FORMAT_VERSION_MINOR (1)
-#define HEADER_FORMAT_VERSION_PATCH (1)
+#define HEADER_FORMAT_VERSION_MAJOR (3)
+#define HEADER_FORMAT_VERSION_MINOR (0)
+#define HEADER_FORMAT_VERSION_PATCH (0)
 
 /* SAM9X60D1G definitions
   This file defines all structures and symbols for SAM9X60D1G:
@@ -57,20 +59,20 @@
 
 #else /* Assembler */
 
-#  define _UINT8_(x) x    /* Assembler: 8-bits unsigned integer constant value */
-#  define _UINT16_(x) x   /* Assembler: 16-bits unsigned integer constant value */
-#  define _UINT32_(x) x   /* Assembler: 32-bits unsigned integer constant value */
+#  define _UINT8_(x) (x)    /* Assembler: 8-bits unsigned integer constant value */
+#  define _UINT16_(x) (x)   /* Assembler: 16-bits unsigned integer constant value */
+#  define _UINT32_(x) (x)   /* Assembler: 32-bits unsigned integer constant value */
 #endif /* !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__)) */
 #endif /* SKIP_INTEGER_LITERALS */
 
 /* ************************************************************************** */
-/* INTERRUPTS DEFINITIONS FOR SAM9X60D1G                                    */
+/*                   INTERRUPTS DEFINITIONS FOR SAM9X60D1G                    */
 /* ************************************************************************** */
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 /* Interrupt Number Definition */
 typedef enum IRQn
 {
-/******  SAM9X60D1G specific Interrupt Numbers ***********************************/
+/* ***************** SAM9X60D1G specific Interrupt Numbers ****************** */
   EXT_FIQ_IRQn              =   0, /* 0   Advanced Interrupt Controller (AIC) */
   PIT_IRQn                  =   1, /* 1   Shared between PMC RSTC RTT PIT WDT RTC (PIT) */
   PMC_IRQn                  =   1, /* 1   Shared between PMC RSTC RTT PIT WDT RTC (PMC) */
@@ -98,7 +100,7 @@ typedef enum IRQn
   ADC_IRQn                  =  19, /* 19  Analog-to-Digital Converter (ADC)   */
   XDMAC_IRQn                =  20, /* 20  Extensible DMA Controller (XDMAC)   */
   MATRIX_IRQn               =  21, /* 21  AHB Bus Matrix (MATRIX)             */
-  UHPHS_IRQn                =  22, /* 22  UHPHS (UHPHS)                       */
+  UHPHS_IRQn                =  22, /* 22  USB Host High Speed                 */
   UDPHS_IRQn                =  23, /* 23  USB High Speed Device Port (UDPHS)  */
   EMAC0_IRQn                =  24, /* 24  Ethernet MAC 10/100 (EMAC0)         */
   LCDC_IRQn                 =  25, /* 25  LCD Controller (LCDC)               */
@@ -147,7 +149,7 @@ typedef enum IRQn
 #endif /* !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__)) */
 
 /* ************************************************************************** */
-/*   SOFTWARE PERIPHERAL API DEFINITION FOR SAM9X60D1G                        */
+/*             SOFTWARE PERIPHERAL API DEFINITIONS FOR SAM9X60D1G             */
 /* ************************************************************************** */
 #include "component/adc.h"
 #include "component/aes.h"
@@ -196,7 +198,7 @@ typedef enum IRQn
 #include "component/xdmac.h"
 
 /* ************************************************************************** */
-/*   INSTANCE DEFINITIONS FOR SAM9X60D1G */
+/*                    INSTANCE DEFINITIONS FOR SAM9X60D1G                     */
 /* ************************************************************************** */
 #include "instance/adc.h"
 #include "instance/aes.h"
@@ -264,7 +266,7 @@ typedef enum IRQn
 #include "instance/xdmac.h"
 
 /* ************************************************************************** */
-/*  PERIPHERAL ID DEFINITIONS FOR SAM9X60D1G                                  */
+/*                  PERIPHERAL ID DEFINITIONS FOR SAM9X60D1G                  */
 /* ************************************************************************** */
 #define ID_PIOA          (  2) /* Parallel Input/Output Controller (PIOA) */
 #define ID_PIOB          (  3) /* Parallel Input/Output Controller (PIOB) */
@@ -317,7 +319,7 @@ typedef enum IRQn
 #define ID_PERIPH_MAX    ( 49) /* Number of peripheral IDs */
 
 /* ************************************************************************** */
-/*   REGISTER STRUCTURE ADDRESS DEFINITIONS FOR SAM9X60D1G                    */
+/*           REGISTER STRUCTURE ADDRESS DEFINITIONS FOR SAM9X60D1G            */
 /* ************************************************************************** */
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 #define ADC_REGS                         ((adc_registers_t*)0xf804c000)                /* ADC Registers Address        */
@@ -387,7 +389,7 @@ typedef enum IRQn
 #endif /* (defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__)) */
 
 /* ************************************************************************** */
-/*   BASE ADDRESS DEFINITIONS FOR SAM9X60D1G                                  */
+/*                  BASE ADDRESS DEFINITIONS FOR SAM9X60D1G                   */
 /* ************************************************************************** */
 #define ADC_BASE_ADDRESS                 _UINT32_(0xf804c000)                          /* ADC Base Address */
 #define AES_BASE_ADDRESS                 _UINT32_(0xf0034000)                          /* AES Base Address */
@@ -455,67 +457,65 @@ typedef enum IRQn
 #define XDMAC_BASE_ADDRESS               _UINT32_(0xf0008000)                          /* XDMAC Base Address */
 
 /* ************************************************************************** */
-/*   PIO DEFINITIONS FOR SAM9X60D1G                                           */
+/*                       PIO DEFINITIONS FOR SAM9X60D1G                       */
 /* ************************************************************************** */
 #include "pio/sam9x60d1g.h"
 
 /* ************************************************************************** */
-/*   MEMORY MAPPING DEFINITIONS FOR SAM9X60D1G                                */
+/*                 MEMORY MAPPING DEFINITIONS FOR SAM9X60D1G                  */
 /* ************************************************************************** */
-#define ECC_ROM_SIZE                   _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define SRAM0_SIZE                     _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define SRAM1_SIZE                     _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define UDPHS_RAM_SIZE                 _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define UHPHS_OHCI_SIZE                _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define UHPHS_EHCI_SIZE                _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define EBI_CS0_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define EBI_CS1_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define EBI_MPDDR_SIZE                 _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define SDRAM_CS_SIZE                  _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define EBI_CS2_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define EBI_CS3_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define EBI_NF_SIZE                    _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define EBI_CS4_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define EBI_CS5_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define QSPIMEM_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: other */
-#define SDMMC0_SIZE                    _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define SDMMC1_SIZE                    _UINT32_(0x00100000)    /* 1024kB Memory segment type: other */
-#define OTPC_SIZE                      _UINT32_(0x00001000)    /*    4kB Memory segment type: other */
+#define ECC_ROM_SIZE                   _UINT32_(0x00100000)    /* 1024kB Memory segment type: rom */
+#define SRAM0_SIZE                     _UINT32_(0x00100000)    /* 1024kB Memory segment type: ram */
+#define SRAM1_SIZE                     _UINT32_(0x00100000)    /* 1024kB Memory segment type: ram */
+#define UDPHS_RAM_SIZE                 _UINT32_(0x00100000)    /* 1024kB Memory segment type: ram */
+#define UHPHS_OHCI_SIZE                _UINT32_(0x00100000)    /* 1024kB Memory segment type: ram */
+#define UHPHS_EHCI_SIZE                _UINT32_(0x00100000)    /* 1024kB Memory segment type: ram */
+#define EBI_CS0_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define EBI_CS1_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define EBI_MPDDR_SIZE                 _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define SDRAM_CS_SIZE                  _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define EBI_CS2_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define EBI_CS3_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define EBI_NF_SIZE                    _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define EBI_CS4_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define EBI_CS5_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define QSPIMEM_SIZE                   _UINT32_(0x10000000)    /* 262144kB Memory segment type: ram */
+#define SDMMC0_SIZE                    _UINT32_(0x00100000)    /* 1024kB Memory segment type: ram */
+#define SDMMC1_SIZE                    _UINT32_(0x00100000)    /* 1024kB Memory segment type: ram */
+#define OTPC_SIZE                      _UINT32_(0x00001000)    /*    4kB Memory segment type: ram */
 #define PERIPHERALS_SIZE               _UINT32_(0x10000000)    /* 262144kB Memory segment type: io */
 
-#define ECC_ROM_ADDR                   _UINT32_(0x00100000)    /* ECC_ROM base address (type: other)*/
-#define SRAM0_ADDR                     _UINT32_(0x00300000)    /* SRAM0 base address (type: other)*/
-#define SRAM1_ADDR                     _UINT32_(0x00400000)    /* SRAM1 base address (type: other)*/
-#define UDPHS_RAM_ADDR                 _UINT32_(0x00500000)    /* UDPHS_RAM base address (type: other)*/
-#define UHPHS_OHCI_ADDR                _UINT32_(0x00600000)    /* UHPHS_OHCI base address (type: other)*/
-#define UHPHS_EHCI_ADDR                _UINT32_(0x00700000)    /* UHPHS_EHCI base address (type: other)*/
-#define EBI_CS0_ADDR                   _UINT32_(0x10000000)    /* EBI_CS0 base address (type: other)*/
-#define EBI_CS1_ADDR                   _UINT32_(0x20000000)    /* EBI_CS1 base address (type: other)*/
-#define EBI_MPDDR_ADDR                 _UINT32_(0x20000000)    /* EBI_MPDDR base address (type: other)*/
-#define SDRAM_CS_ADDR                  _UINT32_(0x20000000)    /* SDRAM_CS base address (type: other)*/
-#define EBI_CS2_ADDR                   _UINT32_(0x30000000)    /* EBI_CS2 base address (type: other)*/
-#define EBI_CS3_ADDR                   _UINT32_(0x40000000)    /* EBI_CS3 base address (type: other)*/
-#define EBI_NF_ADDR                    _UINT32_(0x40000000)    /* EBI_NF base address (type: other)*/
-#define EBI_CS4_ADDR                   _UINT32_(0x50000000)    /* EBI_CS4 base address (type: other)*/
-#define EBI_CS5_ADDR                   _UINT32_(0x60000000)    /* EBI_CS5 base address (type: other)*/
-#define QSPIMEM_ADDR                   _UINT32_(0x70000000)    /* QSPIMEM base address (type: other)*/
-#define SDMMC0_ADDR                    _UINT32_(0x80000000)    /* SDMMC0 base address (type: other)*/
-#define SDMMC1_ADDR                    _UINT32_(0x90000000)    /* SDMMC1 base address (type: other)*/
-#define OTPC_ADDR                      _UINT32_(0xeff00000)    /* OTPC base address (type: other)*/
+#define ECC_ROM_ADDR                   _UINT32_(0x00100000)    /* ECC_ROM base address (type: rom)*/
+#define SRAM0_ADDR                     _UINT32_(0x00300000)    /* SRAM0 base address (type: ram)*/
+#define SRAM1_ADDR                     _UINT32_(0x00400000)    /* SRAM1 base address (type: ram)*/
+#define UDPHS_RAM_ADDR                 _UINT32_(0x00500000)    /* UDPHS_RAM base address (type: ram)*/
+#define UHPHS_OHCI_ADDR                _UINT32_(0x00600000)    /* UHPHS_OHCI base address (type: ram)*/
+#define UHPHS_EHCI_ADDR                _UINT32_(0x00700000)    /* UHPHS_EHCI base address (type: ram)*/
+#define EBI_CS0_ADDR                   _UINT32_(0x10000000)    /* EBI_CS0 base address (type: ram)*/
+#define EBI_CS1_ADDR                   _UINT32_(0x20000000)    /* EBI_CS1 base address (type: ram)*/
+#define EBI_MPDDR_ADDR                 _UINT32_(0x20000000)    /* EBI_MPDDR base address (type: ram)*/
+#define SDRAM_CS_ADDR                  _UINT32_(0x20000000)    /* SDRAM_CS base address (type: ram)*/
+#define EBI_CS2_ADDR                   _UINT32_(0x30000000)    /* EBI_CS2 base address (type: ram)*/
+#define EBI_CS3_ADDR                   _UINT32_(0x40000000)    /* EBI_CS3 base address (type: ram)*/
+#define EBI_NF_ADDR                    _UINT32_(0x40000000)    /* EBI_NF base address (type: ram)*/
+#define EBI_CS4_ADDR                   _UINT32_(0x50000000)    /* EBI_CS4 base address (type: ram)*/
+#define EBI_CS5_ADDR                   _UINT32_(0x60000000)    /* EBI_CS5 base address (type: ram)*/
+#define QSPIMEM_ADDR                   _UINT32_(0x70000000)    /* QSPIMEM base address (type: ram)*/
+#define SDMMC0_ADDR                    _UINT32_(0x80000000)    /* SDMMC0 base address (type: ram)*/
+#define SDMMC1_ADDR                    _UINT32_(0x90000000)    /* SDMMC1 base address (type: ram)*/
+#define OTPC_ADDR                      _UINT32_(0xeff00000)    /* OTPC base address (type: ram)*/
 #define PERIPHERALS_ADDR               _UINT32_(0xf0000000)    /* PERIPHERALS base address (type: io)*/
 
 /* ************************************************************************** */
-/*   DEVICE SIGNATURES FOR SAM9X60D1G                                         */
+/*                      DEVICE SIGNATURES FOR SAM9X60D1G                      */
 /* ************************************************************************** */
 #define CHIP_JTAGID                    _UINT32_(0X05B4403F)
-#define CHIP_CIDR                      _UINT32_(0X819B3540)
+#define CHIP_CIDR                      _UINT32_(0X819B35A0)
 #define CHIP_EXID                      _UINT32_(0X00000010)
 
 /* ************************************************************************** */
-/*   ELECTRICAL DEFINITIONS FOR SAM9X60D1G                                    */
+/*                   ELECTRICAL DEFINITIONS FOR SAM9X60D1G                    */
 /* ************************************************************************** */
-
-
 
 #ifdef __cplusplus
 }
