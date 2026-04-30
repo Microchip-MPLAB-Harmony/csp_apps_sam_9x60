@@ -93,15 +93,15 @@ typedef void (* FLEXCOM_LIN_CALLBACK)(uintptr_t context );
 typedef struct
 {
     FLEXCOM_LIN_CALLBACK idCallback;
-    
+
     uintptr_t idContext;
-    
+
     FLEXCOM_LIN_CALLBACK tranferCallback;
-    
+
     uintptr_t tranferContext;
-    
+
     FLEXCOM_LIN_CALLBACK breakCallback;
-    
+
     uintptr_t breakContext;
 
 } FLEXCOM_LIN_CALLBACK_OBJECT;
