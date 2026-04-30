@@ -123,7 +123,7 @@ void TC0_CH1_TimerInitialize(void)
 {
     /* clock selection and waveform selection */
     TC0_REGS->TC_CHANNEL[1].TC_CMR = TC_CMR_TCCLKS_TIMER_CLOCK5 | TC_CMR_WAVEFORM_WAVSEL_UP_RC | \
-                                                        TC_CMR_WAVE_Msk ;
+                                                        TC_CMR_WAVEFORM_WAVE_Msk ;
 
     /* write period */
     TC0_REGS->TC_CHANNEL[1].TC_RC = 32000U;
