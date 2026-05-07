@@ -22,12 +22,25 @@ data:
     - children:
       - attributes:
           id: pwm
-          x: '21'
-          y: '92'
+          x: '38'
+          y: '139'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
   symbols:
+    CH0_CALG:
+      attributes:
+        id: CH0_CALG
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: KeyValueSet
     CH0_CDTY:
       attributes:
         id: CH0_CDTY
@@ -38,6 +51,19 @@ data:
           type: User
         type: Values
       type: Integer
+    CH0_CPOL:
+      attributes:
+        id: CH0_CPOL
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: KeyValueSet
     CH0_CPRD:
       attributes:
         id: CH0_CPRD
@@ -159,4 +185,54 @@ data:
           type: Dynamic
         type: Values
       type: Integer
+    CLKA_PRES:
+      attributes:
+        id: CLKA_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: KeyValueSet
+    CLKB_DIV:
+      attributes:
+        id: CLKB_DIV
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: Integer
+    CLKB_FREQUENCY:
+      attributes:
+        id: CLKB_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLKB_PRES:
+      attributes:
+        id: CLKB_PRES
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: KeyValueSet
   userData: {}

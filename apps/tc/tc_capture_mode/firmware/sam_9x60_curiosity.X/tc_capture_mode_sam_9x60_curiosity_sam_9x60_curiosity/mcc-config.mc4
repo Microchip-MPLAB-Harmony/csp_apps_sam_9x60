@@ -1,8 +1,8 @@
 configVersion: 1.0.0
 coreVersion: 5.8.4
+spaHostVersion: 1.2.1
 device: SAM9X60D1G
-deviceLibrary:
-  className: com.microchip.mcc.harmony.Harmony3Library
+deviceLibrary: {}
 groupModules: []
 modules:
 - core
@@ -17,7 +17,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity\ddram.ld
   hash: 4b322435593d75937b86857aa6f648b0889fb0878c5f43c21fe9f08a9651eb57
 - file: ..\src\config\sam_9x60_curiosity\definitions.h
-  hash: be989b96b1535a4911ba0b4754f9f267ba7675af4be03a1bb952a37b269a0b7f
+  hash: 1ca543cfed52ee1d8d6a0bccf9080ba64d1fa7546302b5d06aedff32af888009
 - file: ..\src\config\sam_9x60_curiosity\device.h
   hash: 3b30d7957fc37ca7e8b63f81e732a2aa7e92f1e4087030e5a052f9ccaea36d84
 - file: ..\src\config\sam_9x60_curiosity\device_cache.h
@@ -25,7 +25,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity\fault_handlers.c
   hash: 931e951cf7431d3d70d6ab81bcd265ff0ac8b3f473b73cd7a541f59d49786b7c
 - file: ..\src\config\sam_9x60_curiosity\initialization.c
-  hash: 81409cd7492f99837da35114032dc2f4b528e7ddfff254555a73cb169469ce2f
+  hash: 712391d8d640de395d881642a22c5027b1987c5205417191fd985148c10fda18
 - file: ..\src\config\sam_9x60_curiosity\interrupts.c
   hash: 2f7142ad0cc39b508419c3c3b07f8343ec9a9a2d24b1f437f7a353188b80f311
 - file: ..\src\config\sam_9x60_curiosity\interrupts.h
@@ -51,7 +51,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity\peripheral\mmu\plib_mmu.h
   hash: 7fb6e6b8ad6a80b7fc04c0264b7cdf49e6d6b887e4f3c5aa394eda88e32e0116
 - file: ..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.c
-  hash: aadec5d8fb77b206ba3c121a7105003d0cf52f16116ff8a29662c57de186e612
+  hash: 1ae3b2ba9565f8b0d6455d890a47551601a66808c476a70f498e9468368371a3
 - file: ..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.h
   hash: 273e461ca0b4ff5759545905988f6a5176c1bab76d7fd3f98ab395d6e1dcb7e4
 - file: ..\src\config\sam_9x60_curiosity\peripheral\pwm\plib_pwm.c
