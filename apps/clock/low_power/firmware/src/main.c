@@ -51,6 +51,7 @@
 #include "definitions.h"                // SYS function prototypes
 #include <string.h>
 
+
 typedef struct
 {
     uint32_t scsr;
@@ -59,9 +60,16 @@ typedef struct
     uint32_t cpu_ckr;
     uint32_t mor;
 } CLOCK_CFG;
-  
-__attribute__((__section__(".ramdata_section"))) volatile CLOCK_CFG clock_cfg;
-__attribute__((__section__(".ramdata_section"))) int tmp_stack[256];
+
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma location=".ramdata_section"
+volatile CLOCK_CFG clock_cfg;
+#pragma location=".ramdata_section"
+int tmp_stack[256];
+#else
+volatile __attribute__((__section__(".ramdata_section"))) CLOCK_CFG clock_cfg;
+int __attribute__((__section__(".ramdata_section"))) tmp_stack[256];
+#endif
 
 static void enter_idle(void);
 static void ramcode_init(void);
@@ -130,13 +138,28 @@ int main ( void )
     return ( EXIT_FAILURE );
 }
 
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+extern uint32_t _sramcode, _eramcode;
+extern uint32_t _sramdata, _eramdata;
+#pragma section="ramcode_section"
+#pragma section="ramdata_section"
+#else
 extern uint32_t _ramcode_lma, _sramcode, _eramcode;
-extern uint32_t _ramdata_lma, _sramdata, _eramdata;   
+extern uint32_t _ramdata_lma, _sramdata, _eramdata;
+#endif
+   
 
 static void ramcode_init(void)
 {
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+	memcpy(__section_begin("ramcode_section"), __section_begin("ramcode_section"),
+	       (uint32_t)__section_end("ramcode_section") - (uint32_t)__section_begin("ramcode_section"));
+	memcpy(__section_begin("ramdata_section"), __section_begin("ramdata_section"),
+	       (uint32_t)__section_end("ramdata_section") - (uint32_t)__section_begin("ramdata_section"));
+#else
 	memcpy(&_sramcode, &_ramcode_lma, (uint32_t)&_eramcode - (uint32_t)&_sramcode);
 	memcpy(&_sramdata, &_ramdata_lma, (uint32_t)&_eramdata - (uint32_t)&_sramdata);
+#endif
     DCACHE_CLEAN_INVALIDATE_ALL();
     L1_ICACHE_INVALIDATE_ALL();
 }
@@ -172,12 +195,21 @@ void enter_idle(void)
     RTC_InterruptDisable(RTC_INT_ALARM);
 }
 
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma location=".ramcode_section"
+void enter_idle_sram(void)
+#else
 __attribute__((__section__(".ramcode_section"))) void enter_idle_sram(void)
+#endif
 {
   
     PMC_REGS->PMC_SCDR = PMC_SCDR_PCK_Msk;
  
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+    __asm("mcr p15, 0, r0, c7, c0, 4");
+#else
     asm("mcr p15, 0, %0, c7, c0, 4" :: "r"(0));
+#endif
 }
 
 void enter_ulp0(void)
@@ -211,25 +243,50 @@ void enter_ulp0(void)
 
 }
 
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma location=".ramcode_section"
+void enter_ulp0_sram(void)
+#else
 __attribute__((__section__(".ramcode_section"))) void enter_ulp0_sram(void)
+#endif
 {
     /* set up new stack in sram since ddr will be unavailable */
     uint32_t sp = (uint32_t)&tmp_stack[256];
+
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+    register uint32_t new_sp asm("r3") = sp;
+    __asm("mov r3, %0" : : "r"(new_sp));
+    __asm("mov r0, sp");
+    __asm("mov sp, r3");
+    __asm("push {r0}");
+#else
     asm("mov r3, %0" : : "r"(sp));
     asm("mov r0, sp");
     asm("mov sp, r3");
     asm("push {r0}");
+#endif
 
     /* broken up like this so we can use stack variables */
     really_enter_ulp0_sram();
 
 
     /* use original ddr based stack */
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+    __asm("pop {r0}");
+    __asm("mov sp, r0");
+#else
     asm("pop {r0}");
     asm("mov sp, r0");
+#endif
 }
 
-__attribute__((optimize("-O1"), __section__(".ramcode_section")))void really_enter_ulp0_sram(void)
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma optimize=low
+#pragma location=".ramcode_section"
+void really_enter_ulp0_sram(void)
+#else
+__attribute__((optimize("-O1"), __section__(".ramcode_section"))) void really_enter_ulp0_sram(void)
+#endif
 {
     clock_cfg.scsr = PMC_REGS->PMC_SCSR;
     clock_cfg.cpu_ckr = PMC_REGS->PMC_CPU_CKR;
@@ -252,7 +309,12 @@ __attribute__((optimize("-O1"), __section__(".ramcode_section")))void really_ent
     /* enter ULP0 */
     __disable_irq();
     __DSB();
+
+#if defined(__ICCARM__) || defined(__IAR_SYSTEMS_ICC__)
+    __asm("mcr p15, 0, r0, c7, c0, 4");
+#else
     asm("mcr p15, 0, %0, c7, c0, 4" :: "r"(0));
+#endif
 
     /* enable main clock */
     PMC_REGS->CKGR_MOR = clock_cfg.mor |  CKGR_MOR_KEY_PASSWD;
