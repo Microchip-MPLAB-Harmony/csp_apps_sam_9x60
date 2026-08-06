@@ -159,15 +159,15 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
-      <logicalFolder name="sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
-                     displayName="sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
+      <logicalFolder name="dbgu_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
+                     displayName="dbgu_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dbgu.yml</itemPath>
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/core.yml</itemPath>
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dfp.yml</itemPath>
+          <itemPath>dbgu_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/core.yml</itemPath>
+          <itemPath>dbgu_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dfp.yml</itemPath>
+          <itemPath>dbgu_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dbgu.yml</itemPath>
         </logicalFolder>
-        <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/mcc-config.mc4</itemPath>
+        <itemPath>dbgu_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity_pro/pin_configurations.csv</itemPath>
@@ -244,7 +244,7 @@
         <ScriptingSetting key="boot.use" value="true"/>
         <ScriptingSetting key="boot.entry_adr" value=""/>
         <ScriptingSetting key="boot.path"
-                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
+                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\sam9x60_cpro_binaries\at91bootstrap.elf "/>
         <ScriptingSetting key="boot.prj" value=""/>
       </ScriptingSettings>
       <compileType>
