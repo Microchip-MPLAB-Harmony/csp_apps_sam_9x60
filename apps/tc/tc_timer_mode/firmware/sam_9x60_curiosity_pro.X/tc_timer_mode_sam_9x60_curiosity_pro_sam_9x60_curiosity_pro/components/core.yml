@@ -1,0 +1,373 @@
+configVersion: 1.0.0
+componentName: core
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: core
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    COMPONENT_PACKAGE:
+      attributes:
+        id: COMPONENT_PACKAGE
+        label: Pin Package
+      children:
+      - children:
+        - attributes:
+            value: TFBGA228
+          type: User
+        type: Values
+      type: Combo
+    PIN_32_DIR:
+      attributes:
+        id: PIN_32_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    PIN_32_FUNCTION_NAME:
+      attributes:
+        id: PIN_32_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: LED_GREEN
+          type: User
+        type: Values
+      type: String
+    PIN_32_FUNCTION_TYPE:
+      attributes:
+        id: PIN_32_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_32_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_32_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_49_DIR:
+      attributes:
+        id: PIN_49_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    PIN_49_FUNCTION_NAME:
+      attributes:
+        id: PIN_49_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: LED_RED
+          type: User
+        type: Values
+      type: String
+    PIN_49_FUNCTION_TYPE:
+      attributes:
+        id: PIN_49_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_49_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_49_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_4_DIR:
+      attributes:
+        id: PIN_4_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    PIN_4_FUNCTION_NAME:
+      attributes:
+        id: PIN_4_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: LED
+          type: User
+        type: Values
+      type: String
+    PIN_4_FUNCTION_TYPE:
+      attributes:
+        id: PIN_4_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_4_LAT:
+      attributes:
+        id: PIN_4_LAT
+        label: Initial Latch Value
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    PIN_4_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_4_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_72_DIR:
+      attributes:
+        id: PIN_72_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_72_FUNCTION_NAME:
+      attributes:
+        id: PIN_72_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_72_FUNCTION_TYPE:
+      attributes:
+        id: PIN_72_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_72_LAT:
+      attributes:
+        id: PIN_72_LAT
+        label: Initial Latch Value
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_72_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_72_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIOB_ABCDSR1_VALUE:
+      attributes:
+        id: PIOB_ABCDSR1_VALUE
+        label: PIOB_ABCDSR1
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOB_ABCDSR2_VALUE:
+      attributes:
+        id: PIOB_ABCDSR2_VALUE
+        label: PIOB_ABCDSR2
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOB_OER_VALUE:
+      attributes:
+        id: PIOB_OER_VALUE
+        label: PIOB_OER
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '14336'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOB_PDR_VALUE:
+      attributes:
+        id: PIOB_PDR_VALUE
+        label: PIOB_PDR
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOB_SODR_VALUE:
+      attributes:
+        id: PIOB_SODR_VALUE
+        label: PIOB_SODR
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8192'
+          type: Dynamic
+        type: Values
+      type: Hex
+    TC0_CH0_CLOCK_FREQUENCY:
+      attributes:
+        id: TC0_CH0_CLOCK_FREQUENCY
+        label: TC0_CH0_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1562500'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_CH3_CLOCK_FREQUENCY:
+      attributes:
+        id: TC0_CH3_CLOCK_FREQUENCY
+        label: TC0_CH3_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_CHANNEL0_CLOCK_ENABLE:
+      attributes:
+        id: TC0_CHANNEL0_CLOCK_ENABLE
+        label: TC0_CHANNEL0_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CLOCK_ENABLE:
+      attributes:
+        id: TC0_CLOCK_ENABLE
+        label: TC0
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_INTERRUPT_ENABLE:
+      attributes:
+        id: TC0_INTERRUPT_ENABLE
+        label: Enable 17 -- Timer Counter 0
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_INTERRUPT_HANDLER:
+      attributes:
+        id: TC0_INTERRUPT_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: TC0_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    TC0_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC0_INTERRUPT_HANDLER_LOCK
+        label: TC0_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData: {}
