@@ -1,0 +1,602 @@
+configVersion: 1.0.0
+componentName: core
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: core
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    COMPONENT_PACKAGE:
+      attributes:
+        id: COMPONENT_PACKAGE
+        label: Pin Package
+      children:
+      - children:
+        - attributes:
+            value: TFBGA228
+          type: User
+        type: Values
+      type: Combo
+    DBGU_CLOCK_ENABLE:
+      attributes:
+        id: DBGU_CLOCK_ENABLE
+        label: DBGU
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DBGU_CLOCK_FREQUENCY:
+      attributes:
+        id: DBGU_CLOCK_FREQUENCY
+        label: DBGU_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DBGU_INTERRUPT_ENABLE:
+      attributes:
+        id: DBGU_INTERRUPT_ENABLE
+        label: Enable 47 -- Debug Unit
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DBGU_INTERRUPT_HANDLER:
+      attributes:
+        id: DBGU_INTERRUPT_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: DBGU_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    DBGU_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: DBGU_INTERRUPT_HANDLER_LOCK
+        label: DBGU_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PIN_129_DIR:
+      attributes:
+        id: PIN_129_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    PIN_129_FUNCTION_NAME:
+      attributes:
+        id: PIN_129_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: LED_BLUE
+          type: User
+        type: Values
+      type: String
+    PIN_129_FUNCTION_TYPE:
+      attributes:
+        id: PIN_129_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_129_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_129_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_138_DIR:
+      attributes:
+        id: PIN_138_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    PIN_138_FUNCTION_NAME:
+      attributes:
+        id: PIN_138_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: LED_RED
+          type: User
+        type: Values
+      type: String
+    PIN_138_FUNCTION_TYPE:
+      attributes:
+        id: PIN_138_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_138_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_138_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_144_FUNCTION_TYPE:
+      attributes:
+        id: PIN_144_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: DBGU_DTXD
+          type: User
+        type: Values
+      type: String
+    PIN_144_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_144_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: A
+          type: User
+        type: Values
+      type: String
+    PIN_157_DIR:
+      attributes:
+        id: PIN_157_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    PIN_157_FUNCTION_NAME:
+      attributes:
+        id: PIN_157_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: LED_GREEN
+          type: User
+        type: Values
+      type: String
+    PIN_157_FUNCTION_TYPE:
+      attributes:
+        id: PIN_157_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_157_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_157_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_158_DIR:
+      attributes:
+        id: PIN_158_DIR
+        label: Direction
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_158_FUNCTION_NAME:
+      attributes:
+        id: PIN_158_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_158_FUNCTION_TYPE:
+      attributes:
+        id: PIN_158_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_158_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_158_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_92_FUNCTION_NAME:
+      attributes:
+        id: PIN_92_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    PIN_92_FUNCTION_TYPE:
+      attributes:
+        id: PIN_92_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: DBGU_DRXD
+          type: User
+        type: Values
+      type: String
+    PIN_92_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_92_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: A
+          type: User
+        type: Values
+      type: String
+    PIOA_ABCDSR1_VALUE:
+      attributes:
+        id: PIOA_ABCDSR1_VALUE
+        label: PIOA_ABCDSR1
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOA_ABCDSR2_VALUE:
+      attributes:
+        id: PIOA_ABCDSR2_VALUE
+        label: PIOA_ABCDSR2
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOA_PDR_VALUE:
+      attributes:
+        id: PIOA_PDR_VALUE
+        label: PIOA_PDR
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1536'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOD_ABCDSR1_VALUE:
+      attributes:
+        id: PIOD_ABCDSR1_VALUE
+        label: PIOD_ABCDSR1
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOD_ABCDSR2_VALUE:
+      attributes:
+        id: PIOD_ABCDSR2_VALUE
+        label: PIOD_ABCDSR2
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOD_OER_VALUE:
+      attributes:
+        id: PIOD_OER_VALUE
+        label: PIOD_OER
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '14336'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOD_PDR_VALUE:
+      attributes:
+        id: PIOD_PDR_VALUE
+        label: PIOD_PDR
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIT_INTERRUPT_ENABLE:
+      attributes:
+        id: PIT_INTERRUPT_ENABLE
+        label: Enable PIT
+      children:
+      - children:
+        - attributes:
+            id: pit
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PIT_INTERRUPT_HANDLER:
+      attributes:
+        id: PIT_INTERRUPT_HANDLER
+        label: PIT Handler
+      children:
+      - children:
+        - attributes:
+            id: pit
+            value: PIT_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    SYSC_INTERRUPT_ENABLE:
+      attributes:
+        id: SYSC_INTERRUPT_ENABLE
+        label: Enable 1 -- System Controller Interrupt
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    XDMAC_HIGHEST_CHANNEL:
+      attributes:
+        id: XDMAC_HIGHEST_CHANNEL
+        label: DMA (XDMAC) Highest Active Channel
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    XDMAC_INTERRUPT_ENABLE:
+      attributes:
+        id: XDMAC_INTERRUPT_ENABLE
+        label: Enable 20 -- Extended DMA Controller
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    XDMAC_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: XDMAC_INTERRUPT_HANDLER_LOCK
+        label: XDMAC_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    XDMAC_INTERRUPT_HANDLER:
+      attributes:
+        id: XDMAC_INTERRUPT_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: XDMAC_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    DMA_ENABLE:
+      attributes:
+        id: DMA_ENABLE
+        label: Use DMA Service?
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    XDMAC_CLOCK_ENABLE:
+      attributes:
+        id: XDMAC_CLOCK_ENABLE
+        label: XDMAC
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    xdmacHeaderFile:
+      attributes:
+        id: xdmacHeaderFile
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    xdmacCommonHeaderFile:
+      attributes:
+        id: xdmacCommonHeaderFile
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    xdmacSourceFile:
+      attributes:
+        id: xdmacSourceFile
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    xdmacSystemInitFile:
+      attributes:
+        id: xdmacSystemInitFile
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    xdmacSystemDefFile:
+      attributes:
+        id: xdmacSystemDefFile
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    XDMAC_CH0_ENABLE:
+      attributes:
+        id: XDMAC_CH0_ENABLE
+        label: Use XDMAC Channel 0
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+  userData:
+    children:
+    - attributes:
+        canvasHeight: '0'
+        canvasWidth: '0'
+      type: GraphSettings
+    - children:
+      - attributes:
+          id: profile0
+          name: Main
+        type: Profile
+      type: PowerProfiles
+    type: UserData
