@@ -1,0 +1,40 @@
+configVersion: 1.0.0
+componentName: trng
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: trng
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    CRKEYNAME:
+      attributes:
+        id: CRKEYNAME
+        label: CRKEYNAME
+      type: String
+    TRNG_INSTANCE_NAME:
+      attributes:
+        id: TRNG_INSTANCE_NAME
+        label: TRNG_INSTANCE_NAME
+      type: String
+    TRNG_Reserved:
+      attributes:
+        id: TRNG_Reserved
+        label: TRNG Reserved
+      type: Boolean
+    trngEnableInterrupt:
+      attributes:
+        id: trngEnableInterrupt
+        label: Enable Interrupts
+      type: Boolean
+  userData: {}
