@@ -1,0 +1,142 @@
+configVersion: 1.0.0
+componentName: rtt
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: rtt
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: rtt
+          x: '381'
+          y: '52'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CALLBACK_API_NAME:
+      attributes:
+        id: CALLBACK_API_NAME
+        label: CALLBACK_API_NAME
+      type: String
+    COMPARE_SET_API_NAME:
+      attributes:
+        id: COMPARE_SET_API_NAME
+        label: COMPARE_SET_API_NAME
+      type: String
+    COUNTER_GET_API_NAME:
+      attributes:
+        id: COUNTER_GET_API_NAME
+        label: COUNTER_GET_API_NAME
+      type: String
+    FREQUENCY_GET_API_NAME:
+      attributes:
+        id: FREQUENCY_GET_API_NAME
+        label: FREQUENCY_GET_API_NAME
+      type: String
+    IRQ_ENUM_NAME:
+      attributes:
+        id: IRQ_ENUM_NAME
+        label: IRQ_ENUM_NAME
+      type: String
+    RTT_INC2_SUPPORTED:
+      attributes:
+        id: RTT_INC2_SUPPORTED
+        label: RTT_INC2_SUPPORTED
+      type: Boolean
+    RTT_INSTANCE_NAME:
+      attributes:
+        id: RTT_INSTANCE_NAME
+        label: RTT_INSTANCE_NAME
+      type: String
+    RTT_SELINC2:
+      attributes:
+        id: RTT_SELINC2
+        label: Periodicity of RTTINC2 Interrupt
+      type: KeyValueSet
+    SYS_TIME_COMPONENT_ID:
+      attributes:
+        id: SYS_TIME_COMPONENT_ID
+        label: Component id
+      type: String
+    TIMER_PERIOD_MAX:
+      attributes:
+        id: TIMER_PERIOD_MAX
+        label: TIMER_PERIOD_MAX
+      type: String
+    TIMER_START_API_NAME:
+      attributes:
+        id: TIMER_START_API_NAME
+        label: TIMER_START_API_NAME
+      type: String
+    TIMER_STOP_API_NAME:
+      attributes:
+        id: TIMER_STOP_API_NAME
+        label: TIMER_STOP_API_NAME
+      type: String
+    TIMER_WIDTH:
+      attributes:
+        id: TIMER_WIDTH
+        label: TIMER_WIDTH
+      type: Integer
+    rttALMIEN:
+      attributes:
+        id: rttALMIEN
+        label: Enable Alarm Interrupt
+      type: Boolean
+    rttINC2EN:
+      attributes:
+        id: rttINC2EN
+        label: Enable RTTINC2 Interrupt
+      type: Boolean
+    rttINCIEN:
+      attributes:
+        id: rttINCIEN
+        label: Enable Prescale Rollover Interrupt
+      type: Boolean
+    rttRTC1HZ:
+      attributes:
+        id: rttRTC1HZ
+        label: Use RTC 1Hz as clock Source
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    rttRTPRES:
+      attributes:
+        id: rttRTPRES
+        label: 'Prescalar Value '
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: rtt
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+  userData: {}
