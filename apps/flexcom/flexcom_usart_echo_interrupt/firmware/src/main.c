@@ -10,6 +10,7 @@
   Summary:
     This file contains the "main" function for a project.
 
+
   Description:
     This file contains the "main" function for a project.  The
     "main" function calls the "SYS_Initialize" function to initialize the state
@@ -51,6 +52,20 @@
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+#define FLEXCOM_USART_Write FLEXCOM7_USART_Write
+#define FLEXCOM_USART_Read  FLEXCOM7_USART_Read
+#define FLEXCOM_USART_WriteCallbackRegister FLEXCOM7_USART_WriteCallbackRegister
+#define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM7_USART_ReadCallbackRegister
+#define FLEXCOM_USART_ErrorGet FLEXCOM7_USART_ErrorGet
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+#define FLEXCOM_USART_Write FLEXCOM5_USART_Write
+#define FLEXCOM_USART_Read  FLEXCOM5_USART_Read
+#define FLEXCOM_USART_WriteCallbackRegister FLEXCOM5_USART_WriteCallbackRegister
+#define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM5_USART_ReadCallbackRegister
+#define FLEXCOM_USART_ErrorGet FLEXCOM5_USART_ErrorGet
+#endif
+
 /*************************************************************************************
 FLEXCOM USART - Connect USB UART click board to mikroBUS Connector.
 *************************************************************************************/
@@ -77,7 +92,7 @@ void APP_WriteCallback(uintptr_t context)
 
 void APP_ReadCallback(uintptr_t context)
 {
-    if(FLEXCOM7_USART_ErrorGet() != FLEXCOM_USART_ERROR_NONE)
+    if(FLEXCOM_USART_ErrorGet() != FLEXCOM_USART_ERROR_NONE)
     {
         /* ErrorGet clears errors, set error flag to notify console */
         errorStatus = true;
@@ -100,9 +115,9 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* Register callback functions and send start message */
-    FLEXCOM7_USART_WriteCallbackRegister(APP_WriteCallback, 0);
-    FLEXCOM7_USART_ReadCallbackRegister(APP_ReadCallback, 0);
-    FLEXCOM7_USART_Write(&messageStart, sizeof(messageStart));
+    FLEXCOM_USART_WriteCallbackRegister(APP_WriteCallback, 0);
+    FLEXCOM_USART_ReadCallbackRegister(APP_ReadCallback, 0);
+    FLEXCOM_USART_Write(&messageStart, sizeof(messageStart));
 
     while ( true )
     {
@@ -110,7 +125,7 @@ int main ( void )
         {
             /* Send error message to console */
             errorStatus = false;
-            FLEXCOM7_USART_Write(&messageError, sizeof(messageError));
+            FLEXCOM_USART_Write(&messageError, sizeof(messageError));
         }
         else if(readStatus == true)
         {
@@ -120,14 +135,14 @@ int main ( void )
             memcpy(echoBuffer, receiveBuffer, sizeof (receiveBuffer));
             memcpy(&echoBuffer[RX_BUFFER_SIZE], "\r\n", 2);            
 
-            FLEXCOM7_USART_Write(&echoBuffer, sizeof(echoBuffer));
+            FLEXCOM_USART_Write(&echoBuffer, sizeof(echoBuffer));
             LED_Toggle();
         }
         else if(writeStatus == true)
         {
             /* Submit buffer to read user data */
             writeStatus = false;
-            FLEXCOM7_USART_Read(&receiveBuffer, sizeof(receiveBuffer));
+            FLEXCOM_USART_Read(&receiveBuffer, sizeof(receiveBuffer));
         }
         else
         {
