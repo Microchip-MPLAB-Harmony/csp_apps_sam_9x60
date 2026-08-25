@@ -1,0 +1,602 @@
+configVersion: 1.0.0
+componentName: adc
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: adc
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: adc
+          x: '398'
+          y: '41'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    ADC_0_CHER:
+      attributes:
+        id: ADC_0_CHER
+        label: Enable Channel 0
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    ADC_0_IER_EOC:
+      attributes:
+        id: ADC_0_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_0_NAME:
+      attributes:
+        id: ADC_0_NAME
+        label: Name
+      type: String
+    ADC_0_NEG_INP:
+      attributes:
+        id: ADC_0_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_0_POS_INP:
+      attributes:
+        id: ADC_0_POS_INP
+        label: Positive Input
+      type: String
+    ADC_10_CHER:
+      attributes:
+        id: ADC_10_CHER
+        label: Enable Channel 10
+      type: Boolean
+    ADC_10_IER_EOC:
+      attributes:
+        id: ADC_10_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_10_NAME:
+      attributes:
+        id: ADC_10_NAME
+        label: Name
+      type: String
+    ADC_10_NEG_INP:
+      attributes:
+        id: ADC_10_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_10_POS_INP:
+      attributes:
+        id: ADC_10_POS_INP
+        label: Positive Input
+      type: String
+    ADC_11_CHER:
+      attributes:
+        id: ADC_11_CHER
+        label: Enable Channel 11
+      type: Boolean
+    ADC_11_IER_EOC:
+      attributes:
+        id: ADC_11_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_11_NAME:
+      attributes:
+        id: ADC_11_NAME
+        label: Name
+      type: String
+    ADC_11_NEG_INP:
+      attributes:
+        id: ADC_11_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_11_POS_INP:
+      attributes:
+        id: ADC_11_POS_INP
+        label: Positive Input
+      type: String
+    ADC_1_CHER:
+      attributes:
+        id: ADC_1_CHER
+        label: Enable Channel 1
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    ADC_1_IER_EOC:
+      attributes:
+        id: ADC_1_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_1_NAME:
+      attributes:
+        id: ADC_1_NAME
+        label: Name
+      type: String
+    ADC_1_NEG_INP:
+      attributes:
+        id: ADC_1_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_1_POS_INP:
+      attributes:
+        id: ADC_1_POS_INP
+        label: Positive Input
+      type: String
+    ADC_2_CHER:
+      attributes:
+        id: ADC_2_CHER
+        label: Enable Channel 2
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    ADC_2_IER_EOC:
+      attributes:
+        id: ADC_2_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_2_NAME:
+      attributes:
+        id: ADC_2_NAME
+        label: Name
+      type: String
+    ADC_2_NEG_INP:
+      attributes:
+        id: ADC_2_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_2_POS_INP:
+      attributes:
+        id: ADC_2_POS_INP
+        label: Positive Input
+      type: String
+    ADC_3_CHER:
+      attributes:
+        id: ADC_3_CHER
+        label: Enable Channel 3
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    ADC_3_IER_EOC:
+      attributes:
+        id: ADC_3_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_3_NAME:
+      attributes:
+        id: ADC_3_NAME
+        label: Name
+      type: String
+    ADC_3_NEG_INP:
+      attributes:
+        id: ADC_3_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_3_POS_INP:
+      attributes:
+        id: ADC_3_POS_INP
+        label: Positive Input
+      type: String
+    ADC_4_CHER:
+      attributes:
+        id: ADC_4_CHER
+        label: Enable Channel 4
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    ADC_4_IER_EOC:
+      attributes:
+        id: ADC_4_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_4_NAME:
+      attributes:
+        id: ADC_4_NAME
+        label: Name
+      type: String
+    ADC_4_NEG_INP:
+      attributes:
+        id: ADC_4_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_4_POS_INP:
+      attributes:
+        id: ADC_4_POS_INP
+        label: Positive Input
+      type: String
+    ADC_5_CHER:
+      attributes:
+        id: ADC_5_CHER
+        label: Enable Channel 5
+      type: Boolean
+    ADC_5_IER_EOC:
+      attributes:
+        id: ADC_5_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_5_NAME:
+      attributes:
+        id: ADC_5_NAME
+        label: Name
+      type: String
+    ADC_5_NEG_INP:
+      attributes:
+        id: ADC_5_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_5_POS_INP:
+      attributes:
+        id: ADC_5_POS_INP
+        label: Positive Input
+      type: String
+    ADC_6_CHER:
+      attributes:
+        id: ADC_6_CHER
+        label: Enable Channel 6
+      type: Boolean
+    ADC_6_IER_EOC:
+      attributes:
+        id: ADC_6_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_6_NAME:
+      attributes:
+        id: ADC_6_NAME
+        label: Name
+      type: String
+    ADC_6_NEG_INP:
+      attributes:
+        id: ADC_6_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_6_POS_INP:
+      attributes:
+        id: ADC_6_POS_INP
+        label: Positive Input
+      type: String
+    ADC_7_CHER:
+      attributes:
+        id: ADC_7_CHER
+        label: Enable Channel 7
+      type: Boolean
+    ADC_7_IER_EOC:
+      attributes:
+        id: ADC_7_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_7_NAME:
+      attributes:
+        id: ADC_7_NAME
+        label: Name
+      type: String
+    ADC_7_NEG_INP:
+      attributes:
+        id: ADC_7_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_7_POS_INP:
+      attributes:
+        id: ADC_7_POS_INP
+        label: Positive Input
+      type: String
+    ADC_8_CHER:
+      attributes:
+        id: ADC_8_CHER
+        label: Enable Channel 8
+      type: Boolean
+    ADC_8_IER_EOC:
+      attributes:
+        id: ADC_8_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_8_NAME:
+      attributes:
+        id: ADC_8_NAME
+        label: Name
+      type: String
+    ADC_8_NEG_INP:
+      attributes:
+        id: ADC_8_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_8_POS_INP:
+      attributes:
+        id: ADC_8_POS_INP
+        label: Positive Input
+      type: String
+    ADC_9_CHER:
+      attributes:
+        id: ADC_9_CHER
+        label: Enable Channel 9
+      type: Boolean
+    ADC_9_IER_EOC:
+      attributes:
+        id: ADC_9_IER_EOC
+        label: End of conversion interrupt
+      type: Boolean
+    ADC_9_NAME:
+      attributes:
+        id: ADC_9_NAME
+        label: Name
+      type: String
+    ADC_9_NEG_INP:
+      attributes:
+        id: ADC_9_NEG_INP
+        label: Negative Input
+      type: Combo
+    ADC_9_POS_INP:
+      attributes:
+        id: ADC_9_POS_INP
+        label: Positive Input
+      type: String
+    ADC_CHANNEL_SEQ_NUM:
+      attributes:
+        id: ADC_CHANNEL_SEQ_NUM
+        label: Total number of User Channel Sequence
+      type: Integer
+    ADC_CHN_CFG_NAME:
+      attributes:
+        id: ADC_CHN_CFG_NAME
+        label: ADC_CHN_CFG_NAME
+      type: String
+    ADC_CLK:
+      attributes:
+        id: ADC_CLK
+        label: Clock Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: adc
+            value: '10000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    ADC_CLK_SRC:
+      attributes:
+        id: ADC_CLK_SRC
+        label: External Clock Selection
+      type: KeyValueSet
+    ADC_COMP_WINDOW:
+      attributes:
+        id: ADC_COMP_WINDOW
+        label: Automatic Window Comparison
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    ADC_CWR_HIGHTHRES_VALUE:
+      attributes:
+        id: ADC_CWR_HIGHTHRES_VALUE
+        label: High Threshold
+      type: Integer
+    ADC_CWR_LOWTHRES_VALUE:
+      attributes:
+        id: ADC_CWR_LOWTHRES_VALUE
+        label: Low Threshold
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '3000'
+          type: User
+        type: Values
+      type: Integer
+    ADC_EMR_CMPMODE:
+      attributes:
+        id: ADC_EMR_CMPMODE
+        label: Comparison Mode
+      type: KeyValueSet
+    ADC_EMR_CMPSEL:
+      attributes:
+        id: ADC_EMR_CMPSEL
+        label: Comparison Selected Channel
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: CH0
+          type: User
+        type: Values
+      type: Combo
+    ADC_EMR_CMPTYPE:
+      attributes:
+        id: ADC_EMR_CMPTYPE
+        label: Comparison Type
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    ADC_EMR_OSR_VALUE:
+      attributes:
+        id: ADC_EMR_OSR_VALUE
+        label: Result Resolution
+      type: KeyValueSet
+    ADC_EMR_SIGNMODE_VALUE:
+      attributes:
+        id: ADC_EMR_SIGNMODE_VALUE
+        label: Result Sign
+      type: KeyValueSet
+    ADC_IER_COMPE:
+      attributes:
+        id: ADC_IER_COMPE
+        label: Comparison Event Interrupt
+      type: Boolean
+    ADC_INSTANCE_NAME:
+      attributes:
+        id: ADC_INSTANCE_NAME
+        label: ADC_INSTANCE_NAME
+      type: String
+    ADC_MR_FWUP:
+      attributes:
+        id: ADC_MR_FWUP
+        label: Fast Wakeup
+      type: Combo
+    ADC_MR_PRESCAL:
+      attributes:
+        id: ADC_MR_PRESCAL
+        label: Select Prescaler
+      type: Integer
+    ADC_MR_SLEEP:
+      attributes:
+        id: ADC_MR_SLEEP
+        label: Sleep Mode
+      type: Boolean
+    ADC_MR_STARTUP_VALUE:
+      attributes:
+        id: ADC_MR_STARTUP_VALUE
+        label: Startup Time
+      type: KeyValueSet
+    ADC_MR_TRACKTIM_VALUE:
+      attributes:
+        id: ADC_MR_TRACKTIM_VALUE
+        label: Tracking Time
+      type: Integer
+    ADC_MR_TRGSEL_VALUE:
+      attributes:
+        id: ADC_MR_TRGSEL_VALUE
+        label: Select External Trigger Input
+      type: KeyValueSet
+    ADC_MR_USEQ:
+      attributes:
+        id: ADC_MR_USEQ
+        label: Enable User Sequence Mode
+      type: Boolean
+    ADC_NUM_CHANNELS:
+      attributes:
+        id: ADC_NUM_CHANNELS
+        label: ADC_NUM_CHANNELS
+      type: Integer
+    ADC_SEQR1_USCH1:
+      attributes:
+        id: ADC_SEQR1_USCH1
+        label: Select Channel for Sequence Number 1
+      type: Combo
+    ADC_SEQR1_USCH10:
+      attributes:
+        id: ADC_SEQR1_USCH10
+        label: Select Channel for Sequence Number 10
+      type: Combo
+    ADC_SEQR1_USCH11:
+      attributes:
+        id: ADC_SEQR1_USCH11
+        label: Select Channel for Sequence Number 11
+      type: Combo
+    ADC_SEQR1_USCH12:
+      attributes:
+        id: ADC_SEQR1_USCH12
+        label: Select Channel for Sequence Number 12
+      type: Combo
+    ADC_SEQR1_USCH2:
+      attributes:
+        id: ADC_SEQR1_USCH2
+        label: Select Channel for Sequence Number 2
+      type: Combo
+    ADC_SEQR1_USCH3:
+      attributes:
+        id: ADC_SEQR1_USCH3
+        label: Select Channel for Sequence Number 3
+      type: Combo
+    ADC_SEQR1_USCH4:
+      attributes:
+        id: ADC_SEQR1_USCH4
+        label: Select Channel for Sequence Number 4
+      type: Combo
+    ADC_SEQR1_USCH5:
+      attributes:
+        id: ADC_SEQR1_USCH5
+        label: Select Channel for Sequence Number 5
+      type: Combo
+    ADC_SEQR1_USCH6:
+      attributes:
+        id: ADC_SEQR1_USCH6
+        label: Select Channel for Sequence Number 6
+      type: Combo
+    ADC_SEQR1_USCH7:
+      attributes:
+        id: ADC_SEQR1_USCH7
+        label: Select Channel for Sequence Number 7
+      type: Combo
+    ADC_SEQR1_USCH8:
+      attributes:
+        id: ADC_SEQR1_USCH8
+        label: Select Channel for Sequence Number 8
+      type: Combo
+    ADC_SEQR1_USCH9:
+      attributes:
+        id: ADC_SEQR1_USCH9
+        label: Select Channel for Sequence Number 9
+      type: Combo
+    ADC_TRGR_MODE:
+      attributes:
+        id: ADC_TRGR_MODE
+        label: Trigger Mode
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    ADC_TRIGGER_TIME:
+      attributes:
+        id: ADC_TRIGGER_TIME
+        label: Trigger Period (ms)
+      type: Integer
+  userData: {}
