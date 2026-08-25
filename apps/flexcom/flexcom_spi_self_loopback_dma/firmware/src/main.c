@@ -53,6 +53,22 @@
 
 // *****************************************************************************
 // *****************************************************************************
+// Section: Device-Conditional Macros
+// *****************************************************************************
+// *****************************************************************************
+
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+#define FLEXCOM_SPI_RDR_ADDR        &(FLEXCOM5_REGS->FLEX_SPI_RDR)
+#define FLEXCOM_SPI_TDR_ADDR        &(FLEXCOM5_REGS->FLEX_SPI_TDR)
+#define FLEXCOM_SPI_IsBusy          FLEXCOM5_SPI_IsBusy
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+#define FLEXCOM_SPI_RDR_ADDR        &(FLEXCOM4_REGS->FLEX_SPI_RDR)
+#define FLEXCOM_SPI_TDR_ADDR        &(FLEXCOM4_REGS->FLEX_SPI_TDR)
+#define FLEXCOM_SPI_IsBusy          FLEXCOM4_SPI_IsBusy
+#endif
+
+// *****************************************************************************
+// *****************************************************************************
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
@@ -61,8 +77,8 @@
 #define DMA_CHANNEL_RECEIVE             XDMAC_CHANNEL_0
 #define DMA_CHANNEL_TRANSMIT            XDMAC_CHANNEL_1
 
-#define SPI1_RX_ADDR                    &(FLEXCOM5_REGS->FLEX_SPI_RDR)
-#define SPI1_TX_ADDR                    &(FLEXCOM5_REGS->FLEX_SPI_TDR)
+#define SPI1_RX_ADDR                    FLEXCOM_SPI_RDR_ADDR
+#define SPI1_TX_ADDR                    FLEXCOM_SPI_TDR_ADDR
 
 #define LED_ON()                        LED_GREEN_Set()
 #define LED_OFF()                       LED_GREEN_Clear()
@@ -141,8 +157,8 @@ static void APP_DMA_RxCallbackHandler(XDMAC_TRANSFER_EVENT event, uintptr_t cont
     else
     {
         /* Make sure the shift register is empty before de-asserting the CS line */
-        while (FLEXCOM5_SPI_IsBusy());
-        
+        while (FLEXCOM_SPI_IsBusy());
+
         /* Disable CS */
         SPI_CS_Set();
         
