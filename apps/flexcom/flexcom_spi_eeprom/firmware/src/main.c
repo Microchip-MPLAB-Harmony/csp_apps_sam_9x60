@@ -52,7 +52,21 @@
 #include "definitions.h"                // SYS function prototypes
 #include <string.h>
 
-/*************************************************************************************
+#if   defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+    #define FLEXCOM_SPI_CallbackRegister    FLEXCOM5_SPI_CallbackRegister
+    #define FLEXCOM_SPI_WriteRead           FLEXCOM5_SPI_WriteRead
+    #define FLEXCOM_SPI_Write               FLEXCOM5_SPI_Write
+
+#elif defined(__SAM9X60__)    || defined(SAM9X60)
+    #define FLEXCOM_SPI_CallbackRegister    FLEXCOM4_SPI_CallbackRegister
+    #define FLEXCOM_SPI_WriteRead           FLEXCOM4_SPI_WriteRead
+    #define FLEXCOM_SPI_Write               FLEXCOM4_SPI_Write
+
+#else
+#   error "Unsupported device: please provide the proper device."
+#endif
+
+/*****************************************************************************
 FLEXCOM SPI   - Connect EEPROM 4 click board to mikrobus Connector.
 *************************************************************************************/
 
@@ -105,7 +119,7 @@ void EEPROM_Initialize (void)
     EEPROM_HOLD_Set();
     EEPROM_WP_Set();
     EEPROM_CS_Set();
-    LED_RED_Clear();
+    //LED_RED_Clear();
     LED_GREEN_Clear();
 }
 // *****************************************************************************
@@ -129,15 +143,15 @@ int main ( void )
             case APP_STATE_INITIALIZE:
                 EEPROM_Initialize();
                 /* Register callback with the FLEXCOM SPI PLIB */
-                FLEXCOM5_SPI_CallbackRegister(&FLEXCOM_SPI_EventHandler, (uintptr_t)0);
+                FLEXCOM_SPI_CallbackRegister(&FLEXCOM_SPI_EventHandler, (uintptr_t)0);
                 state = APP_STATE_EEPROM_WRITE_ENABLE;
                 break;
 
             case APP_STATE_EEPROM_WRITE_ENABLE:
-                // Enable Writes to EEPROM
+                // Enable Writes to EEPROM 
                 txData[0] = EEPROM_CMD_WREN;
                 EEPROM_CS_Clear();
-                FLEXCOM5_SPI_Write(txData, 1);
+                FLEXCOM_SPI_Write(txData, 1);
                 state = APP_STATE_EEPROM_WRITE;
                 break;
 
@@ -153,7 +167,7 @@ int main ( void )
                     //Copy the data to be written to EEPROM
                     memcpy(&txData[4], EEPROM_DATA, EEPROM_DATA_LEN);
                     EEPROM_CS_Clear();
-                    FLEXCOM5_SPI_Write(txData, (4 + EEPROM_DATA_LEN));
+                    FLEXCOM_SPI_Write(txData, (4 + EEPROM_DATA_LEN));
                     state = APP_STATE_EEPROM_READ_STATUS;
                 }
                 break;
@@ -165,7 +179,7 @@ int main ( void )
                     /* Read the status of the internal write operation  */
                     txData[0] = EEPROM_CMD_RDSR;
                     EEPROM_CS_Clear();
-                    FLEXCOM5_SPI_WriteRead(txData, 1, rxData, 2);
+                    FLEXCOM_SPI_WriteRead(txData, 1, rxData, 2);
                     state = APP_STATE_EEPROM_CHECK_STATUS;
                 }
                 break;
@@ -184,7 +198,7 @@ int main ( void )
                         // Keep reading the status of the internal write operation
                         txData[0] = EEPROM_CMD_RDSR;
                         EEPROM_CS_Clear();
-                        FLEXCOM5_SPI_WriteRead(txData, 1, rxData, 2);
+                        FLEXCOM_SPI_WriteRead(txData, 1, rxData, 2);
                     }
                 }
                 break;
@@ -198,7 +212,7 @@ int main ( void )
                 txData[3] = (uint8_t)(eepromAddr);
 
                 EEPROM_CS_Clear();
-                FLEXCOM5_SPI_WriteRead(txData, 4, rxData, (4 + EEPROM_DATA_LEN));
+                FLEXCOM_SPI_WriteRead(txData, 4, rxData, (4 + EEPROM_DATA_LEN));
                 state = APP_STATE_DATA_COMPARISON;
 
                 break;
