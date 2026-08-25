@@ -179,14 +179,14 @@ void SYS_Initialize ( void* data )
 
 
 
-    FLEXCOM7_USART_Initialize();
-
     MMU_Initialize();
 
     AIC_INT_Initialize();
     
     /* Disable WDT   */
     WDT_REGS->WDT_MR = WDT_MR_WDDIS_Msk;
+
+    FLEXCOM5_USART_Initialize();
 
 
 

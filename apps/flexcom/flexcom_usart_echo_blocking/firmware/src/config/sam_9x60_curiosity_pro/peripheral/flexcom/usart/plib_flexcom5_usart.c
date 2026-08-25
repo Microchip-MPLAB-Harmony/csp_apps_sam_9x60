@@ -1,17 +1,17 @@
 /*******************************************************************************
-  FLEXCOM7 USART PLIB
+  FLEXCOM5 USART PLIB
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_flexcom7_usart.c
+    plib_flexcom5_usart.c
 
   Summary:
-    FLEXCOM7 USART PLIB Implementation File
+    FLEXCOM5 USART PLIB Implementation File
 
   Description
-    This file defines the interface to the FLEXCOM7 USART peripheral library. This
+    This file defines the interface to the FLEXCOM5 USART peripheral library. This
     library provides access to and control of the associated peripheral
     instance.
 
@@ -49,33 +49,33 @@
 // *****************************************************************************
 /* This section lists the other files that are included in this file.
 */
-#include "plib_flexcom7_usart.h"
+#include "plib_flexcom5_usart.h"
 #include "interrupts.h"
 
 
-#define FLEXCOM_USART_RHR_8BIT_REG      (*(volatile uint8_t* const)((FLEXCOM7_BASE_ADDRESS + FLEX_US_RHR_REG_OFST)))
-#define FLEXCOM_USART_RHR_9BIT_REG      (*(volatile uint16_t* const)((FLEXCOM7_BASE_ADDRESS + FLEX_US_RHR_REG_OFST)))
+#define FLEXCOM_USART_RHR_8BIT_REG      (*(volatile uint8_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_RHR_REG_OFST)))
+#define FLEXCOM_USART_RHR_9BIT_REG      (*(volatile uint16_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_RHR_REG_OFST)))
 
-#define FLEXCOM_USART_THR_8BIT_REG      (*(volatile uint8_t* const)((FLEXCOM7_BASE_ADDRESS + FLEX_US_THR_REG_OFST)))
-#define FLEXCOM_USART_THR_9BIT_REG      (*(volatile uint16_t* const)((FLEXCOM7_BASE_ADDRESS + FLEX_US_THR_REG_OFST)))
+#define FLEXCOM_USART_THR_8BIT_REG      (*(volatile uint8_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_THR_REG_OFST)))
+#define FLEXCOM_USART_THR_9BIT_REG      (*(volatile uint16_t* const)((FLEXCOM5_BASE_ADDRESS + FLEX_US_THR_REG_OFST)))
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: FLEXCOM7 USART Implementation
+// Section: FLEXCOM5 USART Implementation
 // *****************************************************************************
 // *****************************************************************************
 
-static void FLEXCOM7_USART_ErrorClear( void )
+static void FLEXCOM5_USART_ErrorClear( void )
 {
-    if ((FLEXCOM7_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk)) != 0U)
+    if ((FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk)) != 0U)
     {
         /* Clear the error flags */
-        FLEXCOM7_REGS->FLEX_US_CR = FLEX_US_CR_RSTSTA_Msk;
+        FLEXCOM5_REGS->FLEX_US_CR = FLEX_US_CR_RSTSTA_Msk;
 
         /* Flush existing error bytes from the RX FIFO */
-        while((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) != 0U)
+        while((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) != 0U)
         {
-            if ((FLEXCOM7_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
+            if ((FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
             {
                 (void)(FLEXCOM_USART_RHR_9BIT_REG);
             }
@@ -88,33 +88,33 @@ static void FLEXCOM7_USART_ErrorClear( void )
 }
 
 
-void FLEXCOM7_USART_Initialize( void )
+void FLEXCOM5_USART_Initialize( void )
 {
     /* Set FLEXCOM USART operating mode */
-    FLEXCOM7_REGS->FLEX_MR = FLEX_MR_OPMODE_USART;
+    FLEXCOM5_REGS->FLEX_MR = FLEX_MR_OPMODE_USART;
 
-    /* Reset FLEXCOM7 USART */
-    FLEXCOM7_REGS->FLEX_US_CR = (FLEX_US_CR_RSTRX_Msk | FLEX_US_CR_RSTTX_Msk | FLEX_US_CR_RSTSTA_Msk );
+    /* Reset FLEXCOM5 USART */
+    FLEXCOM5_REGS->FLEX_US_CR = (FLEX_US_CR_RSTRX_Msk | FLEX_US_CR_RSTTX_Msk | FLEX_US_CR_RSTSTA_Msk );
 
 
     /* Setup transmitter timeguard register */
-    FLEXCOM7_REGS->FLEX_US_TTGR = 0;
+    FLEXCOM5_REGS->FLEX_US_TTGR = 0;
 
-    /* Configure FLEXCOM7 USART mode */
-    FLEXCOM7_REGS->FLEX_US_MR = ( FLEX_US_MR_USART_MODE_NORMAL | FLEX_US_MR_USCLKS_MCK | FLEX_US_MR_CHRL_8_BIT | FLEX_US_MR_PAR_NO | FLEX_US_MR_NBSTOP_1_BIT | (0UL << FLEX_US_MR_OVER_Pos));
+    /* Configure FLEXCOM5 USART mode */
+    FLEXCOM5_REGS->FLEX_US_MR = ( FLEX_US_MR_USART_MODE_NORMAL | FLEX_US_MR_USCLKS_MCK | FLEX_US_MR_CHRL_8_BIT | FLEX_US_MR_PAR_NO | FLEX_US_MR_NBSTOP_1_BIT | (0UL << FLEX_US_MR_OVER_Pos));
 
-    /* Configure FLEXCOM7 USART Baud Rate */
-    FLEXCOM7_REGS->FLEX_US_BRGR = FLEX_US_BRGR_CD(108) | FLEX_US_BRGR_FP(4);
+    /* Configure FLEXCOM5 USART Baud Rate */
+    FLEXCOM5_REGS->FLEX_US_BRGR = FLEX_US_BRGR_CD(108) | FLEX_US_BRGR_FP(4);
 
-    /* Enable FLEXCOM7 USART */
-    FLEXCOM7_REGS->FLEX_US_CR = (FLEX_US_CR_TXEN_Msk | FLEX_US_CR_RXEN_Msk);
+    /* Enable FLEXCOM5 USART */
+    FLEXCOM5_REGS->FLEX_US_CR = (FLEX_US_CR_TXEN_Msk | FLEX_US_CR_RXEN_Msk);
 
 }
 
-FLEXCOM_USART_ERROR FLEXCOM7_USART_ErrorGet( void )
+FLEXCOM_USART_ERROR FLEXCOM5_USART_ErrorGet( void )
 {
     FLEXCOM_USART_ERROR errors = FLEXCOM_USART_ERROR_NONE;
-    uint32_t status = FLEXCOM7_REGS->FLEX_US_CSR;
+    uint32_t status = FLEXCOM5_REGS->FLEX_US_CSR;
 
     /* Collect all errors */
     if((status & FLEX_US_CSR_OVRE_Msk) != 0U)
@@ -132,14 +132,14 @@ FLEXCOM_USART_ERROR FLEXCOM7_USART_ErrorGet( void )
 
     if(errors != FLEXCOM_USART_ERROR_NONE)
     {
-        FLEXCOM7_USART_ErrorClear();
+        FLEXCOM5_USART_ErrorClear();
     }
 
     /* All errors are cleared, but send the previous error state */
     return errors;
 }
 
-static void FLEXCOM7_USART_BaudCalculate(uint32_t srcClkFreq, uint32_t reqBaud, uint8_t overSamp, uint32_t* cd, uint32_t* fp, uint32_t* baudError)
+static void FLEXCOM5_USART_BaudCalculate(uint32_t srcClkFreq, uint32_t reqBaud, uint8_t overSamp, uint32_t* cd, uint32_t* fp, uint32_t* baudError)
 {
     uint32_t actualBaud = 0U;
 
@@ -153,7 +153,7 @@ static void FLEXCOM7_USART_BaudCalculate(uint32_t srcClkFreq, uint32_t reqBaud, 
     }
 }
 
-bool FLEXCOM7_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t srcClkFreq )
+bool FLEXCOM5_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t srcClkFreq )
 {
     uint32_t baud = 0;
     uint32_t overSampVal = 0;
@@ -169,13 +169,13 @@ bool FLEXCOM7_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
 
         if(srcClkFreq == 0U)
         {
-            srcClkFreq = FLEXCOM7_USART_FrequencyGet();
+            srcClkFreq = FLEXCOM5_USART_FrequencyGet();
         }
 
         /* Calculate baud register values for 8x/16x oversampling values */
 
-        FLEXCOM7_USART_BaudCalculate(srcClkFreq, baud, 0, &cd0, &fp0, &baudError0);
-        FLEXCOM7_USART_BaudCalculate(srcClkFreq, baud, 1, &cd1, &fp1, &baudError1);
+        FLEXCOM5_USART_BaudCalculate(srcClkFreq, baud, 0, &cd0, &fp0, &baudError0);
+        FLEXCOM5_USART_BaudCalculate(srcClkFreq, baud, 1, &cd1, &fp1, &baudError1);
 
         if ( (!(cd0 > 0U && cd0 <= 65535U)) && (!(cd1 > 0U && cd1 <= 65535U)) )
         {
@@ -204,20 +204,20 @@ bool FLEXCOM7_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t src
             }
         }
 
-        /* Configure FLEXCOM7 USART mode */
-        usartMode = FLEXCOM7_REGS->FLEX_US_MR;
+        /* Configure FLEXCOM5 USART mode */
+        usartMode = FLEXCOM5_REGS->FLEX_US_MR;
         usartMode &= ~(FLEX_US_MR_CHRL_Msk | FLEX_US_MR_MODE9_Msk | FLEX_US_MR_PAR_Msk | FLEX_US_MR_NBSTOP_Msk | FLEX_US_MR_OVER_Msk);
-        FLEXCOM7_REGS->FLEX_US_MR = usartMode | ((uint32_t)setup->dataWidth | (uint32_t)setup->parity | (uint32_t)setup->stopBits | overSampVal);
+        FLEXCOM5_REGS->FLEX_US_MR = usartMode | ((uint32_t)setup->dataWidth | (uint32_t)setup->parity | (uint32_t)setup->stopBits | overSampVal);
 
-        /* Configure FLEXCOM7 USART Baud Rate */
-        FLEXCOM7_REGS->FLEX_US_BRGR = FLEX_US_BRGR_CD(cd0) | FLEX_US_BRGR_FP(fp0);
+        /* Configure FLEXCOM5 USART Baud Rate */
+        FLEXCOM5_REGS->FLEX_US_BRGR = FLEX_US_BRGR_CD(cd0) | FLEX_US_BRGR_FP(fp0);
         status = true;
     }
 
     return status;
 }
 
-bool FLEXCOM7_USART_Read( void *buffer, const size_t size )
+bool FLEXCOM5_USART_Read( void *buffer, const size_t size )
 {
     bool status = false;
     uint32_t errorStatus = 0;
@@ -226,24 +226,24 @@ bool FLEXCOM7_USART_Read( void *buffer, const size_t size )
     if(buffer != NULL)
     {
         /* Clear errors that may have got generated when there was no active read request pending */
-        FLEXCOM7_USART_ErrorClear();
+        FLEXCOM5_USART_ErrorClear();
 
         while( processedSize < size )
         {
-            while((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) == 0U)
+            while((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) == 0U)
             {
                 /* Do Nothing */
             }
 
             /* Read error status */
-            errorStatus = (FLEXCOM7_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk));
+            errorStatus = (FLEXCOM5_REGS->FLEX_US_CSR & (FLEX_US_CSR_OVRE_Msk | FLEX_US_CSR_FRAME_Msk | FLEX_US_CSR_PARE_Msk));
 
             if(errorStatus != 0U)
             {
                 break;
             }
 
-            if ((FLEXCOM7_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
+            if ((FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
             {
                 ((uint16_t*)buffer)[processedSize] = FLEXCOM_USART_RHR_9BIT_REG & (uint16_t)FLEX_US_RHR_RXCHR_Msk;
             }
@@ -263,7 +263,7 @@ bool FLEXCOM7_USART_Read( void *buffer, const size_t size )
     return status;
 }
 
-bool FLEXCOM7_USART_Write( void *buffer, const size_t size )
+bool FLEXCOM5_USART_Write( void *buffer, const size_t size )
 {
     bool status = false;
     size_t processedSize = 0;
@@ -272,12 +272,12 @@ bool FLEXCOM7_USART_Write( void *buffer, const size_t size )
     {
         while( processedSize < size )
         {
-            while ((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) == 0U)
+            while ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) == 0U)
             {
                 /* Do Nothing */
             }
 
-            if ((FLEXCOM7_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
+            if ((FLEXCOM5_REGS->FLEX_US_MR & FLEX_US_MR_MODE9_Msk) != 0U)
             {
                 FLEXCOM_USART_THR_9BIT_REG = ((uint16_t*)buffer)[processedSize] & (uint16_t)FLEX_US_THR_TXCHR_Msk;
             }
@@ -295,35 +295,35 @@ bool FLEXCOM7_USART_Write( void *buffer, const size_t size )
 }
 
 
-uint8_t FLEXCOM7_USART_ReadByte(void)
+uint8_t FLEXCOM5_USART_ReadByte(void)
 {
-    return((uint8_t)(FLEXCOM7_REGS->FLEX_US_RHR & FLEX_US_RHR_RXCHR_Msk));
+    return((uint8_t)(FLEXCOM5_REGS->FLEX_US_RHR & FLEX_US_RHR_RXCHR_Msk));
 }
 
-void FLEXCOM7_USART_WriteByte(uint8_t data)
+void FLEXCOM5_USART_WriteByte(uint8_t data)
 {
-    while ((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) == 0U)
+    while ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) == 0U)
     {
         /* Do Nothing */
     }
 
-    FLEXCOM7_REGS->FLEX_US_THR = (FLEX_US_THR_TXCHR(data) & FLEX_US_THR_TXCHR_Msk);
+    FLEXCOM5_REGS->FLEX_US_THR = (FLEX_US_THR_TXCHR(data) & FLEX_US_THR_TXCHR_Msk);
 }
 
-bool FLEXCOM7_USART_TransmitterIsReady( void )
+bool FLEXCOM5_USART_TransmitterIsReady( void )
 {
-    return ((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) != 0U);
+    return ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXRDY_Msk) != 0U);
 }
 
-bool FLEXCOM7_USART_ReceiverIsReady( void )
+bool FLEXCOM5_USART_ReceiverIsReady( void )
 {
-    return ((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) != 0U);
+    return ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_RXRDY_Msk) != 0U);
 }
 
 
-bool FLEXCOM7_USART_TransmitComplete( void )
+bool FLEXCOM5_USART_TransmitComplete( void )
 {
-    return ((FLEXCOM7_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) != 0U);
+    return ((FLEXCOM5_REGS->FLEX_US_CSR & FLEX_US_CSR_TXEMPTY_Msk) != 0U);
 }
 
 

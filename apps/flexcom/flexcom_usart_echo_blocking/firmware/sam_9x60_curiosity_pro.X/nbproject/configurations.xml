@@ -45,8 +45,8 @@
             </logicalFolder>
             <logicalFolder name="flexcom" displayName="flexcom" projectFiles="true">
               <logicalFolder name="usart" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/flexcom/usart/plib_flexcom7_usart.h</itemPath>
                 <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/flexcom/usart/plib_flexcom_usart_local.h</itemPath>
+                <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/flexcom/usart/plib_flexcom5_usart.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="mmu" displayName="mmu" projectFiles="true">
@@ -193,9 +193,9 @@
                      displayName="flexcom_usart_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>flexcom_usart_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dfp.yml</itemPath>
-          <itemPath>flexcom_usart_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/flexcom7.yml</itemPath>
           <itemPath>flexcom_usart_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/core.yml</itemPath>
+          <itemPath>flexcom_usart_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/flexcom5.yml</itemPath>
+          <itemPath>flexcom_usart_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dfp.yml</itemPath>
         </logicalFolder>
         <itemPath>flexcom_usart_echo_blocking_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/mcc-config.mc4</itemPath>
       </logicalFolder>
@@ -233,7 +233,7 @@
             </logicalFolder>
             <logicalFolder name="flexcom" displayName="flexcom" projectFiles="true">
               <logicalFolder name="usart" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/flexcom/usart/plib_flexcom7_usart.c</itemPath>
+                <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/flexcom/usart/plib_flexcom5_usart.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="mmu" displayName="mmu" projectFiles="true">
@@ -307,6 +307,7 @@
       <C32>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value="-marm"/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -386,6 +387,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -431,6 +433,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>

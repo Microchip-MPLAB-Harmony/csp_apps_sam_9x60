@@ -50,6 +50,18 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+#define FLEXCOM_USART_Write FLEXCOM7_USART_Write
+#define FLEXCOM_USART_Read  FLEXCOM7_USART_Read
+#define FLEXCOM_USART_ReceiverIsReady FLEXCOM7_USART_ReceiverIsReady
+#define FLEXCOM_USART_ErrorGet FLEXCOM7_USART_ErrorGet
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+#define FLEXCOM_USART_Write FLEXCOM5_USART_Write
+#define FLEXCOM_USART_Read  FLEXCOM5_USART_Read
+#define FLEXCOM_USART_ReceiverIsReady FLEXCOM5_USART_ReceiverIsReady
+#define FLEXCOM_USART_ErrorGet FLEXCOM5_USART_ErrorGet
+#endif
+
 /*************************************************************************************
 FLEXCOM USART - Connect USB UART click board to mikroBUS Connector.
 *************************************************************************************/
@@ -76,8 +88,8 @@ static char data = 0;
 //
 static void echoBuffer(void)
 {
-    FLEXCOM7_USART_Write(receiveBuffer,rxCounter);
-    FLEXCOM7_USART_Write(newline,sizeof(newline));
+    FLEXCOM_USART_Write(receiveBuffer,rxCounter);
+    FLEXCOM_USART_Write(newline,sizeof(newline));
     rxCounter = 0;
 }
 
@@ -93,16 +105,16 @@ int main ( void )
     LED_BLUE_Clear();
 
     /* Send start message */
-    FLEXCOM7_USART_Write(&messageStart, sizeof(messageStart));
+    FLEXCOM_USART_Write(&messageStart, sizeof(messageStart));
 
     while ( true )
     {
         /* Check if there is a received character */
-        if(FLEXCOM7_USART_ReceiverIsReady() == true)
+        if(FLEXCOM_USART_ReceiverIsReady() == true)
         {
-            if(FLEXCOM7_USART_ErrorGet() == FLEXCOM_USART_ERROR_NONE)
+            if(FLEXCOM_USART_ErrorGet() == FLEXCOM_USART_ERROR_NONE)
             {
-                FLEXCOM7_USART_Read(&data, 1);
+                FLEXCOM_USART_Read(&data, 1);
 
                 if((data == '\n') || (data == '\r'))
                 {
@@ -118,7 +130,7 @@ int main ( void )
             }
             else
             {
-                FLEXCOM7_USART_Write(errorMessage,sizeof(errorMessage));
+                FLEXCOM_USART_Write(errorMessage,sizeof(errorMessage));
             }
         }
     }

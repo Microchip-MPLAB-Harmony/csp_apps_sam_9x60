@@ -1,17 +1,17 @@
 /*******************************************************************************
-  FLEXCOM7 USART PLIB
+  FLEXCOM5 USART PLIB
 
   Company
     Microchip Technology Inc.
 
   File Name
-    plib_flexcom7_usart.h
+    plib_flexcom5_usart.h
 
   Summary
-    FLEXCOM7 USART peripheral library interface.
+    FLEXCOM5 USART peripheral library interface.
 
   Description
-    This file defines the interface to the FLEXCOM7 USART peripheral library. This
+    This file defines the interface to the FLEXCOM5 USART peripheral library. This
     library provides access to and control of the associated peripheral
     instance.
 
@@ -42,8 +42,8 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_FLEXCOM7_USART_H // Guards against multiple inclusion
-#define PLIB_FLEXCOM7_USART_H
+#ifndef PLIB_FLEXCOM5_USART_H // Guards against multiple inclusion
+#define PLIB_FLEXCOM5_USART_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -65,29 +65,29 @@ extern "C" {
 // Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-#define FLEXCOM7_USART_FrequencyGet()    (uint32_t)(200000000UL)
+#define FLEXCOM5_USART_FrequencyGet()    (uint32_t)(200000000UL)
 
-/****************************** FLEXCOM7 USART API *********************************/
+/****************************** FLEXCOM5 USART API *********************************/
 
-void FLEXCOM7_USART_Initialize( void );
+void FLEXCOM5_USART_Initialize( void );
 
-FLEXCOM_USART_ERROR FLEXCOM7_USART_ErrorGet( void );
+FLEXCOM_USART_ERROR FLEXCOM5_USART_ErrorGet( void );
 
-bool FLEXCOM7_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t srcClkFreq );
+bool FLEXCOM5_USART_SerialSetup( FLEXCOM_USART_SERIAL_SETUP *setup, uint32_t srcClkFreq );
 
-bool FLEXCOM7_USART_Write( void *buffer, const size_t size );
+bool FLEXCOM5_USART_Write( void *buffer, const size_t size );
 
-bool FLEXCOM7_USART_Read( void *buffer, const size_t size );
+bool FLEXCOM5_USART_Read( void *buffer, const size_t size );
 
-uint8_t FLEXCOM7_USART_ReadByte(void);
+uint8_t FLEXCOM5_USART_ReadByte(void);
 
-void FLEXCOM7_USART_WriteByte(uint8_t data);
+void FLEXCOM5_USART_WriteByte(uint8_t data);
 
-bool FLEXCOM7_USART_TransmitterIsReady( void );
+bool FLEXCOM5_USART_TransmitterIsReady( void );
 
-bool FLEXCOM7_USART_ReceiverIsReady( void );
+bool FLEXCOM5_USART_ReceiverIsReady( void );
 
-bool FLEXCOM7_USART_TransmitComplete( void );
+bool FLEXCOM5_USART_TransmitComplete( void );
 
 
 // DOM-IGNORE-BEGIN
@@ -96,4 +96,4 @@ bool FLEXCOM7_USART_TransmitComplete( void );
 #endif
 // DOM-IGNORE-END
 
-#endif //PLIB_FLEXCOM7_USART_H
+#endif //PLIB_FLEXCOM5_USART_H
