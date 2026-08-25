@@ -55,7 +55,19 @@
 #define LED_ON()                        LED_GREEN_Set()
 #define LED_OFF()                       LED_GREEN_Clear()
 
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+#define FLEXCOM_TWI_Write               FLEXCOM0_TWI_Write
+#define FLEXCOM_TWI_Read                FLEXCOM0_TWI_Read
+#define FLEXCOM_TWI_CallbackRegister    FLEXCOM0_TWI_CallbackRegister
+#define FLEXCOM_TWI_ErrorGet            FLEXCOM0_TWI_ErrorGet
 #define APP_AT24MAC_DEVICE_ADDR         (0x0053)
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+#define FLEXCOM_TWI_Write               FLEXCOM6_TWI_Write
+#define FLEXCOM_TWI_Read                FLEXCOM6_TWI_Read
+#define FLEXCOM_TWI_CallbackRegister    FLEXCOM6_TWI_CallbackRegister
+#define FLEXCOM_TWI_ErrorGet            FLEXCOM6_TWI_ErrorGet
+#define APP_AT24MAC_DEVICE_ADDR         (0x0051)
+#endif
 #define APP_AT24MAC_MEMORY_ADDR         (0x00)
 #define APP_AT24MAC_PAGE_SIZE           (16)
 #define APP_TRANSMIT_DATA_LENGTH        (APP_AT24MAC_PAGE_SIZE + 1)
@@ -98,7 +110,7 @@ void APP_FLEXCOMTWICallback(uintptr_t context )
 {
     APP_TRANSFER_STATUS* transferStatus = (APP_TRANSFER_STATUS*)context;
 
-    if(FLEXCOM0_TWI_ErrorGet() == FLEXCOM_TWI_ERROR_NONE)
+    if(FLEXCOM_TWI_ErrorGet() == FLEXCOM_TWI_ERROR_NONE)
     {
         if (transferStatus)
         {
@@ -142,11 +154,11 @@ int main ( void )
             case APP_STATE_EEPROM_STATUS_VERIFY:
 
                 /* Register the FLEXCOM TWI Callback with transfer status as context */
-                FLEXCOM0_TWI_CallbackRegister( APP_FLEXCOMTWICallback, (uintptr_t)&transferStatus );
+                FLEXCOM_TWI_CallbackRegister( APP_FLEXCOMTWICallback, (uintptr_t)&transferStatus );
 
                 /* Verify if EEPROM is ready to accept new requests */
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                FLEXCOM0_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+                FLEXCOM_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
 
                 state = APP_STATE_EEPROM_WRITE;
                 break;
@@ -156,7 +168,7 @@ int main ( void )
                 {
                     /* Write 1 page of data to EEPROM */
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    FLEXCOM0_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &testTxData[0], APP_TRANSMIT_DATA_LENGTH);
+                    FLEXCOM_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &testTxData[0], APP_TRANSMIT_DATA_LENGTH);
                     state = APP_STATE_EEPROM_WAIT_WRITE_COMPLETE;
                 }
                 else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
@@ -171,7 +183,7 @@ int main ( void )
                 {
                     /* Read the status of internal write cycle */
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    FLEXCOM0_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+                    FLEXCOM_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
                     state = APP_STATE_EEPROM_CHECK_INTERNAL_WRITE_STATUS;
                 }
                 else if (transferStatus == APP_TRANSFER_STATUS_ERROR)
@@ -189,14 +201,14 @@ int main ( void )
                 {
                     /* EEPROM's internal write cycle is not complete. Keep checking. */
                     transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                    FLEXCOM0_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
+                    FLEXCOM_TWI_Write(APP_AT24MAC_DEVICE_ADDR, &ackData, APP_ACK_DATA_LENGTH);
                 }
                 break;
 
             case APP_STATE_EEPROM_READ:
                 /* Read the data from the page written earlier */
                 transferStatus = APP_TRANSFER_STATUS_IN_PROGRESS;
-                FLEXCOM0_TWI_Read(APP_AT24MAC_DEVICE_ADDR, &testRxData[0], APP_RECEIVE_DATA_LENGTH);
+                FLEXCOM_TWI_Read(APP_AT24MAC_DEVICE_ADDR, &testRxData[0], APP_RECEIVE_DATA_LENGTH);
                 state = APP_STATE_EEPROM_WAIT_READ_COMPLETE;
                 break;
 
