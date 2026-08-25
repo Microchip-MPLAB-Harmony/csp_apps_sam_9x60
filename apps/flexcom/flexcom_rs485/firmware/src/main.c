@@ -29,6 +29,27 @@
 
 #include <string.h>
 
+// *****************************************************************************
+// Section: Device-specific FLEXCOM Configuration
+// *****************************************************************************
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+#define FLEXCOM_USART_WriteCallbackRegister FLEXCOM5_USART_WriteCallbackRegister
+#define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM5_USART_ReadCallbackRegister
+#define FLEXCOM_USART_ErrorGet              FLEXCOM5_USART_ErrorGet
+#define FLEXCOM_USART_Write                 FLEXCOM5_USART_Write
+#define FLEXCOM_USART_Read                  FLEXCOM5_USART_Read
+
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+#define FLEXCOM_USART_WriteCallbackRegister FLEXCOM4_USART_WriteCallbackRegister
+#define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM4_USART_ReadCallbackRegister
+#define FLEXCOM_USART_ErrorGet              FLEXCOM4_USART_ErrorGet
+#define FLEXCOM_USART_Write                 FLEXCOM4_USART_Write
+#define FLEXCOM_USART_Read                  FLEXCOM4_USART_Read
+
+#else
+#   error "Unsupported device: please provide the proper device."
+#endif
+
 
 
 /* The USART RS485 example demonstrates how to use USART in RS485 mode.
@@ -90,7 +111,7 @@ void APP_WriteCallback(uintptr_t context)
 void APP_ReadCallback(uintptr_t context)
 {
     printf("APP_ReadCallback\n\r");
-    if(FLEXCOM5_USART_ErrorGet() != FLEXCOM_USART_ERROR_NONE)
+    if(FLEXCOM_USART_ErrorGet() != FLEXCOM_USART_ERROR_NONE)
     {
         /* ErrorGet clears errors, set error flag to notify console */
         errorStatus = true;
@@ -126,8 +147,8 @@ int main ( void )
     SYS_Initialize ( NULL );
 
         /* Register callback functions and send start message */
-    FLEXCOM5_USART_WriteCallbackRegister(APP_WriteCallback, 0);
-    FLEXCOM5_USART_ReadCallbackRegister(APP_ReadCallback, 0);
+    FLEXCOM_USART_WriteCallbackRegister(APP_WriteCallback, 0);
+    FLEXCOM_USART_ReadCallbackRegister(APP_ReadCallback, 0);
 
     /* Output example information */
     printf("Usart RS485 Example\n\r");
@@ -152,14 +173,14 @@ int main ( void )
                     case 't':
                     case 'T':
                         printf("RS485 transmission...\r\n");
-                        FLEXCOM5_USART_Write(write_buffer, sizeof(write_buffer));
+                        FLEXCOM_USART_Write(write_buffer, sizeof(write_buffer));
                         printf("RS485 transmission completed\r\n");
                     break;
 
                     case 'r':
                     case 'R':
                         printf("RS485 reception...\r\n");
-                        FLEXCOM5_USART_Read(read_buffer, sizeof(read_buffer));
+                        FLEXCOM_USART_Read(read_buffer, sizeof(read_buffer));
                         while(  readStatus == false)
                         {
                         }
