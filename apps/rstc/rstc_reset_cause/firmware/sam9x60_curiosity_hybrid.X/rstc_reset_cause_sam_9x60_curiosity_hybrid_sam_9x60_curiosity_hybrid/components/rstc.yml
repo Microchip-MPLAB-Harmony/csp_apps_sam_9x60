@@ -1,0 +1,70 @@
+configVersion: 1.0.0
+componentName: rstc
+coreVersion: 5.9.0
+device: SAM9X60D6K
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: rstc
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.25.2
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    RSTC_EXTERNAL_RESET_LENGTH_MSECS:
+      attributes:
+        id: RSTC_EXTERNAL_RESET_LENGTH_MSECS
+        label: External reset length (mSecs)
+      children:
+      - children:
+        - attributes:
+            id: rstc
+            value: '1024.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    RSTC_MR_ASYNCHRONOUS_RESET:
+      attributes:
+        id: RSTC_MR_ASYNCHRONOUS_RESET
+        label: Reset is asynchronous to slow clock
+      type: Boolean
+    RSTC_MR_CRYSTAL_FAULT_RESET:
+      attributes:
+        id: RSTC_MR_CRYSTAL_FAULT_RESET
+        label: Crystal fault resets VDDCORE logic
+      type: Boolean
+    RSTC_MR_EXTERNAL_RESET_ACTION:
+      attributes:
+        id: RSTC_MR_EXTERNAL_RESET_ACTION
+        label: External reset action
+      children:
+      - children:
+        - attributes:
+            id: rstc
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    RSTC_MR_EXTERNAL_RESET_LENGTH:
+      attributes:
+        id: RSTC_MR_EXTERNAL_RESET_LENGTH
+        label: External reset length (ERSTL value)
+      children:
+      - children:
+        - attributes:
+            value: '14'
+          type: User
+        type: Values
+      type: Integer
+    RSTC_MR_IMMEDIATE_GPBR_CLEAR:
+      attributes:
+        id: RSTC_MR_IMMEDIATE_GPBR_CLEAR
+        label: Immediate GPBR clear on tamper detection
+      type: Boolean
+  userData: {}
