@@ -57,6 +57,16 @@
  ADC CH0 - PB11 - Connect to Vcc or GND
  *****************************************************/
 
+ #if defined(__SAM9X60D6K__)
+    // Curiosity Hybrid
+    #define APP_ADC_CHANNEL     ADC_CH4
+#elif defined(__SAM9X60D1G__)
+    // Curiosity Standard
+    #define APP_ADC_CHANNEL     ADC_CH0
+#else
+    #error "Unknown device - define ADC channel"
+#endif
+
 #define ADC_VREF               (3.3f)
 
 uint16_t adc_count;
@@ -90,7 +100,7 @@ int main ( void )
         };
 
         /* Read the ADC result */
-        adc_count = ADC_ChannelResultGet(ADC_CH0);
+        adc_count = ADC_ChannelResultGet(APP_ADC_CHANNEL);
         input_voltage = (float)adc_count * ADC_VREF / 4095U;
 
         printf("ADC Count = 0x%03x, ADC Input Voltage = %0.2f V \r",adc_count, input_voltage);

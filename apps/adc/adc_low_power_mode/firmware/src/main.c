@@ -52,28 +52,41 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
-/*****************************************************
- ADC CH0 - PB11 - Connect to Vcc
- ADC CH1 - PB12 - connect to Vcc
- ADC_CH2 - PB13 - Connect to GND
- *****************************************************/
+#if defined(__SAM9X60D6K__)
+    /* Curiosity Hybrid - 2 channels via mikroBUS */
+    #define APP_ADC_CH_FIRST      ADC_CH4
+    #define APP_ADC_CH_SECOND     ADC_CH5
+    #define APP_ADC_NUM_CHANNELS  2
+#else
+    /* Curiosity Standard - 3 channels */
+    #define APP_ADC_CH_FIRST      ADC_CH0
+    #define APP_ADC_CH_SECOND     ADC_CH1
+    #define APP_ADC_CH_THIRD      ADC_CH2
+    #define APP_ADC_NUM_CHANNELS  3
+#endif
 
 #define ADC_VREF               (3.3f)
 
-uint16_t adc_ch0_count, adc_ch1_count, adc_ch2_count;
+uint16_t adc_ch_first_count, adc_ch_second_count;
+float adc_ch_first_voltage, adc_ch_second_voltage;
 
-float adc_ch0_voltage, adc_ch1_voltage, adc_ch2_voltage;
+#if (APP_ADC_NUM_CHANNELS == 3)
+uint16_t adc_ch_third_count;
+float adc_ch_third_voltage;
+#endif
 
 volatile bool result_ready = false;
 
 /* This function is called after conversion of last channel in the user sequence */
 void ADC_EventHandler(uint32_t status, uintptr_t context)
 {
-    /* Read the result of 3 channels*/
-    adc_ch0_count = ADC_ChannelResultGet(ADC_CH0);
-    adc_ch2_count = ADC_ChannelResultGet(ADC_CH2);
-    adc_ch1_count = ADC_ChannelResultGet(ADC_CH1);
-       
+    /* Read the results */
+    adc_ch_first_count = ADC_ChannelResultGet(APP_ADC_CH_FIRST);
+    adc_ch_second_count = ADC_ChannelResultGet(APP_ADC_CH_SECOND);
+#if (APP_ADC_NUM_CHANNELS == 3)
+    adc_ch_third_count = ADC_ChannelResultGet(APP_ADC_CH_THIRD);
+#endif
+
     result_ready = true;
 }
 
@@ -90,7 +103,7 @@ void sleepmode_fwup_on(void)
     printf("\n\r-----------------entering FWUP ON mode------------------\n\r");
     ADC_SleepModeEnable();
     ADC_FastWakeupEnable();
-    ADC_ConversionStart(); 
+    ADC_ConversionStart();
 }
 
 void print_menu(void)
@@ -102,7 +115,6 @@ void print_menu(void)
             " 0 -> both ADC core and Vref are OFF between conversions\n\r"
             " 1 -> ADC core is OFF and Vref is ON between conversions\n\r"
             " =>");
-
 }
 
 // *****************************************************************************
@@ -132,22 +144,35 @@ int main ( void )
             default:
                 printf("\n\r");
         }
-    printf("CH0 Count  CH0 Voltage  CH1 Count  CH1 Voltage  CH2 Count  CH2 Voltage \n\r");           
+
+#if (APP_ADC_NUM_CHANNELS == 2)
+    printf("CH4 (mikroBUS1)  CH5 (mikroBUS2)\n\r");
+#else
+    printf("CH0 Count  CH0 Voltage  CH1 Count  CH1 Voltage  CH2 Count  CH2 Voltage \n\r");
+#endif
 
     while ( true )
     {
         /* Check if result is ready to be transmitted to console */
         if (result_ready == true)
         {
-            adc_ch2_voltage = (float)adc_ch2_count * ADC_VREF/4095U;
-            adc_ch0_voltage = (float)adc_ch0_count * ADC_VREF/4095U;
-            adc_ch1_voltage = (float)adc_ch1_count * ADC_VREF/4095U;
+            adc_ch_first_voltage = (float)adc_ch_first_count * ADC_VREF / 4095U;
+            adc_ch_second_voltage = (float)adc_ch_second_count * ADC_VREF / 4095U;
+
+#if (APP_ADC_NUM_CHANNELS == 3)
+            adc_ch_third_voltage = (float)adc_ch_third_count * ADC_VREF / 4095U;
             printf("0x%03x      %0.2f V       0x%03x      %0.2f V       0x%03x      %0.2f V \t\r",
-                    adc_ch0_count, adc_ch0_voltage, adc_ch1_count, adc_ch1_voltage, adc_ch2_count, adc_ch2_voltage);
-                           
-                
+                    adc_ch_first_count, adc_ch_first_voltage,
+                    adc_ch_second_count, adc_ch_second_voltage,
+                    adc_ch_third_count, adc_ch_third_voltage);
+#else
+            printf("0x%03x (%0.2fV)     0x%03x (%0.2fV)\r",
+                    adc_ch_first_count, adc_ch_first_voltage,
+                    adc_ch_second_count, adc_ch_second_voltage);
+#endif
+
             result_ready = false;
- 
+
             PIT_DelayMs(500);
 
             /* Start ADC conversion */
@@ -165,4 +190,3 @@ int main ( void )
 /*******************************************************************************
  End of File
 */
-
