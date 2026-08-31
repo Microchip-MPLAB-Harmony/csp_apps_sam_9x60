@@ -53,6 +53,33 @@
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
+/* ===== Device-Specific Macro Mapping ===== */
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+    /* SAM9X60D1G uses FLEXCOM5 */
+    #define FLEXCOM_ISO7816_Icc_Power_Off       FLEXCOM5_ISO7816_Icc_Power_Off
+    #define FLEXCOM_ISO7816_Card_Detect         FLEXCOM5_ISO7816_Card_Detect
+    #define FLEXCOM_ISO7816_Vcc_Enable          FLEXCOM5_ISO7816_Vcc_Enable
+    #define FLEXCOM_ISO7816_Warm_Reset          FLEXCOM5_ISO7816_Warm_Reset
+    #define FLEXCOM_ISO7816_Data_Read_Atr       FLEXCOM5_ISO7816_Data_Read_Atr
+    #define FLEXCOM_ISO7816_Decode_Atr          FLEXCOM5_ISO7816_Decode_Atr
+    #define FLEXCOM_ISO7816_Xfr_Block_Tpdu      FLEXCOM5_ISO7816_Xfr_Block_Tpdu
+    #define FLEXCOM_ISO7816_Vcc_Disable         FLEXCOM5_ISO7816_Vcc_Disable
+
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+    /* SAM9X60 uses FLEXCOM4 */
+    #define FLEXCOM_ISO7816_Icc_Power_Off       FLEXCOM4_ISO7816_Icc_Power_Off
+    #define FLEXCOM_ISO7816_Card_Detect         FLEXCOM4_ISO7816_Card_Detect
+    #define FLEXCOM_ISO7816_Vcc_Enable          FLEXCOM4_ISO7816_Vcc_Enable
+    #define FLEXCOM_ISO7816_Warm_Reset          FLEXCOM4_ISO7816_Warm_Reset
+    #define FLEXCOM_ISO7816_Data_Read_Atr       FLEXCOM4_ISO7816_Data_Read_Atr
+    #define FLEXCOM_ISO7816_Decode_Atr          FLEXCOM4_ISO7816_Decode_Atr
+    #define FLEXCOM_ISO7816_Xfr_Block_Tpdu      FLEXCOM4_ISO7816_Xfr_Block_Tpdu
+    #define FLEXCOM_ISO7816_Vcc_Disable         FLEXCOM4_ISO7816_Vcc_Disable
+
+#else
+    #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__"
+#endif
+
 #define RX_BUFFER_SIZE 256
 
 unsigned char WriteCommand[] = {0x00, 0xB4, 0x00, 0x0A, 0x02, 0x77, 0x55};
@@ -84,23 +111,23 @@ int main ( void )
     printf("\r\n ***********************************************");
     printf("\r\nPlease insert smart card AT88SC0808C");
     /* Disable card reset */
-    FLEXCOM5_ISO7816_Icc_Power_Off();
+    FLEXCOM_ISO7816_Icc_Power_Off();
     
     /* Wait while card detect pin is set */
-    while( FLEXCOM5_ISO7816_Card_Detect() != true )
+    while( FLEXCOM_ISO7816_Card_Detect() != true )
     {
         /* Do Nothing */
     }
     printf("\r\nCard detected");
 
     /* Enable VCC supply to Card */
-    FLEXCOM5_ISO7816_Vcc_Enable();
+    FLEXCOM_ISO7816_Vcc_Enable();
 
     /* Enable card Reset */
-    FLEXCOM5_ISO7816_Warm_Reset();
+    FLEXCOM_ISO7816_Warm_Reset();
     
     memset(resp_rcvd, 0, sizeof(resp_rcvd));
-    ATR_byteCount = FLEXCOM5_ISO7816_Data_Read_Atr(resp_rcvd);
+    ATR_byteCount = FLEXCOM_ISO7816_Data_Read_Atr(resp_rcvd);
     
     if(ATR_byteCount != 0)
     {
@@ -109,7 +136,7 @@ int main ( void )
         {
             printf("0x%02X ", resp_rcvd[index]);
         }
-        FLEXCOM5_ISO7816_Decode_Atr(resp_rcvd, ATR_byteCount);
+        FLEXCOM_ISO7816_Decode_Atr(resp_rcvd, ATR_byteCount);
 
         printf("\r\n\r\nReading configuration zone data: ");
         for(index=0; index < 5; index++)
@@ -117,7 +144,7 @@ int main ( void )
             printf("0x%02x ", entire_cfg[index]);
         }
         memset(resp_rcvd, 0, sizeof(resp_rcvd));
-        resp_bytes = FLEXCOM5_ISO7816_Xfr_Block_Tpdu(entire_cfg, resp_rcvd, 5);
+        resp_bytes = FLEXCOM_ISO7816_Xfr_Block_Tpdu(entire_cfg, resp_rcvd, 5);
 
         printf("\r\nResponse from Card: ");
         for(index=0;index< resp_bytes; index++)
@@ -132,7 +159,7 @@ int main ( void )
         printf("\r\n");
         memset(resp_rcvd, 0, sizeof(resp_rcvd));
 
-        resp_bytes = FLEXCOM5_ISO7816_Xfr_Block_Tpdu(WriteCommand, resp_rcvd, 7);
+        resp_bytes = FLEXCOM_ISO7816_Xfr_Block_Tpdu(WriteCommand, resp_rcvd, 7);
 
         printf("\r\nResponse from Card: ");
         for(index=0;index< resp_bytes; index++)
@@ -148,7 +175,7 @@ int main ( void )
         printf("\r\n");
 
         memset(resp_rcvd, 0, sizeof(resp_rcvd));
-        resp_bytes = FLEXCOM5_ISO7816_Xfr_Block_Tpdu(ReadCommand, resp_rcvd, 5);
+        resp_bytes = FLEXCOM_ISO7816_Xfr_Block_Tpdu(ReadCommand, resp_rcvd, 5);
 
         printf("\r\nRead Data: ");
         for(index=0;index< 2; index++)
@@ -171,7 +198,7 @@ int main ( void )
         printf("\r\nSmart card seems to be connected backwards.\r\n");
     }
     /* Disable VCC supply to Card */
-    FLEXCOM5_ISO7816_Vcc_Disable();
+    FLEXCOM_ISO7816_Vcc_Disable();
     
     while ( true )
     {

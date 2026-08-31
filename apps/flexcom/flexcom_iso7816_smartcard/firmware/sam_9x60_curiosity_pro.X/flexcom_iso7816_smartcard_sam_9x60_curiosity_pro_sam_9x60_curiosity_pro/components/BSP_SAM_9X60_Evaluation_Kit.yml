@@ -1,0 +1,311 @@
+configVersion: 1.0.0
+componentName: BSP_SAM_9X60_Evaluation_Kit
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: BSP_SAM_9X60_Evaluation_Kit
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: bsp
+  type: package
+  version: v3.25.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: BSP_SAM_9X60_Evaluation_Kit
+          x: '50'
+          y: '99'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    BSP_BOARD_NAME:
+      attributes:
+        id: BSP_BOARD_NAME
+        label: BSP Name
+      type: String
+    BSP_CUSTOM_CN0:
+      attributes:
+        id: BSP_CUSTOM_CN0
+        label: Change Notice
+      type: String
+    BSP_CUSTOM_CN1:
+      attributes:
+        id: BSP_CUSTOM_CN1
+        label: Change Notice
+      type: String
+    BSP_CUSTOM_CN2:
+      attributes:
+        id: BSP_CUSTOM_CN2
+        label: Change Notice
+      type: String
+    BSP_CUSTOM_CN3:
+      attributes:
+        id: BSP_CUSTOM_CN3
+        label: Change Notice
+      type: String
+    BSP_CUSTOM_CN4:
+      attributes:
+        id: BSP_CUSTOM_CN4
+        label: Change Notice
+      type: String
+    BSP_CUSTOM_CN5:
+      attributes:
+        id: BSP_CUSTOM_CN5
+        label: Change Notice
+      type: String
+    BSP_CUSTOM_DIR0:
+      attributes:
+        id: BSP_CUSTOM_DIR0
+        label: Direction
+      type: String
+    BSP_CUSTOM_DIR1:
+      attributes:
+        id: BSP_CUSTOM_DIR1
+        label: Direction
+      type: String
+    BSP_CUSTOM_DIR2:
+      attributes:
+        id: BSP_CUSTOM_DIR2
+        label: Direction
+      type: String
+    BSP_CUSTOM_DIR3:
+      attributes:
+        id: BSP_CUSTOM_DIR3
+        label: Direction
+      type: String
+    BSP_CUSTOM_DIR4:
+      attributes:
+        id: BSP_CUSTOM_DIR4
+        label: Direction
+      type: String
+    BSP_CUSTOM_DIR5:
+      attributes:
+        id: BSP_CUSTOM_DIR5
+        label: Direction
+      type: String
+    BSP_CUSTOM_LAT0:
+      attributes:
+        id: BSP_CUSTOM_LAT0
+        label: Initial Latch Value
+      type: String
+    BSP_CUSTOM_LAT1:
+      attributes:
+        id: BSP_CUSTOM_LAT1
+        label: Initial Latch Value
+      type: String
+    BSP_CUSTOM_LAT2:
+      attributes:
+        id: BSP_CUSTOM_LAT2
+        label: Initial Latch Value
+      type: String
+    BSP_CUSTOM_LAT3:
+      attributes:
+        id: BSP_CUSTOM_LAT3
+        label: Initial Latch Value
+      type: String
+    BSP_CUSTOM_LAT4:
+      attributes:
+        id: BSP_CUSTOM_LAT4
+        label: Initial Latch Value
+      type: String
+    BSP_CUSTOM_LAT5:
+      attributes:
+        id: BSP_CUSTOM_LAT5
+        label: Initial Latch Value
+      type: String
+    BSP_CUSTOM_MODE0:
+      attributes:
+        id: BSP_CUSTOM_MODE0
+        label: Mode
+      type: String
+    BSP_CUSTOM_MODE1:
+      attributes:
+        id: BSP_CUSTOM_MODE1
+        label: Mode
+      type: String
+    BSP_CUSTOM_MODE2:
+      attributes:
+        id: BSP_CUSTOM_MODE2
+        label: Mode
+      type: String
+    BSP_CUSTOM_MODE3:
+      attributes:
+        id: BSP_CUSTOM_MODE3
+        label: Mode
+      type: String
+    BSP_CUSTOM_MODE4:
+      attributes:
+        id: BSP_CUSTOM_MODE4
+        label: Mode
+      type: String
+    BSP_CUSTOM_MODE5:
+      attributes:
+        id: BSP_CUSTOM_MODE5
+        label: Mode
+      type: String
+    BSP_CUSTOM_OD0:
+      attributes:
+        id: BSP_CUSTOM_OD0
+        label: Open Drain
+      type: String
+    BSP_CUSTOM_OD1:
+      attributes:
+        id: BSP_CUSTOM_OD1
+        label: Open Drain
+      type: String
+    BSP_CUSTOM_OD2:
+      attributes:
+        id: BSP_CUSTOM_OD2
+        label: Open Drain
+      type: String
+    BSP_CUSTOM_OD3:
+      attributes:
+        id: BSP_CUSTOM_OD3
+        label: Open Drain
+      type: String
+    BSP_CUSTOM_OD4:
+      attributes:
+        id: BSP_CUSTOM_OD4
+        label: Open Drain
+      type: String
+    BSP_CUSTOM_OD5:
+      attributes:
+        id: BSP_CUSTOM_OD5
+        label: Open Drain
+      type: String
+    BSP_CUSTOM_PD0:
+      attributes:
+        id: BSP_CUSTOM_PD0
+        label: Pull Down
+      type: String
+    BSP_CUSTOM_PD1:
+      attributes:
+        id: BSP_CUSTOM_PD1
+        label: Pull Down
+      type: String
+    BSP_CUSTOM_PD2:
+      attributes:
+        id: BSP_CUSTOM_PD2
+        label: Pull Down
+      type: String
+    BSP_CUSTOM_PD3:
+      attributes:
+        id: BSP_CUSTOM_PD3
+        label: Pull Down
+      type: String
+    BSP_CUSTOM_PD4:
+      attributes:
+        id: BSP_CUSTOM_PD4
+        label: Pull Down
+      type: String
+    BSP_CUSTOM_PD5:
+      attributes:
+        id: BSP_CUSTOM_PD5
+        label: Pull Down
+      type: String
+    BSP_CUSTOM_PIO_INTERRUPT0:
+      attributes:
+        id: BSP_CUSTOM_PIO_INTERRUPT0
+        label: PIO Interrupt
+      type: String
+    BSP_CUSTOM_PIO_INTERRUPT1:
+      attributes:
+        id: BSP_CUSTOM_PIO_INTERRUPT1
+        label: PIO Interrupt
+      type: String
+    BSP_CUSTOM_PIO_INTERRUPT2:
+      attributes:
+        id: BSP_CUSTOM_PIO_INTERRUPT2
+        label: PIO Interrupt
+      type: String
+    BSP_CUSTOM_PIO_INTERRUPT3:
+      attributes:
+        id: BSP_CUSTOM_PIO_INTERRUPT3
+        label: PIO Interrupt
+      type: String
+    BSP_CUSTOM_PIO_INTERRUPT4:
+      attributes:
+        id: BSP_CUSTOM_PIO_INTERRUPT4
+        label: PIO Interrupt
+      type: String
+    BSP_CUSTOM_PIO_INTERRUPT5:
+      attributes:
+        id: BSP_CUSTOM_PIO_INTERRUPT5
+        label: PIO Interrupt
+      type: String
+    BSP_CUSTOM_PU0:
+      attributes:
+        id: BSP_CUSTOM_PU0
+        label: Pull Up
+      type: String
+    BSP_CUSTOM_PU1:
+      attributes:
+        id: BSP_CUSTOM_PU1
+        label: Pull Up
+      type: String
+    BSP_CUSTOM_PU2:
+      attributes:
+        id: BSP_CUSTOM_PU2
+        label: Pull Up
+      type: String
+    BSP_CUSTOM_PU3:
+      attributes:
+        id: BSP_CUSTOM_PU3
+        label: Pull Up
+      type: String
+    BSP_CUSTOM_PU4:
+      attributes:
+        id: BSP_CUSTOM_PU4
+        label: Pull Up
+      type: String
+    BSP_CUSTOM_PU5:
+      attributes:
+        id: BSP_CUSTOM_PU5
+        label: Pull Up
+      type: String
+    BSP_CUSTOM_TYPE0:
+      attributes:
+        id: BSP_CUSTOM_TYPE0
+        label: Type Name
+      type: String
+    BSP_CUSTOM_TYPE1:
+      attributes:
+        id: BSP_CUSTOM_TYPE1
+        label: Type Name
+      type: String
+    BSP_CUSTOM_TYPE2:
+      attributes:
+        id: BSP_CUSTOM_TYPE2
+        label: Type Name
+      type: String
+    BSP_CUSTOM_TYPE3:
+      attributes:
+        id: BSP_CUSTOM_TYPE3
+        label: Type Name
+      type: String
+    BSP_CUSTOM_TYPE4:
+      attributes:
+        id: BSP_CUSTOM_TYPE4
+        label: Type Name
+      type: String
+    BSP_CUSTOM_TYPE5:
+      attributes:
+        id: BSP_CUSTOM_TYPE5
+        label: Type Name
+      type: String
+    BSP_TYPE_SIZE:
+      attributes:
+        id: BSP_TYPE_SIZE
+        label: BSP_TYPE_SIZE
+      type: Integer
+  userData: {}
