@@ -51,6 +51,55 @@
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
+/* ===== Device-Specific Macro Mapping ===== */
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+    /* SAM9X60D1G uses FLEXCOM5 */
+    #define FLEXCOM_USART_Write             FLEXCOM5_USART_Write
+    #define FLEXCOM_USART_Read              FLEXCOM5_USART_Read
+    #define FLEXCOM_USART_ReadCountGet      FLEXCOM5_USART_ReadCountGet
+    #define FLEXCOM_USART_ReadCallbackRegister   FLEXCOM5_USART_ReadCallbackRegister
+    #define FLEXCOM_USART_ReadNotificationEnable FLEXCOM5_USART_ReadNotificationEnable
+    #define FLEXCOM_USART_ReadThresholdSet  FLEXCOM5_USART_ReadThresholdSet
+    #define FLEXCOM_LINIdCallbackRegister   FLEXCOM5_LINIdCallbackRegister
+    #define FLEXCOM_LINTcCallbackRegister   FLEXCOM5_LINTcCallbackRegister
+    #define FLEXCOM_LIN_ResponseDataLenSet  FLEXCOM5_LIN_ResponseDataLenSet
+    #define FLEXCOM_LIN_IdentifierWrite     FLEXCOM5_LIN_IdentifierWrite
+    #define FLEXCOM_LIN_ParityEnable        FLEXCOM5_LIN_ParityEnable
+    #define FLEXCOM_LIN_ChecksumEnable      FLEXCOM5_LIN_ChecksumEnable
+    #define FLEXCOM_LIN_FrameSlotEnable     FLEXCOM5_LIN_FrameSlotEnable
+    #define FLEXCOM_LIN_ChecksumTypeSet     FLEXCOM5_LIN_ChecksumTypeSet
+    #define FLEXCOM_LIN_DataLenModeSet      FLEXCOM5_LIN_DataLenModeSet
+    #define FLEXCOM_LIN_NodeActionSet       FLEXCOM5_LIN_NodeActionSet
+
+    #define LED_STATUS_Clear                LED_BLUE_Clear
+	#define LED_STATUS_Set                  LED_BLUE_Set
+
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+    /* SAM9X60 uses FLEXCOM4 */
+    #define FLEXCOM_USART_Write             FLEXCOM4_USART_Write
+    #define FLEXCOM_USART_Read              FLEXCOM4_USART_Read
+    #define FLEXCOM_USART_ReadCountGet      FLEXCOM4_USART_ReadCountGet
+    #define FLEXCOM_USART_ReadCallbackRegister   FLEXCOM4_USART_ReadCallbackRegister
+    #define FLEXCOM_USART_ReadNotificationEnable FLEXCOM4_USART_ReadNotificationEnable
+    #define FLEXCOM_USART_ReadThresholdSet  FLEXCOM4_USART_ReadThresholdSet
+    #define FLEXCOM_LINIdCallbackRegister   FLEXCOM4_LINIdCallbackRegister
+    #define FLEXCOM_LINTcCallbackRegister   FLEXCOM4_LINTcCallbackRegister
+    #define FLEXCOM_LIN_ResponseDataLenSet  FLEXCOM4_LIN_ResponseDataLenSet
+    #define FLEXCOM_LIN_IdentifierWrite     FLEXCOM4_LIN_IdentifierWrite
+    #define FLEXCOM_LIN_ParityEnable        FLEXCOM4_LIN_ParityEnable
+    #define FLEXCOM_LIN_ChecksumEnable      FLEXCOM4_LIN_ChecksumEnable
+    #define FLEXCOM_LIN_FrameSlotEnable     FLEXCOM4_LIN_FrameSlotEnable
+    #define FLEXCOM_LIN_ChecksumTypeSet     FLEXCOM4_LIN_ChecksumTypeSet
+    #define FLEXCOM_LIN_DataLenModeSet      FLEXCOM4_LIN_DataLenModeSet
+    #define FLEXCOM_LIN_NodeActionSet       FLEXCOM4_LIN_NodeActionSet
+
+    #define LED_STATUS_Clear                LED_GREEN_Clear
+	#define LED_STATUS_Set                  LED_GREEN_Set
+
+#else
+    #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__"
+#endif
+
 //#define TRACE(fmt, ...)    printf(fmt,##__VA_ARGS__)
 #define TRACE(fmt, ...)    
 
@@ -119,38 +168,38 @@ void Read_Event_Callback_Handler(FLEXCOM_USART_EVENT event, uintptr_t context )
     if (event == FLEXCOM_USART_EVENT_READ_THRESHOLD_REACHED)
     {
         /* The receiver should at least have the threshold number of bytes in the ring buffer. */
-        nBytesAvailable = FLEXCOM5_USART_ReadCountGet();
-        
+        nBytesAvailable = FLEXCOM_USART_ReadCountGet();
+
         TRACE("R = %d\n\r", (int)nBytesAvailable);
         /* Read the threshold number of bytes here in the rxBuffer. */
-        FLEXCOM5_USART_Read((uint8_t*)&rxBuffer, nBytesAvailable);
+        FLEXCOM_USART_Read((uint8_t*)&rxBuffer, nBytesAvailable);
     }
 }
 
 void LIN_MasterTransmit(uint8_t pid, uint8_t* pData, uint8_t nBytes)
 {
     nTxBytes = 0;
-    
+
     while (nBytes--)
     {
         txBuffer[nTxBytes++] = *pData++;
-    }    
+    }
     /* Sets the response data length for LIN communication. */
-    FLEXCOM5_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_TRANSFER_FROM_HOST_TO_CLIENT);
-    
+    FLEXCOM_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_TRANSFER_FROM_HOST_TO_CLIENT);
+
     /* Transmit PID */
-    FLEXCOM5_LIN_IdentifierWrite(pid);
+    FLEXCOM_LIN_IdentifierWrite(pid);
 
     TRACE("T = %d\n\r", (int)nTxBytes);
-    /* Transmit DATA + CHECKSUM */ 
-    FLEXCOM5_USART_Write(txBuffer, nTxBytes);
+    /* Transmit DATA + CHECKSUM */
+    FLEXCOM_USART_Write(txBuffer, nTxBytes);
 }
 
 void LIN_MasterReceive(uint8_t pid)
 {
     TRACE("MR\n\r");
     /* To receive data from the host, the master needs to send a PID. */
-    FLEXCOM5_LIN_IdentifierWrite(pid);
+    FLEXCOM_LIN_IdentifierWrite(pid);
 }
 
 static bool alarmTriggered = false;
@@ -173,9 +222,9 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     printf("LIN master\n\r");
-    LED_BLUE_Clear();
     LED_RED_Clear();
-    LED_GREEN_Clear();
+    LED_STATUS_Clear();
+    
 
     /* Register callback function for CH0 period interrupt */
     TC0_CH0_TimerCallbackRegister(TC0_CH0_TimerInterruptHandler, (uintptr_t)NULL);
@@ -195,39 +244,39 @@ int main ( void )
                 LIN_EN_Set();
 
                 /* Register a callback for LIN id Transmit events */
-                FLEXCOM5_LINIdCallbackRegister(LIN_Id_Tx_Callback_Handler, (uintptr_t)NULL);
+                FLEXCOM_LINIdCallbackRegister(LIN_Id_Tx_Callback_Handler, (uintptr_t)NULL);
 
                 /* Register a callback for LIN data transfer complete events */
-                FLEXCOM5_LINTcCallbackRegister(LIN_DataTransferComplete_Callback_Handler, (uintptr_t)NULL);
-                
-                /* Register a callback for read events */
-                FLEXCOM5_USART_ReadCallbackRegister(Read_Event_Callback_Handler, (uintptr_t) NULL);
+                FLEXCOM_LINTcCallbackRegister(LIN_DataTransferComplete_Callback_Handler, (uintptr_t)NULL);
 
-                /* The LIN response data length is set to 2 (some default value). 
-                 * This will be changed as needed in the later part of the code. 
+                /* Register a callback for read events */
+                FLEXCOM_USART_ReadCallbackRegister(Read_Event_Callback_Handler, (uintptr_t) NULL);
+
+                /* The LIN response data length is set to 2 (some default value).
+                 * This will be changed as needed in the later part of the code.
                  * This is only valid if the data length mode is set to DLC mode using the "USART0_LIN_DataLenModeSet()" API. */
-                FLEXCOM5_LIN_ResponseDataLenSet(2);
+                FLEXCOM_LIN_ResponseDataLenSet(2);
 
                 /* LIN identifier parity is disabled */
-                FLEXCOM5_LIN_ParityEnable(false);
+                FLEXCOM_LIN_ParityEnable(false);
 
                 /* LIN hardware checksum is Enabled */
-                FLEXCOM5_LIN_ChecksumEnable(true);
+                FLEXCOM_LIN_ChecksumEnable(true);
 
                 /* LIN frame slot timing is disabled. */
-                FLEXCOM5_LIN_FrameSlotEnable(false);
+                FLEXCOM_LIN_FrameSlotEnable(false);
 
                 /* The LIN checksum type is set to 2.0 Enhanced checksum mode. This setting does not have any impact if the checksum feature is disabled. */
-                FLEXCOM5_LIN_ChecksumTypeSet(FLEXCOM_LIN_2_0_ENHANCHED_CHECKSUM);
-                
+                FLEXCOM_LIN_ChecksumTypeSet(FLEXCOM_LIN_2_0_ENHANCHED_CHECKSUM);
+
                 /* LIN data length mode is set to DLC. In this mode, the user has the flexibility to set the response data length using the "USART0_LIN_ResponseDataLenEnable()" API. */
-                FLEXCOM5_LIN_DataLenModeSet(FLEXCOM_LIN_DATA_LEN_DLC); 
+                FLEXCOM_LIN_DataLenModeSet(FLEXCOM_LIN_DATA_LEN_DLC);
 
                 /* Enable RX event notifications. */
-                FLEXCOM5_USART_ReadNotificationEnable(true, false);
-                
+                FLEXCOM_USART_ReadNotificationEnable(true, false);
+
                 /* Set a threshold value to receive a callback after every "LIN_NUM_OF_BYTES_TRANSFER_FROM_CLIENT_TO_HOST" characters are received. */
-                FLEXCOM5_USART_ReadThresholdSet(LIN_NUM_OF_BYTES_TRANSFER_FROM_CLIENT_TO_HOST);
+                FLEXCOM_USART_ReadThresholdSet(LIN_NUM_OF_BYTES_TRANSFER_FROM_CLIENT_TO_HOST);
 
                 /* Change the state to "subscribe," as the host is requesting data from the client. */
                 appData.state = APP_STATE_SUBSCRIBE;   
@@ -244,16 +293,16 @@ int main ( void )
                 if( alarmTriggered )
                 {
                     alarmTriggered = false;
-        
+
                     /* This flag needs to be reset here and will be controlled by the transfer callback handler.*/
                     LINDataTransferComplete = false;
 
                     /* The LIN response data length is set to "LIN_NUM_OF_BYTES_TRANSFER_FROM_CLIENT_TO_HOST," as the host will expect that many bytes of data from the client. */
-                    FLEXCOM5_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_TRANSFER_FROM_CLIENT_TO_HOST);
+                    FLEXCOM_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_TRANSFER_FROM_CLIENT_TO_HOST);
 
                     /* LIN Host requests client for Switch and LED status. */
                     /* Switch to SUBSCRIBE mode, as the host is requesting data from the client. */
-                    FLEXCOM5_LIN_NodeActionSet(FLEX_US_LINMR_NACT_SUBSCRIBE);  
+                    FLEXCOM_LIN_NodeActionSet(FLEX_US_LINMR_NACT_SUBSCRIBE);  
 
                     /* Transmit client ID. */
                     LIN_MasterReceive(READ_SWITCH_LED_PID);   
@@ -265,15 +314,15 @@ int main ( void )
 
                 break;
 
-            case APP_STATE_PUBLISH: 
+            case APP_STATE_PUBLISH:
 
                 /* PUBLISH: the node sends the response. */
                 TRACE("PUB\n\r");
                 /* This flag needs to be reset here and will be controlled by the transfer callback handler later. */
                 LINDataTransferComplete = false;
-                
+
                 /* Switch to PUBLISH mode, as the host needs to send data to the client. */
-                FLEXCOM5_LIN_NodeActionSet(FLEXCOM_LIN_NACT_PUBLISH);
+                FLEXCOM_LIN_NodeActionSet(FLEXCOM_LIN_NACT_PUBLISH);
                 
                 /* Transmit data. */
                 LIN_MasterTransmit(WRITE_LED_PID, txData, 1);
@@ -300,12 +349,12 @@ int main ( void )
                             
                             /* Change the state to PUBLISH, as the host needs to send data to the client. */
                             appData.state = APP_STATE_PUBLISH;
-                            LED_BLUE_Clear();
+                            LED_STATUS_Clear();
                             break;
                     }
                     else
                     {
-                        LED_BLUE_Set();
+                        LED_STATUS_Set();
                     }
 
                     /* Change the state to "subscribe," as the host needs to request data from the client again. */

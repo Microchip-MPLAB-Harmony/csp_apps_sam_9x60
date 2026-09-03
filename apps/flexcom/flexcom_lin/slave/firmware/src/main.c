@@ -51,6 +51,51 @@
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
+/* ===== Device-Specific Macro Mapping ===== */
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+    /* SAM9X60D1G uses FLEXCOM5 */
+    #define FLEXCOM_LIN_IdentifierRead              FLEXCOM5_LIN_IdentifierRead
+    #define FLEXCOM_LINBreakCallbackRegister        FLEXCOM5_LINBreakCallbackRegister
+    #define FLEXCOM_LINIdCallbackRegister           FLEXCOM5_LINIdCallbackRegister
+    #define FLEXCOM_LINTcCallbackRegister           FLEXCOM5_LINTcCallbackRegister
+    #define FLEXCOM_USART_ReadCallbackRegister      FLEXCOM5_USART_ReadCallbackRegister
+    #define FLEXCOM_USART_ReadNotificationEnable    FLEXCOM5_USART_ReadNotificationEnable
+    #define FLEXCOM_USART_ReadThresholdSet          FLEXCOM5_USART_ReadThresholdSet
+    #define FLEXCOM_LIN_ResponseDataLenSet          FLEXCOM5_LIN_ResponseDataLenSet
+    #define FLEXCOM_LIN_ParityEnable                FLEXCOM5_LIN_ParityEnable
+    #define FLEXCOM_LIN_ChecksumEnable              FLEXCOM5_LIN_ChecksumEnable
+    #define FLEXCOM_LIN_ChecksumTypeSet             FLEXCOM5_LIN_ChecksumTypeSet
+    #define FLEXCOM_LIN_DataLenModeSet              FLEXCOM5_LIN_DataLenModeSet
+    #define FLEXCOM_LIN_NodeActionSet               FLEXCOM5_LIN_NodeActionSet
+    #define FLEXCOM_USART_Write                     FLEXCOM5_USART_Write
+    #define FLEXCOM_USART_ReadCountGet              FLEXCOM5_USART_ReadCountGet
+    #define FLEXCOM_USART_Read                      FLEXCOM5_USART_Read
+	#define LED_STATUS_Clear                		LED_BLUE_Clear
+	#define LED_STATUS_Set                  		LED_BLUE_Set
+
+#elif defined(__SAM9X60__) || defined(SAM9X60)
+    /* SAM9X60 uses FLEXCOM4 */
+    #define FLEXCOM_LIN_IdentifierRead              FLEXCOM4_LIN_IdentifierRead
+    #define FLEXCOM_LINBreakCallbackRegister        FLEXCOM4_LINBreakCallbackRegister
+    #define FLEXCOM_LINIdCallbackRegister           FLEXCOM4_LINIdCallbackRegister
+    #define FLEXCOM_LINTcCallbackRegister           FLEXCOM4_LINTcCallbackRegister
+    #define FLEXCOM_USART_ReadCallbackRegister      FLEXCOM4_USART_ReadCallbackRegister
+    #define FLEXCOM_USART_ReadNotificationEnable    FLEXCOM4_USART_ReadNotificationEnable
+    #define FLEXCOM_USART_ReadThresholdSet          FLEXCOM4_USART_ReadThresholdSet
+    #define FLEXCOM_LIN_ResponseDataLenSet          FLEXCOM4_LIN_ResponseDataLenSet
+    #define FLEXCOM_LIN_ParityEnable                FLEXCOM4_LIN_ParityEnable
+    #define FLEXCOM_LIN_ChecksumEnable              FLEXCOM4_LIN_ChecksumEnable
+    #define FLEXCOM_LIN_ChecksumTypeSet             FLEXCOM4_LIN_ChecksumTypeSet
+    #define FLEXCOM_LIN_DataLenModeSet              FLEXCOM4_LIN_DataLenModeSet
+    #define FLEXCOM_LIN_NodeActionSet               FLEXCOM4_LIN_NodeActionSet
+    #define FLEXCOM_USART_Write                     FLEXCOM4_USART_Write
+    #define FLEXCOM_USART_ReadCountGet              FLEXCOM4_USART_ReadCountGet
+    #define FLEXCOM_USART_Read                      FLEXCOM4_USART_Read
+	#define LED_STATUS_Clear          		        LED_GREEN_Clear
+	#define LED_STATUS_Set                          LED_GREEN_Set
+#else
+    #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__"
+#endif
 
 #define LIN_NUM_OF_BYTES_FROM_HOST      1
 #define LIN_NUM_OF_BYTES_TO_HOST        1
@@ -99,7 +144,7 @@ volatile bool LINBreakDetected = false;
 void LIN_Id_Rcvd_Callback_Handler( uintptr_t context)
 {
     /* Read out the PID. */
-    rxBuffer[0] = FLEXCOM5_LIN_IdentifierRead();
+    rxBuffer[0] = FLEXCOM_LIN_IdentifierRead();
     switch(rxBuffer[0])
     {            
         case READ_SWITCH_LED_PID:
@@ -135,11 +180,11 @@ void Read_Event_Callback_Handler( FLEXCOM_USART_EVENT event, uintptr_t context )
     if (event == FLEXCOM_USART_EVENT_READ_THRESHOLD_REACHED)
     {
         /* The receiver should at least have the threshold number of bytes in the ring buffer. */
-        nBytesAvailable = FLEXCOM5_USART_ReadCountGet();
+        nBytesAvailable = FLEXCOM_USART_ReadCountGet();
         TRACE("n = %d\n\r", (int)nBytesAvailable);
         
         /* Read the threshold number of bytes here in the rxBuffer. */
-        FLEXCOM5_USART_Read((uint8_t*)&rxBuffer, nBytesAvailable);
+        FLEXCOM_USART_Read((uint8_t*)&rxBuffer, nBytesAvailable);
     }
 }
 
@@ -155,9 +200,8 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     printf("LIN slave\n\r");
-    LED_BLUE_Clear();
+    LED_STATUS_Clear();
     LED_RED_Clear();
-    LED_GREEN_Clear();
     
     while ( true )
     {
@@ -173,38 +217,38 @@ int main ( void )
                 LIN_EN_Set();
 
                 /* Register a callback for LIN break events. */
-                FLEXCOM5_LINBreakCallbackRegister(LIN_BreakDetect_Callback_Handler, (uintptr_t)NULL);
+                FLEXCOM_LINBreakCallbackRegister(LIN_BreakDetect_Callback_Handler, (uintptr_t)NULL);
 
                 /* Register a callback for LIN ID received events. */
-                FLEXCOM5_LINIdCallbackRegister(LIN_Id_Rcvd_Callback_Handler, (uintptr_t)NULL);
+                FLEXCOM_LINIdCallbackRegister(LIN_Id_Rcvd_Callback_Handler, (uintptr_t)NULL);
 
                 /* Register a callback for LIN data transfer completion events. */
-                FLEXCOM5_LINTcCallbackRegister(LIN_TransferComplete_Callback_Handler, (uintptr_t)NULL);
+                FLEXCOM_LINTcCallbackRegister(LIN_TransferComplete_Callback_Handler, (uintptr_t)NULL);
                 
                 /* Register a callback for reading events. */
-                FLEXCOM5_USART_ReadCallbackRegister(Read_Event_Callback_Handler, (uintptr_t) NULL);
+                FLEXCOM_USART_ReadCallbackRegister(Read_Event_Callback_Handler, (uintptr_t) NULL);
                                 
                 /* Enable RX event notifications. */
-                FLEXCOM5_USART_ReadNotificationEnable(true, false);
+                FLEXCOM_USART_ReadNotificationEnable(true, false);
                 
                 /* Set a threshold value to receive a callback after every "LIN_NUM_OF_BYTES_FROM_HOST" characters are received. */
-                FLEXCOM5_USART_ReadThresholdSet(LIN_NUM_OF_BYTES_FROM_HOST);
+                FLEXCOM_USART_ReadThresholdSet(LIN_NUM_OF_BYTES_FROM_HOST);
                 
                 /* The LIN response data length is set to 2 (some default value). This will be changed as needed in the later part of the code. 
                  * This is only valid if the data length mode is set to DLC mode using the "FLEXCOM5_LIN_DataLenModeSet()" API. */
-                FLEXCOM5_LIN_ResponseDataLenSet(2);
+                FLEXCOM_LIN_ResponseDataLenSet(2);
                 
                 /* LIN identifier parity is disabled. */
-                FLEXCOM5_LIN_ParityEnable(false);
+                FLEXCOM_LIN_ParityEnable(false);
                 
                 /* The LIN hardware checksum is enabled. */
-                FLEXCOM5_LIN_ChecksumEnable(true);
+                FLEXCOM_LIN_ChecksumEnable(true);
                 
                 /* The LIN checksum type is set to 2.0 Enhanced checksum mode. This setting does not have any impact if the checksum feature is disabled. */
-                FLEXCOM5_LIN_ChecksumTypeSet(FLEXCOM_LIN_2_0_ENHANCHED_CHECKSUM);
+                FLEXCOM_LIN_ChecksumTypeSet(FLEXCOM_LIN_2_0_ENHANCHED_CHECKSUM);
                 
                 /* The LIN data length mode is set to DLC. In this mode, the user has the flexibility to set the response data length using the "FLEXCOM5_LIN_ResponseDataLenEnable()" API. */
-                FLEXCOM5_LIN_DataLenModeSet(FLEXCOM_LIN_DATA_LEN_DLC); 
+                FLEXCOM_LIN_DataLenModeSet(FLEXCOM_LIN_DATA_LEN_DLC); 
                 
                 /* Wait for instructions from the LIN master. */
                 appData.state = APP_STATE_IDLE;   
@@ -215,14 +259,14 @@ int main ( void )
                 
                 /* PUBLISH: the node sends the response. */
                 /* The LIN Host has requested the switch and LED status. Switch to PUBLISH mode. */
-                FLEXCOM5_LIN_NodeActionSet(FLEXCOM_LIN_NACT_PUBLISH);
-                FLEXCOM5_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_TO_HOST);
+                FLEXCOM_LIN_NodeActionSet(FLEXCOM_LIN_NACT_PUBLISH);
+                FLEXCOM_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_TO_HOST);
 
                 /* Requested switch and LED status. */
                 txBuffer[0] = ((ledStatus << 1) | (SWITCH_Get()));
                 TRACE("PUB %d\n\r", (int)txBuffer[0]);
 
-                FLEXCOM5_USART_Write(txBuffer, LIN_NUM_OF_BYTES_TO_HOST);
+                FLEXCOM_USART_Write(txBuffer, LIN_NUM_OF_BYTES_TO_HOST);
 
                 /* Wait for the current data transfer to complete. In this case, the client is sending data to the host, so you need to wait until this transfer is completed. */
                 appData.state = APP_STATE_WAIT_FOR_TRANSFER_COMPLETE; 
@@ -232,10 +276,10 @@ int main ( void )
 
                 /* SUBSCRIBE: the node receives the response. */
                 /* Waiting for data from host. Switch to subscribe mode. */
-                FLEXCOM5_LIN_NodeActionSet(FLEXCOM_LIN_NACT_SUBSCRIBE);
+                FLEXCOM_LIN_NodeActionSet(FLEXCOM_LIN_NACT_SUBSCRIBE);
                  
                 /* The response data length needs to be set to "LIN_NUM_OF_BYTES_FROM_HOST." */
-                FLEXCOM5_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_FROM_HOST);
+                FLEXCOM_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_FROM_HOST);
                 
                 appData.mode.subscribe = 1;
                 
@@ -258,14 +302,14 @@ int main ( void )
                     {
                         /* Turn on the LED. */
                         TRACE("LED 0\n\r");
-                        LED_BLUE_Clear();
+                        LED_GREEN_Clear();
                         ledStatus = 1;
                     }
                     else
                     {
                         /* Turn off the LED. */
                         TRACE("LED 1\n\r");
-                        LED_BLUE_Set();
+                        LED_GREEN_Set();
                         ledStatus = 0;
                     }
 

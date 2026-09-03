@@ -1,0 +1,774 @@
+configVersion: 1.0.0
+componentName: tc0
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: tc0
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    DVRT_COMPONENT_ID:
+      attributes:
+        id: DVRT_COMPONENT_ID
+        label: dvrt Component id
+      type: String
+    DVRT_PLIB_OPERATION_MODE:
+      attributes:
+        id: DVRT_PLIB_OPERATION_MODE
+        label: dvrt PLIB Operation Mode
+      type: String
+    DVRT_TC_CHANNEL:
+      attributes:
+        id: DVRT_TC_CHANNEL
+        label: Select TC Channel for DVRT
+      type: KeyValueSet
+    DVRT_TICK_RATE_MS:
+      attributes:
+        id: DVRT_TICK_RATE_MS
+        label: DVRT_TICK_RATE_MS
+      type: Float
+    SYS_TIME_COMPONENT_ID:
+      attributes:
+        id: SYS_TIME_COMPONENT_ID
+        label: Component id
+      type: String
+    SYS_TIME_PLIB_OPERATION_MODE:
+      attributes:
+        id: SYS_TIME_PLIB_OPERATION_MODE
+        label: SysTime PLIB Operation Mode
+      type: String
+    SYS_TIME_TC_CHANNEL:
+      attributes:
+        id: SYS_TIME_TC_CHANNEL
+        label: Select TC Channel for Time System Service
+      type: KeyValueSet
+    SYS_TIME_TICK_RATE_MS:
+      attributes:
+        id: SYS_TIME_TICK_RATE_MS
+        label: SYS_TIME_TICK_RATE_MS
+      type: Float
+    TC0_CAPTURE_CMR_LDBSTOP:
+      attributes:
+        id: TC0_CAPTURE_CMR_LDBSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC0_CAPTURE_EXT_RESET:
+      attributes:
+        id: TC0_CAPTURE_EXT_RESET
+        label: Reset Timer on External Event
+      type: Boolean
+    TC0_CAPTURE_IER_COVFS:
+      attributes:
+        id: TC0_CAPTURE_IER_COVFS
+        label: Enable Counter Overflow Interrupt
+      type: Boolean
+    TC0_CAPTURE_IER_LDRAS:
+      attributes:
+        id: TC0_CAPTURE_IER_LDRAS
+        label: Enable Capture A Interrupt
+      type: Boolean
+    TC0_CAPTURE_IER_LDRBS:
+      attributes:
+        id: TC0_CAPTURE_IER_LDRBS
+        label: Enable Capture B Interrupt
+      type: Boolean
+    TC0_CH0_INTERRUPT_ENABLE:
+      attributes:
+        id: TC0_CH0_INTERRUPT_ENABLE
+        label: TC0_CH0_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CH0_INTERRUPT_HANDLER:
+      attributes:
+        id: TC0_CH0_INTERRUPT_HANDLER
+        label: TC0_CH0_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: TC0_CH0_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    TC0_CH0_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC0_CH0_INTERRUPT_HANDLER_LOCK
+        label: TC0_CH0_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CLOCK_FREQ:
+      attributes:
+        id: TC0_CLOCK_FREQ
+        label: Clock Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_CMP_CMR_ETRGEDG:
+      attributes:
+        id: TC0_CMP_CMR_ETRGEDG
+        label: Select External Event Edge
+      type: Combo
+    TC0_CMR_ABETRG:
+      attributes:
+        id: TC0_CMR_ABETRG
+        label: Select External Event Input
+      type: Combo
+    TC0_CMR_ACPA:
+      attributes:
+        id: TC0_CMR_ACPA
+        label: Action on Compare Match A
+      type: Combo
+    TC0_CMR_ACPC:
+      attributes:
+        id: TC0_CMR_ACPC
+        label: Action on Compare Match C
+      type: Combo
+    TC0_CMR_AEEVT:
+      attributes:
+        id: TC0_CMR_AEEVT
+        label: Action on External Event
+      type: Combo
+    TC0_CMR_BCPB:
+      attributes:
+        id: TC0_CMR_BCPB
+        label: Action on Compare Match B
+      type: Combo
+    TC0_CMR_BCPC:
+      attributes:
+        id: TC0_CMR_BCPC
+        label: Action on Compare Match C
+      type: Combo
+    TC0_CMR_BEEVT:
+      attributes:
+        id: TC0_CMR_BEEVT
+        label: Action on External Event
+      type: Combo
+    TC0_CMR_CPCSTOP:
+      attributes:
+        id: TC0_CMR_CPCSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC0_CMR_EEVT:
+      attributes:
+        id: TC0_CMR_EEVT
+        label: Select External Event Input
+      type: KeyValueSet
+    TC0_CMR_ETRGEDG:
+      attributes:
+        id: TC0_CMR_ETRGEDG
+        label: Select External Event Edge
+      type: Combo
+    TC0_CMR_LDRA:
+      attributes:
+        id: TC0_CMR_LDRA
+        label: Select TIOA Input Edge for Capture A
+      type: Combo
+    TC0_CMR_LDRB:
+      attributes:
+        id: TC0_CMR_LDRB
+        label: Select TIOA Input Edge for Capture B
+      type: Combo
+    TC0_CMR_TCCLKS:
+      attributes:
+        id: TC0_CMR_TCCLKS
+        label: Select Clock Source
+      type: KeyValueSet
+    TC0_CMR_WAVSEL:
+      attributes:
+        id: TC0_CMR_WAVSEL
+        label: Select Waveform Mode
+      type: KeyValueSet
+    TC0_COMPARE_A:
+      attributes:
+        id: TC0_COMPARE_A
+        label: Compare Value
+      type: Long
+    TC0_COMPARE_B:
+      attributes:
+        id: TC0_COMPARE_B
+        label: Compare Value
+      type: Long
+    TC0_COMPARE_CMR_CPCSTOP:
+      attributes:
+        id: TC0_COMPARE_CMR_CPCSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC0_COMPARE_IER_CPCS:
+      attributes:
+        id: TC0_COMPARE_IER_CPCS
+        label: Enable Period Interrupt
+      type: Boolean
+    TC0_COMPARE_PERIOD_COUNT:
+      attributes:
+        id: TC0_COMPARE_PERIOD_COUNT
+        label: Period Value
+      type: Long
+    TC0_ENABLE:
+      attributes:
+        id: TC0_ENABLE
+        label: Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    TC0_EXT_CLOCK:
+      attributes:
+        id: TC0_EXT_CLOCK
+        label: External Clock Frequency (Hz)
+      type: Integer
+    TC0_IER_CPAS:
+      attributes:
+        id: TC0_IER_CPAS
+        label: Enable Compare Interrupt
+      type: Boolean
+    TC0_IER_CPCS:
+      attributes:
+        id: TC0_IER_CPCS
+        label: Enable Period Interrupt
+      type: Boolean
+    TC0_OPERATING_MODE:
+      attributes:
+        id: TC0_OPERATING_MODE
+        label: Operating Mode
+      type: Combo
+    TC0_PCK7:
+      attributes:
+        id: TC0_PCK7
+        label: PCK7
+      type: Boolean
+    TC0_TIMER_PERIOD_COUNT:
+      attributes:
+        id: TC0_TIMER_PERIOD_COUNT
+        label: Timer Period
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Long
+    TC0_TIMER_PERIOD_MS:
+      attributes:
+        id: TC0_TIMER_PERIOD_MS
+        label: Time
+      children:
+      - children:
+        - attributes:
+            value: '1000.0'
+          type: User
+        type: Values
+      type: Float
+    TC0_TIMER_UNIT:
+      attributes:
+        id: TC0_TIMER_UNIT
+        label: Timer Period Unit
+      type: Combo
+    TC1_CAPTURE_CMR_LDBSTOP:
+      attributes:
+        id: TC1_CAPTURE_CMR_LDBSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC1_CAPTURE_EXT_RESET:
+      attributes:
+        id: TC1_CAPTURE_EXT_RESET
+        label: Reset Timer on External Event
+      type: Boolean
+    TC1_CAPTURE_IER_COVFS:
+      attributes:
+        id: TC1_CAPTURE_IER_COVFS
+        label: Enable Counter Overflow Interrupt
+      type: Boolean
+    TC1_CAPTURE_IER_LDRAS:
+      attributes:
+        id: TC1_CAPTURE_IER_LDRAS
+        label: Enable Capture A Interrupt
+      type: Boolean
+    TC1_CAPTURE_IER_LDRBS:
+      attributes:
+        id: TC1_CAPTURE_IER_LDRBS
+        label: Enable Capture B Interrupt
+      type: Boolean
+    TC1_CLOCK_FREQ:
+      attributes:
+        id: TC1_CLOCK_FREQ
+        label: Clock Frequency (Hz)
+      type: Integer
+    TC1_CMP_CMR_ETRGEDG:
+      attributes:
+        id: TC1_CMP_CMR_ETRGEDG
+        label: Select External Event Edge
+      type: Combo
+    TC1_CMR_ABETRG:
+      attributes:
+        id: TC1_CMR_ABETRG
+        label: Select External Event Input
+      type: Combo
+    TC1_CMR_ACPA:
+      attributes:
+        id: TC1_CMR_ACPA
+        label: Action on Compare Match A
+      type: Combo
+    TC1_CMR_ACPC:
+      attributes:
+        id: TC1_CMR_ACPC
+        label: Action on Compare Match C
+      type: Combo
+    TC1_CMR_AEEVT:
+      attributes:
+        id: TC1_CMR_AEEVT
+        label: Action on External Event
+      type: Combo
+    TC1_CMR_BCPB:
+      attributes:
+        id: TC1_CMR_BCPB
+        label: Action on Compare Match B
+      type: Combo
+    TC1_CMR_BCPC:
+      attributes:
+        id: TC1_CMR_BCPC
+        label: Action on Compare Match C
+      type: Combo
+    TC1_CMR_BEEVT:
+      attributes:
+        id: TC1_CMR_BEEVT
+        label: Action on External Event
+      type: Combo
+    TC1_CMR_CPCSTOP:
+      attributes:
+        id: TC1_CMR_CPCSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC1_CMR_EEVT:
+      attributes:
+        id: TC1_CMR_EEVT
+        label: Select External Event Input
+      type: KeyValueSet
+    TC1_CMR_ETRGEDG:
+      attributes:
+        id: TC1_CMR_ETRGEDG
+        label: Select External Event Edge
+      type: Combo
+    TC1_CMR_LDRA:
+      attributes:
+        id: TC1_CMR_LDRA
+        label: Select TIOA Input Edge for Capture A
+      type: Combo
+    TC1_CMR_LDRB:
+      attributes:
+        id: TC1_CMR_LDRB
+        label: Select TIOA Input Edge for Capture B
+      type: Combo
+    TC1_CMR_TCCLKS:
+      attributes:
+        id: TC1_CMR_TCCLKS
+        label: Select Clock Source
+      type: KeyValueSet
+    TC1_CMR_WAVSEL:
+      attributes:
+        id: TC1_CMR_WAVSEL
+        label: Select Waveform Mode
+      type: KeyValueSet
+    TC1_COMPARE_A:
+      attributes:
+        id: TC1_COMPARE_A
+        label: Compare Value
+      type: Long
+    TC1_COMPARE_B:
+      attributes:
+        id: TC1_COMPARE_B
+        label: Compare Value
+      type: Long
+    TC1_COMPARE_CMR_CPCSTOP:
+      attributes:
+        id: TC1_COMPARE_CMR_CPCSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC1_COMPARE_IER_CPCS:
+      attributes:
+        id: TC1_COMPARE_IER_CPCS
+        label: Enable Period Interrupt
+      type: Boolean
+    TC1_COMPARE_PERIOD_COUNT:
+      attributes:
+        id: TC1_COMPARE_PERIOD_COUNT
+        label: Period Value
+      type: Long
+    TC1_ENABLE:
+      attributes:
+        id: TC1_ENABLE
+        label: Enable
+      type: Boolean
+    TC1_EXT_CLOCK:
+      attributes:
+        id: TC1_EXT_CLOCK
+        label: External Clock Frequency (Hz)
+      type: Integer
+    TC1_IER_CPAS:
+      attributes:
+        id: TC1_IER_CPAS
+        label: Enable Compare Interrupt
+      type: Boolean
+    TC1_IER_CPCS:
+      attributes:
+        id: TC1_IER_CPCS
+        label: Enable Period Interrupt
+      type: Boolean
+    TC1_OPERATING_MODE:
+      attributes:
+        id: TC1_OPERATING_MODE
+        label: Operating Mode
+      type: Combo
+    TC1_PCK7:
+      attributes:
+        id: TC1_PCK7
+        label: PCK7
+      type: Boolean
+    TC1_TIMER_PERIOD_COUNT:
+      attributes:
+        id: TC1_TIMER_PERIOD_COUNT
+        label: Timer Period
+      type: Long
+    TC1_TIMER_PERIOD_MS:
+      attributes:
+        id: TC1_TIMER_PERIOD_MS
+        label: Time
+      type: Float
+    TC1_TIMER_UNIT:
+      attributes:
+        id: TC1_TIMER_UNIT
+        label: Timer Period Unit
+      type: Combo
+    TC2_CAPTURE_CMR_LDBSTOP:
+      attributes:
+        id: TC2_CAPTURE_CMR_LDBSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC2_CAPTURE_EXT_RESET:
+      attributes:
+        id: TC2_CAPTURE_EXT_RESET
+        label: Reset Timer on External Event
+      type: Boolean
+    TC2_CAPTURE_IER_COVFS:
+      attributes:
+        id: TC2_CAPTURE_IER_COVFS
+        label: Enable Counter Overflow Interrupt
+      type: Boolean
+    TC2_CAPTURE_IER_LDRAS:
+      attributes:
+        id: TC2_CAPTURE_IER_LDRAS
+        label: Enable Capture A Interrupt
+      type: Boolean
+    TC2_CAPTURE_IER_LDRBS:
+      attributes:
+        id: TC2_CAPTURE_IER_LDRBS
+        label: Enable Capture B Interrupt
+      type: Boolean
+    TC2_CLOCK_FREQ:
+      attributes:
+        id: TC2_CLOCK_FREQ
+        label: Clock Frequency (Hz)
+      type: Integer
+    TC2_CMP_CMR_ETRGEDG:
+      attributes:
+        id: TC2_CMP_CMR_ETRGEDG
+        label: Select External Event Edge
+      type: Combo
+    TC2_CMR_ABETRG:
+      attributes:
+        id: TC2_CMR_ABETRG
+        label: Select External Event Input
+      type: Combo
+    TC2_CMR_ACPA:
+      attributes:
+        id: TC2_CMR_ACPA
+        label: Action on Compare Match A
+      type: Combo
+    TC2_CMR_ACPC:
+      attributes:
+        id: TC2_CMR_ACPC
+        label: Action on Compare Match C
+      type: Combo
+    TC2_CMR_AEEVT:
+      attributes:
+        id: TC2_CMR_AEEVT
+        label: Action on External Event
+      type: Combo
+    TC2_CMR_BCPB:
+      attributes:
+        id: TC2_CMR_BCPB
+        label: Action on Compare Match B
+      type: Combo
+    TC2_CMR_BCPC:
+      attributes:
+        id: TC2_CMR_BCPC
+        label: Action on Compare Match C
+      type: Combo
+    TC2_CMR_BEEVT:
+      attributes:
+        id: TC2_CMR_BEEVT
+        label: Action on External Event
+      type: Combo
+    TC2_CMR_CPCSTOP:
+      attributes:
+        id: TC2_CMR_CPCSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC2_CMR_EEVT:
+      attributes:
+        id: TC2_CMR_EEVT
+        label: Select External Event Input
+      type: KeyValueSet
+    TC2_CMR_ETRGEDG:
+      attributes:
+        id: TC2_CMR_ETRGEDG
+        label: Select External Event Edge
+      type: Combo
+    TC2_CMR_LDRA:
+      attributes:
+        id: TC2_CMR_LDRA
+        label: Select TIOA Input Edge for Capture A
+      type: Combo
+    TC2_CMR_LDRB:
+      attributes:
+        id: TC2_CMR_LDRB
+        label: Select TIOA Input Edge for Capture B
+      type: Combo
+    TC2_CMR_TCCLKS:
+      attributes:
+        id: TC2_CMR_TCCLKS
+        label: Select Clock Source
+      type: KeyValueSet
+    TC2_CMR_WAVSEL:
+      attributes:
+        id: TC2_CMR_WAVSEL
+        label: Select Waveform Mode
+      type: KeyValueSet
+    TC2_COMPARE_A:
+      attributes:
+        id: TC2_COMPARE_A
+        label: Compare Value
+      type: Long
+    TC2_COMPARE_B:
+      attributes:
+        id: TC2_COMPARE_B
+        label: Compare Value
+      type: Long
+    TC2_COMPARE_CMR_CPCSTOP:
+      attributes:
+        id: TC2_COMPARE_CMR_CPCSTOP
+        label: Enable One Shot Mode
+      type: Boolean
+    TC2_COMPARE_IER_CPCS:
+      attributes:
+        id: TC2_COMPARE_IER_CPCS
+        label: Enable Period Interrupt
+      type: Boolean
+    TC2_COMPARE_PERIOD_COUNT:
+      attributes:
+        id: TC2_COMPARE_PERIOD_COUNT
+        label: Period Value
+      type: Long
+    TC2_ENABLE:
+      attributes:
+        id: TC2_ENABLE
+        label: Enable
+      type: Boolean
+    TC2_EXT_CLOCK:
+      attributes:
+        id: TC2_EXT_CLOCK
+        label: External Clock Frequency (Hz)
+      type: Integer
+    TC2_IER_CPAS:
+      attributes:
+        id: TC2_IER_CPAS
+        label: Enable Compare Interrupt
+      type: Boolean
+    TC2_IER_CPCS:
+      attributes:
+        id: TC2_IER_CPCS
+        label: Enable Period Interrupt
+      type: Boolean
+    TC2_OPERATING_MODE:
+      attributes:
+        id: TC2_OPERATING_MODE
+        label: Operating Mode
+      type: Combo
+    TC2_PCK7:
+      attributes:
+        id: TC2_PCK7
+        label: PCK7
+      type: Boolean
+    TC2_TIMER_PERIOD_COUNT:
+      attributes:
+        id: TC2_TIMER_PERIOD_COUNT
+        label: Timer Period
+      type: Long
+    TC2_TIMER_PERIOD_MS:
+      attributes:
+        id: TC2_TIMER_PERIOD_MS
+        label: Time
+      type: Float
+    TC2_TIMER_UNIT:
+      attributes:
+        id: TC2_TIMER_UNIT
+        label: Timer Period Unit
+      type: Combo
+    TC3_CLOCK_FREQ:
+      attributes:
+        id: TC3_CLOCK_FREQ
+        label: Clock Frequency (Hz)
+      type: Integer
+    TC3_CMR_TCCLKS:
+      attributes:
+        id: TC3_CMR_TCCLKS
+        label: Select Clock Source
+      type: KeyValueSet
+    TC3_ENABLE:
+      attributes:
+        id: TC3_ENABLE
+        label: Enable
+      type: Boolean
+    TC3_EXT_CLOCK:
+      attributes:
+        id: TC3_EXT_CLOCK
+        label: External Clock Frequency (Hz)
+      type: Integer
+    TC3_PCK7:
+      attributes:
+        id: TC3_PCK7
+        label: PCK7
+      type: Boolean
+    TC_BMR_MAXFILT:
+      attributes:
+        id: TC_BMR_MAXFILT
+        label: Select Input Signal Filter Count
+      type: Integer
+    TC_BMR_POSEN:
+      attributes:
+        id: TC_BMR_POSEN
+        label: Select Mode
+      type: Combo
+    TC_BMR_SWAP:
+      attributes:
+        id: TC_BMR_SWAP
+        label: Swap Phase A and Phase B Signals
+      type: Boolean
+    TC_CH0_RESET:
+      attributes:
+        id: TC_CH0_RESET
+        label: Select Position Counter Reset Mode
+      type: KeyValueSet
+    TC_CMR_WAVEFORM_WAVE:
+      attributes:
+        id: TC_CMR_WAVEFORM_WAVE
+        label: TC_CMR_WAVEFORM_WAVE
+      type: Boolean
+    TC_COMMON_INTERRUPT_STATUS:
+      attributes:
+        id: TC_COMMON_INTERRUPT_STATUS
+        label: TC_COMMON_INTERRUPT_STATUS
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC_ENABLE_QEI:
+      attributes:
+        id: TC_ENABLE_QEI
+        label: Enable Quadrature Encoder Mode
+      type: Boolean
+    TC_INDEX_PULSE:
+      attributes:
+        id: TC_INDEX_PULSE
+        label: Is Index Pulse used for Revolution Counter?
+      type: Boolean
+    TC_INSTANCE_NAME:
+      attributes:
+        id: TC_INSTANCE_NAME
+        label: TC_INSTANCE_NAME
+      type: String
+    TC_MAX_CHANNELS:
+      attributes:
+        id: TC_MAX_CHANNELS
+        label: TC_MAX_CHANNELS
+      type: Integer
+    TC_PCK_CLKSRC:
+      attributes:
+        id: TC_PCK_CLKSRC
+        label: Select PCK Clock Source
+      type: Combo
+    TC_QDEC_PRESENT:
+      attributes:
+        id: TC_QDEC_PRESENT
+        label: TC_QDEC_PRESENT
+      type: Boolean
+    TC_QEI_IER_CPCS:
+      attributes:
+        id: TC_QEI_IER_CPCS
+        label: Enable Period Interrupt
+      type: Boolean
+    TC_QEI_NUM_PULSES:
+      attributes:
+        id: TC_QEI_NUM_PULSES
+        label: Number of Quadrature Pulses per Revolution
+      type: Long
+    TC_QEI_PERIOD:
+      attributes:
+        id: TC_QEI_PERIOD
+        label: Select Speed Time Base
+      type: Long
+    TC_QIER_IDX:
+      attributes:
+        id: TC_QIER_IDX
+        label: Enable Index Interrupt
+      type: Boolean
+    TC_QIER_QERR:
+      attributes:
+        id: TC_QIER_QERR
+        label: Enable Quadrature Error Interrupt
+      type: Boolean
+    TIMER_PERIOD_MAX:
+      attributes:
+        id: TIMER_PERIOD_MAX
+        label: TIMER_PERIOD_MAX
+      type: String
+    TIMER_WIDTH:
+      attributes:
+        id: TIMER_WIDTH
+        label: TIMER_WIDTH
+      type: Integer
+  userData: {}
