@@ -1,0 +1,136 @@
+configVersion: 1.0.0
+componentName: pit64b
+coreVersion: 5.9.0
+device: SAM9X60D6K
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: pit64b
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.25.2
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    CONT:
+      attributes:
+        id: CONT
+        label: CONT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    ENABLE_INTERRUPT:
+      attributes:
+        id: ENABLE_INTERRUPT
+        label: ENABLE_INTERRUPT
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    OVRE_INT:
+      attributes:
+        id: OVRE_INT
+        label: Overrun Error Interrupt
+      type: Boolean
+    PERIOD:
+      attributes:
+        id: PERIOD
+        label: Timer Period
+      children:
+      - children:
+        - attributes:
+            value: '100000000'
+          type: User
+        type: Values
+      type: Long
+    PERIOD_INT:
+      attributes:
+        id: PERIOD_INT
+        label: Timer Interrupt
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PERIOD_LSB:
+      attributes:
+        id: PERIOD_LSB
+        label: PERIOD_LSB
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Long
+    PERIOD_MSB:
+      attributes:
+        id: PERIOD_MSB
+        label: PERIOD_MSB
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PERIOD_US:
+      attributes:
+        id: PERIOD_US
+        label: Timer Period(us)
+      children:
+      - children:
+        - attributes:
+            id: pit64b
+            value: '500000.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PIT64B_INSTANCE_NAME:
+      attributes:
+        id: PIT64B_INSTANCE_NAME
+        label: PIT64B_INSTANCE_NAME
+      type: String
+    PRESCALER:
+      attributes:
+        id: PRESCALER
+        label: PRESCALER
+      type: Integer
+    SECE_INT:
+      attributes:
+        id: SECE_INT
+        label: Safety/Security Interrupt
+      type: Boolean
+    SGCLK:
+      attributes:
+        id: SGCLK
+        label: SGCLK
+      type: Boolean
+    SMOD:
+      attributes:
+        id: SMOD
+        label: SMOD
+      type: Boolean
+    SRC_FREQ:
+      attributes:
+        id: SRC_FREQ
+        label: SRC_FREQ
+      type: Integer
+  userData: {}
