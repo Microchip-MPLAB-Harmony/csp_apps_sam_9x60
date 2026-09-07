@@ -292,9 +292,14 @@ __attribute__((optimize("-O1"), __section__(".ramcode_section"))) void really_en
     clock_cfg.cpu_ckr = PMC_REGS->PMC_CPU_CKR;
     clock_cfg.mor = PMC_REGS->CKGR_MOR;
     
-    /* set DDR in self-refresh mode */
+    /* set DDR/SDRAM in self-refresh mode */
+#if defined(__SAM9X60D6K__)
+    SDRAMC_REGS->SDRAMC_LPR = (SDRAMC_REGS->SDRAMC_LPR & ~SDRAMC_LPR_LPCB_Msk) | SDRAMC_LPR_LPCB_SELF_REFRESH;
+    while (!(SDRAMC_REGS->SDRAMC_LPR & SDRAMC_LPR_SELFDONE_Msk));
+#else
     MPDDRC_REGS->MPDDRC_LPR = (MPDDRC_REGS->MPDDRC_LPR & ~MPDDRC_LPR_LPCB_Msk) | MPDDRC_LPR_LPCB_SELFREFRESH;
     while (!(MPDDRC_REGS->MPDDRC_LPR & MPDDRC_LPR_SELF_DONE_Msk));
+#endif
  
     /* disable all unused peripheral clocks */
     PMC_REGS->PMC_SCDR = 0xFFFFFFFF;    
