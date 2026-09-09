@@ -19,7 +19,7 @@ B11,PA21,,Available,In,,,,,,,,
 C4,PB15,,Available,In,,,,,,,,
 C5,PB11,,Available,In,,,,,,,,
 C7,PB23,,Available,In,,,,,,,,
-C10,PA29,SW1,GPIO,In,n/a,No,Both Edge,Yes,No,Disabled,No,Low
+C10,PA29,SW1,GPIO,In,n/a,No,Raising Edge,Yes,No,Disabled,No,Low
 C11,PA23,,Available,In,,,,,,,,
 C17,PD6,,Available,In,,,,,,,,
 D1,PB1,,Available,In,,,,,,,,

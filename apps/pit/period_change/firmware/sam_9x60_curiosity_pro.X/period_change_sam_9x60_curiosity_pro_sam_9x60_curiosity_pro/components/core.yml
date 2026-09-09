@@ -213,7 +213,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '262144'
           type: Dynamic
         type: Values
       type: Hex
@@ -225,7 +225,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '262144'
           type: Dynamic
         type: Values
       type: Hex
@@ -236,7 +236,7 @@ data:
       children:
       - children:
         - attributes:
-            value: Both Edge
+            value: Raising Edge
           type: User
         type: Values
       type: String
@@ -355,6 +355,17 @@ data:
           type: User
         type: Values
       type: String
+    PIOD_SCDR_VALUE:
+      attributes:
+        id: PIOD_SCDR_VALUE
+        label: PIOD_SCDR
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: Hex
   userData:
     children:
     - attributes:

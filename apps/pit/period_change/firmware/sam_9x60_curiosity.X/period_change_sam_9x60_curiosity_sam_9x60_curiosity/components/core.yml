@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: core
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: SAM9X60D1G
 library: []
 dependency:
@@ -1013,10 +1013,11 @@ data:
     PIN_40_PIO_INTERRUPT:
       attributes:
         id: PIN_40_PIO_INTERRUPT
+        label: PIO Interrupt
       children:
       - children:
         - attributes:
-            value: Both Edge
+            value: Raising Edge
           type: User
         type: Values
       type: String
@@ -1195,11 +1196,12 @@ data:
     PIOA_AIMER_VALUE:
       attributes:
         id: PIOA_AIMER_VALUE
+        label: PIOA_AIMER
       children:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '536870912'
           type: Dynamic
         type: Values
       type: Hex
@@ -1217,6 +1219,7 @@ data:
     PIOA_INTERRUPT_ENABLE:
       attributes:
         id: PIOA_INTERRUPT_ENABLE
+        label: Enable 2 -- Parallel I/O Controller A
       children:
       - children:
         - attributes:
@@ -1228,6 +1231,7 @@ data:
     PIOA_INTERRUPT_HANDLER:
       attributes:
         id: PIOA_INTERRUPT_HANDLER
+        label: Handler
       children:
       - children:
         - attributes:
@@ -1239,6 +1243,7 @@ data:
     PIOA_INTERRUPT_HANDLER_LOCK:
       attributes:
         id: PIOA_INTERRUPT_HANDLER_LOCK
+        label: PIOA_INTERRUPT_HANDLER_LOCK
       children:
       - children:
         - attributes:
@@ -1272,6 +1277,7 @@ data:
     PIOA_LSR_VALUE:
       attributes:
         id: PIOA_LSR_VALUE
+        label: PIOA_LSR
       children:
       - children:
         - attributes:
@@ -1316,11 +1322,12 @@ data:
     PIOA_REHLSR_VALUE:
       attributes:
         id: PIOA_REHLSR_VALUE
+        label: PIOA_REHLSR
       children:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '536870912'
           type: Dynamic
         type: Values
       type: Hex
@@ -1624,6 +1631,7 @@ data:
     PIO_A_INTERRUPT_USED:
       attributes:
         id: PIO_A_INTERRUPT_USED
+        label: Use Interrupt for PIO A
       children:
       - children:
         - attributes:
@@ -2149,6 +2157,17 @@ data:
           type: Dynamic
         type: Values
       type: KeyValueSet
+    COMPONENT_PACKAGE:
+      attributes:
+        id: COMPONENT_PACKAGE
+        label: Pin Package
+      children:
+      - children:
+        - attributes:
+            value: TFBGA233
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:

@@ -82,8 +82,10 @@ void PIO_Initialize ( void )
     ((pio_registers_t*)PIO_PORT_A)->PIO_ODR = ~0x0U;
     /* Initialize PORTA pin state */
     ((pio_registers_t*)PIO_PORT_A)->PIO_ODSR = 0x0U;
-    /* If PIO Interrupt is selected for both edge, it doesn't need any register
-       configuration */
+    /* PORTA Additional interrupt mode Enable */
+    ((pio_registers_t*)PIO_PORT_A)->PIO_AIMER = 0x20000000U;
+    /* PORTA Rising Edge or High Level Interrupt Enable */
+    ((pio_registers_t*)PIO_PORT_A)->PIO_REHLSR = 0x20000000U;
     /* PORTA Interrupt Status Clear */
     ((pio_registers_t*)PIO_PORT_A)->PIO_ISR;
     /* PORTA system level interrupt will be enabled by NVIC Manager */

@@ -66,7 +66,7 @@ L8,PC19,,Available,In,,,,,,,,
 L9,PC25,,Available,In,,,,,,,,
 L10,PC29,,Available,In,,,,,,,,
 L12,PD14,,Available,In,,,,,,,,
-L13,PD18,SW1,GPIO,In,n/a,No,Both Edge,Yes,No,Disabled,No,Low
+L13,PD18,SW1,GPIO,In,n/a,No,Raising Edge,Yes,No,Disabled,No,Low
 L15,PD12,,Available,In,,,,,,,,
 L16,PD10,,Available,In,,,,,,,,
 M1,PA8,,Available,In,,,,,,,,
