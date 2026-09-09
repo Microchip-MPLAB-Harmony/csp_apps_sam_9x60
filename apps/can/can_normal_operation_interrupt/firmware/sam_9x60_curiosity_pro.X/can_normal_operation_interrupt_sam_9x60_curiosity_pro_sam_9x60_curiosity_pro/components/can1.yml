@@ -1,0 +1,342 @@
+configVersion: 1.0.0
+componentName: can1
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: can1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: can1
+          x: '278'
+          y: '31'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    AUTO_NOMINAL_BIT_TIMING_CALCULATION:
+      attributes:
+        id: AUTO_NOMINAL_BIT_TIMING_CALCULATION
+        label: Automatic Nominal Bit Timing Calculation
+      type: Boolean
+    BRP:
+      attributes:
+        id: BRP
+        label: Baudrate Prescaler
+      type: Integer
+    CALCULATED_ERRORRATE:
+      attributes:
+        id: CALCULATED_ERRORRATE
+        label: Error %
+      type: String
+    CALCULATED_NOMINAL_BITRATE:
+      attributes:
+        id: CALCULATED_NOMINAL_BITRATE
+        label: Calculated Bit Rate (Kbps)
+      type: Integer
+    CAN_CFG_SMP:
+      attributes:
+        id: CAN_CFG_SMP
+        label: Sampling Mode
+      type: KeyValueSet
+    CAN_CORE_CLOCK_FREQ:
+      attributes:
+        id: CAN_CORE_CLOCK_FREQ
+        label: Clock Frequency
+      type: Integer
+    CAN_INSTANCE_NAME:
+      attributes:
+        id: CAN_INSTANCE_NAME
+        label: CAN_INSTANCE_NAME
+      type: String
+    CAN_MAM0_ID:
+      attributes:
+        id: CAN_MAM0_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM0_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM0_ID_DECIMAL
+        label: CAN_MAM0_ID_DECIMAL
+      type: Integer
+    CAN_MAM1_ID:
+      attributes:
+        id: CAN_MAM1_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM1_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM1_ID_DECIMAL
+        label: CAN_MAM1_ID_DECIMAL
+      type: Integer
+    CAN_MAM2_ID:
+      attributes:
+        id: CAN_MAM2_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM2_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM2_ID_DECIMAL
+        label: CAN_MAM2_ID_DECIMAL
+      type: Integer
+    CAN_MAM3_ID:
+      attributes:
+        id: CAN_MAM3_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM3_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM3_ID_DECIMAL
+        label: CAN_MAM3_ID_DECIMAL
+      type: Integer
+    CAN_MAM4_ID:
+      attributes:
+        id: CAN_MAM4_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM4_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM4_ID_DECIMAL
+        label: CAN_MAM4_ID_DECIMAL
+      type: Integer
+    CAN_MAM5_ID:
+      attributes:
+        id: CAN_MAM5_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM5_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM5_ID_DECIMAL
+        label: CAN_MAM5_ID_DECIMAL
+      type: Integer
+    CAN_MAM6_ID:
+      attributes:
+        id: CAN_MAM6_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM6_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM6_ID_DECIMAL
+        label: CAN_MAM6_ID_DECIMAL
+      type: Integer
+    CAN_MAM7_ID:
+      attributes:
+        id: CAN_MAM7_ID
+        label: Message Acceptance Mask ID
+      type: Hex
+    CAN_MAM7_ID_DECIMAL:
+      attributes:
+        id: CAN_MAM7_ID_DECIMAL
+        label: CAN_MAM7_ID_DECIMAL
+      type: Integer
+    CAN_MID0_ID:
+      attributes:
+        id: CAN_MID0_ID
+        label: Message ID
+      type: Hex
+    CAN_MID0_ID_DECIMAL:
+      attributes:
+        id: CAN_MID0_ID_DECIMAL
+        label: CAN_MID0_ID_DECIMAL
+      type: Integer
+    CAN_MID1_ID:
+      attributes:
+        id: CAN_MID1_ID
+        label: Message ID
+      type: Hex
+    CAN_MID1_ID_DECIMAL:
+      attributes:
+        id: CAN_MID1_ID_DECIMAL
+        label: CAN_MID1_ID_DECIMAL
+      type: Integer
+    CAN_MID2_ID:
+      attributes:
+        id: CAN_MID2_ID
+        label: Message ID
+      type: Hex
+    CAN_MID2_ID_DECIMAL:
+      attributes:
+        id: CAN_MID2_ID_DECIMAL
+        label: CAN_MID2_ID_DECIMAL
+      type: Integer
+    CAN_MID3_ID:
+      attributes:
+        id: CAN_MID3_ID
+        label: Message ID
+      type: Hex
+    CAN_MID3_ID_DECIMAL:
+      attributes:
+        id: CAN_MID3_ID_DECIMAL
+        label: CAN_MID3_ID_DECIMAL
+      type: Integer
+    CAN_MID4_ID:
+      attributes:
+        id: CAN_MID4_ID
+        label: Message ID
+      type: Hex
+    CAN_MID4_ID_DECIMAL:
+      attributes:
+        id: CAN_MID4_ID_DECIMAL
+        label: CAN_MID4_ID_DECIMAL
+      type: Integer
+    CAN_MID5_ID:
+      attributes:
+        id: CAN_MID5_ID
+        label: Message ID
+      type: Hex
+    CAN_MID5_ID_DECIMAL:
+      attributes:
+        id: CAN_MID5_ID_DECIMAL
+        label: CAN_MID5_ID_DECIMAL
+      type: Integer
+    CAN_MID6_ID:
+      attributes:
+        id: CAN_MID6_ID
+        label: Message ID
+      type: Hex
+    CAN_MID6_ID_DECIMAL:
+      attributes:
+        id: CAN_MID6_ID_DECIMAL
+        label: CAN_MID6_ID_DECIMAL
+      type: Integer
+    CAN_MID7_ID:
+      attributes:
+        id: CAN_MID7_ID
+        label: Message ID
+      type: Hex
+    CAN_MID7_ID_DECIMAL:
+      attributes:
+        id: CAN_MID7_ID_DECIMAL
+        label: CAN_MID7_ID_DECIMAL
+      type: Integer
+    CAN_MMR0_MOT:
+      attributes:
+        id: CAN_MMR0_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    CAN_MMR1_MOT:
+      attributes:
+        id: CAN_MMR1_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    CAN_MMR2_MOT:
+      attributes:
+        id: CAN_MMR2_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    CAN_MMR3_MOT:
+      attributes:
+        id: CAN_MMR3_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    CAN_MMR4_MOT:
+      attributes:
+        id: CAN_MMR4_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    CAN_MMR5_MOT:
+      attributes:
+        id: CAN_MMR5_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    CAN_MMR6_MOT:
+      attributes:
+        id: CAN_MMR6_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    CAN_MMR7_MOT:
+      attributes:
+        id: CAN_MMR7_MOT
+        label: Mailbox Object Type
+      type: KeyValueSet
+    INTERRUPT_MODE:
+      attributes:
+        id: INTERRUPT_MODE
+        label: Interrupt Mode
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    NOMINAL_BITRATE:
+      attributes:
+        id: NOMINAL_BITRATE
+        label: Bit Rate (Kbps)
+      type: Integer
+    NOMINAL_SAMPLE_POINT:
+      attributes:
+        id: NOMINAL_SAMPLE_POINT
+        label: Sample Point %
+      type: Float
+    NUMBER_OF_MAILBOX:
+      attributes:
+        id: NUMBER_OF_MAILBOX
+        label: Number of mailbox
+      type: Integer
+    PHASE1:
+      attributes:
+        id: PHASE1
+        label: Phase 1 Segment (TQ)
+      type: Integer
+    PHASE2:
+      attributes:
+        id: PHASE2
+        label: Phase 2 Segment (TQ)
+      type: Integer
+    PROPAG:
+      attributes:
+        id: PROPAG
+        label: Propagation Segment (TQ)
+      type: Integer
+    PROPAG_TIME:
+      attributes:
+        id: PROPAG_TIME
+        label: Propagation Segment Time (ns)
+      type: Integer
+    SJW:
+      attributes:
+        id: SJW
+        label: Synchronization Jump Width (TQ)
+      type: Integer
+    SYNC:
+      attributes:
+        id: SYNC
+        label: Sync Segment (TQ)
+      type: Integer
+    TIMESTAMP_ENABLE:
+      attributes:
+        id: TIMESTAMP_ENABLE
+        label: Timestamp Enable
+      type: Boolean
+    TIMESTAMP_EOF_MODE:
+      attributes:
+        id: TIMESTAMP_EOF_MODE
+        label: Timestamp at end of message frame
+      type: Boolean
+    TIME_QUANTA_PERIOD:
+      attributes:
+        id: TIME_QUANTA_PERIOD
+        label: Time Quanta (ns)
+      type: String
+    TOTAL_TIME_QUANTA:
+      attributes:
+        id: TOTAL_TIME_QUANTA
+        label: Total Time Quanta (TQ)
+      type: Integer
+  userData: {}
