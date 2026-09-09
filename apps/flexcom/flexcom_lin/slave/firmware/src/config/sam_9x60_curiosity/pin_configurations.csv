@@ -19,7 +19,7 @@ B11,PA21,,FLEXCOM5_IO1,n/a,n/a,No,Disabled,No,No,Disabled,No,Low
 C4,PB15,,Available,In,,,,,,,,
 C5,PB11,,Available,In,,,,,,,,
 C7,PB23,,Available,In,,,,,,,,
-C10,PA29,,Available,In,,,,,,,,
+C10,PA29,SWITCH,GPIO,In,n/a,No,Raising Edge,No,No,Disabled,No,Low
 C11,PA23,,Available,In,,,,,,,,
 C17,PD6,,Available,In,,,,,,,,
 D1,PB1,,Available,In,,,,,,,,
@@ -45,7 +45,7 @@ G1,PA13,,Available,In,,,,,,,,
 G2,PA14,,Available,In,,,,,,,,
 G3,PA11,,Available,In,,,,,,,,
 G4,PA12,,Available,In,,,,,,,,
-G15,PD18,SWITCH,GPIO,In,n/a,No,Disabled,No,No,Disabled,No,Low
+G15,PD18,,Available,In,,,,,,,,
 G16,PD19,LED_GREEN,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
 G17,PD21,LED_BLUE,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
 H1,PA30,,Available,In,,,,,,,,

@@ -56,6 +56,7 @@
 // Section: Handler Routines
 // *****************************************************************************
 // *****************************************************************************
+void PIOA_InterruptHandler (void);
 void FLEXCOM5_InterruptHandler (void);
 
 

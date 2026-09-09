@@ -1,6 +1,6 @@
 configVersion: 1.0.0
-coreVersion: 5.8.4
-spaHostVersion: 1.0.0
+coreVersion: 5.9.0
+spaHostVersion: 1.3.0
 device: SAM9X60D1G
 deviceLibrary:
   className: com.microchip.mcc.harmony.Harmony3Library
@@ -59,9 +59,9 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.c
   hash: 4ca77945241b2c4fbadab2110332cede5e8af1b1c46a68bcecddc70a2c4f5ecf
 - file: ..\src\config\sam_9x60_curiosity\peripheral\pio\plib_pio.h
-  hash: 76bc757817dd7c834028c1a51d3a29c2194ba55581283cafa6792f1c005ba5a3
+  hash: 158616620ec6ec35397ae677b2e99adf13c0e1995a4c5f8be11e387df0c908a7
 - file: ..\src\config\sam_9x60_curiosity\pin_configurations.csv
-  hash: 9924b4c3aca1e14d826b4941016b1dead54fe88dc4d8ca147415194db57ede18
+  hash: 4b394d9793dd4d55a48aa84469abb08fade79da7f183dcd185801ba44a16e6ab
 - file: ..\src\config\sam_9x60_curiosity\stdio\xc32_monitor.c
   hash: 067d7cfcce60bbb8f1e41d9d3c684469087f20ca89094469a3b5c1891c2b5d77
 - file: ..\src\config\sam_9x60_curiosity\toolchain_specifics.h

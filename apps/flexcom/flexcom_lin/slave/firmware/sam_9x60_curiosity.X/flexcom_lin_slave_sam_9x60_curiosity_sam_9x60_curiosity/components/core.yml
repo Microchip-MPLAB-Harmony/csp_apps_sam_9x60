@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: core
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: SAM9X60D1G
 library: []
 dependency:
@@ -31,10 +31,19 @@ data:
     COMPONENT_PACKAGE:
       attributes:
         id: COMPONENT_PACKAGE
+        label: Pin Package
       children:
       - children:
         - attributes:
-            value: BGA233
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: TFBGA233
           type: User
         type: Values
       type: Combo
@@ -391,30 +400,33 @@ data:
     PIN_98_FUNCTION_NAME:
       attributes:
         id: PIN_98_FUNCTION_NAME
+        label: Name
       children:
       - children:
         - attributes:
-            value: SWITCH
+            value: ''
           type: User
         type: Values
       type: String
     PIN_98_FUNCTION_TYPE:
       attributes:
         id: PIN_98_FUNCTION_TYPE
+        label: Type
       children:
       - children:
         - attributes:
-            value: GPIO
+            value: ''
           type: User
         type: Values
       type: String
     PIN_98_PERIPHERAL_FUNCTION:
       attributes:
         id: PIN_98_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
       children:
       - children:
         - attributes:
-            value: GPIO
+            value: ''
           type: User
         type: Values
       type: String
@@ -481,6 +493,7 @@ data:
     PIOA_ABCDSR1_VALUE:
       attributes:
         id: PIOA_ABCDSR1_VALUE
+        label: PIOA_ABCDSR1
       children:
       - children:
         - attributes:
@@ -492,6 +505,7 @@ data:
     PIOA_ABCDSR2_VALUE:
       attributes:
         id: PIOA_ABCDSR2_VALUE
+        label: PIOA_ABCDSR2
       children:
       - children:
         - attributes:
@@ -514,6 +528,7 @@ data:
     PIOA_PDR_VALUE:
       attributes:
         id: PIOA_PDR_VALUE
+        label: PIOA_PDR
       children:
       - children:
         - attributes:
@@ -569,6 +584,7 @@ data:
     PIOD_ABCDSR1_VALUE:
       attributes:
         id: PIOD_ABCDSR1_VALUE
+        label: PIOD_ABCDSR1
       children:
       - children:
         - attributes:
@@ -580,6 +596,7 @@ data:
     PIOD_ABCDSR2_VALUE:
       attributes:
         id: PIOD_ABCDSR2_VALUE
+        label: PIOD_ABCDSR2
       children:
       - children:
         - attributes:
@@ -602,6 +619,7 @@ data:
     PIOD_PDR_VALUE:
       attributes:
         id: PIOD_PDR_VALUE
+        label: PIOD_PDR
       children:
       - children:
         - attributes:
@@ -610,6 +628,39 @@ data:
           type: Dynamic
         type: Values
       type: Hex
+    PIN_40_FUNCTION_TYPE:
+      attributes:
+        id: PIN_40_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_40_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_40_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    PIN_40_FUNCTION_NAME:
+      attributes:
+        id: PIN_40_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: SWITCH
+          type: User
+        type: Values
+      type: String
   userData:
     children:
     - attributes:

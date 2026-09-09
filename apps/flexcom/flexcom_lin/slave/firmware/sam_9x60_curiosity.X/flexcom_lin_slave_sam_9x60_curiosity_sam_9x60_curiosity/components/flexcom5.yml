@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: flexcom5
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: SAM9X60D1G
 library: []
 dependency:
@@ -22,8 +22,8 @@ data:
     - children:
       - attributes:
           id: flexcom5
-          x: '22'
-          y: '149'
+          x: '48'
+          y: '231'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
