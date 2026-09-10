@@ -42,7 +42,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\mmu\plib_mmu.h
   hash: 7fb6e6b8ad6a80b7fc04c0264b7cdf49e6d6b887e4f3c5aa394eda88e32e0116
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\pio\plib_pio.c
-  hash: b8dfeea705c2d585c846ffe29d25ec539131c82a2ac2a9c996f54a3b00f4062b
+  hash: 6b8556da79f234fd293f20d4ace3fe532e32b8f8bb2fc0da0f38780e0ee141b2
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\pio\plib_pio.h
   hash: 273e461ca0b4ff5759545905988f6a5176c1bab76d7fd3f98ab395d6e1dcb7e4
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\tc\plib_tc0.c

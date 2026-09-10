@@ -2,10 +2,10 @@
 
 manifest_file_version: 1.0.0
 project: tc_compare_mode_sam_9x60_curiosity_pro
-creation_date: 2026-08-10T14:36:48.349+05:30[Asia/Calcutta]
+creation_date: 2026-09-10T09:23:56.097+05:30[Asia/Calcutta]
 operating_system: Windows 11
 mcc_mode: IDE
-mcc_mode_version: v6.30
+mcc_mode_version: v6.25
 device_name: SAM9X60
 compiler: XC32 5.10
 mcc_version: 5.7.0

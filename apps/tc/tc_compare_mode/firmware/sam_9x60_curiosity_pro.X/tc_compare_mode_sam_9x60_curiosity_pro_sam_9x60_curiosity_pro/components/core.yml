@@ -17,18 +17,6 @@ data:
   attachments: {}
   elementPosition: {}
   symbols:
-    TC0_CH3_CLOCK_FREQUENCY:
-      attributes:
-        id: TC0_CH3_CLOCK_FREQUENCY
-        label: TC0_CH3_CLOCK_FREQUENCY
-      children:
-      - children:
-        - attributes:
-            id: core
-            value: '200000000'
-          type: Dynamic
-        type: Values
-      type: Integer
     COMPONENT_PACKAGE:
       attributes:
         id: COMPONENT_PACKAGE
@@ -51,30 +39,53 @@ data:
           type: User
         type: Values
       type: String
-    TC0_CLOCK_ENABLE:
+    PIN_87_PERIPHERAL_FUNCTION:
       attributes:
-        id: TC0_CLOCK_ENABLE
-        label: TC0
+        id: PIN_87_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
+      children:
+      - children:
+        - attributes:
+            value: A
+          type: User
+        type: Values
+      type: String
+    PIOA_ABCDSR1_VALUE:
+      attributes:
+        id: PIOA_ABCDSR1_VALUE
+        label: PIOA_ABCDSR1
       children:
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: '0'
           type: Dynamic
         type: Values
-      type: Boolean
-    TC0_CHANNEL1_CLOCK_ENABLE:
+      type: Hex
+    PIOA_ABCDSR2_VALUE:
       attributes:
-        id: TC0_CHANNEL1_CLOCK_ENABLE
-        label: TC0_CHANNEL1_CLOCK_ENABLE
+        id: PIOA_ABCDSR2_VALUE
+        label: PIOA_ABCDSR2
       children:
       - children:
         - attributes:
-            id: tc0
-            value: 'true'
+            id: core
+            value: '0'
           type: Dynamic
         type: Values
-      type: Boolean
+      type: Hex
+    PIOA_PDR_VALUE:
+      attributes:
+        id: PIOA_PDR_VALUE
+        label: PIOA_PDR
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4194304'
+          type: Dynamic
+        type: Values
+      type: Hex
     TC0_CH1_CLOCK_FREQUENCY:
       attributes:
         id: TC0_CH1_CLOCK_FREQUENCY
@@ -87,6 +98,42 @@ data:
           type: Dynamic
         type: Values
       type: Integer
+    TC0_CH3_CLOCK_FREQUENCY:
+      attributes:
+        id: TC0_CH3_CLOCK_FREQUENCY
+        label: TC0_CH3_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_CHANNEL1_CLOCK_ENABLE:
+      attributes:
+        id: TC0_CHANNEL1_CLOCK_ENABLE
+        label: TC0_CHANNEL1_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CLOCK_ENABLE:
+      attributes:
+        id: TC0_CLOCK_ENABLE
+        label: TC0
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:

@@ -27,11 +27,11 @@
               <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/tc/plib_tc_common.h</itemPath>
             </logicalFolder>
           </logicalFolder>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/device.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/device_cache.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/definitions.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/interrupts.h</itemPath>
-          <itemPath>../src/config/sam_9x60_curiosity_pro/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
@@ -231,7 +231,7 @@
         <targetDevice>SAM9X60</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>j32</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>5.10</languageToolchainVersion>
         <platform>3</platform>
@@ -244,7 +244,7 @@
         <ScriptingSetting key="boot.use" value="true"/>
         <ScriptingSetting key="boot.entry_adr" value=""/>
         <ScriptingSetting key="boot.path"
-                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\sam9x60_cpro_binaries\at91bootstrap.elf "/>
+                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\sam9x60_cpro_binaries\at91bootstrap.elf"/>
         <ScriptingSetting key="boot.prj" value=""/>
       </ScriptingSettings>
       <compileType>
@@ -446,76 +446,6 @@
         <property key="stack-smashing" value=""/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
-      <Tool>
-        <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="communication.adaptivespeed" value="false"/>
-        <property key="communication.autoselectspeed" value="true"/>
-        <property key="communication.interface" value="4wire"/>
-        <property key="communication.speed" value="4"/>
-        <property key="debugoptions.debug-startup" value="Use system settings"/>
-        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
-        <property key="event.recorder.debugger.behavior" value="Running"/>
-        <property key="event.recorder.enabled" value="false"/>
-        <property key="event.recorder.scvd.files" value=""/>
-        <property key="jlink.override" value=""/>
-        <property key="lastid" value=""/>
-        <property key="loader.board_file" value="${ProjectDir}/board.xboard"/>
-        <property key="memories.bootflash" value="true"/>
-        <property key="memories.configurationmemory" value="true"/>
-        <property key="memories.eeprom" value="true"/>
-        <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.ranges"
-                  value="${memories.instruction.ram.ranges.default}"/>
-        <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0x300000-0xeff00fff"/>
-        <property key="programoptions.eraseb4program" value="false"/>
-        <property key="programoptions.preservebootflash" value="false"/>
-        <property key="programoptions.preserveprogrammemory" value="false"/>
-        <property key="programoptions.preserveprogrammemory.ranges"
-                  value="0x300000-0xeff00fff"/>
-        <property key="programoptions.resetafterprogram" value="true"/>
-        <property key="script.has_reset" value="true"/>
-        <property key="script.log_level" value="1"/>
-        <property key="script.reset_delay" value="0"/>
-        <property key="script.show_output" value="false"/>
-        <property key="x.recover.delay" value="100000"/>
-      </Tool>
-      <j32>
-        <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="communication.adaptivespeed" value="false"/>
-        <property key="communication.autoselectspeed" value="true"/>
-        <property key="communication.interface" value="4wire"/>
-        <property key="communication.speed" value="4"/>
-        <property key="debugoptions.debug-startup" value="Use system settings"/>
-        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
-        <property key="event.recorder.debugger.behavior" value="Running"/>
-        <property key="event.recorder.enabled" value="false"/>
-        <property key="event.recorder.scvd.files" value=""/>
-        <property key="jlink.override" value=""/>
-        <property key="lastid" value=""/>
-        <property key="loader.board_file" value="${ProjectDir}/board.xboard"/>
-        <property key="memories.bootflash" value="true"/>
-        <property key="memories.configurationmemory" value="true"/>
-        <property key="memories.eeprom" value="true"/>
-        <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.ranges"
-                  value="${memories.instruction.ram.ranges.default}"/>
-        <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0x300000-0xeff00fff"/>
-        <property key="programoptions.eraseb4program" value="false"/>
-        <property key="programoptions.preservebootflash" value="false"/>
-        <property key="programoptions.preserveprogrammemory" value="false"/>
-        <property key="programoptions.preserveprogrammemory.ranges"
-                  value="0x300000-0xeff00fff"/>
-        <property key="programoptions.resetafterprogram" value="true"/>
-        <property key="script.has_reset" value="true"/>
-        <property key="script.log_level" value="1"/>
-        <property key="script.reset_delay" value="0"/>
-        <property key="script.show_output" value="false"/>
-        <property key="x.recover.delay" value="100000"/>
-      </j32>
     </conf>
   </confs>
 </configurationDescriptor>
