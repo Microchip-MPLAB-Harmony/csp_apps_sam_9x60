@@ -1,0 +1,61 @@
+configVersion: 1.0.0
+componentName: rtt
+coreVersion: 5.9.0
+device: SAM9X60D6K
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: rtt
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: rtt
+          x: '325'
+          y: '122'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    rttINCIEN:
+      attributes:
+        id: rttINCIEN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    rttRTPRES:
+      attributes:
+        id: rttRTPRES
+      children:
+      - children:
+        - attributes:
+            value: '32768'
+          type: User
+        type: Values
+      type: Integer
+    rttALMIEN:
+      attributes:
+        id: rttALMIEN
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+  userData: {}
