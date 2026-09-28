@@ -1,0 +1,40 @@
+configVersion: 1.0.0
+componentName: otpc
+coreVersion: 5.9.0
+device: SAM9X60D6K
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: otpc
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    ENABLE_OTPC_EMULATION:
+      attributes:
+        id: ENABLE_OTPC_EMULATION
+        label: Enable Emulation mode
+      type: Boolean
+    OTPC_EMULATION_ADDRESS:
+      attributes:
+        id: OTPC_EMULATION_ADDRESS
+        label: OTPC_EMULATION_ADDRESS
+      type: String
+    OTPC_EMULATION_SIZE:
+      attributes:
+        id: OTPC_EMULATION_SIZE
+        label: OTPC_EMULATION_SIZE
+      type: String
+    OTPC_INSTANCE_NAME:
+      attributes:
+        id: OTPC_INSTANCE_NAME
+        label: OTPC_INSTANCE_NAME
+      type: String
+  userData: {}

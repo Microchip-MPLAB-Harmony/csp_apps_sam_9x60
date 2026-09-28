@@ -103,7 +103,7 @@ int main ( void )
     error = OTPC_UpdatePayload(packet_addr, &payload);
     if (error == OTPC_NO_ERROR)
     {
-      printf("Packet at address %x is updated \r\n", (unsigned int)packet_addr);
+      printf("Packet at address %x is updated with value = %x \r\n", (unsigned int)packet_addr, (unsigned int)payload);
     }
     else
     {
