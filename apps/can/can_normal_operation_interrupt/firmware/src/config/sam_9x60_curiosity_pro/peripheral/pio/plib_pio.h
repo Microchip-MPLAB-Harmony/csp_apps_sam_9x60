@@ -71,15 +71,6 @@
 #define LED_BLUE_Get()               ((PIOB_REGS->PIO_PDSR >> 13U) & 0x1U)
 #define LED_BLUE_PIN                  PIO_PIN_PB13
 
-/*** Macros for STANDBY pin ***/
-#define STANDBY_Set()               (PIOB_REGS->PIO_SODR = ((uint32_t)1U<<17U))
-#define STANDBY_Clear()             (PIOB_REGS->PIO_CODR = ((uint32_t)1U<<17U))
-#define STANDBY_Toggle()            (PIOB_REGS->PIO_ODSR ^= ((uint32_t)1U<<17U))
-#define STANDBY_OutputEnable()      (PIOB_REGS->PIO_OER = ((uint32_t)1U<<17U))
-#define STANDBY_InputEnable()       (PIOB_REGS->PIO_ODR = ((uint32_t)1U<<17U))
-#define STANDBY_Get()               ((PIOB_REGS->PIO_PDSR >> 17U) & 0x1U)
-#define STANDBY_PIN                  PIO_PIN_PB17
-
 /*** Macros for LED_GREEN pin ***/
 #define LED_GREEN_Set()               (PIOB_REGS->PIO_SODR = ((uint32_t)1U<<12U))
 #define LED_GREEN_Clear()             (PIOB_REGS->PIO_CODR = ((uint32_t)1U<<12U))

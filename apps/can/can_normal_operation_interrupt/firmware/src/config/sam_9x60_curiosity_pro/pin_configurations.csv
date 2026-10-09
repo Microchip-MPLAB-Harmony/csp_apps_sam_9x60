@@ -6,7 +6,7 @@ A5,PB7,,Available,In,,,,,,,,
 A6,PB20,,Available,In,,,,,,,,
 A7,PB21,,Available,In,,,,,,,,
 A8,PB24,,Available,In,,,,,,,,
-B1,PB17,STANDBY,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
+B1,PB17,,Available,In,,,,,,,,
 B3,PB16,,Available,In,,,,,,,,
 B5,PB15,,Available,In,,,,,,,,
 B6,PB23,,Available,In,,,,,,,,
