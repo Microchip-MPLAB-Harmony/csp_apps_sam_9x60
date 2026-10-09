@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: tc0
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: SAM9X60
 library: []
 dependency:
@@ -242,7 +242,7 @@ data:
             id: max
           children:
           - type: Value
-            value: '1.34217728E8'
+            value: 1.34217728E8
           type: Float
         type: Attributes
       - children:
