@@ -214,12 +214,12 @@ void SYS_Initialize ( void* data )
 
     FLEXCOM4_USART_Initialize();
 
-    DBGU_Initialize();
-
  
     TC0_CH0_TimerInitialize(); 
      
     
+    DBGU_Initialize();
+
 
 
 
