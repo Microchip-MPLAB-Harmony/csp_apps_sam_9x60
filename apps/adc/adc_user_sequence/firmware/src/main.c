@@ -57,7 +57,7 @@
     #define APP_ADC_CH_FIRST      ADC_CH4
     #define APP_ADC_CH_SECOND     ADC_CH5
     #define APP_ADC_NUM_CHANNELS  2
-#else
+#elif defined(__SAM9X60D1G__) || defined(__SAM9X60__)
     /* Curiosity Standard - 3 channels */
     #define APP_ADC_CH_FIRST      ADC_CH0
     #define APP_ADC_CH_SECOND     ADC_CH1

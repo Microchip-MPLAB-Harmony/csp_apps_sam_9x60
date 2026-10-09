@@ -60,7 +60,7 @@
  #if defined(__SAM9X60D6K__)
     // Curiosity Hybrid
     #define APP_ADC_CHANNEL     ADC_CH4
-#elif defined(__SAM9X60D1G__)
+#elif defined(__SAM9X60D1G__) || defined(__SAM9X60__)
     // Curiosity Standard
     #define APP_ADC_CHANNEL     ADC_CH0
 #else

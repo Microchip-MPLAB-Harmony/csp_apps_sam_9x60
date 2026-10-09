@@ -1,0 +1,353 @@
+configVersion: 1.0.0
+componentName: core
+coreVersion: 5.8.4
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: core
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    COMPONENT_PACKAGE:
+      attributes:
+        id: COMPONENT_PACKAGE
+      children:
+      - children:
+        - attributes:
+            value: TFBGA228
+          type: User
+        type: Values
+      type: Combo
+    DBGU_CLOCK_ENABLE:
+      attributes:
+        id: DBGU_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DBGU_CLOCK_FREQUENCY:
+      attributes:
+        id: DBGU_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DBGU_INTERRUPT_ENABLE:
+      attributes:
+        id: DBGU_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DBGU_INTERRUPT_HANDLER:
+      attributes:
+        id: DBGU_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: DBGU_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    DBGU_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: DBGU_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: dbgu
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PIN_144_FUNCTION_TYPE:
+      attributes:
+        id: PIN_144_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: DBGU_DTXD
+          type: User
+        type: Values
+      type: String
+    PIN_144_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_144_PERIPHERAL_FUNCTION
+      children:
+      - children:
+        - attributes:
+            value: A
+          type: User
+        type: Values
+      type: String
+    PIN_49_FUNCTION_TYPE:
+      attributes:
+        id: PIN_49_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM_PWM0
+          type: User
+        type: Values
+      type: String
+    PIN_49_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_49_PERIPHERAL_FUNCTION
+      children:
+      - children:
+        - attributes:
+            value: B
+          type: User
+        type: Values
+      type: String
+    PIN_91_FUNCTION_TYPE:
+      attributes:
+        id: PIN_91_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: TC0_TIOA0
+          type: User
+        type: Values
+      type: String
+    PIN_91_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_91_PERIPHERAL_FUNCTION
+      children:
+      - children:
+        - attributes:
+            value: A
+          type: User
+        type: Values
+      type: String
+    PIN_92_FUNCTION_TYPE:
+      attributes:
+        id: PIN_92_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: DBGU_DRXD
+          type: User
+        type: Values
+      type: String
+    PIN_92_PERIPHERAL_FUNCTION:
+      attributes:
+        id: PIN_92_PERIPHERAL_FUNCTION
+      children:
+      - children:
+        - attributes:
+            value: A
+          type: User
+        type: Values
+      type: String
+    PIOA_ABCDSR1_VALUE:
+      attributes:
+        id: PIOA_ABCDSR1_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOA_ABCDSR2_VALUE:
+      attributes:
+        id: PIOA_ABCDSR2_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOA_PDR_VALUE:
+      attributes:
+        id: PIOA_PDR_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2098688'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOB_ABCDSR1_VALUE:
+      attributes:
+        id: PIOB_ABCDSR1_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2048'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOB_ABCDSR2_VALUE:
+      attributes:
+        id: PIOB_ABCDSR2_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PIOB_PDR_VALUE:
+      attributes:
+        id: PIOB_PDR_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2048'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PWM_CLOCK_ENABLE:
+      attributes:
+        id: PWM_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CH0_CLOCK_FREQUENCY:
+      attributes:
+        id: TC0_CH0_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '6250000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_CH1_CLOCK_FREQUENCY:
+      attributes:
+        id: TC0_CH1_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_CH3_CLOCK_FREQUENCY:
+      attributes:
+        id: TC0_CH3_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC0_CHANNEL0_CLOCK_ENABLE:
+      attributes:
+        id: TC0_CHANNEL0_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CHANNEL1_CLOCK_ENABLE:
+      attributes:
+        id: TC0_CHANNEL1_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_CLOCK_ENABLE:
+      attributes:
+        id: TC0_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_INTERRUPT_ENABLE:
+      attributes:
+        id: TC0_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC0_INTERRUPT_HANDLER:
+      attributes:
+        id: TC0_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: TC0_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    TC0_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC0_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData:
+    children:
+    - attributes:
+        canvasHeight: '0'
+        canvasWidth: '0'
+      type: GraphSettings
+    - children:
+      - attributes:
+          id: profile0
+          name: Main
+        type: Profile
+      type: PowerProfiles
+    type: UserData
