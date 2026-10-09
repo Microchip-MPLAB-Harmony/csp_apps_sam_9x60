@@ -80,9 +80,9 @@ void WDT_Initialize( void )
     // set counter values:
     //    WDT_WLR_RPTH =   1000 (mSecs) = 250 (counts)
     //    WDT_WLR_PERIOD = 6144 (mSecs) = 1536 (counts)
-    //    WDT_ILR_LVLTH =  6140 (mSecs) = 1535 (counts)
+    //    WDT_ILR_LVLTH =  4096 (mSecs) = 1024 (counts)
     WDT_REGS->WDT_WLR = WDT_WLR_RPTH( 250U ) | WDT_WLR_PERIOD( 1536U );
-    WDT_REGS->WDT_ILR = WDT_ILR_LVLTH( 1535U );
+    WDT_REGS->WDT_ILR = WDT_ILR_LVLTH( 1024U );
     // clear interrupt status
     (void) WDT_REGS->WDT_ISR;
     // enable appropriate interrupts

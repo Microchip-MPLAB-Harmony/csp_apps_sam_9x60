@@ -263,7 +263,7 @@ data:
             id: max
           children:
           - type: Value
-            value: '1534'
+            value: '1023'
           type: Integer
         type: Attributes
       type: Integer
@@ -275,7 +275,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '6140'
+            value: '4096'
           type: Dynamic
         type: Values
       type: Integer
@@ -292,6 +292,11 @@ data:
             value: '1535'
           type: Integer
         type: Attributes
+      - children:
+        - attributes:
+            value: '1024'
+          type: User
+        type: Values
       type: Integer
     WDT_PERIOD_COUNT:
       attributes:

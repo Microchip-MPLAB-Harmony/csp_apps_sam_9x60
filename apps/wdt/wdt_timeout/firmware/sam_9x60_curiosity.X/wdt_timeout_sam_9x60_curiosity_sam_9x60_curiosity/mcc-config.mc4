@@ -1,5 +1,6 @@
 configVersion: 1.0.0
 coreVersion: 5.8.4
+spaHostVersion: 1.2.1
 device: SAM9X60D1G
 deviceLibrary:
   className: com.microchip.mcc.harmony.Harmony3Library

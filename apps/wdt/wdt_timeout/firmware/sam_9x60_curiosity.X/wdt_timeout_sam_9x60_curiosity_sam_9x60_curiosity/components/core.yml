@@ -2865,6 +2865,16 @@ data:
           type: Dynamic
         type: Values
       type: KeyValueSet
+    COMPONENT_PACKAGE:
+      attributes:
+        id: COMPONENT_PACKAGE
+      children:
+      - children:
+        - attributes:
+            value: TFBGA233
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:

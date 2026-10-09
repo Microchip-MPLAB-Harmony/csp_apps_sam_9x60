@@ -22,8 +22,8 @@ data:
     - children:
       - attributes:
           id: pit
-          x: '336'
-          y: '200'
+          x: '335'
+          y: '268'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph

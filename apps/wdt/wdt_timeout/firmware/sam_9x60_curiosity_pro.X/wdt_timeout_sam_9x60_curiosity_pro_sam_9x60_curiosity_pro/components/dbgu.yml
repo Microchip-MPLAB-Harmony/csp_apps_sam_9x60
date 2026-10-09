@@ -44,8 +44,8 @@ data:
     - children:
       - attributes:
           id: dbgu
-          x: '5'
-          y: '41'
+          x: '42'
+          y: '175'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
@@ -96,6 +96,12 @@ data:
       attributes:
         id: DBGU_MR_FILTER
         label: Receiver Digital Filter
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     DBGU_MR_PAR:
       attributes:
