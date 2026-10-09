@@ -80,16 +80,16 @@ int main ( void )
     
     /* Initialize all modules */
     SYS_Initialize ( NULL );
-
-    pwm_period = PWM_ChannelPeriodGet(PWM_CHANNEL_0);
 #if defined(__SAM9X60D6K__)
     pwm_period = PWM_ChannelPeriodGet(PWM_CHANNEL_3);
+#else
+    pwm_period = PWM_ChannelPeriodGet(PWM_CHANNEL_0);
 #endif
     TC0_CH0_CaptureStart();
-
-    PWM_ChannelsStart(PWM_CHANNEL_0_MASK);
 #if defined(__SAM9X60D6K__)
     PWM_ChannelsStart(PWM_CHANNEL_3_MASK);
+#else
+    PWM_ChannelsStart(PWM_CHANNEL_0_MASK);
 #endif
     
     TC0_CH1_TimerCallbackRegister(timer0_channel1_callback, 0);
@@ -98,10 +98,10 @@ int main ( void )
     printf("\n\r---------------------------------------------------------");
     printf("\n\r                    TC Capture Demo                 ");
     printf("\n\r---------------------------------------------------------\n\r"); 
-   
-    printf("Connect input signal to Timer 0 Channel 0 (Pin PA21).\n\n\r");
-#if defined(__SAM9X60D6K__)
+#if defined(__SAM9X60D6K__)   
     printf("Connect input signal to Timer 0 (PA21) Channel 3 (Pin PB14) - ClickBoard \n\n\r");
+#else
+    printf("Connect input signal to Timer 0 Channel 0 (Pin PA21).\n\n\r");
 #endif
 
     while ( true )
@@ -113,10 +113,10 @@ int main ( void )
         {
             pwm_duty = DUTY_VAL_INCREMENT;
         }
-      
-        PWM_ChannelDutySet(PWM_CHANNEL_0, pwm_duty);
-#if defined(__SAM9X60D6K__)
+#if defined(__SAM9X60D6K__)      
         PWM_ChannelDutySet(PWM_CHANNEL_3, pwm_duty);
+#else
+        PWM_ChannelDutySet(PWM_CHANNEL_0, pwm_duty);
 #endif            
         /* Wait for compare event */
         while((TC0_CH0_CaptureStatusGet() & TC_CAPTURE_B_LOAD) != TC_CAPTURE_B_LOAD);
