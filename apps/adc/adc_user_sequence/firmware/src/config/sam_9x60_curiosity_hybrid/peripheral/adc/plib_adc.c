@@ -73,7 +73,7 @@ void ADC_Initialize(void)
 
     /* User defined channel conversion sequence */
     ADC_REGS->ADC_MR |= ADC_MR_USEQ_Msk;
-    ADC_REGS->ADC_SEQR1 = ADC_SEQR1_USCH5(ADC_CH4) |
+    ADC_REGS->ADC_SEQR1 = ADC_SEQR1_USCH5(ADC_CH4) | 
 		ADC_SEQR1_USCH6(ADC_CH5);
     /* Enable interrupt */
     ADC_REGS->ADC_IER = ADC_IER_EOC5_Msk;
