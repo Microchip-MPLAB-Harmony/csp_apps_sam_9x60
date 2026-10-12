@@ -56,6 +56,7 @@
 // Section: Handler Routines
 // *****************************************************************************
 // *****************************************************************************
+void DBGU_InterruptHandler (void);
 
 
 /* Interrupt Handler for spurious interrupts */

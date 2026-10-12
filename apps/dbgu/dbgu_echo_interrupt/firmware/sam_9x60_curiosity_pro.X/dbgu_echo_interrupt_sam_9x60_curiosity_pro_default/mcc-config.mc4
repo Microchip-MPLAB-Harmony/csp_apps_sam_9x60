@@ -1,54 +1,61 @@
 configVersion: 1.0.0
 coreVersion: 5.9.0
-spaHostVersion: 1.2.1
+spaHostVersion: 1.3.0
 device: SAM9X60
 deviceLibrary: {}
 groupModules: []
 modules:
 - core
+- dbgu
 - dfp
 generatedFileHashHistoryMap:
-- file: ..\src\config\sam_9x60_curiosity_pro\cstartup.S
+- file: ..\src\config\default\cstartup.S
   hash: bab52b245ee3ee78ff26156c06ac67761ea78039030859fa772ece111fd5dab3
-- file: ..\src\config\sam_9x60_curiosity_pro\ddram.ld
+- file: ..\src\config\default\ddram.ld
   hash: 6726b057f4693885faf7e71c8cfe44e210a9ae72e9af402661357fdf82e47276
-- file: ..\src\config\sam_9x60_curiosity_pro\definitions.h
-  hash: c5da486345a75a6ba308af7181a69da65153e6ab58c984bdbee0b3a57ac92cd1
-- file: ..\src\config\sam_9x60_curiosity_pro\device.h
+- file: ..\src\config\default\definitions.h
+  hash: abe187607075f6fe25ef4f7768208aecd8e980d8093098f6df1256e7f94b4974
+- file: ..\src\config\default\device.h
   hash: 921233cd30258b2ffd44b6086dc807be0918329627d862f645fb4c83806c5227
-- file: ..\src\config\sam_9x60_curiosity_pro\device_cache.h
+- file: ..\src\config\default\device_cache.h
   hash: 022a4c6bce1d10badd66bfa60707c3dbc830d5b1a6702dfd825d3317ccba1188
-- file: ..\src\config\sam_9x60_curiosity_pro\fault_handlers.c
+- file: ..\src\config\default\fault_handlers.c
   hash: 931e951cf7431d3d70d6ab81bcd265ff0ac8b3f473b73cd7a541f59d49786b7c
-- file: ..\src\config\sam_9x60_curiosity_pro\initialization.c
-  hash: 40ee60cfff21b5c336627c1f5a572c73538cbd1753a3d1e71912e0576b2e9a2c
-- file: ..\src\config\sam_9x60_curiosity_pro\interrupts.c
+- file: ..\src\config\default\initialization.c
+  hash: bd24dc7e05fa97755da17bb8fc770662e4993397c61853602272cb54a132f882
+- file: ..\src\config\default\interrupts.c
   hash: 2f7142ad0cc39b508419c3c3b07f8343ec9a9a2d24b1f437f7a353188b80f311
-- file: ..\src\config\sam_9x60_curiosity_pro\interrupts.h
-  hash: 71c96fb590706c06ee0796ff6de25b5c5a07b3be57b74338aa99423d77552c99
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\aic\plib_aic.c
-  hash: cd09a6c20fe0ffa4766a376f7aa014fedcea0478e06821968ca54fbe5dce2260
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\aic\plib_aic.h
+- file: ..\src\config\default\interrupts.h
+  hash: 4655ac03851f059af70854e9b7e4fc3d3158e17a5ce7d652d82ddcb80f40a38b
+- file: ..\src\config\default\peripheral\aic\plib_aic.c
+  hash: 9cc2d7ba0169addb637ead55230c490066a919dccea68ae1682a4758677742b4
+- file: ..\src\config\default\peripheral\aic\plib_aic.h
   hash: 150e39620b72b62d7b11a7338040d2c28c888d8714bbaa7462063932076b9081
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\clk\plib_clk.c
-  hash: 0f073aea2fa53ddc2418b26f8a507a4cfd67404c410fda520bc5336296e07871
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\clk\plib_clk.h
+- file: ..\src\config\default\peripheral\clk\plib_clk.c
+  hash: 7a74dc3291552e73e14cdf4d8ad7a88129877ab5b99be5067916e8d9582f68d0
+- file: ..\src\config\default\peripheral\clk\plib_clk.h
   hash: aa5052a85d632a20d2e9af22b9b37b2cca1b9d5b4cf4cb772354e4d546530eb3
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\mmu\cp15.h
+- file: ..\src\config\default\peripheral\dbgu\plib_dbgu.c
+  hash: c2de086f58a555da7289194e38d229655c0422db9596826cc6eaff604085526e
+- file: ..\src\config\default\peripheral\dbgu\plib_dbgu.h
+  hash: c653eab2dc2e1aa743f83e1f30d114decded62d3534bbb98bee0ea5fffe39238
+- file: ..\src\config\default\peripheral\dbgu\plib_dbgu_common.h
+  hash: 3a5532ba83c46095ed55db646a9be166772429df5eac103b28c31a562c9cf1a2
+- file: ..\src\config\default\peripheral\mmu\cp15.h
   hash: d927deee45b9b50351c5513daf446ae3278f5fa85915c06c434b24c7eb61b64b
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\mmu\plib_mmu.c
+- file: ..\src\config\default\peripheral\mmu\plib_mmu.c
   hash: 6a3cb6ac4384e580c4eccdde14a89666d97d0a07b0a979a736db73c15845aed2
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\mmu\plib_mmu.h
+- file: ..\src\config\default\peripheral\mmu\plib_mmu.h
   hash: 7fb6e6b8ad6a80b7fc04c0264b7cdf49e6d6b887e4f3c5aa394eda88e32e0116
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\pio\plib_pio.c
-  hash: b8dfeea705c2d585c846ffe29d25ec539131c82a2ac2a9c996f54a3b00f4062b
-- file: ..\src\config\sam_9x60_curiosity_pro\peripheral\pio\plib_pio.h
-  hash: 273e461ca0b4ff5759545905988f6a5176c1bab76d7fd3f98ab395d6e1dcb7e4
-- file: ..\src\config\sam_9x60_curiosity_pro\pin_configurations.csv
-  hash: 443958d74d3f119a768a8cb1774816e72178df5bc06d22f942b0390b4a25bda6
-- file: ..\src\config\sam_9x60_curiosity_pro\stdio\xc32_monitor.c
+- file: ..\src\config\default\peripheral\pio\plib_pio.c
+  hash: c123833f8c409f390bcc3625b803f427aead9c2ddf23a50f23cc4720df93342c
+- file: ..\src\config\default\peripheral\pio\plib_pio.h
+  hash: efddc9e64c376d044c8a80cc86307f17590795eb94e200f71939a515c4005d0f
+- file: ..\src\config\default\pin_configurations.csv
+  hash: 7c83fb6c02457db6fc4cbd26f2327b4507b159e542347ab730e0bd0bb7b83bb3
+- file: ..\src\config\default\stdio\xc32_monitor.c
   hash: 858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a
-- file: ..\src\config\sam_9x60_curiosity_pro\toolchain_specifics.h
+- file: ..\src\config\default\toolchain_specifics.h
   hash: 61b9d7e2427b11029b90cfefa844e187899beffb4b351ccbfab471fd44dbbf2d
 - file: ..\src\main.c
 - file: ..\src\packs\SAM9X60_DFP\component\adc.h
