@@ -587,6 +587,40 @@ data:
           type: User
         type: Values
       type: Boolean
+    DBGU_GCLK_FREQUENCY:
+      attributes:
+        id: DBGU_GCLK_FREQUENCY
+        label: DBGU_GCLK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLK_DBGU_GCLKEN:
+      attributes:
+        id: CLK_DBGU_GCLKEN
+        label: Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CLK_DBGU_GCLKCSS:
+      attributes:
+        id: CLK_DBGU_GCLKCSS
+        label: GCLKCSS
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
   userData:
     children:
     - attributes:

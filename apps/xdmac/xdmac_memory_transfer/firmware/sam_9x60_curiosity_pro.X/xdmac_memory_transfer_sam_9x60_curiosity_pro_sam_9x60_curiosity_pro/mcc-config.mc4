@@ -34,7 +34,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\aic\plib_aic.h
   hash: 150e39620b72b62d7b11a7338040d2c28c888d8714bbaa7462063932076b9081
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\clk\plib_clk.c
-  hash: 432d551e6a52d05694a76aa8e067780c200d53cb9ebd6c2e4ba1ecd2e68686a7
+  hash: 5c05183d13d4b0ea83908bdd7a4461c6193da74b7e2f6ff40cb0f01cec1fc4ca
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\clk\plib_clk.h
   hash: aa5052a85d632a20d2e9af22b9b37b2cca1b9d5b4cf4cb772354e4d546530eb3
 - file: ..\src\config\sam_9x60_curiosity_pro\peripheral\dbgu\plib_dbgu.c
