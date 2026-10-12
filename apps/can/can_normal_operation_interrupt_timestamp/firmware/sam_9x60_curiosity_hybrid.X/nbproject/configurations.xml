@@ -1,13 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
-    <logicalFolder name="HeaderFiles"
-                   displayName="Header Files"
-                   projectFiles="true">
+    <logicalFolder name="HeaderFiles" displayName="Header Files" projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity_hybrid"
-                       displayName="sam_9x60_curiosity_hybrid"
-                       projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_hybrid" displayName="sam_9x60_curiosity_hybrid" projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_curiosity_hybrid/peripheral/aic/plib_aic.h</itemPath>
@@ -39,9 +35,7 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
-        <logicalFolder name="SAM9X60D6K_DFP"
-                       displayName="SAM9X60D6K_DFP"
-                       projectFiles="true">
+        <logicalFolder name="SAM9X60D6K_DFP" displayName="SAM9X60D6K_DFP" projectFiles="true">
           <logicalFolder name="component" displayName="component" projectFiles="true">
             <itemPath>../src/packs/SAM9X60D6K_DFP/component/adc.h</itemPath>
             <itemPath>../src/packs/SAM9X60D6K_DFP/component/aes.h</itemPath>
@@ -162,46 +156,32 @@
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="true">
-      <logicalFolder name="can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid"
-                     displayName="can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid"
-                     projectFiles="true">
+    <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid" displayName="can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid" projectFiles="true">
+        <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/mcc-config.mc4</itemPath>
         <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/components/can1.yml</itemPath>
+          <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/components/core.yml</itemPath>
           <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/components/dbgu.yml</itemPath>
           <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/components/dfp.yml</itemPath>
           <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/components/stdio.yml</itemPath>
-          <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/components/can1.yml</itemPath>
-          <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/components/core.yml</itemPath>
         </logicalFolder>
-        <itemPath>can_normal_operation_interrupt_timestamp_sam_9x60_cHybrid_sam_9x60_curiosity_hybrid/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity_hybrid/pin_configurations.csv</itemPath>
     </logicalFolder>
-    <logicalFolder name="LibraryFiles"
-                   displayName="LibraryFiles"
-                   projectFiles="true">
+    <logicalFolder name="LibraryFiles" displayName="LibraryFiles" projectFiles="true">
     </logicalFolder>
-    <logicalFolder name="LinkerScript"
-                   displayName="Linker Files"
-                   projectFiles="true">
+    <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity_hybrid"
-                       displayName="sam_9x60_curiosity_hybrid"
-                       projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_hybrid" displayName="sam_9x60_curiosity_hybrid" projectFiles="true">
           <itemPath>../src/config/sam_9x60_curiosity_hybrid/ddram.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="SourceFiles"
-                   displayName="Source Files"
-                   projectFiles="true">
+    <logicalFolder name="SourceFiles" displayName="Source Files" projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity_hybrid"
-                       displayName="sam_9x60_curiosity_hybrid"
-                       projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_hybrid" displayName="sam_9x60_curiosity_hybrid" projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_curiosity_hybrid/peripheral/aic/plib_aic.c</itemPath>
@@ -243,11 +223,11 @@
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>SAM9X60D6K</targetDevice>
-        <targetHeader></targetHeader>
-        <targetPluginBoard></targetPluginBoard>
+        <targetHeader/>
+        <targetPluginBoard/>
         <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>5.10</languageToolchainVersion>
+        <languageToolchainVersion>6.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -265,7 +245,7 @@
         <loading>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
           <parseOnProdLoad>false</parseOnProdLoad>
-          <alternateLoadableFile></alternateLoadableFile>
+          <alternateLoadableFile/>
         </loading>
         <subordinates>
         </subordinates>
@@ -273,7 +253,7 @@
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
         <makeUseCleanTarget>false</makeUseCleanTarget>
-        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPreStep/>
         <makeCustomizationPostStepEnabled>true</makeCustomizationPostStepEnabled>
         <makeCustomizationPostStep>${MP_CC_DIR}/xc32-objcopy -O binary ${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.elf ${DISTDIR}/harmony.bin</makeCustomizationPostStep>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
@@ -297,8 +277,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="expand-pragma-config" value="false"/>
-        <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60_curiosity_hybrid;../src/packs/SAM9X60D6K_DFP"/>
+        <property key="extra-include-directories" value="../src;../src/config/sam_9x60_curiosity_hybrid;../src/packs/SAM9X60D6K_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -418,8 +397,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories"
-                  value="../src;../src/config/sam_9x60_curiosity_hybrid;../src/packs/SAM9X60D6K_DFP"/>
+        <property key="extra-include-directories" value="../src;../src/config/sam_9x60_curiosity_hybrid;../src/packs/SAM9X60D6K_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
