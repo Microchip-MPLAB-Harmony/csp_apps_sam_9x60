@@ -71,6 +71,24 @@
 #define LED_GREEN_Get()               ((PIOB_REGS->PIO_PDSR >> 12U) & 0x1U)
 #define LED_GREEN_PIN                  PIO_PIN_PB12
 
+/*** Macros for LED_RED pin ***/
+#define LED_RED_Set()               (PIOB_REGS->PIO_SODR = ((uint32_t)1U<<11U))
+#define LED_RED_Clear()             (PIOB_REGS->PIO_CODR = ((uint32_t)1U<<11U))
+#define LED_RED_Toggle()            (PIOB_REGS->PIO_ODSR ^= ((uint32_t)1U<<11U))
+#define LED_RED_OutputEnable()      (PIOB_REGS->PIO_OER = ((uint32_t)1U<<11U))
+#define LED_RED_InputEnable()       (PIOB_REGS->PIO_ODR = ((uint32_t)1U<<11U))
+#define LED_RED_Get()               ((PIOB_REGS->PIO_PDSR >> 11U) & 0x1U)
+#define LED_RED_PIN                  PIO_PIN_PB11
+
+/*** Macros for LED_BLUE pin ***/
+#define LED_BLUE_Set()               (PIOB_REGS->PIO_SODR = ((uint32_t)1U<<13U))
+#define LED_BLUE_Clear()             (PIOB_REGS->PIO_CODR = ((uint32_t)1U<<13U))
+#define LED_BLUE_Toggle()            (PIOB_REGS->PIO_ODSR ^= ((uint32_t)1U<<13U))
+#define LED_BLUE_OutputEnable()      (PIOB_REGS->PIO_OER = ((uint32_t)1U<<13U))
+#define LED_BLUE_InputEnable()       (PIOB_REGS->PIO_ODR = ((uint32_t)1U<<13U))
+#define LED_BLUE_Get()               ((PIOB_REGS->PIO_PDSR >> 13U) & 0x1U)
+#define LED_BLUE_PIN                  PIO_PIN_PB13
+
 /*** Macros for SW1 pin ***/
 #define SW1_Set()               (PIOA_REGS->PIO_SODR = ((uint32_t)1U<<12U))
 #define SW1_Clear()             (PIOA_REGS->PIO_CODR = ((uint32_t)1U<<12U))

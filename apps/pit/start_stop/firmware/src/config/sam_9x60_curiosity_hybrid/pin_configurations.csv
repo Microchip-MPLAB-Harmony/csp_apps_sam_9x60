@@ -21,7 +21,7 @@ C2,PB14,,Available,In,,,,,,,,
 C6,PB12,LED_GREEN,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
 C8,PB22,,Available,In,,,,,,,,
 C9,PB10,,Available,In,,,,,,,,
-C10,PB11,,Available,In,,,,,,,,
+C10,PB11,LED_RED,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
 D1,PA28,,Available,In,,,,,,,,
 D2,PA30,,Available,In,,,,,,,,
 D3,PA24,,Available,In,,,,,,,,
@@ -30,7 +30,7 @@ D9,PB16,,Available,In,,,,,,,,
 E1,PA22,,Available,In,,,,,,,,
 E2,PA27,,Available,In,,,,,,,,
 E6,PB8,,Available,In,,,,,,,,
-E9,PB13,,Available,In,,,,,,,,
+E9,PB13,LED_BLUE,GPIO,Out,Low,No,Disabled,No,No,Disabled,No,Low
 F1,PA25,,Available,In,,,,,,,,
 F2,PA20,,Available,In,,,,,,,,
 F5,PA9,,Available,In,,,,,,,,
