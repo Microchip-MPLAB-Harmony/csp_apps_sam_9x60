@@ -62,12 +62,6 @@ data:
       attributes:
         id: ENABLE_INTERRUPT
         label: Enable Interrupt
-      children:
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     FREQUENCY_GET_API_NAME:
       attributes:

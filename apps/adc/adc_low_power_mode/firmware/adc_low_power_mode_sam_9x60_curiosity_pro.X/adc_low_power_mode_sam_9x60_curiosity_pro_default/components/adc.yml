@@ -15,7 +15,18 @@ dependency:
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
-  elementPosition: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: adc
+          x: '342'
+          y: '130'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
   symbols:
     ADC_0_CHER:
       attributes:
@@ -228,31 +239,11 @@ data:
       attributes:
         id: ADC_5_CHER
         label: Enable Channel 5
-      children:
-      - children:
-        - attributes:
-            value: 'false'
-          type: User
-        type: Values
       type: Boolean
     ADC_5_IER_EOC:
       attributes:
         id: ADC_5_IER_EOC
         label: End of conversion interrupt
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     ADC_5_NAME:
       attributes:
@@ -273,12 +264,6 @@ data:
       attributes:
         id: ADC_6_CHER
         label: Enable Channel 6
-      children:
-      - children:
-        - attributes:
-            value: 'false'
-          type: User
-        type: Values
       type: Boolean
     ADC_6_IER_EOC:
       attributes:
@@ -304,12 +289,6 @@ data:
       attributes:
         id: ADC_7_CHER
         label: Enable Channel 7
-      children:
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     ADC_7_IER_EOC:
       attributes:
@@ -335,31 +314,11 @@ data:
       attributes:
         id: ADC_8_CHER
         label: Enable Channel 8
-      children:
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     ADC_8_IER_EOC:
       attributes:
         id: ADC_8_IER_EOC
         label: End of conversion interrupt
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     ADC_8_NAME:
       attributes:
@@ -380,12 +339,6 @@ data:
       attributes:
         id: ADC_9_CHER
         label: Enable Channel 9
-      children:
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     ADC_9_IER_EOC:
       attributes:
@@ -617,96 +570,26 @@ data:
       attributes:
         id: ADC_SEQR1_USCH5
         label: Select Channel for Sequence Number 5
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: NONE
-          type: User
-        type: Values
       type: Combo
     ADC_SEQR1_USCH6:
       attributes:
         id: ADC_SEQR1_USCH6
         label: Select Channel for Sequence Number 6
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: NONE
-          type: User
-        type: Values
       type: Combo
     ADC_SEQR1_USCH7:
       attributes:
         id: ADC_SEQR1_USCH7
         label: Select Channel for Sequence Number 7
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: NONE
-          type: User
-        type: Values
       type: Combo
     ADC_SEQR1_USCH8:
       attributes:
         id: ADC_SEQR1_USCH8
         label: Select Channel for Sequence Number 8
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: NONE
-          type: User
-        type: Values
       type: Combo
     ADC_SEQR1_USCH9:
       attributes:
         id: ADC_SEQR1_USCH9
         label: Select Channel for Sequence Number 9
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: NONE
-          type: User
-        type: Values
       type: Combo
     ADC_TRGR_MODE:
       attributes:

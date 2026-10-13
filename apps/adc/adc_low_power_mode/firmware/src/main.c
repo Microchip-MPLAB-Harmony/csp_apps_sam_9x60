@@ -52,27 +52,45 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
-#if defined(__SAM9X60D6K__)
-    /* Curiosity Hybrid - 2 channels via mikroBUS */
-    #define APP_ADC_CH_FIRST      ADC_CH4
-    #define APP_ADC_CH_SECOND     ADC_CH5
-    #define APP_ADC_NUM_CHANNELS  2
-#else
-    /* Curiosity Standard - 3 channels */
-    #define APP_ADC_CH_FIRST      ADC_CH0
-    #define APP_ADC_CH_SECOND     ADC_CH1
-    #define APP_ADC_CH_THIRD      ADC_CH2
+// *****************************************************************************
+// Section: Variant Selection
+//
+// Exactly one branch is active per build. Unknown/unmapped parts fail the
+// build instead of silently falling through to the wrong channel mapping.
+// *****************************************************************************
+
+#if defined(__SAM9X60__) || defined(SAM9X60) || \
+    defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+    /* Curiosity Standard board
+     * ADC CH0 - PB11 - Connect to Vcc
+     * ADC CH1 - PB12 - Connect to Vcc
+     * ADC CH2 - PB13 - Connect to GND
+     */
     #define APP_ADC_NUM_CHANNELS  3
+    #define APP_ADC_CH_A          ADC_CH0
+    #define APP_ADC_CH_B          ADC_CH1
+    #define APP_ADC_CH_C          ADC_CH2
+    #define APP_ADC_HEADER_TEXT   "CH0 Count  CH0 Voltage  CH1 Count  CH1 Voltage  CH2 Count  CH2 Voltage \n\r"
+
+#elif defined(__SAM9X60D6K__)
+    /* Curiosity Hybrid board - 2 channels via mikroBUS */
+    #define APP_ADC_NUM_CHANNELS  2
+    #define APP_ADC_CH_A          ADC_CH4
+    #define APP_ADC_CH_B          ADC_CH5
+    #define APP_ADC_HEADER_TEXT   "CH4 (mikroBUS1)  CH5 (mikroBUS2)\n\r"
+
+#else
+    #error "Unsupported device variant: add an APP_ADC_* mapping for this part"
 #endif
 
 #define ADC_VREF               (3.3f)
 
-uint16_t adc_ch_first_count, adc_ch_second_count;
-float adc_ch_first_voltage, adc_ch_second_voltage;
+uint16_t adc_chA_count, adc_chB_count;
+float    adc_chA_voltage, adc_chB_voltage;
 
 #if (APP_ADC_NUM_CHANNELS == 3)
-uint16_t adc_ch_third_count;
-float adc_ch_third_voltage;
+uint16_t adc_chC_count;
+float    adc_chC_voltage;
 #endif
 
 volatile bool result_ready = false;
@@ -80,11 +98,10 @@ volatile bool result_ready = false;
 /* This function is called after conversion of last channel in the user sequence */
 void ADC_EventHandler(uint32_t status, uintptr_t context)
 {
-    /* Read the results */
-    adc_ch_first_count = ADC_ChannelResultGet(APP_ADC_CH_FIRST);
-    adc_ch_second_count = ADC_ChannelResultGet(APP_ADC_CH_SECOND);
+    adc_chA_count = ADC_ChannelResultGet(APP_ADC_CH_A);
+    adc_chB_count = ADC_ChannelResultGet(APP_ADC_CH_B);
 #if (APP_ADC_NUM_CHANNELS == 3)
-    adc_ch_third_count = ADC_ChannelResultGet(APP_ADC_CH_THIRD);
+    adc_chC_count = ADC_ChannelResultGet(APP_ADC_CH_C);
 #endif
 
     result_ready = true;
@@ -144,31 +161,22 @@ int main ( void )
             default:
                 printf("\n\r");
         }
-
-#if (APP_ADC_NUM_CHANNELS == 2)
-    printf("CH4 (mikroBUS1)  CH5 (mikroBUS2)\n\r");
-#else
-    printf("CH0 Count  CH0 Voltage  CH1 Count  CH1 Voltage  CH2 Count  CH2 Voltage \n\r");
-#endif
+    printf(APP_ADC_HEADER_TEXT);
 
     while ( true )
     {
         /* Check if result is ready to be transmitted to console */
         if (result_ready == true)
         {
-            adc_ch_first_voltage = (float)adc_ch_first_count * ADC_VREF / 4095U;
-            adc_ch_second_voltage = (float)adc_ch_second_count * ADC_VREF / 4095U;
-
+            adc_chA_voltage = (float)adc_chA_count * ADC_VREF/4095U;
+            adc_chB_voltage = (float)adc_chB_count * ADC_VREF/4095U;
 #if (APP_ADC_NUM_CHANNELS == 3)
-            adc_ch_third_voltage = (float)adc_ch_third_count * ADC_VREF / 4095U;
+            adc_chC_voltage = (float)adc_chC_count * ADC_VREF/4095U;
             printf("0x%03x      %0.2f V       0x%03x      %0.2f V       0x%03x      %0.2f V \t\r",
-                    adc_ch_first_count, adc_ch_first_voltage,
-                    adc_ch_second_count, adc_ch_second_voltage,
-                    adc_ch_third_count, adc_ch_third_voltage);
+                    adc_chA_count, adc_chA_voltage, adc_chB_count, adc_chB_voltage, adc_chC_count, adc_chC_voltage);
 #else
             printf("0x%03x (%0.2fV)     0x%03x (%0.2fV)\r",
-                    adc_ch_first_count, adc_ch_first_voltage,
-                    adc_ch_second_count, adc_ch_second_voltage);
+                    adc_chA_count, adc_chA_voltage, adc_chB_count, adc_chB_voltage);
 #endif
 
             result_ready = false;
@@ -190,3 +198,4 @@ int main ( void )
 /*******************************************************************************
  End of File
 */
+

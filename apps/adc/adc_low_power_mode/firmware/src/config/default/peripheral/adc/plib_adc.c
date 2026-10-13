@@ -77,7 +77,7 @@ void ADC_Initialize(void)
 		ADC_SEQR1_USCH2(ADC_CH2) | 
 		ADC_SEQR1_USCH3(ADC_CH1);
     /* Enable interrupt */
-    ADC_REGS->ADC_IER = ADC_IER_EOC1_Msk | ADC_IER_EOC8_Msk;
+    ADC_REGS->ADC_IER = ADC_IER_EOC1_Msk;
     ADC_CallbackObj.callback_fn = NULL;
     /* Enable channel */
     ADC_REGS->ADC_CHER = ADC_CHER_CH0_Msk | ADC_CHER_CH1_Msk | ADC_CHER_CH2_Msk;

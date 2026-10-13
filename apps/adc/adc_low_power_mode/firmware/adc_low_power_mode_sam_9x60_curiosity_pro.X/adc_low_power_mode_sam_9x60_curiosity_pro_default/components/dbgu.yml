@@ -44,8 +44,8 @@ data:
     - children:
       - attributes:
           id: dbgu
-          x: '13'
-          y: '120'
+          x: '25'
+          y: '182'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
@@ -59,36 +59,16 @@ data:
       attributes:
         id: BRG_VALUE
         label: BRG_VALUE
-      children:
-      - children:
-        - attributes:
-            id: dbgu
-            value: '108'
-          type: Dynamic
-        type: Values
       type: Integer
     DBGU_CLK_SRC:
       attributes:
         id: DBGU_CLK_SRC
         label: Select Clock Source
-      children:
-      - children:
-        - attributes:
-            value: '0'
-          type: User
-        type: Values
       type: KeyValueSet
     DBGU_CLOCK_FREQ:
       attributes:
         id: DBGU_CLOCK_FREQ
         label: Clock Frequency
-      children:
-      - children:
-        - attributes:
-            id: dbgu
-            value: '200000000'
-          type: Dynamic
-        type: Values
       type: Integer
     DBGU_INSTANCE_NAME:
       attributes:
