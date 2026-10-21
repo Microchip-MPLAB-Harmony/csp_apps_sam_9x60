@@ -83,6 +83,17 @@ FLEXCOM SPI   - Connect EEPROM 4 click board to mikrobus Connector.
 #define EEPROM_DATA                         "WRITING AND READING DATA FROM EEPROM!"
 #define EEPROM_DATA_LEN                     sizeof(EEPROM_DATA)
 
+#if defined(__SAM9X60D6K__)
+#define FLEXCOM_SPI_CallbackRegister        FLEXCOM0_SPI_CallbackRegister
+#define FLEXCOM_SPI_Write                   FLEXCOM0_SPI_Write
+#define FLEXCOM_SPI_WriteRead               FLEXCOM0_SPI_WriteRead
+#elif defined(__SAM9X60D1G__)
+#define FLEXCOM_SPI_CallbackRegister        FLEXCOM5_SPI_CallbackRegister
+#define FLEXCOM_SPI_Write                   FLEXCOM5_SPI_Write
+#define FLEXCOM_SPI_WriteRead               FLEXCOM5_SPI_WriteRead
+#endif
+
+
 /* Application's state machine enum */
 typedef enum
 {

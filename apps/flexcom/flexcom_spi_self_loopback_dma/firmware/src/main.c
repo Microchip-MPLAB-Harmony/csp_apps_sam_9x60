@@ -65,6 +65,10 @@
 #define FLEXCOM_SPI_RDR_ADDR        &(FLEXCOM4_REGS->FLEX_SPI_RDR)
 #define FLEXCOM_SPI_TDR_ADDR        &(FLEXCOM4_REGS->FLEX_SPI_TDR)
 #define FLEXCOM_SPI_IsBusy          FLEXCOM4_SPI_IsBusy
+#elif defined(__SAM9X60D6K__) || defined(SAM9X60D6K)
+#define FLEXCOM_SPI_RDR_ADDR        &(FLEXCOM0_REGS->FLEX_SPI_RDR)
+#define FLEXCOM_SPI_TDR_ADDR        &(FLEXCOM0_REGS->FLEX_SPI_TDR)
+#define FLEXCOM_SPI_IsBusy          FLEXCOM0_SPI_IsBusy
 #endif
 
 // *****************************************************************************
@@ -158,7 +162,6 @@ static void APP_DMA_RxCallbackHandler(XDMAC_TRANSFER_EVENT event, uintptr_t cont
     {
         /* Make sure the shift register is empty before de-asserting the CS line */
         while (FLEXCOM_SPI_IsBusy());
-
         /* Disable CS */
         SPI_CS_Set();
         

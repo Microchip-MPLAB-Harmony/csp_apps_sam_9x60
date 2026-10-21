@@ -69,6 +69,20 @@
 /*************************************************************************************
 FLEXCOM USART - Connect USB UART click board to mikroBUS Connector.
 *************************************************************************************/
+#if defined(__SAM9X60D6K__)
+#define FLEXCOM_USART_ErrorGet              FLEXCOM1_USART_ErrorGet
+#define FLEXCOM_USART_WriteCallbackRegister FLEXCOM1_USART_WriteCallbackRegister
+#define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM1_USART_ReadCallbackRegister
+#define FLEXCOM_USART_Write                 FLEXCOM1_USART_Write
+#define FLEXCOM_USART_Read                  FLEXCOM1_USART_Read
+#elif defined(__SAM9X60D1G__)
+#define FLEXCOM_USART_ErrorGet              FLEXCOM7_USART_ErrorGet
+#define FLEXCOM_USART_WriteCallbackRegister FLEXCOM7_USART_WriteCallbackRegister
+#define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM7_USART_ReadCallbackRegister
+#define FLEXCOM_USART_Write                 FLEXCOM7_USART_Write
+#define FLEXCOM_USART_Read                  FLEXCOM7_USART_Read
+#endif
+
 
 #define RX_BUFFER_SIZE 10
 

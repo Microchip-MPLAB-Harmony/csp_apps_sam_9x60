@@ -94,6 +94,21 @@ volatile bool rxThresholdEventReceived = false;
 #define FLEXCOM_USART_ReadThresholdSet      FLEXCOM5_USART_ReadThresholdSet
 #define FLEXCOM_USART_ReadNotificationEnable FLEXCOM5_USART_ReadNotificationEnable
 
+#elif defined(__SAM9X60D6K__)  || defined(SAM9X60D6K)
+#define FLEXCOM_USART_Read	   	    	FLEXCOM1_USART_Read
+#define FLEXCOM_USART_ReadCountGet 	    	FLEXCOM1_USART_ReadCountGet
+#define FLEXCOM_USART_WriteCallbackRegister 	FLEXCOM1_USART_WriteCallbackRegister
+#define FLEXCOM_USART_ReadCallbackRegister  	FLEXCOM1_USART_ReadCallbackRegister
+#define FLEXCOM_USART_Write	            	FLEXCOM1_USART_Write
+#define FLEXCOM_USART_WriteCountGet         	FLEXCOM1_USART_WriteCountGet
+#define FLEXCOM_USART_WriteThresholdSet     	FLEXCOM1_USART_WriteThresholdSet
+#define FLEXCOM_USART_WriteNotificationEnable 	FLEXCOM1_USART_WriteNotificationEnable
+#define FLEXCOM_USART_ReadNotificationEnable    FLEXCOM1_USART_ReadNotificationEnable
+#define FLEXCOM_USART_ReadThresholdSet		FLEXCOM1_USART_ReadThresholdSet
+#define FLEXCOM_USART_ReadBufferSizeGet         FLEXCOM1_USART_ReadBufferSizeGet
+#define FLEXCOM_USART_WriteBufferSizeGet	FLEXCOM1_USART_WriteBufferSizeGet
+#define FLEXCOM_USART_WriteFreeBufferCountGet	FLEXCOM1_USART_WriteFreeBufferCountGet
+
 #else
 #   error "Unsupported device: please provide the proper device."
 #endif
@@ -106,8 +121,13 @@ void dbguReadEventHandler(FLEXCOM_USART_EVENT event, uintptr_t context )
     {
         /* Receiver should atleast have the threshold number of bytes in the ring buffer */
         nBytesAvailable = FLEXCOM_USART_ReadCountGet();
+<<<<<<< HEAD
 
         nBytesRead += FLEXCOM_USART_Read((uint8_t*)&rxBuffer[nBytesRead], nBytesAvailable);
+=======
+        
+        nBytesRead += FLEXCOM_USART_Read((uint8_t*)&rxBuffer[nBytesRead], nBytesAvailable);                          
+>>>>>>> d8a2acc6 ([FLEXCOM] apps for SAM9x60 Curiosity Hybrid)
     }
 }
 
@@ -125,6 +145,7 @@ int main ( void )
     
     /* Register a callback for write events */
     FLEXCOM_USART_WriteCallbackRegister(dbguWriteEventHandler, (uintptr_t) NULL);
+<<<<<<< HEAD
 
     /* Register a callback for read events */
     FLEXCOM_USART_ReadCallbackRegister(dbguReadEventHandler, (uintptr_t) NULL);
@@ -157,6 +178,40 @@ int main ( void )
     /* Enable notifications */
     FLEXCOM_USART_WriteNotificationEnable(true, false);
 
+=======
+    
+    /* Register a callback for read events */
+    FLEXCOM_USART_ReadCallbackRegister(dbguReadEventHandler, (uintptr_t) NULL);              
+    
+    /* Print the size of the read buffer on the terminal */
+    nBytes = sprintf((char*)txBuffer, "RX Buffer Size = %d\r\n", (int)FLEXCOM_USART_ReadBufferSizeGet());
+    
+    FLEXCOM_USART_Write((uint8_t*)txBuffer, nBytes);  
+    
+    /* Print the size of the write buffer on the terminal */
+    nBytes = sprintf((char*)txBuffer, "TX Buffer Size = %d\r\n", (int)FLEXCOM_USART_WriteBufferSizeGet());
+    
+    FLEXCOM_USART_Write((uint8_t*)txBuffer, nBytes);    
+    
+    FLEXCOM_USART_Write((uint8_t*)"Adding 10 characters to the TX buffer - ", sizeof("Adding 10 characters to the TX buffer - "));    
+    
+    /* Wait for all bytes to be transmitted out */
+    while (FLEXCOM_USART_WriteCountGet() != 0);    
+    
+    FLEXCOM_USART_Write((uint8_t*)"0123456789", 10);           
+        
+    /* Print the amount of free space available in the TX buffer. This should be 10 bytes less than the configured write buffer size. */
+    nBytes = sprintf((char*)txBuffer, "\r\nFree Space in Transmit Buffer = %d\r\n", (int)FLEXCOM_USART_WriteFreeBufferCountGet());
+
+    FLEXCOM_USART_Write((uint8_t*)txBuffer, nBytes);    
+    
+    /* Let's enable notifications to get notified when the TX buffer is empty */
+    FLEXCOM_USART_WriteThresholdSet(FLEXCOM_USART_WriteBufferSizeGet());   
+    
+    /* Enable notifications */
+    FLEXCOM_USART_WriteNotificationEnable(true, false);
+   
+>>>>>>> d8a2acc6 ([FLEXCOM] apps for SAM9x60 Curiosity Hybrid)
     /* Wait for the TX buffer to become empty. Flag "txThresholdEventReceived" is set in the callback. */
     while (txThresholdEventReceived == false);
 
@@ -164,6 +219,7 @@ int main ( void )
 
     /* Disable TX notifications */
     FLEXCOM_USART_WriteNotificationEnable(false, false);
+<<<<<<< HEAD
 
     FLEXCOM_USART_Write((uint8_t*)"Enter 10 characters. The received characters are echoed back. \r\n>", sizeof("Enter 10 characters. The received characters are echoed back. \r\n>"));
 
@@ -185,6 +241,29 @@ int main ( void )
     /* Enable RX event notifications */
     FLEXCOM_USART_ReadNotificationEnable(true, false);
 
+=======
+    
+    FLEXCOM_USART_Write((uint8_t*)"Enter 10 characters. The received characters are echoed back. \r\n>", sizeof("Enter 10 characters. The received characters are echoed back. \r\n>"));               
+            
+    /* Wait till 10 (or more) characters are received */
+    while (FLEXCOM_USART_ReadCountGet() < 10);
+    
+    /* At-least 10 characters are available in the RX buffer. Read out into the application buffer */
+    FLEXCOM_USART_Read((uint8_t*)rxBuffer, 10);  
+    
+    /* Echo the received data */
+    FLEXCOM_USART_Write((uint8_t*)rxBuffer, 10);    
+    
+    /* Now demonstrating receiver notifications */
+    FLEXCOM_USART_Write((uint8_t*)"\r\n Now turning on RX notifications \r\n>", sizeof("\r\n Now turning on RX notifications \r\n>"));
+    
+    /* For demonstration purpose, set a threshold value to receive a callback after every 5 characters are received */
+    FLEXCOM_USART_ReadThresholdSet(5);
+    
+    /* Enable RX event notifications */
+    FLEXCOM_USART_ReadNotificationEnable(true, false);
+                   
+>>>>>>> d8a2acc6 ([FLEXCOM] apps for SAM9x60 Curiosity Hybrid)
     while(1)
     {
         /* Wait until at-least 10 characters are entered by the user */
@@ -192,7 +271,11 @@ int main ( void )
 
         /* Echo the received data */
         FLEXCOM_USART_Write((uint8_t*)rxBuffer, nBytesRead);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> d8a2acc6 ([FLEXCOM] apps for SAM9x60 Curiosity Hybrid)
         FLEXCOM_USART_Write((uint8_t*)"\r\n>", 3);
 
         nBytesRead = 0;

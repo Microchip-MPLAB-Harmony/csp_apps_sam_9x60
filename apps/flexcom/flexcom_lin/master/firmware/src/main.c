@@ -96,8 +96,26 @@
     #define LED_STATUS_Clear                LED_GREEN_Clear
 	#define LED_STATUS_Set                  LED_GREEN_Set
 
+#elif defined(__SAM9X60D6K__) || defined(SAM9X60D6K)
+    /* SAM9x60 Curiosity Hybrid uses FLEXCOM1 */
+    #define FLEXCOM_LIN_ResponseDataLenSet      FLEXCOM1_LIN_ResponseDataLenSet
+    #define FLEXCOM_LIN_IdentifierWrite         FLEXCOM1_LIN_IdentifierWrite
+    #define FLEXCOM_USART_Write                 FLEXCOM1_USART_Write
+    #define FLEXCOM_USART_Read                  FLEXCOM1_USART_Read
+    #define FLEXCOM_USART_ReadCountGet          FLEXCOM1_USART_ReadCountGet
+    #define FLEXCOM_LINIdCallbackRegister       FLEXCOM1_LINIdCallbackRegister
+    #define FLEXCOM_LINTcCallbackRegister       FLEXCOM1_LINTcCallbackRegister
+    #define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM1_USART_ReadCallbackRegister
+    #define FLEXCOM_LIN_ParityEnable            FLEXCOM1_LIN_ParityEnable
+    #define FLEXCOM_LIN_ChecksumEnable          FLEXCOM1_LIN_ChecksumEnable
+    #define FLEXCOM_LIN_FrameSlotEnable         FLEXCOM1_LIN_FrameSlotEnable
+    #define FLEXCOM_LIN_ChecksumTypeSet         FLEXCOM1_LIN_ChecksumTypeSet
+    #define FLEXCOM_LIN_DataLenModeSet          FLEXCOM1_LIN_DataLenModeSet
+    #define FLEXCOM_USART_ReadNotificationEnable FLEXCOM1_USART_ReadNotificationEnable
+    #define FLEXCOM_USART_ReadThresholdSet      FLEXCOM1_USART_ReadThresholdSet
+    #define FLEXCOM_LIN_NodeActionSet           FLEXCOM1_LIN_NodeActionSet
 #else
-    #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__"
+    #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__ or __SAM9X60D6K__"
 #endif
 
 //#define TRACE(fmt, ...)    printf(fmt,##__VA_ARGS__)
@@ -109,7 +127,6 @@
 /* LIN IDs */
 #define READ_SWITCH_LED_PID     0x80
 #define WRITE_LED_PID           0xC1
-
 
 typedef enum
 {
@@ -169,7 +186,6 @@ void Read_Event_Callback_Handler(FLEXCOM_USART_EVENT event, uintptr_t context )
     {
         /* The receiver should at least have the threshold number of bytes in the ring buffer. */
         nBytesAvailable = FLEXCOM_USART_ReadCountGet();
-
         TRACE("R = %d\n\r", (int)nBytesAvailable);
         /* Read the threshold number of bytes here in the rxBuffer. */
         FLEXCOM_USART_Read((uint8_t*)&rxBuffer, nBytesAvailable);
@@ -186,7 +202,6 @@ void LIN_MasterTransmit(uint8_t pid, uint8_t* pData, uint8_t nBytes)
     }
     /* Sets the response data length for LIN communication. */
     FLEXCOM_LIN_ResponseDataLenSet(LIN_NUM_OF_BYTES_TRANSFER_FROM_HOST_TO_CLIENT);
-
     /* Transmit PID */
     FLEXCOM_LIN_IdentifierWrite(pid);
 

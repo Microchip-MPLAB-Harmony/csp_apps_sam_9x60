@@ -60,6 +60,11 @@
 #define FLEXCOM_USART_Read  FLEXCOM5_USART_Read
 #define FLEXCOM_USART_ReceiverIsReady FLEXCOM5_USART_ReceiverIsReady
 #define FLEXCOM_USART_ErrorGet FLEXCOM5_USART_ErrorGet
+#elif defined(__SAM9X60D6K__)  || defined(SAM9X60D6K)
+#define FLEXCOM_USART_Write                 FLEXCOM1_USART_Write
+#define FLEXCOM_USART_Read                  FLEXCOM1_USART_Read
+#define FLEXCOM_USART_ReceiverIsReady       FLEXCOM1_USART_ReceiverIsReady
+#define FLEXCOM_USART_ErrorGet              FLEXCOM1_USART_ErrorGet
 #endif
 
 /*************************************************************************************
