@@ -93,6 +93,24 @@
     #define FLEXCOM_USART_Read                      FLEXCOM4_USART_Read
 	#define LED_STATUS_Clear          		        LED_GREEN_Clear
 	#define LED_STATUS_Set                          LED_GREEN_Set
+
+#elif defined(__SAM9X60D6K__) || defined(SAM9X60D6K)
+	#define FLEXCOM_LIN_IdentifierRead           FLEXCOM1_LIN_IdentifierRead
+	#define FLEXCOM_LINBreakCallbackRegister     FLEXCOM1_LINBreakCallbackRegister
+	#define FLEXCOM_LINIdCallbackRegister        FLEXCOM1_LINIdCallbackRegister
+	#define FLEXCOM_LINTcCallbackRegister        FLEXCOM1_LINTcCallbackRegister
+	#define FLEXCOM_USART_ReadCallbackRegister   FLEXCOM1_USART_ReadCallbackRegister
+	#define FLEXCOM_USART_ReadNotificationEnable FLEXCOM1_USART_ReadNotificationEnable
+	#define FLEXCOM_USART_ReadThresholdSet       FLEXCOM1_USART_ReadThresholdSet
+	#define FLEXCOM_USART_ReadCountGet           FLEXCOM1_USART_ReadCountGet
+	#define FLEXCOM_USART_Read                   FLEXCOM1_USART_Read
+	#define FLEXCOM_USART_Write                  FLEXCOM1_USART_Write
+	#define FLEXCOM_LIN_ResponseDataLenSet       FLEXCOM1_LIN_ResponseDataLenSet
+	#define FLEXCOM_LIN_ParityEnable             FLEXCOM1_LIN_ParityEnable
+	#define FLEXCOM_LIN_ChecksumEnable           FLEXCOM1_LIN_ChecksumEnable
+	#define FLEXCOM_LIN_ChecksumTypeSet          FLEXCOM1_LIN_ChecksumTypeSet
+	#define FLEXCOM_LIN_DataLenModeSet           FLEXCOM1_LIN_DataLenModeSet
+	#define FLEXCOM_LIN_NodeActionSet            FLEXCOM1_LIN_NodeActionSet
 #else
     #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__"
 #endif
@@ -103,42 +121,6 @@
 /* LIN IDs */
 #define READ_SWITCH_LED_PID             0x80
 #define WRITE_LED_PID                   0xC1
-
-#if defined(__SAM9X60D6K__)
-#define FLEXCOM_LIN_IdentifierRead           FLEXCOM1_LIN_IdentifierRead
-#define FLEXCOM_LINBreakCallbackRegister     FLEXCOM1_LINBreakCallbackRegister
-#define FLEXCOM_LINIdCallbackRegister        FLEXCOM1_LINIdCallbackRegister
-#define FLEXCOM_LINTcCallbackRegister        FLEXCOM1_LINTcCallbackRegister
-#define FLEXCOM_USART_ReadCallbackRegister   FLEXCOM1_USART_ReadCallbackRegister
-#define FLEXCOM_USART_ReadNotificationEnable FLEXCOM1_USART_ReadNotificationEnable
-#define FLEXCOM_USART_ReadThresholdSet       FLEXCOM1_USART_ReadThresholdSet
-#define FLEXCOM_USART_ReadCountGet           FLEXCOM1_USART_ReadCountGet
-#define FLEXCOM_USART_Read                   FLEXCOM1_USART_Read
-#define FLEXCOM_USART_Write                  FLEXCOM1_USART_Write
-#define FLEXCOM_LIN_ResponseDataLenSet       FLEXCOM1_LIN_ResponseDataLenSet
-#define FLEXCOM_LIN_ParityEnable             FLEXCOM1_LIN_ParityEnable
-#define FLEXCOM_LIN_ChecksumEnable           FLEXCOM1_LIN_ChecksumEnable
-#define FLEXCOM_LIN_ChecksumTypeSet          FLEXCOM1_LIN_ChecksumTypeSet
-#define FLEXCOM_LIN_DataLenModeSet           FLEXCOM1_LIN_DataLenModeSet
-#define FLEXCOM_LIN_NodeActionSet            FLEXCOM1_LIN_NodeActionSet
-#elif defined(__SAM9X60D1G__)
-#define FLEXCOM_LIN_IdentifierRead           FLEXCOM5_LIN_IdentifierRead
-#define FLEXCOM_LINBreakCallbackRegister     FLEXCOM5_LINBreakCallbackRegister
-#define FLEXCOM_LINIdCallbackRegister        FLEXCOM5_LINIdCallbackRegister
-#define FLEXCOM_LINTcCallbackRegister        FLEXCOM5_LINTcCallbackRegister
-#define FLEXCOM_USART_ReadCallbackRegister   FLEXCOM5_USART_ReadCallbackRegister
-#define FLEXCOM_USART_ReadNotificationEnable FLEXCOM5_USART_ReadNotificationEnable
-#define FLEXCOM_USART_ReadThresholdSet       FLEXCOM5_USART_ReadThresholdSet
-#define FLEXCOM_USART_ReadCountGet           FLEXCOM5_USART_ReadCountGet
-#define FLEXCOM_USART_Read                   FLEXCOM5_USART_Read
-#define FLEXCOM_USART_Write                  FLEXCOM5_USART_Write
-#define FLEXCOM_LIN_ResponseDataLenSet       FLEXCOM5_LIN_ResponseDataLenSet
-#define FLEXCOM_LIN_ParityEnable             FLEXCOM5_LIN_ParityEnable
-#define FLEXCOM_LIN_ChecksumEnable           FLEXCOM5_LIN_ChecksumEnable
-#define FLEXCOM_LIN_ChecksumTypeSet          FLEXCOM5_LIN_ChecksumTypeSet
-#define FLEXCOM_LIN_DataLenModeSet           FLEXCOM5_LIN_DataLenModeSet
-#define FLEXCOM_LIN_NodeActionSet            FLEXCOM5_LIN_NodeActionSet
-#endif
 
 typedef enum
 {
