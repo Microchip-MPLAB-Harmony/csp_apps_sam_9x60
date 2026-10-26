@@ -173,12 +173,12 @@
                      displayName="tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/stdio.yml</itemPath>
-          <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/pwm.yml</itemPath>
           <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/dbgu.yml</itemPath>
+          <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/pwm.yml</itemPath>
+          <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/core.yml</itemPath>
+          <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/stdio.yml</itemPath>
           <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/dfp.yml</itemPath>
           <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/tc0.yml</itemPath>
-          <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/components/core.yml</itemPath>
         </logicalFolder>
         <itemPath>tc_capture_mode_sam_9x60_curiosity_sam_9x60_curiosity/mcc-config.mc4</itemPath>
       </logicalFolder>

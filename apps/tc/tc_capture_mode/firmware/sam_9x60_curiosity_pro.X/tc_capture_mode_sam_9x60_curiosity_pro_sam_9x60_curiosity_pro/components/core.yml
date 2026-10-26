@@ -20,6 +20,7 @@ data:
     COMPONENT_PACKAGE:
       attributes:
         id: COMPONENT_PACKAGE
+        label: Pin Package
       children:
       - children:
         - attributes:
@@ -30,6 +31,7 @@ data:
     DBGU_CLOCK_ENABLE:
       attributes:
         id: DBGU_CLOCK_ENABLE
+        label: DBGU
       children:
       - children:
         - attributes:
@@ -41,6 +43,7 @@ data:
     DBGU_CLOCK_FREQUENCY:
       attributes:
         id: DBGU_CLOCK_FREQUENCY
+        label: DBGU_CLOCK_FREQUENCY
       children:
       - children:
         - attributes:
@@ -52,6 +55,7 @@ data:
     DBGU_INTERRUPT_ENABLE:
       attributes:
         id: DBGU_INTERRUPT_ENABLE
+        label: Enable 47 -- Debug Unit
       children:
       - children:
         - attributes:
@@ -63,6 +67,7 @@ data:
     DBGU_INTERRUPT_HANDLER:
       attributes:
         id: DBGU_INTERRUPT_HANDLER
+        label: Handler
       children:
       - children:
         - attributes:
@@ -74,6 +79,7 @@ data:
     DBGU_INTERRUPT_HANDLER_LOCK:
       attributes:
         id: DBGU_INTERRUPT_HANDLER_LOCK
+        label: DBGU_INTERRUPT_HANDLER_LOCK
       children:
       - children:
         - attributes:
@@ -85,6 +91,7 @@ data:
     PIN_144_FUNCTION_TYPE:
       attributes:
         id: PIN_144_FUNCTION_TYPE
+        label: Type
       children:
       - children:
         - attributes:
@@ -95,6 +102,7 @@ data:
     PIN_144_PERIPHERAL_FUNCTION:
       attributes:
         id: PIN_144_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
       children:
       - children:
         - attributes:
@@ -105,6 +113,7 @@ data:
     PIN_49_FUNCTION_TYPE:
       attributes:
         id: PIN_49_FUNCTION_TYPE
+        label: Type
       children:
       - children:
         - attributes:
@@ -115,6 +124,7 @@ data:
     PIN_49_PERIPHERAL_FUNCTION:
       attributes:
         id: PIN_49_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
       children:
       - children:
         - attributes:
@@ -125,6 +135,7 @@ data:
     PIN_91_FUNCTION_TYPE:
       attributes:
         id: PIN_91_FUNCTION_TYPE
+        label: Type
       children:
       - children:
         - attributes:
@@ -135,6 +146,7 @@ data:
     PIN_91_PERIPHERAL_FUNCTION:
       attributes:
         id: PIN_91_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
       children:
       - children:
         - attributes:
@@ -145,6 +157,7 @@ data:
     PIN_92_FUNCTION_TYPE:
       attributes:
         id: PIN_92_FUNCTION_TYPE
+        label: Type
       children:
       - children:
         - attributes:
@@ -155,6 +168,7 @@ data:
     PIN_92_PERIPHERAL_FUNCTION:
       attributes:
         id: PIN_92_PERIPHERAL_FUNCTION
+        label: Peripheral Selection
       children:
       - children:
         - attributes:
@@ -165,6 +179,7 @@ data:
     PIOA_ABCDSR1_VALUE:
       attributes:
         id: PIOA_ABCDSR1_VALUE
+        label: PIOA_ABCDSR1
       children:
       - children:
         - attributes:
@@ -176,6 +191,7 @@ data:
     PIOA_ABCDSR2_VALUE:
       attributes:
         id: PIOA_ABCDSR2_VALUE
+        label: PIOA_ABCDSR2
       children:
       - children:
         - attributes:
@@ -187,6 +203,7 @@ data:
     PIOA_PDR_VALUE:
       attributes:
         id: PIOA_PDR_VALUE
+        label: PIOA_PDR
       children:
       - children:
         - attributes:
@@ -198,6 +215,7 @@ data:
     PIOB_ABCDSR1_VALUE:
       attributes:
         id: PIOB_ABCDSR1_VALUE
+        label: PIOB_ABCDSR1
       children:
       - children:
         - attributes:
@@ -209,6 +227,7 @@ data:
     PIOB_ABCDSR2_VALUE:
       attributes:
         id: PIOB_ABCDSR2_VALUE
+        label: PIOB_ABCDSR2
       children:
       - children:
         - attributes:
@@ -220,6 +239,7 @@ data:
     PIOB_PDR_VALUE:
       attributes:
         id: PIOB_PDR_VALUE
+        label: PIOB_PDR
       children:
       - children:
         - attributes:
@@ -231,6 +251,7 @@ data:
     PWM_CLOCK_ENABLE:
       attributes:
         id: PWM_CLOCK_ENABLE
+        label: PWM
       children:
       - children:
         - attributes:
@@ -242,6 +263,7 @@ data:
     TC0_CH0_CLOCK_FREQUENCY:
       attributes:
         id: TC0_CH0_CLOCK_FREQUENCY
+        label: TC0_CH0_CLOCK_FREQUENCY
       children:
       - children:
         - attributes:
@@ -253,6 +275,7 @@ data:
     TC0_CH1_CLOCK_FREQUENCY:
       attributes:
         id: TC0_CH1_CLOCK_FREQUENCY
+        label: TC0_CH1_CLOCK_FREQUENCY
       children:
       - children:
         - attributes:
@@ -264,6 +287,7 @@ data:
     TC0_CH3_CLOCK_FREQUENCY:
       attributes:
         id: TC0_CH3_CLOCK_FREQUENCY
+        label: TC0_CH3_CLOCK_FREQUENCY
       children:
       - children:
         - attributes:
@@ -275,6 +299,7 @@ data:
     TC0_CHANNEL0_CLOCK_ENABLE:
       attributes:
         id: TC0_CHANNEL0_CLOCK_ENABLE
+        label: TC0_CHANNEL0_CLOCK_ENABLE
       children:
       - children:
         - attributes:
@@ -286,6 +311,7 @@ data:
     TC0_CHANNEL1_CLOCK_ENABLE:
       attributes:
         id: TC0_CHANNEL1_CLOCK_ENABLE
+        label: TC0_CHANNEL1_CLOCK_ENABLE
       children:
       - children:
         - attributes:
@@ -297,6 +323,7 @@ data:
     TC0_CLOCK_ENABLE:
       attributes:
         id: TC0_CLOCK_ENABLE
+        label: TC0
       children:
       - children:
         - attributes:
@@ -308,6 +335,7 @@ data:
     TC0_INTERRUPT_ENABLE:
       attributes:
         id: TC0_INTERRUPT_ENABLE
+        label: Enable 17 -- Timer Counter 0
       children:
       - children:
         - attributes:
@@ -319,6 +347,7 @@ data:
     TC0_INTERRUPT_HANDLER:
       attributes:
         id: TC0_INTERRUPT_HANDLER
+        label: Handler
       children:
       - children:
         - attributes:
@@ -330,6 +359,7 @@ data:
     TC0_INTERRUPT_HANDLER_LOCK:
       attributes:
         id: TC0_INTERRUPT_HANDLER_LOCK
+        label: TC0_INTERRUPT_HANDLER_LOCK
       children:
       - children:
         - attributes:

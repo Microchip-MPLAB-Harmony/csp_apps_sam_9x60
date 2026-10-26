@@ -44,8 +44,8 @@ data:
     - children:
       - attributes:
           id: stdio
-          x: '351'
-          y: '386'
+          x: '408'
+          y: '275'
         type: ElementPosition
       type: ElementPositions
     type: ComponentGraph
@@ -53,6 +53,7 @@ data:
     DEBUG_PERIPHERAL:
       attributes:
         id: DEBUG_PERIPHERAL
+        label: DEBUG_PERIPHERAL
       children:
       - children:
         - attributes:
@@ -61,4 +62,14 @@ data:
           type: Dynamic
         type: Values
       type: String
+    STDIN_BUFF_MODE:
+      attributes:
+        id: STDIN_BUFF_MODE
+        label: Use STDIN in buffered mode
+      type: Boolean
+    STDOUT_BUFF_MODE:
+      attributes:
+        id: STDOUT_BUFF_MODE
+        label: Use STDOUT in buffered mode
+      type: Boolean
   userData: {}
