@@ -1,0 +1,70 @@
+configVersion: 1.0.0
+componentName: rtc
+coreVersion: 5.9.0
+device: SAM9X60
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: rtc
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    RTC_12HR_MODE:
+      attributes:
+        id: RTC_12HR_MODE
+        label: Enable 12 HR Mode
+      type: Boolean
+    RTC_CR_CALEVSEL:
+      attributes:
+        id: RTC_CR_CALEVSEL
+        label: Calendar Event Selection
+      type: Combo
+    RTC_CR_TIMEVSEL:
+      attributes:
+        id: RTC_CR_TIMEVSEL
+        label: Time Event Selection
+      type: Combo
+    RTC_INSTANCE_NAME:
+      attributes:
+        id: RTC_INSTANCE_NAME
+        label: RTC_INSTANCE_NAME
+      type: String
+    RTC_MR_OUT0:
+      attributes:
+        id: RTC_MR_OUT0
+        label: All ADC Channel Trigger Event Source Selection
+      type: Combo
+    RTC_MR_OUT1:
+      attributes:
+        id: RTC_MR_OUT1
+        label: ADC Last Channel Trigger Event Source Selection
+      type: Combo
+    RTC_MR_THIGH:
+      attributes:
+        id: RTC_MR_THIGH
+        label: High Duration of the Output Pulse
+      type: Combo
+    RTC_MR_TPERIOD:
+      attributes:
+        id: RTC_MR_TPERIOD
+        label: Period of the Output Pulse
+      type: Combo
+    RTC_MR_UTC:
+      attributes:
+        id: RTC_MR_UTC
+        label: Enable UTC Mode
+      type: Boolean
+    rtcEnableInterrupt:
+      attributes:
+        id: rtcEnableInterrupt
+        label: Enable Interrupt
+      type: Boolean
+  userData: {}

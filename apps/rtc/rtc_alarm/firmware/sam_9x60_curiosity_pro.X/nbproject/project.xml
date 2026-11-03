@@ -4,7 +4,7 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>rtc_alarm_sam_9x60_curiosity_pro</name>
-            <creation-uuid>b2be40ed-0aa3-49f9-92dc-4b71f25d98b0</creation-uuid>
+            <creation-uuid>7f803753-ad18-42b5-9686-66109e60e5f5</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>

@@ -1,9 +1,13 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
-    <logicalFolder name="HeaderFiles" displayName="Header Files" projectFiles="true">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity_pro" displayName="sam_9x60_curiosity_pro" projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_pro"
+                       displayName="sam_9x60_curiosity_pro"
+                       projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/aic/plib_aic.h</itemPath>
@@ -27,11 +31,11 @@
               <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/rtc/plib_rtc.h</itemPath>
             </logicalFolder>
           </logicalFolder>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/device.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/device_cache.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/definitions.h</itemPath>
           <itemPath>../src/config/sam_9x60_curiosity_pro/interrupts.h</itemPath>
-          <itemPath>../src/config/sam_9x60_curiosity_pro/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
@@ -156,32 +160,46 @@
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
-      <logicalFolder name="sam_9x60_curiosity_pro_sam_9x60_curiosity_pro" displayName="sam_9x60_curiosity_pro_sam_9x60_curiosity_pro" projectFiles="true">
-        <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/mcc-config.mc4</itemPath>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <logicalFolder name="rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
+                     displayName="rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
+                     projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/core.yml</itemPath>
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dbgu.yml</itemPath>
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dfp.yml</itemPath>
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/rtc.yml</itemPath>
-          <itemPath>sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/stdio.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dbgu.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/rtc.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/core.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dfp.yml</itemPath>
+          <itemPath>rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/stdio.yml</itemPath>
         </logicalFolder>
+        <itemPath>rtc_alarm_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/sam_9x60_curiosity_pro/pin_configurations.csv</itemPath>
     </logicalFolder>
-    <logicalFolder name="LibraryFiles" displayName="LibraryFiles" projectFiles="true">
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
-    <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
+    <logicalFolder name="LinkerScript"
+                   displayName="Linker Files"
+                   projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity_pro" displayName="sam_9x60_curiosity_pro" projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_pro"
+                       displayName="sam_9x60_curiosity_pro"
+                       projectFiles="true">
           <itemPath>../src/config/sam_9x60_curiosity_pro/ddram.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="SourceFiles" displayName="Source Files" projectFiles="true">
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="sam_9x60_curiosity_pro" displayName="sam_9x60_curiosity_pro" projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_pro"
+                       displayName="sam_9x60_curiosity_pro"
+                       projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
               <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/aic/plib_aic.c</itemPath>
@@ -220,8 +238,8 @@
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>SAM9X60</targetDevice>
-        <targetHeader/>
-        <targetPluginBoard/>
+        <targetHeader></targetHeader>
+        <targetPluginBoard></targetPluginBoard>
         <platformTool>j32</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>6.00</languageToolchainVersion>
@@ -234,7 +252,8 @@
         <ScriptingSetting key="boot.load_adr" value=""/>
         <ScriptingSetting key="boot.use" value="true"/>
         <ScriptingSetting key="boot.entry_adr" value=""/>
-        <ScriptingSetting key="boot.path" value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\sam9x60_cpro_binaries\at91bootstrap.elf"/>
+        <ScriptingSetting key="boot.path"
+                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
         <ScriptingSetting key="boot.prj" value=""/>
       </ScriptingSettings>
       <compileType>
@@ -247,7 +266,7 @@
         <loading>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
           <parseOnProdLoad>false</parseOnProdLoad>
-          <alternateLoadableFile/>
+          <alternateLoadableFile></alternateLoadableFile>
         </loading>
         <subordinates>
         </subordinates>
@@ -255,9 +274,9 @@
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
         <makeUseCleanTarget>false</makeUseCleanTarget>
-        <makeCustomizationPreStep/>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
-        <makeCustomizationPostStep/>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
@@ -265,7 +284,6 @@
       <C32>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value="-marm"/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -279,7 +297,8 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="expand-pragma-config" value="false"/>
-        <property key="extra-include-directories" value="../src;../src/config/sam_9x60_curiosity_pro;../src/packs/SAM9X60_DFP"/>
+        <property key="extra-include-directories"
+                  value="../src;../src/config/sam_9x60_curiosity_pro;../src/packs/SAM9X60_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -344,7 +363,6 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -390,7 +408,6 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -399,7 +416,8 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value="../src;../src/config/sam_9x60_curiosity_pro;../src/packs/SAM9X60_DFP"/>
+        <property key="extra-include-directories"
+                  value="../src;../src/config/sam_9x60_curiosity_pro;../src/packs/SAM9X60_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -456,13 +474,15 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.ranges" value="${memories.instruction.ram.ranges.default}"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges.default}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0x300000-0xeff00fff"/>
         <property key="programoptions.eraseb4program" value="false"/>
         <property key="programoptions.preservebootflash" value="false"/>
         <property key="programoptions.preserveprogrammemory" value="false"/>
-        <property key="programoptions.preserveprogrammemory.ranges" value="0x300000-0xeff00fff"/>
+        <property key="programoptions.preserveprogrammemory.ranges"
+                  value="0x300000-0xeff00fff"/>
         <property key="programoptions.resetafterprogram" value="true"/>
         <property key="script.has_reset" value="true"/>
         <property key="script.log_level" value="1"/>
@@ -489,13 +509,15 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.ranges" value="${memories.instruction.ram.ranges.default}"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges.default}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0x300000-0xeff00fff"/>
         <property key="programoptions.eraseb4program" value="false"/>
         <property key="programoptions.preservebootflash" value="false"/>
         <property key="programoptions.preserveprogrammemory" value="false"/>
-        <property key="programoptions.preserveprogrammemory.ranges" value="0x300000-0xeff00fff"/>
+        <property key="programoptions.preserveprogrammemory.ranges"
+                  value="0x300000-0xeff00fff"/>
         <property key="programoptions.resetafterprogram" value="true"/>
         <property key="script.has_reset" value="true"/>
         <property key="script.log_level" value="1"/>
