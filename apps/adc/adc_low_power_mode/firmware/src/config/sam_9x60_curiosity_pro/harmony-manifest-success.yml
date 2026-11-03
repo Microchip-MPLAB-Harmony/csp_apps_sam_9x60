@@ -4,7 +4,7 @@
 
 
 project: adc_low_power_mode_sam_9x60_curiosity_pro
-creation_date: 2026-10-13T11:50:20.214+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2026-11-03T08:45:36.252+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.7.0

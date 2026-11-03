@@ -4,14 +4,14 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>adc_low_power_mode_sam_9x60_curiosity_pro</name>
-            <creation-uuid>77a1d533-a156-4c16-9276-6dccc444592d</creation-uuid>
+            <creation-uuid>2e64943e-16d3-436e-bb67-1b3d3032b45e</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList/>
             <confList>
                 <confElem>
-                    <name>default</name>
+                    <name>sam_9x60_curiosity_pro</name>
                     <type>2</type>
                 </confElem>
             </confList>

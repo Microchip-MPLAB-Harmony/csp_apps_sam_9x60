@@ -5,38 +5,40 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_pro"
+                       displayName="sam_9x60_curiosity_pro"
+                       projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="adc" displayName="adc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/adc/plib_adc.h</itemPath>
-              <itemPath>../src/config/default/peripheral/adc/plib_adc_common.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/adc/plib_adc.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/adc/plib_adc_common.h</itemPath>
             </logicalFolder>
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/aic/plib_aic.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/aic/plib_aic.h</itemPath>
             </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/clk/plib_clk.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
             <logicalFolder name="dbgu" displayName="dbgu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/dbgu/plib_dbgu_common.h</itemPath>
-              <itemPath>../src/config/default/peripheral/dbgu/plib_dbgu.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/dbgu/plib_dbgu_common.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/dbgu/plib_dbgu.h</itemPath>
             </logicalFolder>
             <logicalFolder name="mmu" displayName="mmu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/mmu/plib_mmu.h</itemPath>
-              <itemPath>../src/config/default/peripheral/mmu/cp15.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/mmu/plib_mmu.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/mmu/cp15.h</itemPath>
             </logicalFolder>
             <logicalFolder name="pio" displayName="pio" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pio/plib_pio.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
             <logicalFolder name="pit" displayName="pit" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pit/plib_pit.h</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/pit/plib_pit.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <itemPath>../src/config/default/device.h</itemPath>
-          <itemPath>../src/config/default/device_cache.h</itemPath>
-          <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
-          <itemPath>../src/config/default/definitions.h</itemPath>
-          <itemPath>../src/config/default/interrupts.h</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/device.h</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/device_cache.h</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/toolchain_specifics.h</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/definitions.h</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/interrupts.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="packs" displayName="packs" projectFiles="true">
@@ -164,21 +166,21 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
-      <logicalFolder name="adc_low_power_mode_sam_9x60_curiosity_pro_default"
-                     displayName="adc_low_power_mode_sam_9x60_curiosity_pro_default"
+      <logicalFolder name="adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
+                     displayName="adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_default/components/dbgu.yml</itemPath>
-          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_default/components/stdio.yml</itemPath>
-          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_default/components/core.yml</itemPath>
-          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_default/components/dfp.yml</itemPath>
-          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_default/components/adc.yml</itemPath>
-          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_default/components/pit.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dbgu.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/dfp.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/pit.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/stdio.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/core.yml</itemPath>
+          <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/components/adc.yml</itemPath>
         </logicalFolder>
-        <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_default/mcc-config.mc4</itemPath>
+        <itemPath>adc_low_power_mode_sam_9x60_curiosity_pro_sam_9x60_curiosity_pro/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/default/pin_configurations.csv</itemPath>
+      <itemPath>../src/config/sam_9x60_curiosity_pro/pin_configurations.csv</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="LibraryFiles"
@@ -188,8 +190,10 @@
                    displayName="Linker Files"
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
-          <itemPath>../src/config/default/ddram.ld</itemPath>
+        <logicalFolder name="sam_9x60_curiosity_pro"
+                       displayName="sam_9x60_curiosity_pro"
+                       projectFiles="true">
+          <itemPath>../src/config/sam_9x60_curiosity_pro/ddram.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -197,37 +201,39 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
-        <logicalFolder name="default" displayName="default" projectFiles="true">
+        <logicalFolder name="sam_9x60_curiosity_pro"
+                       displayName="sam_9x60_curiosity_pro"
+                       projectFiles="true">
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
             <logicalFolder name="adc" displayName="adc" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/adc/plib_adc.c</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/adc/plib_adc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="aic" displayName="aic" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/aic/plib_aic.c</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/aic/plib_aic.c</itemPath>
             </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/clk/plib_clk.c</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
             <logicalFolder name="dbgu" displayName="dbgu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/dbgu/plib_dbgu.c</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/dbgu/plib_dbgu.c</itemPath>
             </logicalFolder>
             <logicalFolder name="mmu" displayName="mmu" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/mmu/plib_mmu.c</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/mmu/plib_mmu.c</itemPath>
             </logicalFolder>
             <logicalFolder name="pio" displayName="pio" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pio/plib_pio.c</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
             <logicalFolder name="pit" displayName="pit" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/pit/plib_pit.c</itemPath>
+              <itemPath>../src/config/sam_9x60_curiosity_pro/peripheral/pit/plib_pit.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
-            <itemPath>../src/config/default/stdio/xc32_monitor.c</itemPath>
+            <itemPath>../src/config/sam_9x60_curiosity_pro/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <itemPath>../src/config/default/initialization.c</itemPath>
-          <itemPath>../src/config/default/interrupts.c</itemPath>
-          <itemPath>../src/config/default/cstartup.S</itemPath>
-          <itemPath>../src/config/default/fault_handlers.c</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/initialization.c</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/interrupts.c</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/cstartup.S</itemPath>
+          <itemPath>../src/config/sam_9x60_curiosity_pro/fault_handlers.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
@@ -235,7 +241,7 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="default" type="2">
+    <conf name="sam_9x60_curiosity_pro" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>SAM9X60</targetDevice>
@@ -254,7 +260,7 @@
         <ScriptingSetting key="boot.use" value="true"/>
         <ScriptingSetting key="boot.entry_adr" value=""/>
         <ScriptingSetting key="boot.path"
-                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\sam9x60_cpro_binaries\at91bootstrap.elf "/>
+                          value="${ProjectDir}\..\..\..\..\..\deps\at91bootstrap_binaries\at91bootstrap.elf"/>
         <ScriptingSetting key="boot.prj" value=""/>
       </ScriptingSettings>
       <compileType>
@@ -285,7 +291,6 @@
       <C32>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value="-marm"/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -300,7 +305,7 @@
         <property key="exclude-floating-point" value="false"/>
         <property key="expand-pragma-config" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/SAM9X60_DFP"/>
+                  value="../src;../src/config/sam_9x60_curiosity_pro;../src/packs/SAM9X60_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -365,7 +370,6 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -411,7 +415,6 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -421,7 +424,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/SAM9X60_DFP"/>
+                  value="../src;../src/config/sam_9x60_curiosity_pro;../src/packs/SAM9X60_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

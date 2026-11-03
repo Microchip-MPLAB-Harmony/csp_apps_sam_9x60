@@ -15,18 +15,7 @@ dependency:
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
-  elementPosition:
-    attributes:
-      id: __ROOTVIEW
-    children:
-    - children:
-      - attributes:
-          id: adc
-          x: '342'
-          y: '130'
-        type: ElementPosition
-      type: ElementPositions
-    type: ComponentGraph
+  elementPosition: {}
   symbols:
     ADC_0_CHER:
       attributes:

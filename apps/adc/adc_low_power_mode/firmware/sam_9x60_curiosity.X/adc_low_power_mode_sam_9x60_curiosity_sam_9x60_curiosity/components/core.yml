@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: core
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: SAM9X60D1G
 library: []
 dependency:
@@ -1908,6 +1908,17 @@ data:
           type: Dynamic
         type: Values
       type: KeyValueSet
+    COMPONENT_PACKAGE:
+      attributes:
+        id: COMPONENT_PACKAGE
+        label: Pin Package
+      children:
+      - children:
+        - attributes:
+            value: TFBGA233
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:
