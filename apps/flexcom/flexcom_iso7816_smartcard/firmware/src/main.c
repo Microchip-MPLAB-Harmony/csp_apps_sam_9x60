@@ -76,8 +76,24 @@
     #define FLEXCOM_ISO7816_Xfr_Block_Tpdu      FLEXCOM4_ISO7816_Xfr_Block_Tpdu
     #define FLEXCOM_ISO7816_Vcc_Disable         FLEXCOM4_ISO7816_Vcc_Disable
 
+#elif defined(__SAM9X60D6K__)  || defined(SAM9X60D6K)
+    /* SAM9X60D1G uses FLEXCOM5 */
+    #define FLEXCOM_ISO7816_Icc_Power_Off       FLEXCOM0_ISO7816_Icc_Power_Off
+    #define FLEXCOM_ISO7816_Card_Detect         FLEXCOM0_ISO7816_Card_Detect
+    #define FLEXCOM_ISO7816_Vcc_Enable          FLEXCOM0_ISO7816_Vcc_Enable
+    #define FLEXCOM_ISO7816_Warm_Reset          FLEXCOM0_ISO7816_Warm_Reset
+    #define FLEXCOM_ISO7816_Data_Read_Atr       FLEXCOM0_ISO7816_Data_Read_Atr
+    #define FLEXCOM_ISO7816_Decode_Atr          FLEXCOM0_ISO7816_Decode_Atr
+    #define FLEXCOM_ISO7816_Xfr_Block_Tpdu      FLEXCOM0_ISO7816_Xfr_Block_Tpdu
+    #define FLEXCOM_ISO7816_Vcc_Disable         FLEXCOM0_ISO7816_Vcc_Disable
+    
+#define  LED_GREEN_Off                          LED_GREEN_Clear
+#define  LED_RED_Off                            LED_RED_Clear
+#define  LED_BLUE_Off                           LED_BLUE_Clear
+#define  LED_GREEN_On                           LED_GREEN_Set
+
 #else
-    #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__"
+    #error "SAM9X60 device variant not defined. Set __SAM9X60D1G__ or __SAM9X60__ or __SAM9X60D6K__"
 #endif
 
 #define RX_BUFFER_SIZE 256

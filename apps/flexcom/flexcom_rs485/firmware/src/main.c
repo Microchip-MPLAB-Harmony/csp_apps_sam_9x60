@@ -32,7 +32,7 @@
 // *****************************************************************************
 // Section: Device-specific FLEXCOM Configuration
 // *****************************************************************************
-#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+#if defined(__SAM9X60D1G__) || defined(SAM9X60D1G) || defined(__SAM9X60D6K__)  || defined(SAM9X60D6K)
 #define FLEXCOM_USART_WriteCallbackRegister FLEXCOM5_USART_WriteCallbackRegister
 #define FLEXCOM_USART_ReadCallbackRegister  FLEXCOM5_USART_ReadCallbackRegister
 #define FLEXCOM_USART_ErrorGet              FLEXCOM5_USART_ErrorGet

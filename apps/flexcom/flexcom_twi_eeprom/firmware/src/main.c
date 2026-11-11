@@ -60,15 +60,19 @@
 #define FLEXCOM_TWI_Read                FLEXCOM0_TWI_Read
 #define FLEXCOM_TWI_CallbackRegister    FLEXCOM0_TWI_CallbackRegister
 #define FLEXCOM_TWI_ErrorGet            FLEXCOM0_TWI_ErrorGet
-
-#define APP_AT24MAC_DEVICE_ADDR         (0x0053)
 #elif defined(__SAM9X60__) || defined(SAM9X60) || defined(__SAM9X60D6K__) || defined(SAM9X60D6K)
 #define FLEXCOM_TWI_Write               FLEXCOM6_TWI_Write
 #define FLEXCOM_TWI_Read                FLEXCOM6_TWI_Read
 #define FLEXCOM_TWI_CallbackRegister    FLEXCOM6_TWI_CallbackRegister
 #define FLEXCOM_TWI_ErrorGet            FLEXCOM6_TWI_ErrorGet
-#define APP_AT24MAC_DEVICE_ADDR         (0x0051)
 #endif
+
+#if defined(__SAM9X60__) || defined(SAM9X60)
+#define APP_AT24MAC_DEVICE_ADDR         (0x0051)
+#elif defined(__SAM9X60D6K__) || defined(SAM9X60D6K) || defined(__SAM9X60D1G__) || defined(SAM9X60D1G)
+#define APP_AT24MAC_DEVICE_ADDR         (0x0053)
+#endif
+
 #define APP_AT24MAC_MEMORY_ADDR         (0x00)
 #define APP_AT24MAC_PAGE_SIZE           (16)
 #define APP_TRANSMIT_DATA_LENGTH        (APP_AT24MAC_PAGE_SIZE + 1)
