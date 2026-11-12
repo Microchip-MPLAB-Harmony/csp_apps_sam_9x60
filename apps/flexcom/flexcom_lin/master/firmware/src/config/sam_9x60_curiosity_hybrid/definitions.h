@@ -53,8 +53,8 @@
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/aic/plib_aic.h"
-#include "peripheral/dbgu/plib_dbgu.h"
 #include "peripheral/tc/plib_tc0.h"
+#include "peripheral/dbgu/plib_dbgu.h"
 #include "peripheral/flexcom/usart/plib_flexcom1_usart.h"
 
 // DOM-IGNORE-BEGIN
