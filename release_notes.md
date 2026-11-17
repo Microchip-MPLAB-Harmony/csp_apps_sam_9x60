@@ -3,6 +3,37 @@
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
+## Harmony 3 peripheral library application examples for SAM9X60 family v3.8.0
+
+### Development kit and demo application support
+
+Following table provides number of peripheral library examples available for different development kits.
+
+| Development Kits  | MPLAB X applications |
+|:-----------------:|:-------------------:|
+| [SAM9X60 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV40E67A) | 41 |
+| [SAM9X60 Curiosity Pro Board]() | 41 |
+| [SAM9X60 Curiosity Hybrid Board]() | 41 |
+
+### New Features
+
+- Added example applications for SAM9X60 Curiosity Pro Board and SAM9X60 Curiosity Hybrid Board
+
+### Bug fixes
+
+- None.
+
+### Known Issues
+
+- None
+
+### Development Tools
+
+- [MPLAB® X IDE 6.35](https://www.microchip.com/mplab/mplab-x-ide)
+- MPLAB® X IDE plug-ins:
+  - MPLAB® Code Configurator (MCC) 5.7.0
+- [MPLAB® XC32 C/C++ Compiler 6.00](https://www.microchip.com/mplab/compilers)
+
 ## Harmony 3 peripheral library application examples for SAM9X60 family v3.7.1
 
 ### Development kit and demo application support
